@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 1 reading guide and worked examples</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week01/reading_guide.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-1-reading-guide-and-worked-examples">Week 1 reading guide
+and worked examples</h1>
+<h2 id="source-weeks-week01-readme">Weekly overview</h2>
+<h3 id="learning-outcomes">Learning outcomes</h3>
+<p>By the end of this week, you should be able to:</p>
+<ul>
+<li>interpret and use set, function, quantifier, implication and
+equivalence notation, and complete short arguments by direct reasoning,
+contradiction or induction (<code>M1</code>);</li>
+<li>manipulate powers, logarithms, functions, indexed sums, products and
+finite or convergent geometric series (<code>M2</code>);</li>
+<li>calculate and interpret derivatives and elementary integrals,
+construct first- and second-order Taylor approximations, and solve
+elementary one-variable optimisation problems (<code>M3</code>);
+and</li>
+<li>represent probability questions as events and apply set operations,
+probability rules and elementary counting (<code>S1</code>).</li>
+</ul>
+<h3 id="prerequisites-and-retrieval">Prerequisites and retrieval</h3>
+<p>Retrieve fraction arithmetic, exponent rules, elementary equation
+solving and the meaning of a function before beginning the readings. No
+earlier course outcome is a formal prerequisite for Week 1. Write down
+any rule that you cannot reproduce reliably and revisit it during the
+first study block.</p>
+<h3 id="student-materials">Student materials</h3>
+<p>Use the <a href="reading_guide.html#source-weeks-week01-reading-guide">Week 1
+reading guide</a> for exact written sections and skip instructions. Then
+study and reproduce the original <a href="reading_guide.html#source-weeks-week01-worked-examples">worked
+examples</a>. Complete the <a href="question_sheet.html#source-weeks-week01-exercises">exercise
+sheet</a>, consulting <a href="progressive_hints.html">progressive
+hints</a> only after a serious attempt. Use the <a href="complete_solutions.html#source-weeks-week01-solutions">complete
+solutions</a> to mark your work after the attempt is finished. End with
+the 25-minute <a href="question_sheet.html#source-weeks-week01-self-test-before-self-test-solutions">self-test</a>
+and update your error log from its solutions.</p>
+<p>The external readings remain on their authors’ or institutions’
+sites. Open only the assigned sections. No video, applet, code or
+specialist software is required.</p>
+<p>Before beginning the Week 1 readings, use the required <a href="../../bridge_notes/notation_and_conventions.html">notation and
+conventions bridge note</a>. It is point-of-need support within the
+existing reading and worked-example allocation, not additional
+workload.</p>
+<h3 id="suggested-study-sequence">Suggested study sequence</h3>
+<ol type="1">
+<li>Retrieve fraction and exponent rules and write the four outcome IDs
+at the top of your notes.</li>
+<li>Complete the readings in the listed order. Close each source and
+reproduce at least one important definition, argument or worked step for
+each outcome.</li>
+<li>Study the four institutional worked examples. Cover each solution,
+follow the method and reproduce the work from a blank page.</li>
+<li>Attempt all questions without hints or solutions. A basic scientific
+calculator is permitted only for the logarithmic estimate in
+<code>W01-Q03-PB</code>; it is not required elsewhere.</li>
+<li>If you are stuck, use the hints in order and stop as soon as you
+have a useful next step.</li>
+<li>Mark from the full solutions. Record the first cause of each error
+under <code>M1</code>, <code>M2</code>, <code>M3</code> or
+<code>S1</code>.</li>
+<li>Take the 25-minute self-test without notes, mark it and add any new
+cause of error to the same outcome-labelled log.</li>
+<li>Reattempt each incorrect or incomplete part from a blank page two or
+three days later.</li>
+</ol>
+<h3 id="workload-and-required-outputs">Workload and required
+outputs</h3>
+<p>The times below are provisional planning guidance, not a guarantee,
+and have not yet been verified by students. They are subject to
+first-cohort calibration. Students in the first live course run will be
+invited to report their actual component times so the plan can be
+recalibrated for the following year.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Component</th>
+<th style="text-align: right;" scope="col">Target time</th>
+<th scope="col">Required output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required external reading, including brief closed-source
+summaries</td>
+<td style="text-align: right;">3 h 40 min</td>
+<td>Brief original notes and at least one reproduced definition,
+argument or worked step for each outcome</td>
+</tr>
+<tr>
+<td>Institutional worked-example study and reproduction</td>
+<td style="text-align: right;">1 h 5 min</td>
+<td>Four examples reproduced from a blank page</td>
+</tr>
+<tr>
+<td>Week 1 problem sheet</td>
+<td style="text-align: right;">4 h 15 min</td>
+<td>All 17 scorable parts attempted and marked</td>
+</tr>
+<tr>
+<td>Self-test</td>
+<td style="text-align: right;">25 min</td>
+<td>All four self-test parts attempted and marked</td>
+</tr>
+<tr>
+<td>Marking, error log and first spaced reattempt</td>
+<td style="text-align: right;">35 min</td>
+<td>One error-log entry for each outcome, including “no error yet” where
+applicable</td>
+</tr>
+<tr>
+<td><strong>Core total</strong></td>
+<td style="text-align: right;"><strong>10 h</strong></td>
+<td>Completed Week 1 study cycle</td>
+</tr>
+</tbody>
+</table></div>
+<p>The problem sheet contains 10 numbered questions, 17 scorable parts,
+100 marks and a 255-minute target. Its mark balance is 30% foundation,
+45% standard multi-step work, 15% explanation or interpretation, and 10%
+stretch or synthesis. The reading and worked-example component totals 4
+hours 45 minutes. The self-test, marking, error logging and first
+reattempt total one hour.</p>
+<p>The self-test retains four scorable parts, 20 marks and a 25-minute
+target. The separate equivalence and indexed-product checks are embedded
+in existing Week 1 exercise parts by replacing redundant marked work;
+the weekly total does not increase.</p>
+<h3 id="end-of-week-check">End-of-week check</h3>
+<p>Before moving on, make sure that you can explain why a condition or
+endpoint check is needed rather than merely reproduce a calculation.
+Keep the item ID beside every error-log entry so that you can reattempt
+the exact part later.</p>
+<h2 id="source-weeks-week01-reading-guide">Required reading route</h2>
+<h3 id="how-to-use-this-route">How to use this route</h3>
+<p>Complete the six required written selections in order. The locators
+and skip instructions below implement the approved Week 1 syllabus. They
+do not assign the surrounding books, courses, exercises or media. Spend
+about 220 minutes on the assigned reading, including the brief
+closed-source summaries and reproduction prompts below. The separate
+65-minute allocation in <code>worked_examples.md</code> is for the four
+institutional examples and is not part of this reading allocation.</p>
+<h3 id="required-bridge-note">Required bridge note</h3>
+<p>Before the external selections, read the required <a href="../../bridge_notes/notation_and_conventions.html">notation and
+conventions bridge note</a>. It standardises course notation and is
+point-of-need support within the existing Week 1 reading and
+worked-example allocation, not additional workload.</p>
+<h3 id="logic-functions-and-induction-m1">1. Logic, functions and
+induction (<code>M1</code>)</h3>
+<p><strong>Resource <code>MATH-M1-OSB-REQ</code>; source
+<code>OSBORNE_MM</code>.</strong> In Martin J. Osborne, <em>Mathematical
+Methods for Economic Theory</em>, read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/log/t">Section
+1.1, “Logic: basics and proof by induction”</a> and only “Intervals” and
+“Functions” in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/iaf/t">Section
+1.4</a>.</p>
+<p><strong>Skip:</strong> “Continuous functions” and all later distance
+and epsilon–delta material in Section 1.4. Do not use interactive or
+graphical elements.</p>
+<p>Target reading time: 35 minutes.</p>
+<h3 id="sets-and-elementary-proof-methods-m1">2. Sets and elementary
+proof methods (<code>M1</code>)</h3>
+<p><strong>Resource <code>MATH-M1-HEF-REQ</code>; source
+<code>HEFFERON_LA</code>.</strong> In Jim Hefferon, <em>Linear
+Algebra</em>, use the <a href="https://jheffero.w3.uvm.edu/linearalgebra/book.pdf">book PDF</a>
+to read Appendix A-1 “Statements”, A-2 “Quantifiers”, A-3 to A-4
+“Techniques of Proof”, and A-5 to A-12 “Sets, Functions, and
+Relations”.</p>
+<p><strong>Skip:</strong> all linear-algebra chapters for this
+assignment. Stop after “Sets, Functions, and Relations”.</p>
+<p>Target reading time: 20 minutes.</p>
+<h3 id="logarithms-sequences-and-geometric-series-m2">3. Logarithms,
+sequences and geometric series (<code>M2</code>)</h3>
+<p><strong>Resource <code>MATH-M2-OPS-REQ</code>; source
+<code>OPENSTAX_PRECALC2E</code>.</strong> In Jay Abramson,
+<em>Precalculus 2e</em>, read the assigned parts of:</p>
+<ul>
+<li><a href="https://openstax.org/books/precalculus-2e/pages/4-3-logarithmic-functions">Section
+4.3, “Logarithmic Functions”</a>: the definition, exponential–log
+conversions and natural logarithms;</li>
+<li><a href="https://openstax.org/books/precalculus-2e/pages/4-5-logarithmic-properties">Section
+4.5, “Logarithmic Properties”</a>: the product, quotient and power
+rules;</li>
+<li><a href="https://openstax.org/books/precalculus-2e/pages/11-1-sequences-and-their-notations">Section
+11.1, “Sequences and Their Notations”</a>: explicit notation only;</li>
+<li><a href="https://openstax.org/books/precalculus-2e/pages/11-3-geometric-sequences">Section
+11.3, “Geometric Sequences”</a>; and</li>
+<li><a href="https://openstax.org/books/precalculus-2e/pages/11-4-series-and-their-notations">Section
+11.4, “Series and Their Notations”</a> through infinite geometric
+series.</li>
+</ul>
+<p><strong>Skip:</strong> arithmetic sequences and arithmetic-series
+formulae, annuities, graphing, calculator and technology exercises, all
+Media links, online practice tools, and applications not needed for the
+stated algebraic skill.</p>
+<p>Target reading time: 45 minutes.</p>
+<h3 id="one-variable-calculus-and-optimisation-m3">4. One-variable
+calculus and optimisation (<code>M3</code>)</h3>
+<p><strong>Resource <code>MATH-M3-OSB-REQ</code>; source
+<code>OSBORNE_MM</code>.</strong> In Osborne, <em>Mathematical Methods
+for Economic Theory</em>, read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/clc/t">Section
+1.5, “Calculus: one variable”</a>, the “One variable” part of <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/nen/t">Section
+5.1</a> through the interval-maximisation procedure, and the “One
+variable” part only of <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/lon/t">Section
+5.2</a>.</p>
+<p><strong>Skip:</strong> every “Many variables” subsection in Sections
+5.1 and 5.2, rotatable graphs, and proofs beyond the stated operational
+first- and second-order conditions.</p>
+<p>Target reading time: 40 minutes.</p>
+<h3 id="taylor-approximation-m3">5. Taylor approximation
+(<code>M3</code>)</h3>
+<p><strong>Resource <code>MATH-M3-OPS-REQ</code>; source
+<code>OPENSTAX_CALC2</code>.</strong> In Gilbert Strang and Edwin “Jed”
+Herman, <em>Calculus Volume 2</em>, read only “Taylor Polynomials”
+through the definition, Example 6.11 and Checkpoint 6.10, then Example
+6.13 and Checkpoint 6.12 in <a href="https://openstax.org/books/calculus-volume-2/pages/6-3-taylor-and-maclaurin-series">Section
+6.3, “Taylor and Maclaurin Series”</a>.</p>
+<p><strong>Skip:</strong> power-series prerequisites and convergence,
+proofs of Taylor’s theorem, general remainder estimates, all
+<code>[T]</code> technology items, graphs, the student project,
+Taylor-series manipulations and every exercise after 123.</p>
+<p>Target reading time: 20 minutes.</p>
+<h3 id="probability-events-rules-and-counting-s1">6. Probability events,
+rules and counting (<code>S1</code>)</h3>
+<p><strong>Resource <code>STAT-S1-REQ-MIT</code>; source
+<code>MIT_1805</code>.</strong> On Jeremy Orloff and Jonathan Bloom’s <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/">MIT
+OpenCourseWare 18.05 classes and written-materials page</a>, read Class
+1 Reading 1b Sections 2.2–2.4.4 and Class 2 Reading Sections 2–3.</p>
+<p><strong>Skip:</strong> Problem Set 1 Problem 2, which uses a video
+hint; Problem 3(e, g), which uses R; and all linked videos, interactive
+questions and applets.</p>
+<p>Target reading time: 60 minutes.</p>
+<h3 id="reading-output">Reading output</h3>
+<p>After each selection, close the source and write a brief original
+summary. Across the six selections, reproduce at least one example or
+argument for each of <code>M1</code>, <code>M2</code>, <code>M3</code>
+and <code>S1</code>. Do not copy external explanations or exercise
+prompts into shared notes.</p>
+<h2 id="source-weeks-week01-worked-examples">Worked examples</h2>
+<p>These original institutional examples support <code>M1</code>,
+<code>M2</code>, <code>M3</code> and <code>S1</code>. For each example,
+cover the <strong>Solution</strong>, follow the <strong>Method</strong>,
+and reproduce the work from a blank page before reading the
+<strong>Interpretation</strong>. Allow about 65 minutes for study and
+reproduction.</p>
+<h3 id="example-1-a-direct-argument-m1">Example 1 — a direct argument
+(<code>M1</code>)</h3>
+<p>Show that the square of every even integer is even.</p>
+<p><strong>Method.</strong> Begin with the definition of an even integer
+and use direct reasoning. The conclusion must have the same
+definition.</p>
+<p><strong>Solution.</strong> Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">n\in\mathbb{Z}</annotation></semantics></math>
+be even. Then there is an integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+such that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn><mi>k</mi></mrow><annotation encoding="application/x-tex">n=2k</annotation></semantics></math>.
+Therefore,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>k</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>4</mn><msup><mi>k</mi><mn>2</mn></msup><mo>=</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>2</mn><msup><mi>k</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+n^2=(2k)^2=4k^2=2(2k^2).
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><msup><mi>k</mi><mn>2</mn></msup><mo>∈</mo><mi>ℤ</mi></mrow><annotation encoding="application/x-tex">2k^2\in\mathbb{Z}</annotation></semantics></math>,
+the number
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mn>2</mn></msup><annotation encoding="application/x-tex">n^2</annotation></semantics></math>
+is twice an integer and is therefore even.</p>
+<p><strong>Interpretation.</strong> The argument does not rely on a few
+numerical examples. It begins with an arbitrary even integer, so it
+establishes the implication for every even integer.</p>
+<h3 id="example-2-a-declining-geometric-stream-m2">Example 2 — a
+declining geometric stream (<code>M2</code>)</h3>
+<p>A programme pays
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>80</mn><annotation encoding="application/x-tex">80</annotation></semantics></math>
+units at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math>,
+and each later payment is one half of the preceding payment. Find the
+infinite total. Then find the smallest final included period
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+for which the cumulative total over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">t=0,\ldots,N</annotation></semantics></math>
+is at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>150</mn><annotation encoding="application/x-tex">150</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Identify the first term and common ratio,
+apply both geometric sum formulae, and verify the integer boundary.</p>
+<p><strong>Solution.</strong> The common ratio is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">r=1/2</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>r</mi><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|r|&lt;1</annotation></semantics></math>
+and the infinite series converges. Its total is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><mo accent="false">∞</mo></munderover><mn>80</mn><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></msup><mo>=</mo><mfrac><mn>80</mn><mrow><mn>1</mn><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow></mfrac><mo>=</mo><mn>160</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sum_{t=0}^{\infty}80\left(\frac12\right)^t
+=\frac{80}{1-1/2}
+=160.
+</annotation></semantics></math></p>
+<p>The finite total is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>N</mi></msub><mo>=</mo><mn>80</mn><mfrac><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mrow><mn>1</mn><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow></mfrac><mo>=</mo><mn>160</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mn>2</mn><mrow><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S_N
+=80\frac{1-(1/2)^{N+1}}{1-1/2}
+=160\left(1-2^{-(N+1)}\right).
+</annotation></semantics></math></p>
+<p>The threshold condition is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mn>160</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mn>2</mn><mrow><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≥</mo><mn>150</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msup><mn>2</mn><mrow><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow></msup></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≤</mo><mfrac><mn>1</mn><mn>16</mn></mfrac><mo>=</mo><msup><mn>2</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+160\left(1-2^{-(N+1)}\right)&amp;\ge150,\\
+2^{-(N+1)}&amp;\le\frac{1}{16}=2^{-4}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>2</mn><mi>x</mi></msup><annotation encoding="application/x-tex">2^x</annotation></semantics></math>
+is strictly increasing,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>−</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">-(N+1)\le-4</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">N\ge3</annotation></semantics></math>.
+The boundary check gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>140</mn><mo>&lt;</mo><mn>150</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>S</mi><mn>3</mn></msub><mo>=</mo><mn>150</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S_2=140&lt;150,
+\qquad
+S_3=150.
+</annotation></semantics></math></p>
+<p>Thus the smallest final period is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">N=3</annotation></semantics></math>.</p>
+<p><strong>Interpretation.</strong> The index starts at zero, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">N=3</annotation></semantics></math>
+includes four payments. The boundary check prevents confusing the final
+index with the number of included periods.</p>
+<h3 id="example-3-a-global-maximum-on-an-interval-m3">Example 3 — a
+global maximum on an interval (<code>M3</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>12</mn><mi>q</mi><mo>−</mo><msup><mi>q</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>q</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>10</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(q)=12q-q^2,
+\qquad q\in[0,10].
+</annotation></semantics></math></p>
+<p>Find the global maximum and the maximising value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Find every interior stationary point and
+compare its value with both endpoints. Use curvature as an additional
+sufficiency check.</p>
+<p><strong>Solution.</strong> The first two derivatives are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>p</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>12</mn><mo>−</mo><mn>2</mn><mi>q</mi><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>p</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p&#39;(q)=12-2q,
+\qquad
+p&#39;&#39;(q)=-2.
+</annotation></semantics></math></p>
+<p>The unique stationary point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">q=6</annotation></semantics></math>,
+which lies inside the feasible interval. The candidate values are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>36</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>10</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>20</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(0)=0,
+\qquad
+p(6)=36,
+\qquad
+p(10)=20.
+</annotation></semantics></math></p>
+<p>Therefore the global maximum is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>36</mn><annotation encoding="application/x-tex">36</annotation></semantics></math>,
+attained at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">q=6</annotation></semantics></math>.
+The strict concavity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>p</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">p&#39;&#39;(q)&lt;0</annotation></semantics></math>
+confirms that there is at most one maximiser.</p>
+<p><strong>Interpretation.</strong> A first-order condition identifies a
+candidate. The endpoint comparison is what establishes the global
+conclusion on the stated closed interval.</p>
+<h3 id="example-4-counting-with-a-complement-s1">Example 4 — counting
+with a complement (<code>S1</code>)</h3>
+<p>Two representatives are selected uniformly from five people, and
+order does not matter. Two of the five are designated priority
+representatives. Find the probability that at least one priority
+representative is selected.</p>
+<p><strong>Method.</strong> Count all unordered pairs and subtract the
+pairs that contain no priority representative. Reconcile this with a
+direct count.</p>
+<p><strong>Solution.</strong> There are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">
+\binom{5}{2}=10
+</annotation></semantics></math></p>
+<p>equally likely pairs. A pair with no priority representative must
+choose both people from the other three, giving
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\binom{3}{2}=3</annotation></semantics></math>
+pairs. Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">at least one priority representative</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mfrac><mo>=</mo><mfrac><mn>7</mn><mn>10</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(\text{at least one priority representative})
+=1-\frac{\binom{3}{2}}{\binom{5}{2}}
+=\frac{7}{10}.
+</annotation></semantics></math></p>
+<p>Directly, there are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>⋅</mo><mn>3</mn><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">2\cdot3=6</annotation></semantics></math>
+pairs with exactly one priority representative and one pair with both,
+for the same favourable total of seven.</p>
+<p><strong>Interpretation.</strong> The events “exactly one” and “both”
+are disjoint, so their counts may be added without double-counting.</p>
+<h3 id="reproduction-check">Reproduction check</h3>
+<p>Before starting the exercise sheet, reproduce the defining step and
+final check from each example. If you cannot explain why the condition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>r</mi><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|r|&lt;1</annotation></semantics></math>,
+the endpoint comparison or the complement count is needed, return to the
+relevant example rather than memorising only its final answer.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

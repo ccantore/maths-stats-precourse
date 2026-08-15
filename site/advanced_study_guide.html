@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Advanced extensions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="contents.html">Package contents</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="contents.html#assessments">Assessments</a></li>
+<li><a href="advanced_study_guide.html" aria-current="page">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/advanced_study_guide.pdf">Download this page as PDF</a></p>
+
+<h1 id="advanced-extensions">Advanced extensions</h1>
+<h2 id="optional-dynamics">Optional dynamics</h2>
+<blockquote>
+<p><strong>Optional dynamics — not examined.</strong> This section
+supports later study but is not required for the pre-course,
+checkpoints, two-paper mock examination or two-paper entry
+examination.</p>
+</blockquote>
+<p>This material sits outside the eight-week core and its 9–11 hour
+weekly workload. It is not a ninth week, is not a prerequisite for any
+required outcome and must not displace core study. You should however
+study this material at some point in the future.</p>
+<h3 id="first-order-difference-equations-r1">First-order difference
+equations (<code>R1</code>)</h3>
+<p>The optional outcome is to solve a first-order linear difference
+equation and classify the stability of its steady state.</p>
+<p><strong>Reading:</strong> <code>MATH-R1-OSB-OPT</code> /
+<code>OSBORNE_MM</code> — Martin J. Osborne, <em>Mathematical Methods
+for Economic Theory</em>, <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/fod/t">Section
+9.1, “First-order difference equations”</a> (about 45 minutes).</p>
+<p><strong>Skip:</strong> Section 9.2 in full. Do not study second-order
+equations, systems, software material or any assessed application from
+this route.</p>
+<h3 id="elementary-first-order-differential-equations-and-phase-lines-r2">Elementary
+first-order differential equations and phase lines
+(<code>R2</code>)</h3>
+<p>The optional outcome is to solve elementary separable and linear
+first-order differential equations and use a phase line to classify
+steady-state stability.</p>
+<p><strong>Reading:</strong> <code>MATH-R2-OSB-OPT</code> /
+<code>OSBORNE_MM</code> — Martin J. Osborne, <em>Mathematical Methods
+for Economic Theory</em>: <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/ide/t">Section
+8.1, “Introduction”</a>, only the first-order existence/stability
+definitions in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/fde/t">Section
+8.2</a>, <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/sep/t">Section
+8.3 on separable equations</a>, <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/fle/t">Section
+8.4 on linear first-order equations</a>, and <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/deq/t">Section
+8.5 on phase diagrams for autonomous equations</a> (about 95
+minutes).</p>
+<p><strong>Skip:</strong> in Section 8.2, the existence proof; Sections
+8.6–8.7 in full, including second-order equations and systems; all
+software; and every assessed use.</p>
+<h2 id="advanced-later-extensions">Advanced later extensions</h2>
+<p>If you become interested in economic theory and or dynamics, you may
+want to also study the following over the course of your PhD.</p>
+<ul>
+<li><strong>Real analysis</strong> — a possible later foundation for
+rigorous graduate economic theory.</li>
+<li><strong>Dynamic programming</strong> — a possible later method in
+graduate economic dynamics.</li>
+</ul>
+<p>If this is the case, contact the PhD Coordinator for suggestions
+about books and material to study.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

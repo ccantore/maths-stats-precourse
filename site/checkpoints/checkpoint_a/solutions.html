@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Checkpoint A - full solutions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/checkpoints/checkpoint_a/solutions.pdf">Download this page as PDF</a></p>
+
+<h1 id="checkpoint-a---full-solutions">Checkpoint A - full
+solutions</h1>
+<h2 id="source-checkpoints-checkpoint-a-solutions">Full solutions</h2>
+<p>Use these solutions only after completing the 60-minute attempt.
+Review each method, result and common mistake, then record the first
+cause of any lost mark.</p>
+<h3 id="question-1-reasoning-algebra-and-one-variable-calculus">Question
+1 — reasoning, algebra and one-variable calculus</h3>
+<h4 id="part-a-cpa-q01-pa-m1-m2">Part A — <code>CPA-Q01-PA</code>
+(<code>M1</code>, <code>M2</code>)</h4>
+<p><strong>Method and conditions.</strong> Quantify both variables over
+the stated domains. To negate a universally quantified equality, change
+both universal quantifiers to existential quantifiers and negate the
+equality. A counterexample must satisfy
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\ge1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>≠</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r\ne1</annotation></semantics></math>.</p>
+<p>The claim is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∀</mo><mi>n</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo><mspace width="0.278em"></mspace><mo>∀</mo><mi>r</mi><mo>∈</mo><mi>ℝ</mi><mo>\</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>:</mo><mspace width="1.0em"></mspace><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mi>r</mi><mi>j</mi></msup><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>r</mi><mi>n</mi></msup></mrow><mrow><mn>1</mn><mo>−</mo><mi>r</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\forall n\in\{1,2,\ldots\}\;\forall r\in\mathbb{R}\setminus\{1\}:
+\quad
+\sum_{j=0}^{n}r^j=\frac{1-r^n}{1-r}.
+</annotation></semantics></math></p>
+<p>Its logical negation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>n</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo><mspace width="0.278em"></mspace><mo>∃</mo><mi>r</mi><mo>∈</mo><mi>ℝ</mi><mo>\</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>:</mo><mspace width="1.0em"></mspace><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mi>r</mi><mi>j</mi></msup><mo>≠</mo><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>r</mi><mi>n</mi></msup></mrow><mrow><mn>1</mn><mo>−</mo><mi>r</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\exists n\in\{1,2,\ldots\}\;\exists r\in\mathbb{R}\setminus\{1\}:
+\quad
+\sum_{j=0}^{n}r^j\ne\frac{1-r^n}{1-r}.
+</annotation></semantics></math></p>
+<p>For example, take
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">r=2</annotation></semantics></math>.
+The left-hand side is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">1+2=3</annotation></semantics></math>,
+whereas the claimed right-hand side is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>1</mn><mo>−</mo><mn>2</mn></mrow><mrow><mn>1</mn><mo>−</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{1-2}{1-2}=1.
+</annotation></semantics></math></p>
+<p>This admissible counterexample disproves the claim. The correct
+identity is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mi>r</mi><mi>j</mi></msup><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>r</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mrow><mn>1</mn><mo>−</mo><mi>r</mi></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>r</mi><mo>≠</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sum_{j=0}^{n}r^j=\frac{1-r^{n+1}}{1-r},
+\qquad r\ne1.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The claim is false; its exponent
+should be
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math>,
+not
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.</p>
+<p><strong>Marks (4).</strong> Universal statement: 1. Logical negation:
+1. Admissible counterexample with both sides evaluated: 1. Correct
+finite-sum identity: 1.</p>
+<p><strong>Common mistakes.</strong> Negating the equality without
+changing the quantifiers; using the excluded value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r=1</annotation></semantics></math>;
+keeping the incorrect exponent
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+in the corrected identity.</p>
+<h4 id="part-b-cpa-q01-pb-m3">Part B — <code>CPA-Q01-PB</code>
+(<code>M3</code>)</h4>
+<p><strong>Method and conditions.</strong> The polynomial is continuous
+on the closed interval
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-2,4]</annotation></semantics></math>,
+so a global maximum exists. Compare its values at every interior
+stationary point and both endpoints.</p>
+<p>Differentiate and factor:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>6</mn><mi>x</mi><mo>+</mo><mn>9</mn><mo>=</mo><mi>−</mi><mn>3</mn><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f&#39;(x)=-3x^2+6x+9=-3(x-3)(x+1).
+</annotation></semantics></math></p>
+<p>The stationary points in the interval are therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">x=-1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">x=3</annotation></semantics></math>.
+The candidate values are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi></mtd><mtd columnalign="right" style="text-align: right"><mi>−</mi><mn>2</mn></mtd><mtd columnalign="right" style="text-align: right"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>3</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>4</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="right" style="text-align: right"><mn>2</mn></mtd><mtd columnalign="right" style="text-align: right"><mi>−</mi><mn>5</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>27</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>20</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{array}{c|rrrr}
+x&amp;-2&amp;-1&amp;3&amp;4\\ \hline
+f(x)&amp;2&amp;-5&amp;27&amp;20.
+\end{array}
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The global maximum is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">]</mo></mrow></munder><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>27</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\max_{x\in[-2,4]}f(x)=27,
+</annotation></semantics></math></p>
+<p>attained at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">x=3</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Correct derivative and factorisation: 1.
+Both stationary points: 1. Values at the two stationary points: 1.
+Values at both endpoints: 1. Correct global maximum and location: 1.</p>
+<p><strong>Common mistakes.</strong> Checking only stationary points;
+omitting an endpoint; declaring a global maximum without comparing all
+candidates.</p>
+<h3 id="question-2-linear-systems-and-multivariable-differentiation">Question
+2 — linear systems and multivariable differentiation</h3>
+<h4 id="part-a-cpa-q02-pa-m4">Part A — <code>CPA-Q02-PA</code>
+(<code>M4</code>)</h4>
+<p><strong>Method and conditions.</strong> Apply each row operation to
+the entire augmented row. Compare the coefficient rank with the number
+of unknowns after elimination.</p>
+<p>Write the augmented matrix and eliminate:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mover><mo>→</mo><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>←</mo><msub><mi>R</mi><mn>2</mn></msub><mo>−</mo><mn>2</mn><msub><mi>R</mi><mn>1</mn></msub></mrow></mover><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[
+\begin{array}{ccc|c}
+1&amp;1&amp;0&amp;3\\
+2&amp;-1&amp;1&amp;4\\
+0&amp;1&amp;1&amp;2
+\end{array}
+\right]
+\xrightarrow{R_2\leftarrow R_2-2R_1}
+\left[
+\begin{array}{ccc|c}
+1&amp;1&amp;0&amp;3\\
+0&amp;-3&amp;1&amp;-2\\
+0&amp;1&amp;1&amp;2
+\end{array}
+\right].
+</annotation></semantics></math></p>
+<p>Next use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>←</mo><msub><mi>R</mi><mn>2</mn></msub><mo>+</mo><mn>3</mn><msub><mi>R</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">R_2\leftarrow R_2+3R_3</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[
+\begin{array}{ccc|c}
+1&amp;1&amp;0&amp;3\\
+0&amp;0&amp;4&amp;4\\
+0&amp;1&amp;1&amp;2
+\end{array}
+\right].
+</annotation></semantics></math></p>
+<p>Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">z=1</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y=1</annotation></semantics></math>,
+and then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">x=2</annotation></semantics></math>.
+There are three pivots in the coefficient columns, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>rank</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\operatorname{rank}(\mathbf{A})=3</annotation></semantics></math>.
+The augmented matrix also has rank
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong> The system has the unique solution</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(x,y,z)=(2,1,1).
+</annotation></semantics></math></p>
+<p><strong>Marks (4).</strong> Traceable valid elimination/row-operation
+evidence showing three pivots: 1. Correct solution: 1. Correct
+coefficient rank: 1. Unique-solution classification justified by rank
+and the number of unknowns: 1. Substitution-only work does not earn the
+first mark.</p>
+<p><strong>Common mistakes.</strong> Applying a row operation only to
+the coefficient entries; omitting the rank statement; classifying the
+system from the number of equations rather than its pivots.</p>
+<h4 id="part-b-cpa-q02-pb-m6">Part B — <code>CPA-Q02-PB</code>
+(<code>M6</code>)</h4>
+<p><strong>Method and conditions.</strong> The maps are polynomial or
+linear, so they are differentiable everywhere. Under the column-gradient
+convention,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo>∘</mo><mi>𝐆</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝐉</mi><mi>𝐆</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mi>∇</mi><mi>F</mi><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><mi>𝐆</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla(F\circ\mathbf{G})(\mathbf{x})
+=\mathbf{J}_{\mathbf{G}}(\mathbf{x})^{\mathsf T}
+\nabla F\bigl(\mathbf{G}(\mathbf{x})\bigr).
+</annotation></semantics></math></p>
+<p>Here</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>u</mi><mo>+</mo><mi>v</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>u</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>∈</mo><msup><mi>ℝ</mi><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow></msup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐉</mi><mi>𝐆</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>∈</mo><msup><mi>ℝ</mi><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla F(u,v)=
+\begin{bmatrix}
+2u+v\\
+u
+\end{bmatrix}
+\in\mathbb{R}^{2\times1},
+\qquad
+\mathbf{J}_{\mathbf{G}}(x,y)=
+\begin{bmatrix}
+1&amp;1\\
+1&amp;-1
+\end{bmatrix}
+\in\mathbb{R}^{2\times2}.
+</annotation></semantics></math></p>
+<p>Since</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐆</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>∇</mi><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbf{G}(1,0)=
+\begin{bmatrix}1\\1\end{bmatrix},
+\qquad
+\nabla F(1,1)=
+\begin{bmatrix}3\\1\end{bmatrix},
+</annotation></semantics></math></p>
+<p>the chain rule gives a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>
+column vector:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝐉</mi><mi>𝐆</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mi>∇</mi><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla h(1,0)
+=\mathbf{J}_{\mathbf{G}}(1,0)^{\mathsf T}\nabla F(1,1)
+=
+\begin{bmatrix}
+1&amp;1\\
+1&amp;-1
+\end{bmatrix}
+\begin{bmatrix}3\\1\end{bmatrix}
+=
+\begin{bmatrix}4\\2\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>For the requested direct check, first simplify the composition:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(x,y)=(x+y)^2+(x+y)(x-y)=2x^2+2xy.
+</annotation></semantics></math></p>
+<p>Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>h</mi></mrow><mrow><mi>∂</mi><mi>x</mi></mrow></mfrac><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>,</mo><mspace width="2.0em"></mspace><mfrac><mrow><mi>∂</mi><mi>h</mi></mrow><mrow><mi>∂</mi><mi>x</mi></mrow></mfrac><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\frac{\partial h}{\partial x}=4x+2y,
+\qquad
+\frac{\partial h}{\partial x}(1,0)=4,
+</annotation></semantics></math></p>
+<p>which agrees with the first component above.</p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>4</mn><mo>,</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">\nabla h(1,0)=[4,2]^{\mathsf T}</annotation></semantics></math>.</p>
+<p><strong>Marks (4).</strong> Correct derivative objects, evaluation
+point and dimensions: 1. Dimensionally correct chain-rule setup: 1.
+Correct column gradient: 1. Correct direct verification of the first
+component: 1.</p>
+<p><strong>Common mistakes.</strong> Writing the gradient as a row;
+reversing the chain-rule multiplication order; evaluating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">\nabla F</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,0)</annotation></semantics></math>
+instead of at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐆</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{G}(1,0)</annotation></semantics></math>;
+omitting the direct check.</p>
+<h3 id="question-3-probability-rules-and-bayes-rule">Question 3 —
+probability rules and Bayes’ rule</h3>
+<h4 id="part-a-cpa-q03-pa-s1">Part A — <code>CPA-Q03-PA</code>
+(<code>S1</code>)</h4>
+<p><strong>Method and conditions.</strong> Use inclusion–exclusion. The
+exactly-one event excludes the intersection, and the neither event is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>c</mi></msup></mrow><annotation encoding="application/x-tex">(A\cup B)^c</annotation></semantics></math>.</p>
+<p>First,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mn>5</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>17</mn><mn>20</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\cup B)
+=\frac35+\frac12-\frac14
+=\frac{17}{20}.
+</annotation></semantics></math></p>
+<p>The probability of exactly one event is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>17</mn><mn>20</mn></mfrac><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>5</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\cup B)-\mathbb{P}(A\cap B)
+=\frac{17}{20}-\frac14
+=\frac35.
+</annotation></semantics></math></p>
+<p>Finally,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>c</mi></msup><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mn>17</mn><mn>20</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>20</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}\bigl((A\cup B)^c\bigr)
+=1-\frac{17}{20}
+=\frac3{20}.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The three probabilities are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>17</mn><mi>/</mi><mn>20</mn></mrow><annotation encoding="application/x-tex">17/20</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">3/5</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>20</mn></mrow><annotation encoding="application/x-tex">3/20</annotation></semantics></math>,
+respectively.</p>
+<p><strong>Marks (3).</strong> One mark for each correct probability
+with a valid setup.</p>
+<p><strong>Common mistakes.</strong> Adding the event probabilities
+without subtracting their overlap; including the intersection in exactly
+one; using the complement of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\cap B</annotation></semantics></math>
+for neither.</p>
+<h4 id="part-b-cpa-q03-pb-s2">Part B — <code>CPA-Q03-PB</code>
+(<code>S2</code>)</h4>
+<p><strong>Method and conditions.</strong> The events
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>H</mi><mi>c</mi></msup><annotation encoding="application/x-tex">H^c</annotation></semantics></math>
+partition the sample space. Use the law of total probability for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>,
+then apply Bayes’ rule. Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>H</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(H^c)=3/4</annotation></semantics></math>.</p>
+<p>The two positive-screen branches are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>∩</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>∣</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>4</mn><mn>5</mn></mfrac><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(S\cap H)
+=\mathbb{P}(S\mid H)\mathbb{P}(H)
+=\frac45\frac14
+=\frac15,
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>∩</mo><msup><mi>H</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>∣</mo><msup><mi>H</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>H</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>20</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(S\cap H^c)
+=\mathbb{P}(S\mid H^c)\mathbb{P}(H^c)
+=\frac15\frac34
+=\frac3{20}.
+</annotation></semantics></math></p>
+<p>Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><mo>+</mo><mfrac><mn>3</mn><mn>20</mn></mfrac><mo>=</mo><mfrac><mn>7</mn><mn>20</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(S)=\frac15+\frac3{20}=\frac7{20}.
+</annotation></semantics></math></p>
+<p>Bayes’ rule gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>H</mi><mo>∣</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>∣</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn><mi>/</mi><mn>5</mn></mrow><mrow><mn>7</mn><mi>/</mi><mn>20</mn></mrow></mfrac><mo>=</mo><mfrac><mn>4</mn><mn>7</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(H\mid S)
+=\frac{\mathbb{P}(S\mid H)\mathbb{P}(H)}{\mathbb{P}(S)}
+=\frac{1/5}{7/20}
+=\frac47.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>7</mn><mi>/</mi><mn>20</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(S)=7/20</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>H</mi><mo>∣</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mi>/</mi><mn>7</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(H\mid S)=4/7</annotation></semantics></math>.</p>
+<p><strong>Marks (4).</strong> Correct two branch probabilities: 1.
+Correct total
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(S)</annotation></semantics></math>:
+1. Correct Bayes setup and direction: 1. Correct posterior: 1.</p>
+<p><strong>Common mistakes.</strong> Reversing the conditional
+probability; omitting the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>H</mi><mi>c</mi></msup><annotation encoding="application/x-tex">H^c</annotation></semantics></math>
+branch; using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(H)</annotation></semantics></math>
+rather than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(S)</annotation></semantics></math>
+in the denominator.</p>
+<h3 id="question-4-random-variables-and-moments">Question 4 — random
+variables and moments</h3>
+<h4 id="part-a-cpa-q04-pa-s3">Part A — <code>CPA-Q04-PA</code>
+(<code>S3</code>)</h4>
+<p><strong>Method and conditions.</strong> A PMF must sum to one over
+its stated support. The CDF includes its endpoint:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≤</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(1)=\mathbb{P}(X\le1)</annotation></semantics></math>.</p>
+<p>Normalisation gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+c(1+2+3)=1,
+</annotation></semantics></math></p>
+<p>so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>6</mn></mrow><annotation encoding="application/x-tex">c=1/6</annotation></semantics></math>.
+Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≥</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>2</mn><mn>6</mn></mfrac><mo>+</mo><mfrac><mn>3</mn><mn>6</mn></mfrac><mo>=</mo><mfrac><mn>5</mn><mn>6</mn></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(X\ge1)=p_X(1)+p_X(2)=\frac26+\frac36=\frac56,
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>6</mn></mfrac><mo>+</mo><mfrac><mn>2</mn><mn>6</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F_X(1)=p_X(0)+p_X(1)=\frac16+\frac26=\frac12.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>6</mn></mrow><annotation encoding="application/x-tex">c=1/6</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≥</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>5</mn><mi>/</mi><mn>6</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(X\ge1)=5/6</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">F_X(1)=1/2</annotation></semantics></math>.</p>
+<p><strong>Marks (3).</strong> Correct normalising constant: 1. Correct
+upper-tail probability: 1. Correct CDF value with the endpoint included:
+1.</p>
+<p><strong>Common mistakes.</strong> Failing to normalise the PMF;
+starting the stated support at one; using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&lt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(X&lt;1)</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(1)</annotation></semantics></math>.</p>
+<h4 id="part-b-cpa-q04-pb-s4">Part B — <code>CPA-Q04-PB</code>
+(<code>S4</code>)</h4>
+<p><strong>Method and conditions.</strong> Use linearity of expectation
+and the variance formula for a linear combination. The given finite
+variances and covariance are sufficient.</p>
+<p>The expectation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Z</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>2</mn><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[Z]
+=2\mathbb{E}[X]-\mathbb{E}[Y]
+=2(1)-2
+=0.
+</annotation></semantics></math></p>
+<p>The variance is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>4</mn><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>4</mn><mi>Cov</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>4</mn><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>3</mn><mo>−</mo><mn>4</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>9</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\operatorname{Var}(Z)
+&amp;=4\operatorname{Var}(X)+\operatorname{Var}(Y)-4\operatorname{Cov}(X,Y)\\
+&amp;=4(2)+3-4\left(\frac12\right)\\
+&amp;=9.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Incorrectly treating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+as independent would omit the covariance term and give
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo>+</mo><mn>3</mn><mo>=</mo><mn>11</mn></mrow><annotation encoding="application/x-tex">8+3=11</annotation></semantics></math>.
+The positive covariance lowers the variance by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+because the coefficients of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
+have opposite signs.</p>
+<p><strong>Final result and interpretation.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Z</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbb{E}[Z]=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Z)=9</annotation></semantics></math>;
+the positive covariance lowers this variance from the incorrect
+independence value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>11</mn><annotation encoding="application/x-tex">11</annotation></semantics></math>.</p>
+<p><strong>Marks (3).</strong> Correct expectation: 1. Correct variance
+setup and value: 1. Correct comparison and sign interpretation: 1.</p>
+<p><strong>Common mistakes.</strong> Ignoring the covariance term;
+failing to square the coefficient (2); using a positive covariance
+contribution despite the opposite-signed coefficients.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 7 question sheet</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week07/question_sheet.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-7-question-sheet">Week 7 question sheet</h1>
+<h2 id="source-weeks-week07-exercises">Problem sheet</h2>
+<h3 id="instructions">Instructions</h3>
+<p>Attempt all ten questions and all 17 scorable parts. The target time
+is 240 minutes and the total is 100 marks. No calculator or software is
+needed. Give exact values unless a question says otherwise.</p>
+<p>For every equality-constrained problem, state the constraint encoding
+before interpreting a multiplier. For every inequality-constrained
+maximisation problem, use</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>ℒ</mi><mo>=</mo><mi>f</mi><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g_j(\mathbf{x})\ge0,
+\qquad
+\mathcal{L}
+=f+\sum_j\lambda_jg_j+\sum_k\mu_kh_k,
+\qquad
+\lambda_j\ge0.
+</annotation></semantics></math></p>
+<p>Write stationarity, primal feasibility, dual feasibility and
+complementary slackness. State the parameter space before maximising a
+likelihood.</p>
+<p>Use <a href="progressive_hints.html">hints.md</a> only after a
+serious attempt. Do not consult <a href="complete_solutions.html#source-weeks-week07-solutions">solutions.md</a>
+until you have completed or paused every part.</p>
+<h3 id="question-1-equality-constrained-allocation-m10-12-marks-26-minutes">Question
+1 — equality-constrained allocation (<code>M10</code>; 12 marks; 26
+minutes)</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y&gt;0</annotation></semantics></math>,
+consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mo stretchy="false" form="prefix">{</mo><mi>log</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mn>2</mn><mi>log</mi><mo>⁡</mo><mi>y</mi><mo stretchy="false" form="postfix">}</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>12</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_{x,y}\{\log x+2\log y\}
+\quad\text{subject to}\quad x+2y=12.
+</annotation></semantics></math></p>
+<h4 id="w07-q01-pa-5-marks-12-minutes"><code>W07-Q01-PA</code> — 5
+marks; 12 minutes</h4>
+<p>Encode the constraint as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mo>−</mo><mi>x</mi><mo>−</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">12-x-2y=0</annotation></semantics></math>.
+Form the Lagrangian, solve the first-order and feasibility conditions,
+and report the candidate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x^*,y^*)</annotation></semantics></math>
+and multiplier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>μ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\mu^*</annotation></semantics></math>.</p>
+<h4 id="w07-q01-pb-7-marks-14-minutes"><code>W07-Q01-PB</code> — 7
+marks; 14 minutes</h4>
+<p>Justify why the candidate is the unique global maximiser. Then
+replace 12 by a resource parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a&gt;0</annotation></semantics></math>,
+derive the value function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(a)</annotation></semantics></math>,
+and verify at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">a=12</annotation></semantics></math>
+that the envelope derivative agrees with the multiplier under the stated
+encoding. Interpret the sign of the derivative.</p>
+<h3 id="question-2-a-parameterised-equality-constraint-m10-11-marks-27-minutes">Question
+2 — a parameterised equality constraint (<code>M10</code>; 11 marks; 27
+minutes)</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">a\in\mathbb{R}</annotation></semantics></math>,
+consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mrow><mo stretchy="true" form="prefix">{</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo stretchy="true" form="postfix">}</mo></mrow><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mi>a</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_{x,y}
+\left\{
+-(x-2)^2-(y-1)^2
+\right\}
+\quad\text{subject to}\quad x+y=a.
+</annotation></semantics></math></p>
+<p>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h(x,y,a)=a-x-y=0</annotation></semantics></math>.</p>
+<h4 id="w07-q02-pa-7-marks-16-minutes"><code>W07-Q02-PA</code> — 7
+marks; 16 minutes</h4>
+<p>Derive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x^*(a)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y^*(a)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mu^*(a)</annotation></semantics></math>
+and the value function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(a)</annotation></semantics></math>.
+State a sufficient condition for the global conclusion.</p>
+<h4 id="w07-q02-pb-4-marks-11-minutes"><code>W07-Q02-PB</code> — 4
+marks; 11 minutes</h4>
+<p>Use the envelope theorem to find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V&#39;(a)</annotation></semantics></math>
+without differentiating the optimisers. Reconcile the result with direct
+differentiation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(a)</annotation></semantics></math>.
+Explain what happens to the multiplier if the same constraint is instead
+written
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>−</mo><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x+y-a=0</annotation></semantics></math>.</p>
+<h3 id="question-3-two-equality-constraints-m10-10-marks-20-minutes">Question
+3 — two equality constraints (<code>M10</code>; 10 marks; 20
+minutes)</h3>
+<h4 id="w07-q03-pa-10-marks"><code>W07-Q03-PA</code> — 10 marks</h4>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">a\in\mathbb{R}</annotation></semantics></math>,
+solve</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi></mrow></munder><mo>−</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\max_{x,y,z}-(x^2+y^2+z^2)
+</annotation></semantics></math></p>
+<p>subject to</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi><mo>=</mo><mi>a</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x+y+z=a,
+\qquad
+x-y=0.
+</annotation></semantics></math></p>
+<p>Encode the first constraint as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>−</mo><mi>z</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-x-y-z=0</annotation></semantics></math>
+and the second as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x-y=0</annotation></semantics></math>.
+Derive both multipliers and the value function, check the
+equality-constraint regularity condition, justify uniqueness, and verify
+the envelope derivative with respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.
+Report all results also at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">a=6</annotation></semantics></math>.</p>
+<h3 id="question-4-kuhntucker-conditions-with-a-capacity-bound-m11-12-marks-25-minutes">Question
+4 — Kuhn–Tucker conditions with a capacity bound (<code>M11</code>; 12
+marks; 25 minutes)</h3>
+<p>Consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mi>x</mi></munder><mspace width="0.278em"></mspace><mn>8</mn><mi>x</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>3</mn><mo>−</mo><mi>x</mi><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_x\; 8x-x^2
+\quad\text{subject to}\quad
+x\ge0,\qquad 3-x\ge0.
+</annotation></semantics></math></p>
+<h4 id="w07-q04-pa-5-marks-10-minutes"><code>W07-Q04-PA</code> — 5
+marks; 10 minutes</h4>
+<p>Write the Lagrangian and the complete Kuhn–Tucker conditions under
+the course convention. Do not solve them yet.</p>
+<h4 id="w07-q04-pb-7-marks-15-minutes"><code>W07-Q04-PB</code> — 7
+marks; 15 minutes</h4>
+<p>Solve the conditions by checking the possible interior and boundary
+cases. Report the maximiser and both multipliers, then give a
+sufficient-condition argument for the unique global conclusion.</p>
+<h3 id="question-5-two-inputs-and-explicit-corner-checks-m11-13-marks-31-minutes">Question
+5 — two inputs and explicit corner checks (<code>M11</code>; 13 marks;
+31 minutes)</h3>
+<p>Consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mrow><mo stretchy="true" form="prefix">{</mo><mn>6</mn><mi>x</mi><mo>+</mo><mn>4</mn><mi>y</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">
+\max_{x,y}
+\left\{
+6x+4y-x^2-y^2
+\right\}
+</annotation></semantics></math></p>
+<p>subject to</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>y</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>4</mn><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x\ge0,\qquad y\ge0,\qquad 4-x-y\ge0.
+</annotation></semantics></math></p>
+<h4 id="w07-q05-pa-7-marks-16-minutes"><code>W07-Q05-PA</code> — 7
+marks; 16 minutes</h4>
+<p>Form the Lagrangian and the complete Kuhn–Tucker conditions. Solve
+the branch on which
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x&gt;0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y&gt;0</annotation></semantics></math>
+and the resource constraint binds.</p>
+<h4 id="w07-q05-pb-6-marks-15-minutes"><code>W07-Q05-PB</code> — 6
+marks; 15 minutes</h4>
+<p>Check the budget-slack branch and the boundary branches
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math>
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>.
+Explain why no other branch supplies a Kuhn–Tucker point. Use curvature
+and the feasible set to justify the unique global maximiser.</p>
+<h3 id="question-6-diagnosing-a-convention-error-m11-6-marks-14-minutes">Question
+6 — diagnosing a convention error (<code>M11</code>; 6 marks; 14
+minutes)</h3>
+<h4 id="w07-q06-pa-6-marks"><code>W07-Q06-PA</code> — 6 marks</h4>
+<p>A student wants to solve</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mi>x</mi></munder><mspace width="0.278em"></mspace><mn>4</mn><mi>x</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mn>0</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_x\;4x-x^2
+\quad\text{subject to}\quad 0\le x\le1.
+</annotation></semantics></math></p>
+<p>The student writes only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x)=x-1\ge0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mn>4</mn><mi>x</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mi>λ</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{L}=4x-x^2-\lambda g(x)</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda\ge0</annotation></semantics></math>.</p>
+<p>Identify all convention and feasibility errors. Rewrite both bounds
+as course-convention constraints, state the complete Kuhn–Tucker
+conditions, and solve for the maximiser and both multipliers.</p>
+<h3 id="question-7-terminology-and-estimator-properties-s7-6-marks-14-minutes">Question
+7 — terminology and estimator properties (<code>S7</code>; 6 marks; 14
+minutes)</h3>
+<h4 id="w07-q07-pa-6-marks"><code>W07-Q07-PA</code> — 6 marks</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><msub><mi>F</mi><mi>θ</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>θ</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>&lt;</mo><mi>∞</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}F_\theta,
+\qquad
+\mathbb{E}_\theta[X_i]=\theta,
+\qquad
+\operatorname{Var}_\theta(X_i)=\sigma^2&lt;\infty,
+</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>σ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math>
+is known. Consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>+</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat\theta_n=\bar X+\frac1n.
+</annotation></semantics></math></p>
+<p>Distinguish the parameter, estimand, estimator and observed estimate.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">n=4</annotation></semantics></math>
+and observed data
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,2,3,4)</annotation></semantics></math>,
+calculate the estimate. Then derive the bias, variance and mean squared
+error of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><annotation encoding="application/x-tex">\widehat\theta_n</annotation></semantics></math>,
+and prove that it is consistent for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>.</p>
+<h3 id="question-8-method-of-moments-s7-6-marks-16-minutes">Question 8 —
+method of moments (<code>S7</code>; 6 marks; 16 minutes)</h3>
+<h4 id="w07-q08-pa-6-marks"><code>W07-Q08-PA</code> — 6 marks</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Uniform</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>θ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n
+\overset{\mathrm{iid}}{\sim}\operatorname{Uniform}(0,\theta),
+\qquad \theta&gt;0.
+</annotation></semantics></math></p>
+<p>Using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>θ</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[X_i]=\theta/2</annotation></semantics></math>,
+derive the one-moment method-of-moments estimator of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>.
+For the observed sample
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,2,2,3)</annotation></semantics></math>,
+calculate the estimate and check whether the fitted support contains
+every observation. Derive the estimator’s bias and state, with a reason,
+whether it is consistent.</p>
+<h3 id="question-9-elementary-maximum-likelihood-s7-16-marks-37-minutes">Question
+9 — elementary maximum likelihood (<code>S7</code>; 16 marks; 37
+minutes)</h3>
+<h4 id="w07-q09-pa-8-marks-17-minutes"><code>W07-Q09-PA</code> — 8
+marks; 17 minutes</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Bernoulli</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>p</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n
+\overset{\mathrm{iid}}{\sim}\operatorname{Bernoulli}(p),
+\qquad p\in[0,1].
+</annotation></semantics></math></p>
+<p>For observed values
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">x_i\in\{0,1\}</annotation></semantics></math>,
+write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s=\sum_{i=1}^{n}x_i</annotation></semantics></math>.
+Derive the maximum-likelihood estimator of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+Your argument must handle separately the interior case
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>s</mi><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0&lt;s&lt;n</annotation></semantics></math>
+and the boundary samples
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">s=n</annotation></semantics></math>.</p>
+<h4 id="w07-q09-pb-8-marks-20-minutes"><code>W07-Q09-PB</code> — 8
+marks; 20 minutes</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Exponential</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>λ</mi><mo>&gt;</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n
+\overset{\mathrm{iid}}{\sim}\operatorname{Exponential}(\lambda),
+\qquad \lambda&gt;0,
+</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+is the rate and the density is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>λ</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">f_X(x)=\lambda e^{-\lambda x}</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>.
+Derive the maximum-likelihood estimator, including the maximum check.
+For the observed sample</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>,</mo><mn>1</mn><mo>,</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\left(\frac12,1,\frac32,1\right),
+</annotation></semantics></math></p>
+<p>calculate the estimate. Derive the method-of-moments estimator and
+explain their relationship in this model.</p>
+<h3 id="question-10-cumulative-retrieval-m8-m9-s6-8-marks-30-minutes">Question
+10 — cumulative retrieval (<code>M8</code>, <code>M9</code>,
+<code>S6</code>; 8 marks; 30 minutes)</h3>
+<p>Complete these three parts without consulting earlier notes.</p>
+<h4 id="w07-q10-pa-m8-3-marks-10-minutes"><code>W07-Q10-PA</code> —
+<code>M8</code>; 3 marks; 10 minutes</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>𝐱</mi><mi>𝖳</mi></msup><mi>𝐀</mi><mi>𝐱</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{A}=
+\begin{bmatrix}
+-4&amp;2\\
+2&amp;-2
+\end{bmatrix},
+\qquad
+q(\mathbf{x})=\mathbf{x}^{\mathsf T}\mathbf{A}\mathbf{x}.
+</annotation></semantics></math></p>
+<p>Classify the quadratic form by definiteness using an appropriate
+test. State the corresponding curvature conclusion for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msup><mi>𝐛</mi><mi>𝖳</mi></msup><mi>𝐱</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">f(\mathbf{x})=q(\mathbf{x})+\mathbf{b}^{\mathsf T}\mathbf{x}+c</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐛</mi><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\mathbf{b}\in\mathbb{R}^2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">c\in\mathbb{R}</annotation></semantics></math>.</p>
+<h4 id="w07-q10-pb-m9-3-marks-10-minutes"><code>W07-Q10-PB</code> —
+<code>M9</code>; 3 marks; 10 minutes</h4>
+<p>Find and classify the global solution over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(x,y)\in\mathbb{R}^2</annotation></semantics></math>
+of</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mo stretchy="false" form="prefix">{</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_{x,y}\{4x+2y-x^2-y^2\}.
+</annotation></semantics></math></p>
+<p>State both the candidate condition and the sufficiency argument.</p>
+<h4 id="w07-q10-pc-s6-2-marks-10-minutes"><code>W07-Q10-PC</code> —
+<code>S6</code>; 2 marks; 10 minutes</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>36</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mn>9</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_{36}
+\overset{\mathrm{iid}}{\sim}\mathcal{N}(\mu,9).
+</annotation></semantics></math></p>
+<p>Derive the exact sampling distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi><mo stretchy="false" form="prefix">|</mo><mo>≤</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(|\bar X-\mu|\le1)</annotation></semantics></math>.
+You may use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.9772</mn></mrow><annotation encoding="application/x-tex">\Phi(2)=0.9772</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+is the standard normal CDF.</p>
+<h2 id="source-weeks-week07-self-test-before-self-test-solutions">Self-test
+questions</h2>
+<p>Set aside 25 minutes and attempt all four parts without the reading
+guide, worked examples, hints or exercise solutions. No calculator is
+needed. Use the course constraint convention and state every parameter
+space or sufficiency condition that affects your conclusion. The
+self-test has 20 marks and does not contribute to a checkpoint or
+mock-examination score.</p>
+<h3 id="questions">Questions</h3>
+<h4 id="w07-st01-pa-equality-constraint-and-envelope-m10-5-marks-7-minutes"><code>W07-ST01-PA</code>
+— equality constraint and envelope (<code>M10</code>; 5 marks; 7
+minutes)</h4>
+<p>For a resource parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">a\in\mathbb{R}</annotation></semantics></math>,
+consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo stretchy="false" form="postfix">}</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mi>a</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_{x,y}\{-(x-1)^2-(y-2)^2\}
+\quad\text{subject to}\quad x+y=a.
+</annotation></semantics></math></p>
+<p>Encode the constraint as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-x-y=0</annotation></semantics></math>.
+Derive the optimisers and multiplier as functions of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+justify the global conclusion, and verify the envelope derivative at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">a=4</annotation></semantics></math>.</p>
+<h4 id="w07-st02-pa-an-upper-bound-corner-m11-5-marks-6-minutes"><code>W07-ST02-PA</code>
+— an upper-bound corner (<code>M11</code>; 5 marks; 6 minutes)</h4>
+<p>Solve</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mi>x</mi></munder><mspace width="0.278em"></mspace><mn>6</mn><mi>x</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>2</mn><mo>−</mo><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+\max_x\;6x-x^2
+\quad\text{subject to}\quad x\ge0,\qquad2-x\ge0
+</annotation></semantics></math></p>
+<p>using the course Kuhn–Tucker convention. State the complete
+conditions and report both multipliers.</p>
+<h4 id="w07-st03-pa-bias-variance-and-consistency-s7-5-marks-6-minutes"><code>W07-ST03-PA</code>
+— bias, variance and consistency (<code>S7</code>; 5 marks; 6
+minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">X_1,\ldots,X_n</annotation></semantics></math>
+be iid with</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>θ</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}_\theta[X_i]=\theta,
+\qquad
+\operatorname{Var}_\theta(X_i)=4.
+</annotation></semantics></math></p>
+<p>For</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\widehat\theta_n=\bar X-\frac1n,
+</annotation></semantics></math></p>
+<p>derive the bias, variance and mean squared error, and state whether
+the estimator is consistent.</p>
+<h4 id="w07-st04-pa-poisson-maximum-likelihood-s7-5-marks-6-minutes"><code>W07-ST04-PA</code>
+— Poisson maximum likelihood (<code>S7</code>; 5 marks; 6 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Poisson</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>λ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n
+\overset{\mathrm{iid}}{\sim}\operatorname{Poisson}(\lambda),
+\qquad \lambda&gt;0.
+</annotation></semantics></math></p>
+<p>Derive the maximum-likelihood estimator of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+for a sample with a positive total count. Calculate the estimate for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,1,2,1)</annotation></semantics></math>,
+and state the one-moment method-of-moments estimator.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

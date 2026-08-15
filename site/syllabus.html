@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Economics PhD Mathematics and Statistics pre-course
+syllabus</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="contents.html">Package contents</a></li>
+<li><a href="syllabus.html" aria-current="page">Syllabus</a></li>
+<li><a href="contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="contents.html#assessments">Assessments</a></li>
+<li><a href="advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/syllabus.pdf">Download this page as PDF</a></p>
+
+<h1 id="economics-phd-mathematics-and-statistics-pre-course-syllabus">Economics
+PhD Mathematics and Statistics pre-course syllabus</h1>
+<h2 id="source-syllabus-course-description">Course description</h2>
+<p>The Mathematics and Statistics Pre-course is an eight-week,
+self-study programme for incoming PhD Economics students. It is aimed at
+restore or build fluency in the mathematical, probability and
+statistical tools expected at the start of doctoral study and prepares
+you for the diagnostic entry exams you will take at the start of your
+PhD. It is a preparation course, with the aim of identifying and
+addressing any weaknesses in the key mathematical, probability and
+statistical tools expected at the start of doctoral study in
+Economics.</p>
+<h3 id="what-the-course-covers">What the course covers</h3>
+<p>The mathematics part of the course moves from notation, reasoning,
+algebra and one-variable calculus (<code>M1</code>–<code>M3</code>)
+through linear algebra (<code>M4</code>–<code>M5</code>), multivariable
+calculus and curvature (<code>M6</code>–<code>M8</code>), and
+optimisation (<code>M9</code>–<code>M11</code>).</p>
+<p>The probability and statistics part of the course moves from
+probability rules and conditional probability
+(<code>S1</code>–<code>S2</code>) through random variables,
+distributions and moments (<code>S3</code>–<code>S5</code>), and then
+sampling, estimation and elementary statistical inference
+(<code>S6</code>–<code>S9</code>). The sequence ends with confidence
+intervals and hypothesis tests.</p>
+<p>The <a href="syllabus.html#source-syllabus-eight-week-schedule">eight-week
+schedule</a> gives the exact weekly outcomes, required written readings,
+resources and what you should read or skip from each source weekly.</p>
+<h3 id="how-the-course-works">How the course works</h3>
+<p>Each normal week requires approximately 9–11 hours of self-study.
+This is an estimate and the time you will need will ultimately depend on
+your prior knowledge and experience. Each week you will:</p>
+<ol type="1">
+<li>read the assigned written sections;</li>
+<li>reproduce important worked examples by hand;</li>
+<li>complete the separate weekly problem sheet when it is released;</li>
+<li>use progressive hints only after a serious attempt;</li>
+<li>mark your work from complete solutions;</li>
+<li>record errors by learning-outcome ID; and</li>
+<li>reattempt errors two or three days later.</li>
+</ol>
+<p>Required work does not include videos, applets, programming or
+specialist software. Questions are designed to be solved by hand. A
+basic non-programmable scientific calculator may be permitted for
+specified assessments, with any necessary critical values supplied.</p>
+<h3 id="assessment-and-feedback">Assessment and feedback</h3>
+<p>The course includes two formative checkpoints and two separate timed
+mock papers: 90 minutes for Maths and 90 minutes for Statistics. They
+diagnose strengths and revision priorities by learning outcome; they are
+not pass/fail decisions. The mock papers are practice for the two exams
+you will take at the start of your PhD.</p>
+<p>The required course and every assessment use only outcomes
+<code>M1</code>–<code>M11</code> and <code>S1</code>–<code>S9</code>.
+Any extension material (marked as <code>R1</code> and <code>R2</code>)
+is kept separate from the core course and does not contribute to the
+weekly core workload or any examination.</p>
+<h3 id="first-cohort-pilot-notice">First-cohort pilot notice</h3>
+<p>This is the first time we run this self-study course. All the
+material is coming from respectable sources freely available online.
+However, part of the bridge notes, examples and exercises have been
+created with the help of some LLM models. Therefore there might be some
+mistakes or inconsistencies in the material. If you find any, please let
+us know by emailing <a href="mailto:cristiano.cantore@uniroma1.it">cristiano.cantore@uniroma1.it</a>
+with the week, item or source locator. This also means that the stated
+completion times are provisional planning guidance, not a guarantee, and
+will be calibrated using your feedback. <strong>For this reason it is
+important that you record your actual active study time as
+requested.</strong> Your feedback will improve later versions, and
+reporting a problem will not disadvantage you.</p>
+<p>Checkpoint and mock scores are diagnostic only. They are not used for
+admission, progression, ranking, funding or grading. Their marking
+standards and profile bands are provisional for this pilot.</p>
+<h3 id="start-here">Start here</h3>
+<p>Read the <a href="syllabus.html#source-syllabus-student-syllabus">student
+syllabus</a>, then use the <a href="syllabus.html#source-syllabus-study-protocol">study protocol</a>
+and <a href="syllabus.html#source-syllabus-eight-week-schedule">eight-week
+schedule</a> to plan your first week. The <a href="syllabus.html#source-syllabus-entry-exam-information">entry-exam
+information</a> explains how the course assessments relate to the
+diagnostic examination.</p>
+<h2 id="source-syllabus-student-syllabus">Student syllabus</h2>
+<h3 id="learning-outcomes-by-week">Learning outcomes by week</h3>
+<p>Every required weekly topic is attached to an approved
+learning-outcome ID. Use these IDs in your error log and revision
+plan.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;" scope="col">Week</th>
+<th scope="col">Required topics and outcome IDs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>notation, sets, functions, quantifiers and elementary reasoning
+(<code>M1</code>); algebra, powers, logarithms, sums, products and
+geometric series (<code>M2</code>); one-variable calculus, Taylor
+approximation and elementary optimisation (<code>M3</code>); probability
+rules and counting (<code>S1</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>matrix operations, determinants, inverses, rank and linear systems
+(<code>M4</code>); conditional probability, independence, total
+probability and Bayes’ rule (<code>S2</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>span, linear independence, basis, dimension, eigenvalues,
+eigenvectors and simple diagonalisation (<code>M5</code>); discrete and
+continuous random variables and required standard distributions
+(<code>S3</code>); expectation, variance, covariance and correlation
+(<code>S4</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>partial derivatives, column gradients, Jacobians, Hessians and the
+multivariable chain rule (<code>M6</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>total and implicit differentiation and homogeneous functions
+(<code>M7</code>); quadratic forms, definiteness, convexity, concavity
+and quasiconcavity (<code>M8</code>); joint, marginal and conditional
+distributions and conditional expectation (<code>S5</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>unconstrained multivariable optimisation and local/global conditions
+(<code>M9</code>); random samples, sampling distributions, sample means
+and variances, the law of large numbers and the central limit theorem
+(<code>S6</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>equality-constrained optimisation, multiplier interpretation and the
+envelope theorem (<code>M10</code>); elementary inequality-constrained
+optimisation and corner solutions under the course convention
+(<code>M11</code>); estimator properties, method of moments and
+elementary maximum likelihood (<code>S7</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>confidence intervals for a population mean or proportion
+(<code>S8</code>); hypotheses, test statistics, p-values, Type I and
+Type II errors, power and test–interval links (<code>S9</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>The exact required readings, section locators and skip instructions
+are in the <a href="syllabus.html#source-syllabus-eight-week-schedule">eight-week
+schedule</a>.</p>
+<h3 id="weekly-workload">Weekly workload</h3>
+<p>Plan approximately 9–11 hours of core study each week. However, this
+will ultimately depend on your own background and learning style. A
+normal allocation is 4–5 hours for reading and reproducing worked
+examples, 4–5 hours for the weekly problem sheet, and up to one hour for
+a self-test, marking and error logging. The weekly allocation changes
+slightly when a checkpoint or one of the mock papers is due.</p>
+<h3 id="course-materials">Course materials</h3>
+<p>Required materials are written and text-only. The course uses:</p>
+<ul>
+<li>exact section-level external readings;</li>
+<li>course notes and notation reminders;</li>
+<li>worked examples;</li>
+<li>weekly problem sheets;</li>
+<li>progressive hints and complete solutions;</li>
+<li>short self-tests;</li>
+<li>formula or distribution sheets where needed; and</li>
+<li>two checkpoints and two separate mock papers: Maths and
+Statistics.</li>
+</ul>
+<p>No video, applet, programming language, statistical package or
+specialist software is required. Each week schedule contains specific
+instructions of what to read and what to skip. <strong>Follow every skip
+instruction in the schedule, even if the linked source offers additional
+chapters, exercises or media.</strong></p>
+<h3 id="study-sequence">Study sequence</h3>
+<p>Use the same sequence each week:</p>
+<ol type="1">
+<li>Check the week’s outcome IDs and retrieve the listed
+prerequisites.</li>
+<li>Read only the exact assigned sections and observe every skip
+instruction.</li>
+<li>Close the source and reproduce the important definitions, conditions
+and worked steps from memory.</li>
+<li>Attempt the weekly problems without opening the full solutions.</li>
+<li>Consult progressive hints only after a serious attempt.</li>
+<li>Mark the work, recording the outcome ID and cause of each
+error.</li>
+<li>Reattempt missed work two or three days later.</li>
+<li>Complete the self-test under closed-note conditions.</li>
+</ol>
+<p>The <a href="syllabus.html#source-syllabus-study-protocol">study
+protocol</a> gives a practical session plan and an error-log
+template.</p>
+<h3 id="assessment-points">Assessment points</h3>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+<col style="width: 11%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Point</th>
+<th scope="col">Timing</th>
+<th style="text-align: center;" scope="col">Duration</th>
+<th style="text-align: center;" scope="col">Marks</th>
+<th scope="col">Main role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Checkpoint A</td>
+<td>end of Week 4</td>
+<td style="text-align: center;">60 minutes</td>
+<td style="text-align: center;">30</td>
+<td>cumulative formative diagnosis of selected Week 1–4 outcomes</td>
+</tr>
+<tr>
+<td>Checkpoint B</td>
+<td>end of Week 7</td>
+<td style="text-align: center;">75 minutes</td>
+<td style="text-align: center;">40</td>
+<td>cumulative formative diagnosis of selected Week 5–7 outcomes</td>
+</tr>
+<tr>
+<td>Maths mock</td>
+<td>end of Week 8</td>
+<td style="text-align: center;">90 minutes</td>
+<td style="text-align: center;">55</td>
+<td>timed practice across <code>M1</code>–<code>M11</code></td>
+</tr>
+<tr>
+<td>Statistics mock</td>
+<td>end of Week 8</td>
+<td style="text-align: center;">90 minutes</td>
+<td style="text-align: center;">45</td>
+<td>timed practice across <code>S1</code>–<code>S9</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>All four practice papers use only required outcomes. The two mocks
+are separate: neither depends on answers or material from the other.
+Extension material is not examined. See <a href="syllabus.html#source-syllabus-entry-exam-information">entry-exam
+information</a> for the approved conditions and the limits of what this
+course can say about the two entry exam papers.</p>
+<h3 id="working-conventions">Working conventions</h3>
+<p>Use the notation established in the course materials. In particular,
+vectors and gradients are columns, and the Jacobian of a function from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^n</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>m</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^m</annotation></semantics></math>
+is an
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+matrix. State distribution parameterisations and the conditions needed
+for a method. For inequality constraints, use the course’s maximisation
+convention with constraints written
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge 0</annotation></semantics></math>,
+multipliers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_j\ge 0</annotation></semantics></math>,
+and Lagrangian term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">+\lambda_j g_j(\mathbf{x})</annotation></semantics></math>.</p>
+<h3 id="what-successful-completion-looks-like">What successful
+completion looks like</h3>
+<p>By the end of Week 8, you should be able to attempt both 90-minute
+mock papers under timed conditions, diagnose errors by outcome ID, and
+identify a short, specific revision list. Completion is evidence of
+preparation; it is not a guarantee of a particular result in either
+entry exam paper.</p>
+<h2 id="source-syllabus-eight-week-schedule">Eight-week schedule</h2>
+<h3 id="how-to-use-this-schedule">How to use this schedule</h3>
+<p>This is the complete required reading route for the eight-week core
+course. Every external reading below identifies an approved resource-map
+ID and its registered source ID. The four original institutional bridge
+notes are listed in the relevant weekly route as required point-of-need
+support. Open only the named sections, follow the skip instruction, and
+do not treat the surrounding sections of the book or course as
+assigned.</p>
+<p>The time allocations are <strong>provisional planning guidance, not a
+guarantee</strong>. They include the separate weekly problem sheets that
+will be authored in a later production phase; this syllabus does not
+contain exercises. Most core totals stay within approximately 9–11
+hours. Week 7 is a 10-hour-35-minute planning estimate because its four
+exact required source routes are retained. Extension work is outside
+these totals.</p>
+<h3 id="workload-summary">Workload summary</h3>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;" scope="col">Week</th>
+<th style="text-align: right;" scope="col">Reading and worked-example
+reproduction</th>
+<th style="text-align: right;" scope="col">Weekly problem sheet</th>
+<th style="text-align: right;" scope="col">Self-test, marking and error log</th>
+<th style="text-align: right;" scope="col">Timed assessment</th>
+<th style="text-align: right;" scope="col">Core total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">4 h 45 min</td>
+<td style="text-align: right;">4 h 15 min</td>
+<td style="text-align: right;">1 h</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">10 h</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: right;">4 h 20 min</td>
+<td style="text-align: right;">4 h</td>
+<td style="text-align: right;">1 h</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">9 h 20 min</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: right;">5 h 40 min</td>
+<td style="text-align: right;">4 h</td>
+<td style="text-align: right;">50 min</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">10 h 30 min</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">4 h</td>
+<td style="text-align: right;">4 h</td>
+<td style="text-align: right;">30 min</td>
+<td style="text-align: right;">Checkpoint A: 1 h</td>
+<td style="text-align: right;">9 h 30 min</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: right;">5 h</td>
+<td style="text-align: right;">4 h</td>
+<td style="text-align: right;">30 min</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">9 h 30 min</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: right;">4 h 15 min</td>
+<td style="text-align: right;">4 h 30 min</td>
+<td style="text-align: right;">30 min</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">9 h 15 min</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: right;">4 h 50 min</td>
+<td style="text-align: right;">4 h</td>
+<td style="text-align: right;">30 min</td>
+<td style="text-align: right;">Checkpoint B: 1 h 15 min</td>
+<td style="text-align: right;">10 h 35 min</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: right;">3 h 30 min</td>
+<td style="text-align: right;">4 h</td>
+<td style="text-align: right;">30 min</td>
+<td style="text-align: right;">Mock papers: 3 h</td>
+<td style="text-align: right;">11 h</td>
+</tr>
+</tbody>
+</table></div>
+<p>For Weeks 4, 7 and 8, the timed assessment sitting is included in the
+core total. Required post-assessment self-marking, diagnosis and spaced
+reattempt are recorded separately: no empirical minute allowance is
+claimed for them, and they are not included in the published core total
+until first-cohort calibration. They remain required parts of the study
+cycle.</p>
+<h3 id="required-source-reporting-route">Required-source reporting
+route</h3>
+<p>To report a broken, inaccessible or unavailable required source,
+email <a href="mailto:cristiano.cantore@uniroma1.it">cristiano.cantore@uniroma1.it</a>
+with the week, item or source locator. You may request this
+confidentially without disclosing disability or other sensitive personal
+information. The programme Coordinator will provide an accessible
+replacement PDF or an approved alternative reading.</p>
+<h3 id="week-1-notation-foundations-and-probability-rules">Week 1 —
+notation, foundations and probability rules</h3>
+<h4 id="required-topics-and-outcomes">Required topics and outcomes</h4>
+<ul>
+<li>sets, functions, quantifiers, implications, equivalences, direct
+reasoning, contradiction and induction (<code>M1</code>);</li>
+<li>equations and inequalities, powers, logarithms, functions, sums,
+products and finite or convergent geometric series
+(<code>M2</code>);</li>
+<li>derivatives, elementary integrals, first- and second-order Taylor
+approximations and elementary one-variable optimisation
+(<code>M3</code>); and</li>
+<li>events, probability rules and elementary counting
+(<code>S1</code>).</li>
+</ul>
+<h4 id="required-readings">Required readings</h4>
+<p><strong>Required bridge note.</strong> Before the external sources,
+read the <a href="bridge_notes/notation_and_conventions.html">notation
+and conventions bridge note</a>. It standardises course notation and is
+point-of-need support within the existing Week 1 reading and
+worked-example allocation, not additional workload.</p>
+<ol type="1">
+<li><p><strong><code>MATH-M1-OSB-REQ</code> / <code>OSBORNE_MM</code> —
+Martin J. Osborne, <em>Mathematical Methods for Economic
+Theory</em>.</strong> Read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/log/t">Section
+1.1, “Logic: basics and proof by induction”</a> and only the “Intervals”
+and “Functions” subsections of <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/iaf/t">Section
+1.4</a>. <strong>Skip:</strong> in Section 1.4, “Continuous functions”
+and all later distance and epsilon–delta material; do not use
+interactive or graphical elements.</p></li>
+<li><p><strong><code>MATH-M1-HEF-REQ</code> / <code>HEFFERON_LA</code> —
+Jim Hefferon, <em>Linear Algebra</em>.</strong> In the <a href="https://jheffero.w3.uvm.edu/linearalgebra/book.pdf">book PDF</a>,
+read Appendix A-1 “Statements”, A-2 “Quantifiers”, A-3 to A-4
+“Techniques of Proof”, and A-5 to A-12 “Sets, Functions, and Relations”.
+<strong>Skip:</strong> all linear-algebra chapters for this assignment
+and stop after “Sets, Functions, and Relations”.</p></li>
+<li><p><strong><code>MATH-M2-OPS-REQ</code> /
+<code>OPENSTAX_PRECALC2E</code> — Jay Abramson, <em>Precalculus
+2e</em>.</strong> Read the assigned parts of <a href="https://openstax.org/books/precalculus-2e/pages/4-3-logarithmic-functions">Section
+4.3, “Logarithmic Functions”</a>, <a href="https://openstax.org/books/precalculus-2e/pages/4-5-logarithmic-properties">Section
+4.5, “Logarithmic Properties”</a>, <a href="https://openstax.org/books/precalculus-2e/pages/11-1-sequences-and-their-notations">Section
+11.1, “Sequences and Their Notations”</a>, <a href="https://openstax.org/books/precalculus-2e/pages/11-3-geometric-sequences">Section
+11.3, “Geometric Sequences”</a>, and <a href="https://openstax.org/books/precalculus-2e/pages/11-4-series-and-their-notations">Section
+11.4, “Series and Their Notations”</a> through infinite geometric
+series. In 4.3 use the definition, exponential–log conversions and
+natural logarithms; in 4.5 use the product, quotient and power rules; in
+11.1 use explicit notation only. <strong>Skip:</strong> arithmetic
+sequences and arithmetic-series formulae, annuities,
+graphing/calculator/technology exercises, all Media links, online
+practice tools and applications not needed for the stated algebraic
+skill.</p></li>
+<li><p><strong><code>MATH-M3-OSB-REQ</code> / <code>OSBORNE_MM</code> —
+Martin J. Osborne, <em>Mathematical Methods for Economic
+Theory</em>.</strong> Read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/clc/t">Section
+1.5, “Calculus: one variable”</a>, the “One variable” part of <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/nen/t">Section
+5.1</a> through the interval-maximisation procedure, and the “One
+variable” part only of <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/lon/t">Section
+5.2</a>. <strong>Skip:</strong> every “Many variables” subsection in 5.1
+and 5.2, rotatable graphs, and proofs beyond the stated operational
+first- and second-order conditions.</p></li>
+<li><p><strong><code>MATH-M3-OPS-REQ</code> /
+<code>OPENSTAX_CALC2</code> — Gilbert Strang and Edwin “Jed” Herman,
+<em>Calculus Volume 2</em>.</strong> In <a href="https://openstax.org/books/calculus-volume-2/pages/6-3-taylor-and-maclaurin-series">Section
+6.3, “Taylor and Maclaurin Series”</a>, read only “Taylor Polynomials”
+through the definition, Example 6.11 and Checkpoint 6.10, then Example
+6.13 and Checkpoint 6.12. <strong>Skip:</strong> power-series
+prerequisites and convergence, proofs of Taylor’s theorem, general
+remainder estimates, all <code>[T]</code> technology items, graphs, the
+student project, Taylor-series manipulations and every exercise after
+123.</p></li>
+<li><p><strong><code>STAT-S1-REQ-MIT</code> / <code>MIT_1805</code> —
+Jeremy Orloff and Jonathan Bloom, MIT OpenCourseWare 18.05.</strong> On
+the <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/">classes
+and written-materials page</a>, read Class 1 Reading 1b §§2.2–2.4.4 and
+Class 2 Reading §§2–3. <strong>Skip:</strong> Problem Set 1 Problem 2,
+which uses a video hint; Problem 3(e, g), which uses R; and all linked
+videos, interactive questions and applets.</p></li>
+</ol>
+<h4 id="suggested-sequence-and-output">Suggested sequence and
+output</h4>
+<p>Retrieve basic fraction and exponent rules, complete the readings in
+the order shown, reproduce at least one example for each outcome, then
+complete the Week 1 problem sheet and self-test. Finish with an
+error-log entry for each of <code>M1</code>, <code>M2</code>,
+<code>M3</code> and <code>S1</code>, including “no error yet” where
+applicable.</p>
+<h3 id="week-2-linear-systems-and-conditional-probability">Week 2 —
+linear systems and conditional probability</h3>
+<h4 id="required-topics-and-outcomes-1">Required topics and
+outcomes</h4>
+<ul>
+<li>matrix operations, determinants, inverses, rank, elimination and
+classification of linear systems (<code>M4</code>); and</li>
+<li>conditional probability, independence, total probability and Bayes’
+rule (<code>S2</code>).</li>
+</ul>
+<p>Prerequisites to retrieve: algebra and functions (<code>M2</code>)
+and probability rules (<code>S1</code>).</p>
+<h4 id="required-readings-1">Required readings</h4>
+<ol type="1">
+<li><p><strong><code>MATH-M4-HEF-REQ</code> / <code>HEFFERON_LA</code> —
+Jim Hefferon, <em>Linear Algebra</em>.</strong> In the <a href="https://jheffero.w3.uvm.edu/linearalgebra/book.pdf">book PDF</a>,
+read Chapter One I.1 “Gauss’s Method”, I.2 “Describing the Solution Set”
+and III.1 “Gauss–Jordan Reduction”; Chapter Three IV.1–IV.4 “Matrix
+Operations”; and Chapter Four I.2 “Properties of Determinants”.
+<strong>Skip:</strong> chapter-end Topics, especially Computer Algebra
+Systems; the Sage lab and videos; determinant permutation proofs;
+Cramer’s Rule; and all software computation.</p></li>
+<li><p><strong><code>STAT-S2-REQ-MIT</code> / <code>MIT_1805</code> —
+Jeremy Orloff and Jonathan Bloom, MIT OpenCourseWare 18.05.</strong>
+Read <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/">Class
+3 Reading §§2–7.2</a>. <strong>Skip:</strong> Problem Set 2 Problem 6,
+which requires R, and all linked videos, interactive questions and
+applets.</p></li>
+</ol>
+<h4 id="suggested-sequence-and-output-1">Suggested sequence and
+output</h4>
+<p>Interleave elimination practice with conditional-probability trees so
+that both strands receive spaced study. Complete the Week 2 problem
+sheet, including its cumulative Week 1 retrieval, then self-test and
+update entries for <code>M4</code> and <code>S2</code>.</p>
+<h3 id="week-3-vector-spaces-random-variables-and-moments">Week 3 —
+vector spaces, random variables and moments</h3>
+<h4 id="required-topics-and-outcomes-2">Required topics and
+outcomes</h4>
+<ul>
+<li>span, linear independence, basis, dimension, eigenvalues,
+eigenvectors and simple diagonalisation (<code>M5</code>);</li>
+<li>PMFs, PDFs, CDFs and the required discrete and continuous
+distributions (<code>S3</code>); and</li>
+<li>expectation, variance, covariance and correlation, including linear
+transformations and indicators (<code>S4</code>).</li>
+</ul>
+<p>Prerequisites to retrieve: matrix operations and elimination
+(<code>M4</code>), algebra (<code>M2</code>) and basic probability
+(<code>S1</code>).</p>
+<h4 id="required-readings-2">Required readings</h4>
+<ol type="1">
+<li><p><strong><code>MATH-M5-HEF-REQ</code> / <code>HEFFERON_LA</code> —
+Jim Hefferon, <em>Linear Algebra</em>.</strong> In the <a href="https://jheffero.w3.uvm.edu/linearalgebra/book.pdf">book PDF</a>,
+read Chapter Two I.2 “Subspaces and Spanning Sets”, II.1 “Definition and
+Examples” under Linear Independence, III.1 “Basis” and III.2
+“Dimension”; then Chapter Five II.2 “Diagonalizability” and II.3
+“Eigenvalues and Eigenvectors”. <strong>Skip:</strong> complex-root
+examples, proof-heavy extensions, starred subsections, Jordan form,
+nilpotence, chapter-end applications, the Sage lab and videos. Use real
+vectors and matrices only.</p></li>
+<li><p><strong><code>STAT-S3-REQ-MIT</code> / <code>MIT_1805</code> —
+Jeremy Orloff and Jonathan Bloom, MIT OpenCourseWare 18.05.</strong> On
+the <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/">classes
+and written-materials page</a>, read Class 4 Reading 4a §§2.1–3.5, Class
+5 Reading 5b §§4–4.5 and Class 5 Reading 5c §§2–5.1.
+<strong>Skip:</strong> Reading 4a §§3.6–3.7, including the applet;
+Reading 5c §5.2, which uses R, and §6 on Pareto and other distributions;
+and Problem Set 3 Problems 2, 5(a–b) and 6(a), which require R.</p></li>
+<li><p><strong><code>STAT-S3-REQ-PISHRO-POISSON</code> /
+<code>PISHRO_NIK</code> — Hossein Pishro-Nik, <em>Introduction to
+Probability, Statistics, and Random Processes</em>.</strong> Read only
+the <a href="https://www.probabilitycourse.com/chapter3/3_1_5_special_discrete_distr.php">“Poisson
+Distribution” subsection of §3.1.5</a>. <strong>Skip:</strong> every
+other §3.1.5 distribution subsection, including the
+negative-binomial/Pascal and hypergeometric distributions. Treat the
+Poisson approximation to the binomial as enrichment, not core
+work.</p></li>
+<li><p><strong><code>STAT-S4-REQ-MIT</code> / <code>MIT_1805</code> —
+Jeremy Orloff and Jonathan Bloom, MIT OpenCourseWare 18.05.</strong> On
+the <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/">classes
+and written-materials page</a>, read Class 4 Reading 4b §§2.1–2.4, Class
+5 Reading 5a §§2–4, Class 6 Reading 6a §§3–4.1 and Class 7 Reading 7b
+§§2–3.1. <strong>Skip:</strong> Class 6 Reading 6a §§5–6; Class 7
+Reading 7b §§3.2–4 on the bivariate normal, overlapping uniforms and
+proofs; and all linked videos or software.</p></li>
+</ol>
+<h4 id="suggested-sequence-and-output-2">Suggested sequence and
+output</h4>
+<p>Use three study blocks: vector-space structure, distribution
+mechanics, and moments/dependence. The registered reading estimates
+already include time for the assigned source examples. Complete the Week
+3 problem sheet and self-test, then update <code>M5</code>,
+<code>S3</code> and <code>S4</code> in the error log.</p>
+<h3 id="week-4-multivariable-differentiation">Week 4 — multivariable
+differentiation</h3>
+<h4 id="required-topics-and-outcomes-3">Required topics and
+outcomes</h4>
+<ul>
+<li>partial derivatives, column gradients, <code>m</code> by
+<code>n</code> Jacobians, Hessians and the multivariable chain rule with
+dimensionally consistent notation (<code>M6</code>).</li>
+</ul>
+<p>Prerequisites to retrieve: one-variable differentiation
+(<code>M3</code>) and matrix dimensions (<code>M4</code>).</p>
+<h4 id="required-reading">Required reading</h4>
+<ol type="1">
+<li><strong><code>MATH-M6-OSB-REQ</code> / <code>OSBORNE_MM</code> —
+Martin J. Osborne, <em>Mathematical Methods for Economic
+Theory</em>.</strong> Read the partial-derivative material only in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/cln/t">Section
+1.6, “Calculus: many variables”</a>, <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/csi/t">Section
+2.1, “Introduction to multivariate calculus”</a> and <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/ecr/t">Section
+2.2, “The chain rule”</a>. <strong>Skip:</strong> Section 1.6 Exercise 1
+and all open/closed-set or topology material, interactive plots, and
+Section 2.2 Exercises 10–13. Translate the source’s derivative-vector
+notation to the course convention: column gradients and an
+<code>m</code> by <code>n</code> Jacobian.</li>
+</ol>
+<h4 id="suggested-sequence-and-output-3">Suggested sequence and
+output</h4>
+<p>Spend the additional example-reproduction time checking dimensions at
+every step and translating the source convention. Complete the Week 4
+problem sheet and self-test, record <code>M6</code> errors, then sit
+Checkpoint A under the conditions in <a href="syllabus.html#source-syllabus-entry-exam-information">entry-exam
+information</a>.</p>
+<h3 id="week-5-comparative-statics-curvature-and-joint-distributions">Week 5
+— comparative statics, curvature and joint distributions</h3>
+<h4 id="required-topics-and-outcomes-4">Required topics and
+outcomes</h4>
+<ul>
+<li>total and implicit differentiation under stated conditions,
+homogeneous functions and Euler’s theorem (<code>M7</code>);</li>
+<li>quadratic forms and definiteness, convex sets, and convex, concave
+or quasiconcave functions (<code>M8</code>); and</li>
+<li>joint, marginal and conditional distributions, independence,
+conditional expectation, iterated expectation and total variance
+(<code>S5</code>).</li>
+</ul>
+<p>Prerequisites to retrieve: linear algebra (<code>M5</code>),
+multivariable derivatives (<code>M6</code>), conditional probability
+(<code>S2</code>) and moments (<code>S4</code>).</p>
+<h4 id="required-readings-3">Required readings</h4>
+<p><strong>Required bridge note.</strong> Before the
+conditional-expectation work, read the <a href="bridge_notes/conditional_expectation.html">conditional expectation
+bridge note</a>. It supplies the course’s conditional-expectation
+conventions within the existing Week 5 reading and worked-example
+allocation, not additional workload.</p>
+<ol type="1">
+<li><p><strong><code>MATH-M7-OSB-REQ</code> / <code>OSBORNE_MM</code> —
+Martin J. Osborne, <em>Mathematical Methods for Economic
+Theory</em>.</strong> Read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/dfi/t">Section
+2.3, “Derivatives of functions defined implicitly”</a>, <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/dif/t">Section
+2.4, “Differentials and comparative statics”</a> and <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/hom/t">Section
+2.5, “Homogeneous functions”</a>. <strong>Skip:</strong> Section 2.3
+Exercises 10–12 and Section 2.5 Exercises 14–15. Do not use an implicit
+derivative without stating the required regularity or nonsingularity
+condition, and write total differentials with column gradients.</p></li>
+<li><p><strong><code>MATH-M8-OSB-REQ</code> / <code>OSBORNE_MM</code> —
+Martin J. Osborne, <em>Mathematical Methods for Economic
+Theory</em>.</strong> Read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/17">Section
+3.1 on one-variable curvature</a>, Sections <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/qfd/t">3.2.1</a>,
+<a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/qff/t">3.2.2</a>
+and <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/qfs/t">3.2.3</a>
+on quadratic forms, <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/cvn/t">Section
+3.3 on multivariable curvature</a>, and <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/qcc/t">Section
+3.4 on quasiconcavity</a>. <strong>Skip:</strong> rotatable or
+interactive figures and proof extensions beyond applying the stated
+tests. Retain only operational set-convexity and curvature conditions,
+and do not treat quasiconcavity as concavity.</p></li>
+<li><p><strong><code>STAT-S5-REQ-PISHRO</code> / <code>PISHRO_NIK</code>
+— Hossein Pishro-Nik, <em>Introduction to Probability, Statistics, and
+Random Processes</em>.</strong> Read the following non-contiguous
+sections in order:</p>
+<ul>
+<li><a href="https://www.probabilitycourse.com/chapter5/5_1_1_joint_pmf.php">§5.1.1,
+“Joint Probability Mass Function”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter5/5_1_2_joint_cdf.php">§5.1.2,
+“Joint Cumulative Distribution Function”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter5/5_1_3_conditioning_independence.php">§5.1.3,
+“Conditioning and Independence”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter5/5_1_5_conditional_expectation.php">§5.1.5,
+“Conditional Expectation”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter5/5_2_1_joint_pdf.php">§5.2.1,
+“Joint Probability Density Function”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter5/5_2_2_joint_cdf.php">§5.2.2,
+“Joint Cumulative Distribution Function”</a>; and</li>
+<li><a href="https://www.probabilitycourse.com/chapter5/5_2_3_conditioning_independence.php">§5.2.3,
+“Conditioning and Independence”</a>. <strong>Skip:</strong> §5.1.4,
+every unassigned part of §5.3 on dependence measures or transformations,
+MATLAB and linked interactive material.</li>
+</ul></li>
+</ol>
+<h4 id="suggested-sequence-and-output-4">Suggested sequence and
+output</h4>
+<p>Move from derivative conditions to curvature, then use the
+probability strand as a separate block. Reproduce examples inside the
+registered five-hour reading allocation. Complete the Week 5 problem
+sheet and self-test, then update <code>M7</code>, <code>M8</code> and
+<code>S5</code>.</p>
+<h3 id="week-6-unconstrained-optimisation-and-sampling">Week 6 —
+unconstrained optimisation and sampling</h3>
+<h4 id="required-topics-and-outcomes-5">Required topics and
+outcomes</h4>
+<ul>
+<li>candidates, necessary and sufficient conditions, and local versus
+global solutions in unconstrained multivariable optimisation
+(<code>M9</code>); and</li>
+<li>independent and identically distributed samples, sample means and
+variances, sampling distributions, the law of large numbers and the
+central limit theorem (<code>S6</code>).</li>
+</ul>
+<p>Prerequisites to retrieve: gradients and Hessians (<code>M6</code>),
+curvature (<code>M8</code>), algebra (<code>M2</code>) and
+distributions/moments (<code>S3</code>–<code>S4</code>).</p>
+<h4 id="required-readings-4">Required readings</h4>
+<ol type="1">
+<li><p><strong><code>MATH-M9-OSB-REQ</code> / <code>OSBORNE_MM</code> —
+Martin J. Osborne, <em>Mathematical Methods for Economic
+Theory</em>.</strong> Read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/def/t">Section
+4.2, “Optimization: definitions”</a>, <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/opn/t">Section
+4.3, “Existence of an optimum”</a>, and Sections <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/nen/t">5.1</a>,
+<a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/lon/t">5.2</a>
+and <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/gop/t">5.3</a>
+on necessary conditions and local/global optima. <strong>Skip:</strong>
+the proof in Section 4.3 and topology beyond the operational statement
+“continuous on a closed and bounded feasible set”, interactive graphs,
+and one-variable repetition already assigned under
+<code>M3</code>.</p></li>
+<li><p><strong><code>STAT-S6-REQ-PISHRO</code> / <code>PISHRO_NIK</code>
+— Hossein Pishro-Nik, <em>Introduction to Probability, Statistics, and
+Random Processes</em>.</strong> Read the following non-contiguous
+sections in order:</p>
+<ul>
+<li><a href="https://www.probabilitycourse.com/chapter7/7_1_1_law_of_large_numbers.php">§7.1.1,
+“Law of Large Numbers”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter7/7_1_2_central_limit_theorem.php">§7.1.2,
+“Central Limit Theorem”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter7/7_1_3_solved_probs.php">§7.1.3,
+“Solved Problems”</a>, only the registered problems;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_1_1_random_sampling.php">§8.1.1,
+“Random Sampling”</a>, from “Random Sampling” through “Sample Mean”
+only; and</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_2_point_estimators_for_mean_and_var.php">§8.2.2,
+“Point Estimators for Mean and Variance”</a>, only the definition and
+elementary sample-variance discussion. <strong>Skip:</strong> in §8.1.1,
+stop before “Order Statistics”; in §8.2.2, stop after the elementary
+sample mean and sample variance; do not use simulations, MATLAB or other
+software.</li>
+</ul></li>
+</ol>
+<h4 id="suggested-sequence-and-output-5">Suggested sequence and
+output</h4>
+<p>Reproduce one candidate-classification example and one
+standardisation/limit example before the problem sheet. Complete the
+Week 6 self-test and update <code>M9</code> and <code>S6</code>.</p>
+<h3 id="week-7-constrained-optimisation-and-estimation">Week 7 —
+constrained optimisation and estimation</h3>
+<h4 id="required-topics-and-outcomes-6">Required topics and
+outcomes</h4>
+<ul>
+<li>equality constraints, Lagrange multipliers, multiplier
+interpretation and the envelope theorem (<code>M10</code>);</li>
+<li>elementary inequality constraints, complementary slackness and
+explicit interior/corner checks under the course convention
+(<code>M11</code>); and</li>
+<li>parameters, estimands, estimators and estimates; bias, variance,
+mean squared error and consistency; and elementary method-of-moments and
+maximum-likelihood estimation (<code>S7</code>).</li>
+</ul>
+<p>Prerequisites to retrieve: unconstrained optimisation
+(<code>M9</code>), curvature (<code>M8</code>), sampling
+(<code>S6</code>) and moments (<code>S4</code>).</p>
+<h4 id="required-readings-5">Required readings</h4>
+<p><strong>Required bridge note.</strong> Before the estimator and
+method-of-moments work, read the <a href="bridge_notes/estimators_and_method_of_moments.html">estimators and
+method of moments bridge note</a>. It standardises the course
+terminology within the existing Week 7 reading and worked-example
+allocation, not additional workload.</p>
+<ol type="1">
+<li><p><strong><code>MATH-M10-OSB-REQ</code> / <code>OSBORNE_MM</code> —
+Martin J. Osborne, <em>Mathematical Methods for Economic
+Theory</em>.</strong> Read Sections <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/men/t">6.1.1</a>,
+<a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/ilm/t">6.1.2</a>,
+<a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/mel/t">6.1.3</a>
+and <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/meg/t">6.1.4</a>;
+in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/mem/t">Section
+6.2</a>, read only the statement and one simple example; then read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/mee/t">Section
+6.3, “The envelope theorem”</a>. <strong>Skip:</strong> general proofs
+in 6.2, advanced multiple-constraint examples and exercises needing
+results beyond <code>M8</code>–<code>M9</code>. Re-encode constraints
+and multiplier signs using the course convention before
+interpretation.</p></li>
+<li><p><strong><code>MATH-M11-OSB-REQ</code> / <code>OSBORNE_MM</code> —
+Martin J. Osborne, <em>Mathematical Methods for Economic
+Theory</em>.</strong> Read <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/ktc/t">Section
+7.1 on the Kuhn–Tucker conditions</a>, the sufficiency result and
+examples only in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/kts/t">Section
+7.3</a>, <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/nnc/t">Section
+7.4 on non-negativity conditions</a>, and the <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/osm/t">Section
+7.5 summary</a>. <strong>Skip:</strong> Section 7.2 in full, proofs in
+7.3 and advanced constraint qualifications. Translate every problem from
+the source convention to the course convention: maximise with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mi>f</mi><mo>+</mo><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal{L}=f+\sum_j\lambda_jg_j</annotation></semantics></math>,
+and require
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_j\ge0</annotation></semantics></math>.</p></li>
+<li><p><strong><code>STAT-S7-REQ-PISHRO</code> / <code>PISHRO_NIK</code>
+— Hossein Pishro-Nik, <em>Introduction to Probability, Statistics, and
+Random Processes</em>.</strong> Read the definitions of sample,
+statistic, estimator and estimate in <a href="https://www.probabilitycourse.com/chapter8/8_1_1_random_sampling.php">§8.1.1,
+“Random Sampling”</a>, then read the following non-contiguous
+point-estimation sections in order:</p>
+<ul>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_0_point_estimation.php">§8.2.0,
+“Point Estimation”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_1_evaluating_estimators.php">§8.2.1,
+“Evaluating Estimators”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_2_point_estimators_for_mean_and_var.php">§8.2.2,
+“Point Estimators for Mean and Variance”</a>; and</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_3_max_likelihood_estimation.php">§8.2.3,
+“Maximum Likelihood Estimation”</a>. <strong>Skip:</strong> §8.2.4 on
+asymptotic properties of maximum-likelihood estimators, §8.5 on linear
+regression, order statistics and all software-based work.</li>
+</ul></li>
+<li><p><strong><code>STAT-S7-REQ-PSU-MOM</code> /
+<code>PSU_STAT415_MOM</code> — Penn State STAT 415, primary course
+author Laura Simon.</strong> Read <a href="https://online.stat.psu.edu/stat415/lesson/1/1.4">Lesson 1 §1.4,
+“Method of Moments”</a>: the definitions, “One Form of the Method”, and
+Examples 1-7 and 1-8 only. <strong>Skip:</strong> “Another Form of the
+Method” and Examples 1-9 and 1-10, including gamma-distribution
+material.</p></li>
+</ol>
+<h4 id="suggested-sequence-and-output-6">Suggested sequence and
+output</h4>
+<p>Write the course constraint convention at the top of every
+optimisation session. Keep a separate terminology card for
+<code>S7</code>. Complete the Week 7 problem sheet and self-test, update
+<code>M10</code>, <code>M11</code> and <code>S7</code>, then sit
+Checkpoint B.</p>
+<h3 id="week-8-statistical-inference-and-the-two-mock-papers">Week 8 —
+statistical inference and the two mock papers</h3>
+<h4 id="required-topics-and-outcomes-7">Required topics and
+outcomes</h4>
+<ul>
+<li>construction and interpretation of elementary confidence intervals
+for a population mean or proportion under stated normal, large-sample or
+Student’s t conditions (<code>S8</code>); and</li>
+<li>null and alternative hypotheses, one- and two-sided tests, test
+statistics, p-values, Type I and Type II errors, power and test–interval
+connections (<code>S9</code>).</li>
+</ul>
+<p>Prerequisites to retrieve: sampling distributions and limit results
+(<code>S6</code>) and estimator terminology/properties
+(<code>S7</code>).</p>
+<h4 id="required-readings-6">Required readings</h4>
+<p><strong>Required bridge note.</strong> Before selecting or
+interpreting critical values, read the <a href="bridge_notes/distribution_and_critical_values.html">distributions
+and critical values bridge note</a>. It provides point-of-need
+distribution and critical-value support within the existing Week 8
+reading and worked-example allocation, not additional workload.</p>
+<ol type="1">
+<li><p><strong><code>STAT-S8-REQ-PISHRO</code> / <code>PISHRO_NIK</code>
+— Hossein Pishro-Nik, <em>Introduction to Probability, Statistics, and
+Random Processes</em>.</strong> Read the following non-contiguous
+sections in order, restricted to intervals for means and proportions
+under normal, large-sample and Student’s t conditions:</p>
+<ul>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_3_1_gen_framework_of_int_estimation.php">§8.3.1,
+“The General Framework of Interval Estimation”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_3_2_finding_interval_estimators.php">§8.3.2,
+“Finding Interval Estimators”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_3_3_confidence_intervals_for_norm_samples.php">§8.3.3,
+“Confidence Intervals for Normal Samples”</a>; and</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_3_4_solved_probs.php">§8.3.4,
+“Solved Problems”</a>, restricted to the registered problems.
+<strong>Skip:</strong> Problem 1, Problem 4 and Problem 6(2), including
+variance intervals; do not use software.</li>
+</ul></li>
+<li><p><strong><code>STAT-S9-REQ-MIT</code> / <code>MIT_1805</code> —
+Jeremy Orloff and Jonathan Bloom, MIT OpenCourseWare 18.05.</strong> On
+the <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/">classes
+and written-materials page</a>, read Class 17 Reading 17b §§3–7.1; Class
+18 Reading §§3.1–5.4 except §5.3; and Class 23 Reading 23a §§4 and 7.
+<strong>Skip:</strong> Class 18 §§5.3 and 5.5; Problem Set 8 Problems
+1(f–g), 3(b)(iii–iv) and 5; and Problem Set 9 Problems 2–6, which enter
+Bayesian, chi-squared, F, ANOVA or R material.</p></li>
+</ol>
+<h4 id="suggested-sequence-and-output-7">Suggested sequence and
+output</h4>
+<p>Build a one-page comparison of confidence-interval and testing
+decisions, then complete the Week 8 problem sheet and self-test. Update
+<code>S8</code> and <code>S9</code>, review the full error log, and sit
+the separate 90-minute Maths and 90-minute Statistics mock papers under
+timed conditions. After marking both, identify no more than five outcome
+IDs for final targeted revision.</p>
+<h3 id="end-of-course-extensions">End-of-course extensions</h3>
+<p>The required sequence ends after Week 8 and after elementary
+statistical inference. The <a href="advanced_study_guide.html">advanced
+extensions page</a> is separate from this schedule, it proposes
+additional material that you should study at some point in the future.
+However this material will not be examined in the entry exams.</p>
+<h2 id="source-syllabus-study-protocol">Study protocol</h2>
+<h3 id="purpose">Purpose</h3>
+<p>Use this protocol every week. It turns a large reading list into
+repeated, checkable study and makes your error log useful for later
+revision. The normal core workload is approximately 9–11 hours per week;
+use the exact allocation in the <a href="syllabus.html#source-syllabus-eight-week-schedule">eight-week
+schedule</a>.</p>
+<h3 id="before-the-week-starts">Before the week starts</h3>
+<ol type="1">
+<li>Write the week’s learning-outcome IDs at the top of a new page.</li>
+<li>Read the prerequisite and retrieval line in the schedule.</li>
+<li>Reserve three to five study blocks across the week rather than one
+long sitting.</li>
+<li>Reserve a second attempt two or three days after the main
+problem-solving block.</li>
+<li>Open only the exact reading sections listed in the schedule.</li>
+</ol>
+<p>Required work is text-only. You do not need a video, applet,
+programming language, statistical package or specialist software. If a
+linked source offers one, follow the schedule’s skip instruction.</p>
+<h3 id="the-standard-cycle">The standard cycle</h3>
+<h4 id="read-actively">1. Read actively</h4>
+<p>For each assigned section:</p>
+<ul>
+<li>identify the definition, method or result attached to the stated
+outcome;</li>
+<li>record every condition needed for the result;</li>
+<li>note the dimensions, support or parameter restrictions where
+relevant;</li>
+<li>stop at the assigned locator; and</li>
+<li>obey the explicit skip instruction before following any source
+navigation.</li>
+</ul>
+<p>Do not copy paragraphs. Write a brief original summary after closing
+the source.</p>
+<h4 id="reproduce-worked-examples">2. Reproduce worked examples</h4>
+<p>Close the worked solution and reproduce the example by hand. Label
+each step with its purpose: representation, condition, transformation,
+calculation or interpretation. Reopen the source only after you have
+reached a result or a specific impasse.</p>
+<p>If your result differs, locate the first divergent step. Record that
+step, not merely the final mismatch.</p>
+<h4 id="attempt-the-weekly-problem-sheet">3. Attempt the weekly problem
+sheet</h4>
+<p>Start without hints or full solutions. Write conditions and
+conventions before calculating. If you are stuck, make one specific
+written statement about what is known and what remains to be found.</p>
+<p>After a serious attempt, use progressive hints in order. Stop reading
+as soon as a hint gives you a next step, then return to your own work.
+Do not open the full solution until the attempt is complete.</p>
+<h4 id="mark-and-diagnose">4. Mark and diagnose</h4>
+<p>Mark from the complete solution. Use a different colour or margin,
+but do not erase the original attempt. Classify the first cause of each
+error:</p>
+<ul>
+<li><code>CONCEPT</code> — a definition, condition or interpretation was
+missing;</li>
+<li><code>REPRESENTATION</code> — the event, equation, matrix, function
+or distribution was set up incorrectly;</li>
+<li><code>METHOD</code> — the wrong procedure or result was
+selected;</li>
+<li><code>ALGEBRA</code> — the setup was valid but manipulation
+failed;</li>
+<li><code>NOTATION</code> — dimensions, orientation, symbols, support or
+parameters were inconsistent;</li>
+<li><code>ARITHMETIC</code> — the mathematical route was correct but
+calculation failed; or</li>
+<li><code>TIME</code> — you could complete the work accurately but not
+within the target.</li>
+</ul>
+<h4 id="reattempt-after-spacing">5. Reattempt after spacing</h4>
+<p>Two or three days later, reattempt each incorrect or incomplete part
+from a blank page. Do not reread your first solution before starting.
+Close an error only when you can produce and explain a correct solution
+without the hint.</p>
+<h4 id="self-test-under-closed-note-conditions">6. Self-test under
+closed-note conditions</h4>
+<p>Complete the weekly self-test without notes, sources or solutions.
+Use only the calculator permission stated for that artifact. Mark it
+immediately and add any new errors to the same log.</p>
+<h4 id="targeted-recovery-without-a-progression-pause">7. Targeted
+recovery without a progression pause</h4>
+<p>If your score on a current-outcome self-test is below 60%, or an item
+remains unresolved after its spaced reattempt, take a targeted recovery
+route before the next retrieval block. Use the relevant week’s
+prerequisite/retrieval line, reproduce the named worked example for that
+outcome, complete the first matching exercise part, record the result in
+the error log, then reattempt the original item from a blank page.</p>
+<p>This is a study recommendation, not a hard pause. It has no effect on
+admission, progression, ranking, funding, grading or sanctions.</p>
+<h3 id="error-log-template">Error-log template</h3>
+<p>Use one row per meaningful error or uncertainty.</p>
+<div class="table-wrapper"><table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Date</th>
+<th scope="col">Outcome ID</th>
+<th scope="col">Source or item</th>
+<th scope="col">First cause</th>
+<th scope="col">Correct principle or method</th>
+<th scope="col">Reattempt date</th>
+<th scope="col">Closed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YYYY-MM-DD</td>
+<td><code>M4</code></td>
+<td>example or item ID</td>
+<td><code>METHOD</code></td>
+<td>one-sentence correction</td>
+<td>YYYY-MM-DD</td>
+<td>yes/no</td>
+</tr>
+</tbody>
+</table></div>
+<p>Do not use “careless” as a cause. Name the observable step that
+failed.</p>
+<p>At the end of the week, add a “no error yet” entry for any current
+outcome that has not produced an error. This prevents an empty log from
+being mistaken for evidence of mastery.</p>
+<h3 id="a-workable-weekly-rhythm">A workable weekly rhythm</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th scope="col">Session</th>
+<th scope="col">Main activity</th>
+<th style="text-align: right;" scope="col">Typical duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>prerequisite retrieval and first reading block</td>
+<td style="text-align: right;">90–120 minutes</td>
+</tr>
+<tr>
+<td>2</td>
+<td>remaining reading and example reproduction</td>
+<td style="text-align: right;">120–180 minutes</td>
+</tr>
+<tr>
+<td>3</td>
+<td>first half of the weekly problem sheet</td>
+<td style="text-align: right;">120–150 minutes</td>
+</tr>
+<tr>
+<td>4</td>
+<td>second half of the problem sheet and marking</td>
+<td style="text-align: right;">120–150 minutes</td>
+</tr>
+<tr>
+<td>5</td>
+<td>spaced reattempt, self-test and error-log review</td>
+<td style="text-align: right;">45–75 minutes</td>
+</tr>
+</tbody>
+</table></div>
+<p>Checkpoint and mock weeks use the adjusted totals in the schedule.
+Reduce unstructured rereading first; do not remove the spaced reattempt
+or the timed assessment.</p>
+<h3 id="when-time-is-short">When time is short</h3>
+<p>Protect the core in this order:</p>
+<ol type="1">
+<li>required reading at the exact locator;</li>
+<li>one reproduced example for each current outcome;</li>
+<li>the complete weekly problem sheet;</li>
+<li>marking and diagnosis;</li>
+<li>spaced reattempt; and</li>
+<li>the self-test.</li>
+</ol>
+<p>Do not replace required work with extension material. Do not
+compensate for a missed week by assigning yourself unlisted chapters.
+Carry unresolved outcome IDs into the next week’s retrieval block and
+use the error log to choose the minimum targeted review.</p>
+<h3 id="source-and-solution-discipline">Source and solution
+discipline</h3>
+<p>External sources remain the work of their named authors or
+organisations. Use the links and exact locators in the schedule; do not
+redistribute linked material.</p>
+<p>Keep hints and solutions closed during first attempts. For
+checkpoints and the mock, keep them unavailable for the entire timed
+sitting.</p>
+<h2 id="source-syllabus-entry-exam-information">Entry-exam
+information</h2>
+<p>The pre-course prepares you for a diagnostic entry examination
+consisting of two separate papers: Maths and Statistics. The diagnosis
+is intended to identify preparation needs; this course does not define a
+pass/fail threshold.</p>
+<p>The examination dates, locations, invigilation and final candidate
+instructions will be announced in due course.</p>
+<h3 id="examined-preparation-boundary">Examined preparation
+boundary</h3>
+<p>The examined preparation boundary is exactly the required learning
+outcomes <code>M1</code>–<code>M11</code> and
+<code>S1</code>–<code>S9</code> in the <a href="syllabus.html#source-syllabus-student-syllabus">student
+syllabus</a>. The statistics boundary ends with elementary estimation,
+confidence intervals and hypothesis testing
+(<code>S7</code>–<code>S9</code>). Extension outcomes have no
+checkpoint, mock or diagnostic-exam mapping.</p>
+<h3 id="course-assessment-sequence">Course assessment sequence</h3>
+<p>The course supplies four practice papers.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 22%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Assessment</th>
+<th scope="col">Placement</th>
+<th style="text-align: center;" scope="col">Duration</th>
+<th style="text-align: center;" scope="col">Marks</th>
+<th scope="col">Required coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Checkpoint A</td>
+<td>end of Week 4</td>
+<td style="text-align: center;">60 minutes</td>
+<td style="text-align: center;">30</td>
+<td>selected outcomes <code>M1</code>–<code>M4</code>, <code>M6</code>
+and <code>S1</code>–<code>S4</code></td>
+</tr>
+<tr>
+<td>Checkpoint B</td>
+<td>end of Week 7</td>
+<td style="text-align: center;">75 minutes</td>
+<td style="text-align: center;">40</td>
+<td>selected outcomes <code>M8</code>–<code>M11</code> and
+<code>S5</code>–<code>S7</code></td>
+</tr>
+<tr>
+<td>Maths mock</td>
+<td>end of Week 8</td>
+<td style="text-align: center;">90 minutes</td>
+<td style="text-align: center;">55</td>
+<td>every Maths outcome <code>M1</code>–<code>M11</code></td>
+</tr>
+<tr>
+<td>Statistics mock</td>
+<td>end of Week 8</td>
+<td style="text-align: center;">90 minutes</td>
+<td style="text-align: center;">45</td>
+<td>every Statistics outcome <code>S1</code>–<code>S9</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>The checkpoints are formative and self-marked. Use their marking
+schemes and diagnostic profiles to identify outcome-level revision
+priorities. The mock papers are timed practice; their questions are
+different from the actual examination papers.</p>
+<p>During the controlled first-cohort pilot, all checkpoint and mock
+scores are diagnostic only: they are not used for admission,
+progression, ranking, funding or grading. Their marking standards are
+provisional, and model review does not substitute for qualified human
+marker standardisation before any consequential reuse.</p>
+<h3 id="mock-structure">Mock structure</h3>
+<p>The mock is split into a 90-minute, 55-mark Maths paper and a
+separate 90-minute, 45-mark Statistics paper. Each begins with a short
+diagnostic section.</p>
+<p>The Maths paper then has longer sections on:</p>
+<ul>
+<li>linear algebra (<code>M4</code>–<code>M5</code>);</li>
+<li>multivariable calculus (<code>M6</code>–<code>M7</code>);</li>
+<li>curvature and optimisation (<code>M8</code>–<code>M11</code>).</li>
+</ul>
+<p>The Statistics paper then has longer sections on:</p>
+<ul>
+<li>probability, random variables and conditional distributions
+(<code>S1</code>–<code>S5</code>);</li>
+<li>sampling and limit results (<code>S6</code>); and</li>
+<li>estimation and inference (<code>S7</code>–<code>S9</code>).</li>
+</ul>
+<p>Every required outcome has at least one explicit scorable mapping on
+its subject paper. Each paper score should therefore be read together
+with its diagnostic profile, not on its own.</p>
+<h3 id="examination-paper-structure">Examination paper structure</h3>
+<p>The examination follows the same split: one 90-minute Maths paper and
+one separate 90-minute Statistics paper. The examination questions are
+not the mock questions.</p>
+<h3 id="practice-conditions">Practice conditions</h3>
+<p>For both checkpoints and each mock paper:</p>
+<ul>
+<li>complete the paper without notes or solutions;</li>
+<li>do not use hints during the timed attempt;</li>
+<li>a basic non-programmable scientific calculator is permitted;</li>
+<li>programming, computer algebra and statistical software are not
+permitted or required;</li>
+<li>use the supplied formula sheet and any supplied probability table or
+critical values; and</li>
+<li>show the method, conditions and interpretation needed for the
+allocated marks.</li>
+</ul>
+<p>All questions are intended to be hand-solvable. Calculator use never
+replaces the derivation or reasoning shown on the page.</p>
+<h3 id="interpreting-feedback">Interpreting feedback</h3>
+<p>Use the mathematics and probability/statistics profiles separately.
+For each missed part:</p>
+<ol type="1">
+<li>record its outcome ID;</li>
+<li>identify the first error using the categories in the <a href="syllabus.html#source-syllabus-study-protocol">study
+protocol</a>;</li>
+<li>return to the corresponding week in the <a href="syllabus.html#source-syllabus-eight-week-schedule">eight-week
+schedule</a>; and</li>
+<li>reattempt the item after two or three days.</li>
+</ol>
+<p>Provisional readiness descriptions in course feedback are diagnostic
+bands, not entry-exam pass marks. The programme, not this pre-course,
+determines how the two entry exam papers are used.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

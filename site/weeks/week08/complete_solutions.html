@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 8 complete solutions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week08/complete_solutions.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-8-complete-solutions">Week 8 complete solutions</h1>
+<h2 id="source-weeks-week08-solutions">Problem-sheet solutions</h2>
+<p>Each solution states the intended method, relevant conditions,
+complete reasoning, mark allocation and specific common mistakes. Award
+method credit after a purely arithmetic slip when the inferential setup
+remains valid.</p>
+<h3 id="question-1-inferential-objects-and-confidence">Question 1 —
+inferential objects and confidence</h3>
+<h4 id="w08-q01-pa-s7"><code>W08-Q01-PA</code> (<code>S7</code>)</h4>
+<p><strong>Method and conditions.</strong> Separate the fixed population
+target from the sample function and then from its realised numerical
+value.</p>
+<p>The population parameter is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>,
+the proportion in the population. The estimand is also
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>:
+it is the population quantity the analysis targets. The estimator is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mfrac><mi>X</mi><mn>120</mn></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\widehat p=\frac{X}{120},
+</annotation></semantics></math></p>
+<p>which is a random variable because the count
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+varies across possible random samples. After observing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>84</mn></mrow><annotation encoding="application/x-tex">x=84</annotation></semantics></math>,
+the estimate is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>84</mn><mn>120</mn></mfrac><mo>=</mo><mn>0.7</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat p(\mathbf{x})=\frac{84}{120}=0.7.
+</annotation></semantics></math></p>
+<p>This realised number is fixed for the observed data.</p>
+<p><strong>Final result.</strong> Parameter and estimand:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>;
+estimator:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>X</mi><mi>/</mi><mn>120</mn></mrow><annotation encoding="application/x-tex">\widehat p=X/120</annotation></semantics></math>;
+estimate:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.7</mn></mrow><annotation encoding="application/x-tex">\widehat p(\mathbf{x})=0.7</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Parameter, 1; estimand, 1; estimator, 1;
+numerical estimate, 1; random-before/fixed-after explanation, 1.</p>
+<p><strong>Common mistakes.</strong> Calling
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.7</mn><annotation encoding="application/x-tex">0.7</annotation></semantics></math>
+the estimator; treating the fixed population parameter as random under
+the frequentist model; failing to distinguish the random count
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+from the observed count
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>.</p>
+<h4 id="w08-q01-pb-s8"><code>W08-Q01-PB</code> (<code>S8</code>)</h4>
+<p><strong>Method and conditions.</strong> Interpret confidence as
+long-run coverage of a random interval procedure under repeated samples
+satisfying the method’s conditions.</p>
+<p>Before sampling, the endpoints
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐗</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">L(\mathbf{X})</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐗</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">U(\mathbf{X})</annotation></semantics></math>
+are random because they are functions of the random sample. A 95% method
+is calibrated so that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>p</mi></msub><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐗</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>p</mi><mo>≤</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐗</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.95</mn></mrow><annotation encoding="application/x-tex">
+\mathbb{P}_p\!\left(
+L(\mathbf{X})\le p\le U(\mathbf{X})
+\right)=0.95
+</annotation></semantics></math></p>
+<p>exactly or approximately, according to the method and its
+conditions.</p>
+<p>After the data are observed, the endpoints are realised numbers and
+the population parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+is fixed. In the frequentist interpretation, the realised interval
+either covers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+or it does not. The construction does not assign a 95% probability to
+that fixed proposition.</p>
+<p><strong>Final result and interpretation.</strong> Statement 1 is not
+the frequentist interpretation. Statement 2 is valid: approximately 95%
+of intervals from repeated use of the valid method cover the fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> First statement assessed correctly, 1;
+repeated-sampling coverage stated, 2; random endpoints identified, 1;
+fixed realised interval/parameter distinction, 1.</p>
+<p><strong>Common mistakes.</strong> Assigning posterior probability to
+a fixed parameter; saying 95% of population observations lie inside the
+interval; omitting the conditions under which the method has its stated
+coverage.</p>
+<h3 id="question-2-a-normal-interval-with-known-variance">Question 2 — a
+normal interval with known variance</h3>
+<h4 id="w08-q02-pa-s8"><code>W08-Q02-PA</code> (<code>S8</code>)</h4>
+<p><strong>Method and conditions.</strong> The sample is iid from a
+normal population with known variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>36</mn><annotation encoding="application/x-tex">36</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi></mrow><mrow><mn>6</mn><mi>/</mi><msqrt><mn>36</mn></msqrt></mrow></mfrac><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\frac{\bar X-\mu}{6/\sqrt{36}}\sim\mathcal{N}(0,1)
+</annotation></semantics></math></p>
+<p>exactly.</p>
+<p>The standard error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>σ</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>=</mo><mfrac><mn>6</mn><mn>6</mn></mfrac><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\sigma}{\sqrt n}=\frac{6}{6}=1.
+</annotation></semantics></math></p>
+<p>Thus the realised 95% confidence interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>−</mo><mn>1.96</mn><mfrac><mi>σ</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>,</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>+</mo><mn>1.96</mn><mfrac><mi>σ</mi><msqrt><mi>n</mi></msqrt></mfrac><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>74</mn><mo>−</mo><mn>1.96</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>74</mn><mo>+</mo><mn>1.96</mn><mo stretchy="false" form="postfix">]</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>72.04</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>75.96</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\left[
+\bar x-1.96\frac{\sigma}{\sqrt n},
+\bar x+1.96\frac{\sigma}{\sqrt n}
+\right]
+&amp;=[74-1.96,\ 74+1.96]\\
+&amp;=[72.04,\ 75.96].
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Final result and interpretation.</strong> The 95% interval is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>72.04</mn><mo>,</mo><mn>75.96</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[72.04,75.96]</annotation></semantics></math>.
+Over repeated iid samples from the stated normal model, 95% of intervals
+constructed by this method cover
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.
+Normality and known variance make the pivot exact rather than a
+large-sample approximation.</p>
+<p><strong>Marks (6).</strong> Correct conditions and pivot, 1; standard
+error, 1; interval formula, 1; endpoints, 2; valid interpretation,
+1.</p>
+<p><strong>Common mistakes.</strong> Treating 36 as the standard
+deviation; dividing by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+rather than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>n</mi></msqrt><annotation encoding="application/x-tex">\sqrt n</annotation></semantics></math>;
+using Student’s t despite the known variance; assigning 95% probability
+to the fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+after observing the interval.</p>
+<h3 id="question-3-a-small-sample-students-t-interval">Question 3 — a
+small-sample Student’s t interval</h3>
+<h4 id="w08-q03-pa-s8"><code>W08-Q03-PA</code> (<code>S8</code>)</h4>
+<p><strong>Method and conditions.</strong> Compute the observed sample
+statistics, then use the one-sample t pivot. Independence and normality
+are material because the sample is small and the population variance is
+unknown.</p>
+<p>The sample mean is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mfrac><mrow><mn>8</mn><mo>+</mo><mn>10</mn><mo>+</mo><mn>9</mn><mo>+</mo><mn>13</mn><mo>+</mo><mn>10</mn></mrow><mn>5</mn></mfrac><mo>=</mo><mn>10</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar x=\frac{8+10+9+13+10}{5}=10.
+</annotation></semantics></math></p>
+<p>The deviations from 10 are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn><mo>,</mo><mn>0</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">-2,0,-1,3,0</annotation></semantics></math>,
+whose squared values sum to 14. Therefore,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mfrac><mn>14</mn><mrow><mn>5</mn><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mn>3.5</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+s^2=\frac{14}{5-1}=3.5.
+</annotation></semantics></math></p>
+<p>The estimated standard error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>s</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>=</mo><msqrt><mfrac><msup><mi>s</mi><mn>2</mn></msup><mi>n</mi></mfrac></msqrt><mo>=</mo><msqrt><mfrac><mn>3.5</mn><mn>5</mn></mfrac></msqrt><mo>=</mo><msqrt><mn>0.7</mn></msqrt><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{s}{\sqrt n}
+=\sqrt{\frac{s^2}{n}}
+=\sqrt{\frac{3.5}{5}}
+=\sqrt{0.7}.
+</annotation></semantics></math></p>
+<p>Under the stated model,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi></mrow><mrow><mi>S</mi><mi>/</mi><msqrt><mn>5</mn></msqrt></mrow></mfrac><mo>∼</mo><msub><mi>t</mi><mn>4</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T=\frac{\bar X-\mu}{S/\sqrt5}\sim t_4.
+</annotation></semantics></math></p>
+<p>The realised interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mrow><mo stretchy="true" form="prefix">[</mo><mn>10</mn><mo>−</mo><mn>2.776</mn><msqrt><mn>0.7</mn></msqrt><mo>,</mo><mn>10</mn><mo>+</mo><mn>2.776</mn><msqrt><mn>0.7</mn></msqrt><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≈</mo><mo stretchy="false" form="prefix">[</mo><mn>10</mn><mo>−</mo><mn>2.323</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>10</mn><mo>+</mo><mn>2.323</mn><mo stretchy="false" form="postfix">]</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>7.677</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>12.323</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\left[
+10-2.776\sqrt{0.7},
+10+2.776\sqrt{0.7}
+\right]
+&amp;\approx[10-2.323,\ 10+2.323]\\
+&amp;=[7.677,\ 12.323].
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The 95% Student’s t interval is
+approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>7.677</mn><mo>,</mo><mn>12.323</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[7.677,12.323]</annotation></semantics></math>,
+using 4 degrees of freedom.</p>
+<p><strong>Marks (7).</strong> Mean, 1; squared-deviation sum and sample
+variance, 2; reference distribution and degrees of freedom, 1; standard
+error, 1; interval endpoints, 1; conditions, 1.</p>
+<p><strong>Common mistakes.</strong> Dividing the squared deviations by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>;
+using a standard-normal critical value; using 5 rather than 4 degrees of
+freedom; omitting the normal-population condition for the exact
+small-sample method.</p>
+<h3 id="question-4-a-proportion-interval-and-planned-precision">Question
+4 — a proportion interval and planned precision</h3>
+<h4 id="w08-q04-pa-s8"><code>W08-Q04-PA</code> (<code>S8</code>)</h4>
+<p><strong>Method and conditions.</strong> Use the large-sample normal
+interval for a proportion after checking the observed success and
+failure counts.</p>
+<p>The estimate is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mfrac><mn>120</mn><mn>200</mn></mfrac><mo>=</mo><mn>0.6</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat p=\frac{120}{200}=0.6.
+</annotation></semantics></math></p>
+<p>The counts are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mo stretchy="false" form="prefix">(</mo><mn>0.6</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>120</mn></mrow><annotation encoding="application/x-tex">200(0.6)=120</annotation></semantics></math>
+successes and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mo stretchy="false" form="prefix">(</mo><mn>0.4</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">200(0.4)=80</annotation></semantics></math>
+failures, both large enough for the stated normal approximation. The
+estimated standard error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mfrac><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mfrac></msqrt><mo>=</mo><msqrt><mfrac><mrow><mn>0.6</mn><mo stretchy="false" form="prefix">(</mo><mn>0.4</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>200</mn></mfrac></msqrt><mo>≈</mo><mn>0.0346</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sqrt{\frac{\widehat p(1-\widehat p)}{n}}
+=\sqrt{\frac{0.6(0.4)}{200}}
+\approx0.0346.
+</annotation></semantics></math></p>
+<p>The 90% interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.6</mn><mo>−</mo><mn>1.645</mn><mo stretchy="false" form="prefix">(</mo><mn>0.0346</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mn>0.6</mn><mo>+</mo><mn>1.645</mn><mo stretchy="false" form="prefix">(</mo><mn>0.0346</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≈</mo><mo stretchy="false" form="prefix">[</mo><mn>0.543</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>0.657</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\left[
+0.6-1.645(0.0346),
+0.6+1.645(0.0346)
+\right]
+&amp;\approx[0.543,\ 0.657].
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Final result and interpretation.</strong> The approximate 90%
+interval is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0.543</mn><mo>,</mo><mn>0.657</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0.543,0.657]</annotation></semantics></math>.
+Under independent random sampling and repeated use of this large-sample
+method, approximately 90% of the intervals cover the population
+proportion
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.</p>
+<p><strong>Marks (6).</strong> Estimate, 1; count check and independence
+condition, 1; standard error, 1; interval setup, 1; endpoints, 1; valid
+interpretation, 1.</p>
+<p><strong>Common mistakes.</strong> Using 120 as the sample size;
+failing to check both successes and failures; using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">p=0.5</annotation></semantics></math>
+in the observed interval; claiming that 90% of applicants have
+probabilities inside the interval.</p>
+<h4 id="w08-q04-pb-s8"><code>W08-Q04-PB</code> (<code>S8</code>)</h4>
+<p><strong>Method and conditions.</strong> Use the maximum possible
+Bernoulli variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">p(1-p)=1/4</annotation></semantics></math>
+to guarantee the margin bound without a prior value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.</p>
+<p>The conservative margin is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.96</mn><msqrt><mfrac><mrow><mn>1</mn><mi>/</mi><mn>4</mn></mrow><mi>n</mi></mfrac></msqrt><mi>.</mi></mrow><annotation encoding="application/x-tex">
+1.96\sqrt{\frac{1/4}{n}}.
+</annotation></semantics></math></p>
+<p>Requiring it to be no greater than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.04</mn><annotation encoding="application/x-tex">0.04</annotation></semantics></math>
+gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mn>1.96</mn><msqrt><mfrac><mn>1</mn><mrow><mn>4</mn><mi>n</mi></mrow></mfrac></msqrt></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≤</mo><mn>0.04</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>n</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≥</mo><mfrac><mrow><msup><mn>1.96</mn><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><msup><mn>0.04</mn><mn>2</mn></msup></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>600.25</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+1.96\sqrt{\frac{1}{4n}}&amp;\le0.04,\\
+n&amp;\ge\frac{1.96^2(1/4)}{0.04^2}\\
+&amp;=600.25.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+must be an integer and the margin must not exceed the target, round
+upwards.</p>
+<p><strong>Final result and interpretation.</strong> The smallest
+planned sample size is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>601</mn></mrow><annotation encoding="application/x-tex">n=601</annotation></semantics></math>.
+The choice
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mn>1</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">p(1-p)\le1/4</annotation></semantics></math>
+is conservative for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">p\in[0,1]</annotation></semantics></math>,
+so it does not require a pilot estimate of the unknown proportion.</p>
+<p><strong>Marks (5).</strong> Conservative variance bound, 1; margin
+inequality, 1; algebraic lower bound, 1; upward rounding, 1; explanation
+of conservatism, 1.</p>
+<p><strong>Common mistakes.</strong> Using 0.5 rather than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">0.5(1-0.5)</annotation></semantics></math>
+as the variance factor; rounding 600.25 down; treating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.04</mn><annotation encoding="application/x-tex">0.04</annotation></semantics></math>
+as the full interval width; claiming that the calculation guarantees
+coverage without random-sampling and approximation conditions.</p>
+<h3 id="question-5-a-one-sided-z-test">Question 5 — a one-sided z
+test</h3>
+<h4 id="w08-q05-pa-s9"><code>W08-Q05-PA</code> (<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> The concern determines a
+lower-tailed test. Under the stated iid normal model with known
+variance,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>50</mn><mspace width="2.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="2.0em"></mspace><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo><mi>μ</mi><mo>&lt;</mo><mn>50</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+H_0:\mu=50
+\qquad\text{and}\qquad
+H_1:\mu&lt;50.
+</annotation></semantics></math></p>
+<p>The standard error under the model is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>σ</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>=</mo><mfrac><mn>4</mn><mn>4</mn></mfrac><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\sigma}{\sqrt n}=\frac{4}{4}=1.
+</annotation></semantics></math></p>
+<p>The observed test statistic is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>48.5</mn><mo>−</mo><mn>50</mn></mrow><mn>1</mn></mfrac><mo>=</mo><mi>−</mi><mn>1.5</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+z_{\mathrm{obs}}
+=\frac{48.5-50}{1}
+=-1.5.
+</annotation></semantics></math></p>
+<p>For the lower-tailed alternative, the p-value is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><msub><mi>H</mi><mn>0</mn></msub></msub><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>≤</mo><mi>−</mi><mn>1.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.0668</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}_{H_0}(Z\le-1.5)=0.0668.
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.0668</mn><mo>&gt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">0.0668&gt;0.05</annotation></semantics></math>,
+do not reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>.
+Equivalently,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1.5</mn><mo>&gt;</mo><mi>−</mi><mn>1.645</mn></mrow><annotation encoding="application/x-tex">-1.5&gt;-1.645</annotation></semantics></math>,
+so the statistic is not in the lower-tail rejection region.</p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi></mrow></msub><mo>=</mo><mi>−</mi><mn>1.5</mn></mrow><annotation encoding="application/x-tex">z_{\mathrm{obs}}=-1.5</annotation></semantics></math>,
+the p-value is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0668</mn><annotation encoding="application/x-tex">0.0668</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is not rejected at the 5% level.</p>
+<p><strong>Marks (6).</strong> Hypotheses and lower-tail direction, 1;
+standard error, 1; statistic, 1; p-value setup and value, 2; decision,
+1.</p>
+<p><strong>Common mistakes.</strong> Using a two-sided alternative
+despite the stated concern; taking the upper tail; treating 16 as the
+standard deviation; rejecting because the observed mean is numerically
+below 50.</p>
+<h4 id="w08-q05-pb-s9"><code>W08-Q05-PB</code> (<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> Interpret the p-value using
+the null model and the tail chosen before observing the data.</p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">H_0:\mu=50</annotation></semantics></math>
+were true, the p-value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0668</mn><annotation encoding="application/x-tex">0.0668</annotation></semantics></math>
+is the probability of obtaining a sample-mean z statistic no greater
+than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1.5</mn></mrow><annotation encoding="application/x-tex">-1.5</annotation></semantics></math>,
+which is at least as incompatible with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+in the specified lower-tail direction as the observed result.</p>
+<p>Non-rejection means that the result does not cross the chosen 5%
+evidence threshold. It does not prove equality
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">\mu=50</annotation></semantics></math>,
+and the frequentist test does not calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>H</mi><mn>0</mn></msub><mo>∣</mo><mtext mathvariant="normal">data</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(H_0\mid\text{data})</annotation></semantics></math>.</p>
+<p><strong>Final result and interpretation.</strong> The data provide
+insufficient evidence at level 0.05 for the claim
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>&lt;</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">\mu&lt;50</annotation></semantics></math>;
+they do not establish that the null is true.</p>
+<p><strong>Marks (4).</strong> Null-model probability, 1;
+at-least-as-incompatible lower-tail event, 1; non-rejection interpreted
+correctly, 1; probability-of-null error corrected, 1.</p>
+<p><strong>Common mistakes.</strong> Calling 0.0668 the probability that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true; interpreting non-rejection as proof of equality; forgetting
+that the p-value uses the pre-specified lower tail.</p>
+<h3 id="question-6-a-two-sided-t-test-and-its-interval">Question 6 — a
+two-sided t test and its interval</h3>
+<h4 id="w08-q06-pa-s9"><code>W08-Q06-PA</code> (<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> The observations are
+independent and normal, and the population variance is unknown. Under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mn>50</mn></mrow><mrow><mi>S</mi><mi>/</mi><msqrt><mn>10</mn></msqrt></mrow></mfrac><mo>∼</mo><msub><mi>t</mi><mn>9</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T=\frac{\bar X-50}{S/\sqrt{10}}\sim t_9.
+</annotation></semantics></math></p>
+<p>The observed statistic is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>52</mn><mo>−</mo><mn>50</mn></mrow><mrow><mn>3</mn><mi>/</mi><msqrt><mn>10</mn></msqrt></mrow></mfrac><mo>≈</mo><mn>2.108</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+t_{\mathrm{obs}}
+=\frac{52-50}{3/\sqrt{10}}
+\approx2.108.
+</annotation></semantics></math></p>
+<p>Because the alternative is two-sided, the p-value counts both
+tails:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mtext mathvariant="normal">-value</mtext><mo>=</mo><mn>2</mn><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>T</mi><mn>9</mn></msub><mo>≥</mo><mn>2.108</mn><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>0.032</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.064</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p\text{-value}
+=2\mathbb{P}(T_9\ge2.108)
+\approx2(0.032)
+=0.064.
+</annotation></semantics></math></p>
+<p>Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.064</mn><mo>&gt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">0.064&gt;0.05</annotation></semantics></math>,
+do not reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>.
+The critical-value check agrees because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>2.108</mn><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>2.262</mn></mrow><annotation encoding="application/x-tex">|2.108|&lt;2.262</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi></mrow></msub><mo>≈</mo><mn>2.108</mn></mrow><annotation encoding="application/x-tex">t_{\mathrm{obs}}\approx2.108</annotation></semantics></math>,
+with 9 degrees of freedom; the two-sided p-value is approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.064</mn><annotation encoding="application/x-tex">0.064</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is not rejected at the 5% level.</p>
+<p><strong>Marks (7).</strong> Conditions and t reference distribution,
+1; degrees of freedom, 1; statistic setup and value, 2; two-sided
+p-value, 2; decision, 1.</p>
+<p><strong>Common mistakes.</strong> Using a z statistic with unknown
+variance and small sample; using 10 degrees of freedom; failing to
+double the one-tail probability; rejecting because the statistic is
+positive.</p>
+<h4 id="w08-q06-pb-s8-s9"><code>W08-Q06-PB</code> (<code>S8</code>,
+<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> Use the same t pivot,
+estimated standard error, degrees of freedom and two-sided tail
+allocation as in Part A.</p>
+<p>The estimated standard error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>s</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>=</mo><mfrac><mn>3</mn><msqrt><mn>10</mn></msqrt></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{s}{\sqrt n}=\frac{3}{\sqrt{10}}.
+</annotation></semantics></math></p>
+<p>The realised 95% interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mrow><mo stretchy="true" form="prefix">[</mo><mn>52</mn><mo>−</mo><mn>2.262</mn><mfrac><mn>3</mn><msqrt><mn>10</mn></msqrt></mfrac><mo>,</mo><mn>52</mn><mo>+</mo><mn>2.262</mn><mfrac><mn>3</mn><msqrt><mn>10</mn></msqrt></mfrac><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≈</mo><mo stretchy="false" form="prefix">[</mo><mn>52</mn><mo>−</mo><mn>2.146</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>52</mn><mo>+</mo><mn>2.146</mn><mo stretchy="false" form="postfix">]</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>49.854</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>54.146</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\left[
+52-2.262\frac{3}{\sqrt{10}},
+52+2.262\frac{3}{\sqrt{10}}
+\right]
+&amp;\approx[52-2.146,\ 52+2.146]\\
+&amp;=[49.854,\ 54.146].
+\end{aligned}
+</annotation></semantics></math></p>
+<p>The null value 50 lies inside the interval, so the matched two-sided
+test does not reject it at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\alpha=0.05</annotation></semantics></math>.
+This duality requires the same two-sided level, t pivot, standard-error
+estimate, degrees of freedom and assumptions for both procedures.</p>
+<p><strong>Final result and interpretation.</strong> The 95% interval is
+approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>49.854</mn><mo>,</mo><mn>54.146</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[49.854,54.146]</annotation></semantics></math>,
+which contains 50 and therefore agrees with the non-rejection
+decision.</p>
+<p><strong>Marks (5).</strong> Interval formula, 1; endpoints, 2;
+containment and matched decision, 1; conditions for duality, 1.</p>
+<p><strong>Common mistakes.</strong> Using a normal critical value;
+comparing the sample mean rather than the null value with the interval;
+claiming duality for unmatched one-sided and two-sided procedures;
+interpreting containment as proof that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">\mu=50</annotation></semantics></math>.</p>
+<h3 id="question-7-a-large-sample-proportion-test">Question 7 — a
+large-sample proportion test</h3>
+<h4 id="w08-q07-pa-s9"><code>W08-Q07-PA</code> (<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> Under the null,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Binomial</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>100</mn><mo>,</mo><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Binomial}(100,0.5)</annotation></semantics></math>.
+The null expected success and failure counts are both 50, so the normal
+approximation is appropriate under the stated independent Bernoulli
+model.</p>
+<p>The observed proportion is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mn>58</mn><mi>/</mi><mn>100</mn><mo>=</mo><mn>0.58</mn></mrow><annotation encoding="application/x-tex">\widehat p=58/100=0.58</annotation></semantics></math>.
+The null standard error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mfrac><mrow><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mfrac></msqrt><mo>=</mo><msqrt><mfrac><mrow><mn>0.5</mn><mo stretchy="false" form="prefix">(</mo><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>100</mn></mfrac></msqrt><mo>=</mo><mn>0.05</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sqrt{\frac{p_0(1-p_0)}{n}}
+=\sqrt{\frac{0.5(0.5)}{100}}
+=0.05.
+</annotation></semantics></math></p>
+<p>Thus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>0.58</mn><mo>−</mo><mn>0.5</mn></mrow><mn>0.05</mn></mfrac><mo>=</mo><mn>1.6</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+z_{\mathrm{obs}}
+=\frac{0.58-0.5}{0.05}
+=1.6.
+</annotation></semantics></math></p>
+<p>The two-sided p-value is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>≥</mo><mn>1.6</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.9452</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.1096</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+2\mathbb{P}(Z\ge1.6)
+=2(1-0.9452)
+=0.1096.
+</annotation></semantics></math></p>
+<p>Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1096</mn><mo>&gt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">0.1096&gt;0.05</annotation></semantics></math>,
+do not reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>.
+Equivalently,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>1.6</mn><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1.96</mn></mrow><annotation encoding="application/x-tex">|1.6|&lt;1.96</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong> The observed z statistic is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.6</mn><annotation encoding="application/x-tex">1.6</annotation></semantics></math>,
+the two-sided p-value is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.1096</mn><annotation encoding="application/x-tex">0.1096</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>p</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">H_0:p=0.5</annotation></semantics></math>
+is not rejected at the 5% level.</p>
+<p><strong>Marks (6).</strong> Null count check and conditions, 1; null
+standard error, 1; statistic, 1; two-sided p-value, 2; decision, 1.</p>
+<p><strong>Common mistakes.</strong> Using the observed proportion in
+the null standard error; checking observed rather than null success and
+failure counts; failing to double the upper-tail probability;
+interpreting non-rejection as proof that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">p=0.5</annotation></semantics></math>.</p>
+<h3 id="question-8-type-i-error-type-ii-error-and-power">Question 8 —
+Type I error, Type II error and power</h3>
+<h4 id="w08-q08-pa-s9"><code>W08-Q08-PA</code> (<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> The sample mean has the exact
+distribution</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mfrac><mn>16</mn><mn>16</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X\sim\mathcal{N}\left(\mu,\frac{16}{16}\right)
+=\mathcal{N}(\mu,1).
+</annotation></semantics></math></p>
+<p>The Type I error probability is the rejection probability at the null
+value:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>α</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>ℙ</mi><mrow><mi>μ</mi><mo>=</mo><mn>50</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&gt;</mo><mn>52</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>&gt;</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>1</mn><mo>−</mo><mn>0.9772</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0.0228</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\alpha
+&amp;=\mathbb{P}_{\mu=50}(\bar X&gt;52)\\
+&amp;=\mathbb{P}(Z&gt;2)\\
+&amp;=1-0.9772\\
+&amp;=0.0228.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>At the specified alternative
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>53</mn></mrow><annotation encoding="application/x-tex">\mu=53</annotation></semantics></math>,
+a Type II error is non-rejection:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>53</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>ℙ</mi><mrow><mi>μ</mi><mo>=</mo><mn>53</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>≤</mo><mn>52</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>≤</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0.1587</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\beta(53)
+&amp;=\mathbb{P}_{\mu=53}(\bar X\le52)\\
+&amp;=\mathbb{P}(Z\le-1)\\
+&amp;=0.1587.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Therefore the power at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>53</mn></mrow><annotation encoding="application/x-tex">\mu=53</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>53</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.8413</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+1-\beta(53)=0.8413.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.0228</mn></mrow><annotation encoding="application/x-tex">\alpha=0.0228</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>53</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.1587</mn></mrow><annotation encoding="application/x-tex">\beta(53)=0.1587</annotation></semantics></math>,
+and the power at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>53</mn></mrow><annotation encoding="application/x-tex">\mu=53</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.8413</mn><annotation encoding="application/x-tex">0.8413</annotation></semantics></math>.</p>
+<p><strong>Marks (6).</strong> Sampling standard deviation, 1; Type I
+event and probability, 1; Type II event and probability, 2; power, 1;
+alternative value identified, 1.</p>
+<p><strong>Common mistakes.</strong> Assuming the rule automatically has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\alpha=0.05</annotation></semantics></math>;
+calculating both errors under the null; defining Type II error as
+rejection at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>53</mn></mrow><annotation encoding="application/x-tex">\mu=53</annotation></semantics></math>;
+reporting power without naming the alternative value.</p>
+<h4 id="w08-q08-pb-s9"><code>W08-Q08-PB</code> (<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> First calibrate the boundary
+to have rejection probability 0.05 under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">\mu=50</annotation></semantics></math>.
+Then impose the power requirement at the specified alternative.</p>
+<p>For a sample of size
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mfrac><mn>16</mn><mi>n</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X\sim\mathcal{N}\left(\mu,\frac{16}{n}\right).
+</annotation></semantics></math></p>
+<p>The level condition is satisfied by</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mi>n</mi></msub><mo>=</mo><mn>50</mn><mo>+</mo><msub><mi>z</mi><mn>0.95</mn></msub><mfrac><mn>4</mn><msqrt><mi>n</mi></msqrt></mfrac><mo>=</mo><mn>50</mn><mo>+</mo><mn>1.645</mn><mfrac><mn>4</mn><msqrt><mi>n</mi></msqrt></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+c_n=50+z_{0.95}\frac{4}{\sqrt n}
+=50+1.645\frac{4}{\sqrt n}.
+</annotation></semantics></math></p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>52</mn></mrow><annotation encoding="application/x-tex">\mu=52</annotation></semantics></math>,
+power at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.90</mn><annotation encoding="application/x-tex">0.90</annotation></semantics></math>
+is equivalent to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>52</mn><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mn>0.10</mn></mrow><annotation encoding="application/x-tex">\beta(52)\le0.10</annotation></semantics></math>.
+Hence,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>ℙ</mi><mrow><mi>μ</mi><mo>=</mo><mn>52</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>≤</mo><msub><mi>c</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≤</mo><mn>0.10</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mfrac><mrow><msub><mi>c</mi><mi>n</mi></msub><mo>−</mo><mn>52</mn></mrow><mrow><mn>4</mn><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow></mfrac></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≤</mo><msub><mi>z</mi><mn>0.10</mn></msub><mo>=</mo><mi>−</mi><mn>1.282</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbb{P}_{\mu=52}(\bar X\le c_n)&amp;\le0.10,\\
+\frac{c_n-52}{4/\sqrt n}&amp;\le z_{0.10}=-1.282.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Substituting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mi>n</mi></msub><annotation encoding="application/x-tex">c_n</annotation></semantics></math>
+gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mfrac><mrow><mn>50</mn><mo>−</mo><mn>52</mn></mrow><mrow><mn>4</mn><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow></mfrac><mo>+</mo><mn>1.645</mn></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≤</mo><mi>−</mi><mn>1.282</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>−</mi><mfrac><msqrt><mi>n</mi></msqrt><mn>2</mn></mfrac></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≤</mo><mi>−</mi><mn>2.927</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msqrt><mi>n</mi></msqrt></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≥</mo><mn>5.854</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>n</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≥</mo><mn>34.269</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\frac{50-52}{4/\sqrt n}+1.645&amp;\le-1.282,\\
+-\frac{\sqrt n}{2}&amp;\le-2.927,\\
+\sqrt n&amp;\ge5.854,\\
+n&amp;\ge34.269.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Thus the smallest integer candidate is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>35</mn></mrow><annotation encoding="application/x-tex">n=35</annotation></semantics></math>.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>34</mn></mrow><annotation encoding="application/x-tex">n=34</annotation></semantics></math>,
+the standardised boundary under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>52</mn></mrow><annotation encoding="application/x-tex">\mu=52</annotation></semantics></math>
+is approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1.270</mn></mrow><annotation encoding="application/x-tex">-1.270</annotation></semantics></math>,
+which is greater than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1.282</mn></mrow><annotation encoding="application/x-tex">-1.282</annotation></semantics></math>.
+Its Type II error therefore exceeds 0.10, so its power is below 0.90.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>35</mn></mrow><annotation encoding="application/x-tex">n=35</annotation></semantics></math>,
+the standardised boundary is approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1.313</mn><mo>&lt;</mo><mi>−</mi><mn>1.282</mn></mrow><annotation encoding="application/x-tex">-1.313&lt;-1.282</annotation></semantics></math>,
+so the power exceeds 0.90.</p>
+<p><strong>Final result.</strong> The smallest sample size is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>35</mn></mrow><annotation encoding="application/x-tex">n=35</annotation></semantics></math>,
+with rejection boundary</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mn>35</mn></msub><mo>=</mo><mn>50</mn><mo>+</mo><mn>1.645</mn><mfrac><mn>4</mn><msqrt><mn>35</mn></msqrt></mfrac><mo>≈</mo><mn>51.112</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+c_{35}=50+1.645\frac{4}{\sqrt{35}}\approx51.112.
+</annotation></semantics></math></p>
+<p><strong>Marks (10).</strong> Sampling distribution, 1;
+level-calibrated boundary, 2; Type II or power inequality, 2;
+standardisation at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>52</mn></mrow><annotation encoding="application/x-tex">\mu=52</annotation></semantics></math>,
+1; sample-size algebra, 2; upward rounding and adjacent-integer
+verification, 2.</p>
+<p><strong>Common mistakes.</strong> Using a two-sided critical value
+for the upper-tailed test; calibrating the boundary under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>52</mn></mrow><annotation encoding="application/x-tex">\mu=52</annotation></semantics></math>
+rather than the null; setting the Type II error equal to 0.90; rounding
+the sample-size lower bound down.</p>
+<h3 id="question-9-testinterval-duality-and-non-rejection">Question 9 —
+test–interval duality and non-rejection</h3>
+<h4 id="w08-q09-pa-s8-s9"><code>W08-Q09-PA</code> (<code>S8</code>,
+<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> For a two-sided level-0.05 z
+test and the 95% z interval obtained from the same pivot and standard
+error, reject a candidate null value exactly when it lies outside the
+realised interval.</p>
+<p>The value 100 lies below the interval
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>102.4</mn><mo>,</mo><mn>107.6</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[102.4,107.6]</annotation></semantics></math>.
+Therefore reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">H_0:\mu=100</annotation></semantics></math>
+against the two-sided alternative at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\alpha=0.05</annotation></semantics></math>.</p>
+<p>The value 105 lies inside the interval. Therefore do not reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>105</mn></mrow><annotation encoding="application/x-tex">H_0:\mu=105</annotation></semantics></math>
+against the two-sided alternative at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\alpha=0.05</annotation></semantics></math>.</p>
+<p>The duality holds because the interval and tests use the same normal
+model, standard error, two-sided tail allocation and
+significance/confidence level. Non-rejection of 105 means only that 105
+is not excluded by this procedure at the 5% level. It does not assign
+95% probability to the point hypothesis
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>105</mn></mrow><annotation encoding="application/x-tex">\mu=105</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong> Reject the null value 100; do not
+reject the null value 105. Neither decision assigns a probability to the
+truth of a fixed null hypothesis.</p>
+<p><strong>Marks (6).</strong> Decision for 100, 1; decision for 105, 1;
+interval-containment duality, 2; matching-procedure condition, 1;
+probability claim corrected, 1.</p>
+<p><strong>Common mistakes.</strong> Reversing the containment rule;
+treating non-rejection as acceptance or proof; claiming duality when the
+test and interval use different tails or standard errors; assigning
+posterior probability to 105.</p>
+<h3 id="question-10-earlier-statistics-retrieval">Question 10 — earlier
+Statistics retrieval</h3>
+<h4 id="w08-q10-pa-s6"><code>W08-Q10-PA</code> (<code>S6</code>)</h4>
+<p><strong>Method and conditions.</strong> Use iid sampling to obtain
+the first two moments of the sample mean, then apply the central limit
+theorem because the population distribution is not specified as
+normal.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>12</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>9</mn><mn>36</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[\bar X]=12,
+\qquad
+\operatorname{Var}(\bar X)=\frac{9}{36}=\frac14.
+</annotation></semantics></math></p>
+<p>Thus the standard deviation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math>.
+The central limit theorem gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mspace width="0.222em"></mspace><mover><mo>∼</mo><mo accent="true">̇</mo></mover><mspace width="0.222em"></mspace><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>12</mn><mo>,</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\bar X\ \dot\sim\ \mathcal{N}\left(12,\frac14\right),
+</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mo>∼</mo><mo accent="true">̇</mo></mover><annotation encoding="application/x-tex">\dot\sim</annotation></semantics></math>
+denotes an approximation. Therefore,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>11.5</mn><mo>≤</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>≤</mo><mn>12.5</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≈</mo><mi>ℙ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mn>11.5</mn><mo>−</mo><mn>12</mn></mrow><mn>0.5</mn></mfrac><mo>≤</mo><mi>Z</mi><mo>≤</mo><mfrac><mrow><mn>12.5</mn><mo>−</mo><mn>12</mn></mrow><mn>0.5</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>≤</mo><mi>Z</mi><mo>≤</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0.6826</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbb{P}(11.5\le\bar X\le12.5)
+&amp;\approx
+\mathbb{P}\left(
+\frac{11.5-12}{0.5}\le Z\le
+\frac{12.5-12}{0.5}
+\right)\\
+&amp;=\mathbb{P}(-1\le Z\le1)\\
+&amp;=0.6826.
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">\mathbb{E}[\bar X]=12</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">\operatorname{Var}(\bar X)=1/4</annotation></semantics></math>,
+and the requested probability is approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.6826</mn><annotation encoding="application/x-tex">0.6826</annotation></semantics></math>.
+The calculation is approximate because only the first two population
+moments, not a normal population distribution, are specified.</p>
+<p><strong>Marks (4).</strong> Mean and variance, 1; standardisation, 1;
+probability, 1; CLT/approximation qualification, 1.</p>
+<p><strong>Common mistakes.</strong> Using variance 9 for the sample
+mean; dividing the standard deviation by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>;
+claiming an exact normal distribution without a normal population
+assumption; omitting the approximation sign.</p>
+<h4 id="w08-q10-pb-s7"><code>W08-Q10-PB</code> (<code>S7</code>)</h4>
+<p><strong>Method and conditions.</strong> Apply the expectation and
+variance formulae for an iid sample mean, then use convergence of its
+variance.</p>
+<p>Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}[X_i]=p</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X_i)=p(1-p)</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>p</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[\widehat p]
+=\mathbb{E}[\bar X]
+=p.
+</annotation></semantics></math></p>
+<p>Thus the bias is zero. Independence gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}(\widehat p)
+=\frac{p(1-p)}{n}.
+</annotation></semantics></math></p>
+<p>For every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon&gt;0</annotation></semantics></math>,
+Chebyshev’s inequality gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>p</mi><mo stretchy="false" form="prefix">|</mo><mo>≥</mo><mi>ε</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mfrac><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>n</mi><msup><mi>ε</mi><mn>2</mn></msup></mrow></mfrac><mo>→</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}\left(
+|\widehat p-p|\ge\varepsilon
+\right)
+\le
+\frac{p(1-p)}{n\varepsilon^2}
+\longrightarrow0.
+</annotation></semantics></math></p>
+<p>Hence
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>p</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\widehat p</annotation></semantics></math>
+is consistent for the estimand
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.</p>
+<p>For the observed sample,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>7</mn><mn>20</mn></mfrac><mo>=</mo><mn>0.35</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat p(\mathbf{x})=\frac{7}{20}=0.35.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The estimator is unbiased, has
+variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">p(1-p)/n</annotation></semantics></math>,
+is consistent for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>,
+and gives the observed estimate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.35</mn><annotation encoding="application/x-tex">0.35</annotation></semantics></math>.</p>
+<p><strong>Marks (4).</strong> Bias, 1; variance, 1; consistency
+argument, 1; observed estimate, 1.</p>
+<p><strong>Common mistakes.</strong> Calling 0.35 the estimator rather
+than the estimate; omitting the division by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+in the variance; claiming consistency merely because the estimator is
+unbiased; treating the unknown parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+as the observed sample proportion.</p>
+<h3 id="question-11-earlier-mathematics-retrieval">Question 11 — earlier
+Mathematics retrieval</h3>
+<h4 id="w08-q11-pa-m10-m11"><code>W08-Q11-PA</code> (<code>M10</code>,
+<code>M11</code>)</h4>
+<p><strong>Method and conditions.</strong> Use the displayed equality
+encoding and the course-wide maximisation convention
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>y</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x,y)=y\ge0</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda\ge0</annotation></semantics></math>.
+Solve the complementary-slackness cases, check each regime and use
+concavity for sufficiency.</p>
+<p>The Kuhn–Tucker conditions are:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>x</mi></mrow></mfrac></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>4</mn><mo>−</mo><mn>2</mn><mi>x</mi><mo>−</mo><mi>μ</mi><mo>=</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>y</mi></mrow></mfrac></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mo>−</mo><mi>μ</mi><mo>+</mo><mi>λ</mi><mo>=</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>y</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≥</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>λ</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≥</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>λ</mi><mi>y</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\frac{\partial\mathcal{L}}{\partial x}
+&amp;=4-2x-\mu=0,\\
+\frac{\partial\mathcal{L}}{\partial y}
+&amp;=2-\mu+\lambda=0,\\
+a-x-y&amp;=0,\\
+y&amp;\ge0,\\
+\lambda&amp;\ge0,\\
+\lambda y&amp;=0.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>For an interior solution,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y&gt;0</annotation></semantics></math>,
+so complementary slackness requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda=0</annotation></semantics></math>.
+The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>-stationarity
+condition gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\mu=2</annotation></semantics></math>,
+and the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>-stationarity
+condition then gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x=1</annotation></semantics></math>.
+Equality feasibility gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>a</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y=a-1</annotation></semantics></math>.
+This is an interior solution exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a&gt;1</annotation></semantics></math>.</p>
+<p>For a corner solution,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>,
+so equality feasibility gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">x=a</annotation></semantics></math>.
+Stationarity gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>4</mn><mo>−</mo><mn>2</mn><mi>a</mi><mspace width="2.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="2.0em"></mspace><mi>λ</mi><mo>=</mo><mi>μ</mi><mo>−</mo><mn>2</mn><mo>=</mo><mn>2</mn><mo>−</mo><mn>2</mn><mi>a</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mu=4-2a
+\qquad\text{and}\qquad
+\lambda=\mu-2=2-2a.
+</annotation></semantics></math></p>
+<p>Dual feasibility requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda\ge0</annotation></semantics></math>,
+which holds exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>a</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;a\le1</annotation></semantics></math>.
+At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>,
+the optimum is the corner
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x,y)=(1,0)</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda=0</annotation></semantics></math>.</p>
+<p>For a global check, substitute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>a</mi><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y=a-x</annotation></semantics></math>.
+Feasibility becomes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≤</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">x\le a</annotation></semantics></math>,
+and the objective becomes</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ϕ</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>a</mi><mo>+</mo><mn>2</mn><mi>x</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\phi_a(x)=2a+2x-x^2.
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ϕ</mi><msup><mi>a</mi><mo>″</mo></msup></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>2</mn><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\phi_a&#39;&#39;(x)=-2&lt;0</annotation></semantics></math>,
+each feasible problem is strictly concave and the candidate in the
+applicable regime is its unique global maximiser.</p>
+<p>The value function is therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mn>4</mn><mi>a</mi><mo>−</mo><msup><mi>a</mi><mn>2</mn></msup><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0</mn><mo>&lt;</mo><mi>a</mi><mo>≤</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>2</mn><mi>a</mi><mo>+</mo><mn>1</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>a</mi><mo>&gt;</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+V(a)=
+\begin{cases}
+4a-a^2, &amp; 0&lt;a\le1,\\
+2a+1, &amp; a&gt;1.
+\end{cases}
+</annotation></semantics></math></p>
+<p>The equality is encoded as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h(x,y,a)=a-x-y=0</annotation></semantics></math>.
+The envelope theorem gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>a</mi></mrow></mfrac><msub><mo minsize="2.4" maxsize="2.4" stretchy="false" form="prefix">|</mo><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo>,</mo><msup><mi>λ</mi><mo>*</mo></msup><mo>,</mo><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow></msub><mo>=</mo><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mn>4</mn><mo>−</mo><mn>2</mn><mi>a</mi><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0</mn><mo>&lt;</mo><mi>a</mi><mo>≤</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>2</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>a</mi><mo>&gt;</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+V&#39;(a)
+=\frac{\partial\mathcal{L}}{\partial a}
+\bigg|_{(x^*,y^*,\lambda^*,\mu^*)}
+=\mu^*(a)
+=
+\begin{cases}
+4-2a, &amp; 0&lt;a\le1,\\
+2, &amp; a&gt;1.
+\end{cases}
+</annotation></semantics></math></p>
+<p>Both expressions equal 2 at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>.
+Under this encoding,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mu^*(a)</annotation></semantics></math>
+is the marginal increase in the maximised objective from a small
+increase in the required total
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">x+y=a</annotation></semantics></math>,
+subject to remaining in the applicable regime.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0</mn><mo>&lt;</mo><mi>a</mi><mo>≤</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>a</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>a</mi><mo>&gt;</mo><mn>1</mn><mo>,</mo></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+(x^*(a),y^*(a))=
+\begin{cases}
+(a,0), &amp; 0&lt;a\le1,\\
+(1,a-1), &amp; a&gt;1,
+\end{cases}
+</annotation></semantics></math></p>
+<p>with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(a)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mu^*(a)=V&#39;(a)</annotation></semantics></math>
+as displayed above.</p>
+<p><strong>Marks (8).</strong> Complete Kuhn–Tucker conditions, 2;
+interior solution and regime, 1; corner solution and dual-feasibility
+regime, 2; global sufficiency check, 1; value function, 1; envelope
+derivative and multiplier interpretation, 1.</p>
+<p><strong>Common mistakes.</strong> Using a negative multiplier with
+the course convention
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y\ge0</annotation></semantics></math>;
+omitting complementary slackness; failing to check both the interior
+feasibility and corner dual-feasibility regimes; interpreting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+without reference to the encoding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-x-y=0</annotation></semantics></math>.</p>
+<h2 id="source-weeks-week08-self-test-self-test-solutions">Self-test
+solutions and error check</h2>
+<h3 id="solutions-and-error-check">Solutions and error check</h3>
+<h4 id="solution-to-w08-st01-pa-s8">Solution to <code>W08-ST01-PA</code>
+(<code>S8</code>)</h4>
+<p><strong>Method and conditions.</strong> The independent sample comes
+from a normal population and the variance is unknown, so use Student’s t
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">n-1=8</annotation></semantics></math>
+degrees of freedom.</p>
+<p>The estimated standard error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>s</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>3</mn></mfrac><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{s}{\sqrt n}=\frac{3}{3}=1.
+</annotation></semantics></math></p>
+<p>Thus the realised 95% interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>15</mn><mo>−</mo><mn>2.306</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>15</mn><mo>+</mo><mn>2.306</mn><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>12.694</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>17.306</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+[15-2.306,\ 15+2.306]=[12.694,\ 17.306].
+</annotation></semantics></math></p>
+<p>In repeated iid samples from the stated normal model, 95% of
+intervals constructed by this method cover
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Method, condition and degrees of freedom,
+2; standard error, 1; endpoints, 1; valid interpretation, 1.</p>
+<p><strong>Common mistakes.</strong> Using a z critical value with
+unknown variance; using 9 degrees of freedom; assigning 95% probability
+to the fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.</p>
+<h4 id="solution-to-w08-st02-pa-s8">Solution to <code>W08-ST02-PA</code>
+(<code>S8</code>)</h4>
+<p><strong>Method and conditions.</strong> The estimate is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mn>40</mn><mi>/</mi><mn>100</mn><mo>=</mo><mn>0.4</mn></mrow><annotation encoding="application/x-tex">\widehat p=40/100=0.4</annotation></semantics></math>.
+There are 40 successes and 60 failures, so the large-sample normal
+approximation is reasonable under independent random sampling.</p>
+<p>The realised interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.4</mn><mo>−</mo><mn>1.96</mn><mo stretchy="false" form="prefix">(</mo><mn>0.0490</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mn>0.4</mn><mo>+</mo><mn>1.96</mn><mo stretchy="false" form="prefix">(</mo><mn>0.0490</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≈</mo><mo stretchy="false" form="prefix">[</mo><mn>0.304</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>0.496</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\left[
+0.4-1.96(0.0490),
+0.4+1.96(0.0490)
+\right]
+&amp;\approx[0.304,\ 0.496].
+\end{aligned}
+</annotation></semantics></math></p>
+<p>In repeated independent samples, approximately 95% of intervals
+constructed by this large-sample method cover the fixed population
+proportion
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+For the observed data, the endpoints are fixed; the interval does not
+assign a 95% probability to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Estimate, 1; two count checks and
+independence condition, 1; standard error or valid interval setup, 1;
+endpoints, 1; repeated-sampling interpretation, 1.</p>
+<p><strong>Common mistakes.</strong> Checking only the success count;
+using 40 as the sample size; using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">p=0.5</annotation></semantics></math>
+in the observed interval; interpreting the interval as a range
+containing 95% of individual responses.</p>
+<h4 id="solution-to-w08-st05-pa-s9">Solution to <code>W08-ST05-PA</code>
+(<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> The observations are
+independent and normal, the population variance is unknown, and the
+alternative selects the upper tail. Under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mn>20</mn></mrow><mrow><mi>S</mi><mi>/</mi><msqrt><mn>16</mn></msqrt></mrow></mfrac><mo>∼</mo><msub><mi>t</mi><mn>15</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T=\frac{\bar X-20}{S/\sqrt{16}}\sim t_{15}.
+</annotation></semantics></math></p>
+<p>The observed statistic is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>21.5</mn><mo>−</mo><mn>20</mn></mrow><mrow><mn>4</mn><mi>/</mi><mn>4</mn></mrow></mfrac><mo>=</mo><mn>1.5</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+t_{\mathrm{obs}}
+=\frac{21.5-20}{4/4}
+=1.5.
+</annotation></semantics></math></p>
+<p>The upper-tail p-value is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.077</mn><annotation encoding="application/x-tex">0.077</annotation></semantics></math>.
+Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.077</mn><mo>&gt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">0.077&gt;0.05</annotation></semantics></math>,
+do not reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>.</p>
+<p>The p-value is the null probability of a t statistic at least as
+large as 1.5 in the stated upper-tail direction. It is not the
+probability that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true, and non-rejection does not prove that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">\mu=20</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Student’s t method, upper-tail direction
+and degrees of freedom, 1; standard error and statistic, 1; p-value, 1;
+decision, 1; interpretation, 1.</p>
+<p><strong>Common mistakes.</strong> Using a standard-normal reference
+distribution despite the unknown variance; doubling the one-sided
+p-value; using the lower tail; treating non-rejection as proof that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true.</p>
+<h4 id="solution-to-w08-st04-pa-s9">Solution to <code>W08-ST04-PA</code>
+(<code>S9</code>)</h4>
+<p><strong>Method and conditions.</strong> The sample mean has
+distribution</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mfrac><mn>4</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X\sim\mathcal{N}\left(\mu,\frac{4}{4}\right)
+=\mathcal{N}(\mu,1).
+</annotation></semantics></math></p>
+<p>At the null value,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><msub><mi>ℙ</mi><mrow><mi>μ</mi><mo>=</mo><mn>0</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&gt;</mo><mn>1.645</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>&gt;</mo><mn>1.645</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.05</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\alpha
+=\mathbb{P}_{\mu=0}(\bar X&gt;1.645)
+=\mathbb{P}(Z&gt;1.645)
+=0.05.
+</annotation></semantics></math></p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\mu=2</annotation></semantics></math>,
+a Type II error is non-rejection:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>ℙ</mi><mrow><mi>μ</mi><mo>=</mo><mn>2</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>≤</mo><mn>1.645</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1.645</mn><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>0.355</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0.3613</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\beta(2)
+&amp;=\mathbb{P}_{\mu=2}(\bar X\le1.645)\\
+&amp;=\Phi(1.645-2)\\
+&amp;=\Phi(-0.355)\\
+&amp;=0.3613.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>The power at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\mu=2</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.6387</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+1-\beta(2)=0.6387.
+</annotation></semantics></math></p>
+<p><strong>Marks (5).</strong> Sampling distribution, 1; Type I
+probability, 1; Type II event and standardisation, 1; Type II value, 1;
+power, 1.</p>
+<p><strong>Common mistakes.</strong> Treating 4 as the standard
+deviation; computing Type II error under the null; using the rejection
+event for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\beta(2)</annotation></semantics></math>;
+reporting power without specifying
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\mu=2</annotation></semantics></math>.</p>
+<p>Record the first cause of each error under <code>S8</code> or
+<code>S9</code>, then reattempt that part from a blank page before the
+Statistics mock.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

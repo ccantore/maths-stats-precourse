@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 4 reading guide and worked examples</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week04/reading_guide.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-4-reading-guide-and-worked-examples">Week 4 reading guide
+and worked examples</h1>
+<h2 id="source-weeks-week04-readme">Weekly overview</h2>
+<h3 id="required-learning-outcome">Required learning outcome</h3>
+<p>By the end of this week, you should be able to calculate partial
+derivatives, column gradients, Jacobians and Hessians, and apply the
+multivariable chain rule with dimensionally consistent notation
+(<code>M6</code>).</p>
+<p>Week 4 introduces no new Statistics outcome. Statistics work this
+week is deliberate consolidation of distributions and moments from
+<code>S3</code> and <code>S4</code>. It prepares you to retain the
+Statistics strand while studying multivariable calculus and before the
+cumulative Checkpoint A.</p>
+<h3 id="prerequisites-and-retrieval">Prerequisites and retrieval</h3>
+<p>You will use one-variable differentiation (<code>M3</code>) and
+matrix dimensions and multiplication (<code>M4</code>) throughout the
+new material. The final two questions contain four explicit
+earlier-outcome retrieval parts:</p>
+<ul>
+<li>a Taylor approximation (<code>M3</code>);</li>
+<li>a matrix–vector product with a dimension check
+(<code>M4</code>);</li>
+<li>an exponential-distribution probability (<code>S3</code>); and</li>
+<li>expectation and variance under a linear combination
+(<code>S4</code>).</li>
+</ul>
+<p>Before beginning, retrieve the product rule, chain rule and
+derivatives of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\log x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mi>x</mi></msup><annotation encoding="application/x-tex">e^x</annotation></semantics></math>.
+Also check that you can determine the dimensions of a matrix product
+before calculating it.</p>
+<h3 id="student-materials">Student materials</h3>
+<ol type="1">
+<li>Use the <a href="reading_guide.html#source-weeks-week04-reading-guide">reading
+guide</a> for the exact required Osborne sections, the mandatory
+notation translation and the skip instructions.</li>
+<li>Study the original institutional notes and <a href="reading_guide.html#source-weeks-week04-worked-examples">worked
+examples</a>. Cover each solution and reproduce it from a blank
+page.</li>
+<li>Attempt all parts of the <a href="question_sheet.html#source-weeks-week04-exercises">exercise
+sheet</a> without the full solutions.</li>
+<li>Consult the <a href="progressive_hints.html">progressive hints</a>
+only after a serious attempt, and stop as soon as a hint gives you a
+useful next step.</li>
+<li>Mark from the <a href="complete_solutions.html#source-weeks-week04-solutions">complete
+solutions</a>, recording the first cause of every error by outcome
+ID.</li>
+<li>Complete the 24-minute <a href="question_sheet.html#source-weeks-week04-self-test-before-self-test-solutions">self-test</a>
+without notes, mark it and schedule a blank-page reattempt of every
+missed part.</li>
+<li>Sit Checkpoint A under the stated closed-note conditions when its
+separate paper is supplied. Checkpoint A is not part of this weekly
+directory.</li>
+</ol>
+<p>The external reading remains on its author’s site. Open only the
+assigned sections. No video, applet, code or specialist software is
+required.</p>
+<h3 id="suggested-study-sequence">Suggested study sequence</h3>
+<ol type="1">
+<li>Write the dimensions of a gradient, Jacobian and Hessian at the top
+of your notes.</li>
+<li>Complete the 80-minute external reading route, translating every
+derivative vector into the course convention.</li>
+<li>Work through the institutional notation notes and reproduce all six
+examples, checking dimensions before every matrix product.</li>
+<li>Attempt Questions 1–4, then pause and write the scalar-path and
+vector-composition chain rules from memory.</li>
+<li>Attempt Questions 5–8 and finish with the four closed-note retrieval
+parts in Questions 9–10.</li>
+<li>Use hints only when needed, then mark all work and record errors
+under <code>M6</code>, <code>M3</code>, <code>M4</code>, <code>S3</code>
+or <code>S4</code>.</li>
+<li>Take the self-test, update the error log and reattempt at least the
+first missed step from a blank page.</li>
+<li>Two or three days later, reattempt every remaining incorrect or
+incomplete part before using Checkpoint A for cumulative diagnosis.</li>
+</ol>
+<h3 id="workload-and-required-outputs">Workload and required
+outputs</h3>
+<p>The times below are provisional planning guidance, not a guarantee,
+and have not yet been verified by students. They are subject to
+first-cohort calibration.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Component</th>
+<th style="text-align: right;" scope="col">Target time</th>
+<th scope="col">Required output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required external reading</td>
+<td style="text-align: right;">1 h 20 min</td>
+<td>A short original summary of the derivative conventions and chain
+rules</td>
+</tr>
+<tr>
+<td>Institutional notes, worked-example study and reproduction</td>
+<td style="text-align: right;">2 h 40 min</td>
+<td>Six examples reproduced with every gradient and Jacobian dimension
+shown</td>
+</tr>
+<tr>
+<td>Week 4 exercise sheet</td>
+<td style="text-align: right;">4 h</td>
+<td>All 17 scorable parts attempted and marked</td>
+</tr>
+<tr>
+<td>Self-test</td>
+<td style="text-align: right;">24 min</td>
+<td>All four self-test parts attempted and marked</td>
+</tr>
+<tr>
+<td>Error log and first targeted reattempt</td>
+<td style="text-align: right;">6 min</td>
+<td>Error entries by outcome ID and a blank-page reattempt of the first
+missed step</td>
+</tr>
+<tr>
+<td>Checkpoint A</td>
+<td style="text-align: right;">1 h</td>
+<td>Separate cumulative paper attempted under its stated conditions</td>
+</tr>
+<tr>
+<td><strong>Core total</strong></td>
+<td style="text-align: right;"><strong>9 h 30 min</strong></td>
+<td>Completed Week 4 study and checkpoint cycle</td>
+</tr>
+</tbody>
+</table></div>
+<p>The reading and worked-example component totals 4 hours. The exercise
+sheet contains 10 numbered questions, 17 scorable parts, 100 marks and a
+240-minute target. The self-test, error logging and first targeted
+reattempt total 30 minutes. The separate 60-minute Checkpoint A brings
+the complete Week 4 core total to 570 minutes.</p>
+<p>Checkpoint A’s timed sitting is included in that core total. Its
+required post-attempt self-marking, diagnosis and spaced reattempt are
+separate provisional activities: no student-validated minute allowance
+is claimed, and they are excluded from the published core total pending
+first-cohort calibration.</p>
+<h3 id="end-of-week-check">End-of-week check</h3>
+<p>Before moving on, make sure that you can state the input and output
+dimensions of every map in a composition before multiplying Jacobians. A
+formula with the right entries in the wrong orientation is not
+dimensionally correct. Keep the Statistics retrieval entries in the same
+error log: Week 4 pauses new Statistics teaching but not Statistics
+retention.</p>
+<p>There is no optional or non-examined material in this Week 4
+package.</p>
+<h2 id="source-weeks-week04-reading-guide">Required reading route</h2>
+<h3 id="how-to-use-this-route">How to use this route</h3>
+<p>Complete the three named sections below in order. They form one
+approved resource record and have a combined target time of 80 minutes.
+Do not treat the surrounding tutorial, its full exercise collection or
+its interactive elements as assigned.</p>
+<p>The source and this course use different derivative-vector
+conventions. In your notes, translate every scalar-valued derivative
+into a <strong>column gradient</strong>. For a map from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^n</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>m</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^m</annotation></semantics></math>,
+write its Jacobian as an
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>
+matrix. The institutional <a href="reading_guide.html#source-weeks-week04-worked-examples">worked
+examples</a> make that translation explicit.</p>
+<h3 id="required-multivariable-calculus-reading-m6">Required
+multivariable-calculus reading (<code>M6</code>)</h3>
+<p><strong>Resource <code>MATH-M6-OSB-REQ</code>; source
+<code>OSBORNE_MM</code>.</strong> In Martin J. Osborne, <em>Mathematical
+Methods for Economic Theory</em>, read:</p>
+<ol type="1">
+<li>the partial-derivative material only in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/cln/t">Section
+1.6, “Calculus: many variables”</a>;</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/csi/t">Section
+2.1, “Introduction to multivariate calculus”</a>; and</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/ecr/t">Section
+2.2, “The chain rule”</a>.</li>
+</ol>
+<p><strong>Skip:</strong> Section 1.6 Exercise 1 and every open-set,
+closed-set or topology passage; all interactive plots; and Section 2.2
+Exercises 10–13. Do not continue into implicit differentiation,
+optimisation or any later section.</p>
+<p>The resource is external-link-only. Use it on the author’s site and
+do not copy its explanations, exercises, diagrams or solutions into
+shared notes.</p>
+<p>Target reading time: 80 minutes.</p>
+<h3 id="required-notation-translation">Required notation
+translation</h3>
+<p>After reading, close the source and write the following course
+conventions from memory:</p>
+<ul>
+<li>if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}^n\to\mathbb{R}</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\nabla f(\mathbf{x})</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\times1</annotation></semantics></math>;</li>
+<li>if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐟</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{f}:\mathbb{R}^n\to\mathbb{R}^m</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐟</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{J}_{\mathbf f}(\mathbf{x})</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>;</li>
+<li>the gradient of a scalar-valued function is the transpose of its
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\times n</annotation></semantics></math>
+Jacobian;</li>
+<li>the Hessian of a scalar-valued function of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+variables is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math>;
+and</li>
+<li>for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐡</mi><mo>=</mo><mi>𝐟</mi><mo>∘</mo><mi>𝐠</mi></mrow><annotation encoding="application/x-tex">\mathbf{h}=\mathbf{f}\circ\mathbf{g}</annotation></semantics></math>,
+the chain rule uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐡</mi></msub><mo>=</mo><msub><mi>𝐉</mi><mi>𝐟</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>𝐉</mi><mi>𝐠</mi></msub></mrow><annotation encoding="application/x-tex">\mathbf{J}_{\mathbf h}
+  =\mathbf{J}_{\mathbf f}(\mathbf g)\mathbf{J}_{\mathbf g}</annotation></semantics></math>.</li>
+</ul>
+<p>For each line, annotate the dimensions of every factor. If a
+displayed product is not dimensionally defined, correct its order before
+doing any calculation.</p>
+<h3 id="statistics-consolidation">Statistics consolidation</h3>
+<p>Week 4 has no new Statistics reading and no new Statistics outcome.
+Before the worked examples, spend five minutes without notes
+retrieving:</p>
+<ul>
+<li>the support and survival probability of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Exponential</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Exponential}(\lambda)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda&gt;0</annotation></semantics></math>
+is the rate (<code>S3</code>); and</li>
+<li>the expectation and variance rules for a linear combination,
+including the covariance term (<code>S4</code>).</li>
+</ul>
+<p>This closed-note retrieval is included in the institutional example
+block, not in the 80-minute external-reading allocation.</p>
+<h3 id="reading-output">Reading output</h3>
+<p>Produce a short original summary containing one column gradient, one
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>
+Jacobian, one Hessian and both forms of the chain rule. State the
+dimensions beside each object. Do not copy source wording or exercise
+prompts.</p>
+<h2 id="source-weeks-week04-worked-examples">Worked examples</h2>
+<p>These original institutional notes and examples support
+<code>M6</code>, with one closing Statistics consolidation example for
+<code>S3</code>–<code>S4</code>. Allow about 160 minutes to study the
+notes and reproduce all six examples. For each example, cover the
+<strong>Solution</strong>, follow the <strong>Method</strong>, and redo
+the work from a blank page.</p>
+<h3 id="core-notation-and-dimensions">Core notation and dimensions</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}^n\to\mathbb{R}</annotation></semantics></math>
+be differentiable. Its gradient is the column vector</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>∂</mi><mi>f</mi><mi>/</mi><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>∂</mi><mi>f</mi><mi>/</mi><mi>∂</mi><msub><mi>x</mi><mi>n</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(\mathbf{x})
+=
+\begin{bmatrix}
+\partial f/\partial x_1\\
+\vdots\\
+\partial f/\partial x_n
+\end{bmatrix}
+\in\mathbb{R}^n.
+</annotation></semantics></math></p>
+<p>For a small column displacement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathrm{d}\mathbf{x}\in\mathbb{R}^n</annotation></semantics></math>,
+the total differential is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>f</mi><mo>=</mo><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mi mathvariant="normal">d</mi><mi>𝐱</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{d}f
+=\nabla f(\mathbf{x})^{\mathsf T}\mathrm{d}\mathbf{x}.
+</annotation></semantics></math></p>
+<p>The product has dimensions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>×</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>×</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(1\times n)(n\times1)=1\times1</annotation></semantics></math>,
+as required for a scalar change.</p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{F}:\mathbb{R}^n\to\mathbb{R}^m</annotation></semantics></math>
+has components
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>F</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">F_1,\ldots,F_m</annotation></semantics></math>,
+its Jacobian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><mi>∂</mi><msub><mi>F</mi><mi>i</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>j</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mo>;</mo><mspace width="0.167em"></mspace><mi>j</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf F}(\mathbf{x})
+=
+\left[
+\frac{\partial F_i}{\partial x_j}
+\right]_{i=1,\ldots,m;\,j=1,\ldots,n}.
+</annotation></semantics></math></p>
+<p>It has one row per output and one column per input, so its dimension
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>.
+For a scalar-valued function, the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\times n</annotation></semantics></math>
+Jacobian is the transpose of the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\times1</annotation></semantics></math>
+gradient.</p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+has continuous second partial derivatives near the point of interest,
+its Hessian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐇</mi><mi>f</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>i</mi></msub><mi>∂</mi><msub><mi>x</mi><mi>j</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mi>i</mi><mo>,</mo><mi>j</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{H}_f(\mathbf{x})
+=
+\left[
+\frac{\partial^2 f}
+{\partial x_i\partial x_j}
+\right]_{i,j=1,\ldots,n}.
+</annotation></semantics></math></p>
+<p>Under that continuity condition, the mixed partial derivatives agree
+and the Hessian is symmetric.</p>
+<h3 id="chain-rule-forms">Chain-rule forms</h3>
+<p>For a differentiable path
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{x}:\mathbb{R}\to\mathbb{R}^n</annotation></semantics></math>
+and differentiable scalar function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}^n\to\mathbb{R}</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi mathvariant="normal">d</mi><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><msup><mi>𝐱</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\mathrm{d}}{\mathrm{d}t}f(\mathbf{x}(t))
+=
+\nabla f(\mathbf{x}(t))^{\mathsf T}\mathbf{x}&#39;(t).
+</annotation></semantics></math></p>
+<p>For differentiable maps</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐠</mi><mo>:</mo><msup><mi>ℝ</mi><mi>p</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐅</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>m</mi></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbf{g}:\mathbb{R}^p\to\mathbb{R}^n,
+\qquad
+\mathbf{F}:\mathbb{R}^n\to\mathbb{R}^m,
+</annotation></semantics></math></p>
+<p>the composition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐇</mi><mo>:=</mo><mi>𝐅</mi><mo>∘</mo><mi>𝐠</mi></mrow><annotation encoding="application/x-tex">\mathbf{H}:=\mathbf{F}\circ\mathbf{g}</annotation></semantics></math>
+maps
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>p</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^p</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>m</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^m</annotation></semantics></math>,
+and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐇</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><msub><mi>𝐉</mi><mi>𝐠</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf H}(\mathbf{u})
+=
+\mathbf{J}_{\mathbf F}(\mathbf{g}(\mathbf{u}))
+\mathbf{J}_{\mathbf g}(\mathbf{u}).
+</annotation></semantics></math></p>
+<p>The dimensions are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>×</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>×</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>m</mi><mo>×</mo><mi>p</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(m\times n)(n\times p)=m\times p.
+</annotation></semantics></math></p>
+<p>When the outer function is scalar-valued, the equivalent
+column-gradient form is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo>∘</mo><mi>𝐠</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝐉</mi><mi>𝐠</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla(f\circ\mathbf{g})(\mathbf{u})
+=
+\mathbf{J}_{\mathbf g}(\mathbf{u})^{\mathsf T}
+\nabla f(\mathbf{g}(\mathbf{u})).
+</annotation></semantics></math></p>
+<h3 id="example-1-a-gradient-and-hessian-m6">Example 1 — a gradient and
+Hessian (<code>M6</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mi>y</mi><mo>+</mo><mi>log</mi><mo>⁡</mo><mi>y</mi><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mi>ℝ</mi><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(x,y)=x^2y+\log y,
+\qquad (x,y)\in\mathbb{R}\times(0,\infty).
+</annotation></semantics></math></p>
+<p>Calculate the gradient and Hessian at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,1)</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Differentiate with respect to one variable
+while holding the other fixed. State the domain because the logarithm
+and its derivatives require
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y&gt;0</annotation></semantics></math>.</p>
+<p><strong>Solution.</strong> The first partial derivatives are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>x</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>x</mi><mi>y</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mi>y</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mi>y</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f_x(x,y)=2xy,
+\qquad
+f_y(x,y)=x^2+\frac{1}{y}.
+</annotation></semantics></math></p>
+<p>Thus the column gradient is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi><mi>y</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mi>/</mi><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(x,y)
+=
+\begin{bmatrix}
+2xy\\
+x^2+1/y
+\end{bmatrix},
+\qquad
+\nabla f(1,1)
+=
+\begin{bmatrix}
+2\\2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Differentiate the first partial derivatives once more:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub><mo>=</mo><mn>2</mn><mi>y</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi>x</mi><mi>y</mi></mrow></msub><mo>=</mo><mn>2</mn><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi>y</mi><mi>x</mi></mrow></msub><mo>=</mo><mn>2</mn><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi>y</mi><mi>y</mi></mrow></msub><mo>=</mo><mi>−</mi><mfrac><mn>1</mn><msup><mi>y</mi><mn>2</mn></msup></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f_{xx}=2y,
+\qquad
+f_{xy}=2x,
+\qquad
+f_{yx}=2x,
+\qquad
+f_{yy}=-\frac{1}{y^2}.
+</annotation></semantics></math></p>
+<p>Therefore,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐇</mi><mi>f</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn><mi>/</mi><msup><mi>y</mi><mn>2</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐇</mi><mi>f</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{H}_f(x,y)
+=
+\begin{bmatrix}
+2y&amp;2x\\
+2x&amp;-1/y^2
+\end{bmatrix},
+\qquad
+\mathbf{H}_f(1,1)
+=
+\begin{bmatrix}
+2&amp;2\\
+2&amp;-1
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> The gradient is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>
+because there are two inputs and one output. The Hessian is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>.
+The equal off-diagonal entries agree with the mixed-partial symmetry
+expected from the continuous second derivatives on the stated
+domain.</p>
+<h3 id="example-2-the-jacobian-of-a-vector-valued-map-m6">Example 2 —
+the Jacobian of a vector-valued map (<code>M6</code>)</h3>
+<p>Define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo>:</mo><msup><mi>ℝ</mi><mn>3</mn></msup><mo>→</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐅</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>2</mn></msup><mi>y</mi><mo>+</mo><mi>z</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi><mo>+</mo><mi>y</mi><msup><mi>z</mi><mn>2</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{F}:\mathbb{R}^3\to\mathbb{R}^2,
+\qquad
+\mathbf{F}(x,y,z)
+=
+\begin{bmatrix}
+x^2y+z\\
+x+yz^2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Calculate the Jacobian at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,2,-1)</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Put the derivatives of one output component
+in each row and the derivatives with respect to one input in each
+column.</p>
+<p><strong>Solution.</strong> The component derivatives are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>∇</mi><msub><mi>F</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi><mi>y</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>∇</mi><msub><mi>F</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>z</mi><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>y</mi><mi>z</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\nabla F_1(x,y,z)
+&amp;=
+\begin{bmatrix}
+2xy\\x^2\\1
+\end{bmatrix},
+&amp;
+\nabla F_2(x,y,z)
+&amp;=
+\begin{bmatrix}
+1\\z^2\\2yz
+\end{bmatrix}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>The gradients are columns, but the Jacobian uses their transposes as
+rows:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>z</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>y</mi><mi>z</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf F}(x,y,z)
+=
+\begin{bmatrix}
+2xy&amp;x^2&amp;1\\
+1&amp;z^2&amp;2yz
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>At the stated point,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>4</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf F}(1,2,-1)
+=
+\begin{bmatrix}
+4&amp;1&amp;1\\
+1&amp;1&amp;-4
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> The map has three inputs and two
+outputs, so its Jacobian must be
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">2\times3</annotation></semantics></math>.
+A
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">3\times2</annotation></semantics></math>
+array containing the same numbers would have the wrong orientation under
+the course convention.</p>
+<h3 id="example-3-a-scalar-path-through-two-variables-m6">Example 3 — a
+scalar path through two variables (<code>M6</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><msup><mi>e</mi><mi>y</mi></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn><mo>+</mo><mi>t</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>t</mi><mn>2</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(x,y)=x^2e^y,
+\qquad
+\mathbf{g}(t)
+=
+\begin{bmatrix}
+1+t\\
+t^2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi mathvariant="normal">d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}f(\mathbf{g}(t))/\mathrm{d}t</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math>
+by the multivariable chain rule and verify it by direct
+substitution.</p>
+<p><strong>Method.</strong> Multiply the transposed column gradient by
+the derivative of the column path. Then differentiate the explicit
+one-variable composition as a check.</p>
+<p><strong>Solution.</strong> The required derivatives are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi><msup><mi>e</mi><mi>y</mi></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>2</mn></msup><msup><mi>e</mi><mi>y</mi></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>𝐠</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>t</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(x,y)
+=
+\begin{bmatrix}
+2xe^y\\
+x^2e^y
+\end{bmatrix},
+\qquad
+\mathbf{g}&#39;(t)
+=
+\begin{bmatrix}
+1\\
+2t
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo>,</mo><mn>0</mn><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{g}(0)=[1,0]^{\mathsf T}</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mfrac><mi mathvariant="normal">d</mi><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left.
+\frac{\mathrm{d}}{\mathrm{d}t}f(\mathbf{g}(t))
+\right|_{t=0}
+=
+\begin{bmatrix}
+2&amp;1
+\end{bmatrix}
+\begin{bmatrix}
+1\\0
+\end{bmatrix}
+=2.
+</annotation></semantics></math></p>
+<p>For verification, direct substitution gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>t</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><msup><mi>e</mi><msup><mi>t</mi><mn>2</mn></msup></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(t):=f(\mathbf{g}(t))=(1+t)^2e^{t^2}.
+</annotation></semantics></math></p>
+<p>Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>h</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>e</mi><msup><mi>t</mi><mn>2</mn></msup></msup><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>t</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>e</mi><msup><mi>t</mi><mn>2</mn></msup></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+h&#39;(t)
+=2(1+t)e^{t^2}
++(1+t)^2(2t)e^{t^2},
+</annotation></semantics></math></p>
+<p>and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>h</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">h&#39;(0)=2</annotation></semantics></math>,
+as before.</p>
+<p><strong>Interpretation.</strong> Both coordinates may depend on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+even though the second coordinate happens to have zero derivative at the
+evaluation point. The dimensional form is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>×</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>×</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(1\times2)(2\times1)=1\times1</annotation></semantics></math>.</p>
+<h3 id="example-4-composition-of-vector-valued-maps-m6">Example 4 —
+composition of vector-valued maps (<code>M6</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐠</mi><mo>:</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>→</mo><msup><mi>ℝ</mi><mn>3</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>u</mi><mn>2</mn></msup><mo>+</mo><mi>v</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>u</mi><mo>−</mo><mi>v</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>u</mi><mi>v</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbf{g}:\mathbb{R}^2\to\mathbb{R}^3,
+\qquad
+\mathbf{g}(u,v)
+=
+\begin{bmatrix}
+u^2+v\\
+u-v\\
+uv
+\end{bmatrix},
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo>:</mo><msup><mi>ℝ</mi><mn>3</mn></msup><mo>→</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐅</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>−</mo><mi>z</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi><mi>y</mi><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{F}:\mathbb{R}^3\to\mathbb{R}^2,
+\qquad
+\mathbf{F}(x,y,z)
+=
+\begin{bmatrix}
+x+2y-z\\
+xy+z^2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Find the Jacobian of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐇</mi><mo>:=</mo><mi>𝐅</mi><mo>∘</mo><mi>𝐠</mi></mrow><annotation encoding="application/x-tex">\mathbf{H}:=\mathbf{F}\circ\mathbf{g}</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,-1)</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Evaluate the outer Jacobian at the
+intermediate point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{g}(1,-1)</annotation></semantics></math>,
+then multiply it by the inner Jacobian in chain-rule order.</p>
+<p><strong>Solution.</strong> First,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{g}(1,-1)
+=
+\begin{bmatrix}
+0\\2\\-1
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The two Jacobians are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐠</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>u</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>v</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>u</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf g}(u,v)
+=
+\begin{bmatrix}
+2u&amp;1\\
+1&amp;-1\\
+v&amp;u
+\end{bmatrix}
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>x</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>z</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf F}(x,y,z)
+=
+\begin{bmatrix}
+1&amp;2&amp;-1\\
+y&amp;x&amp;2z
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>At the relevant points,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐠</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf g}(1,-1)
+=
+\begin{bmatrix}
+2&amp;1\\
+1&amp;-1\\
+-1&amp;1
+\end{bmatrix},
+\qquad
+\mathbf{J}_{\mathbf F}(0,2,-1)
+=
+\begin{bmatrix}
+1&amp;2&amp;-1\\
+2&amp;0&amp;-2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Therefore,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>𝐉</mi><mi>𝐇</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msub><mi>𝐉</mi><mi>𝐠</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbf{J}_{\mathbf H}(1,-1)
+&amp;=
+\mathbf{J}_{\mathbf F}(0,2,-1)
+\mathbf{J}_{\mathbf g}(1,-1)\\
+&amp;=
+\begin{bmatrix}
+1&amp;2&amp;-1\\
+2&amp;0&amp;-2
+\end{bmatrix}
+\begin{bmatrix}
+2&amp;1\\
+1&amp;-1\\
+-1&amp;1
+\end{bmatrix}\\
+&amp;=
+\begin{bmatrix}
+5&amp;-2\\
+6&amp;0
+\end{bmatrix}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> The dimensions are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>×</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo>×</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">(2\times3)(3\times2)=2\times2</annotation></semantics></math>,
+matching a map from two inputs to two outputs. Reversing the factors
+gives a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">3\times3</annotation></semantics></math>
+matrix, not the Jacobian of this composition.</p>
+<h3 id="example-5-a-first-order-change-in-an-economic-quantity-m6">Example 5
+— a first-order change in an economic quantity (<code>M6</code>)</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+denote a dimensionless normalised output index and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>
+an input-price scale. Consider the differentiable cost index</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo>,</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>w</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo>+</mo><msup><mi>q</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>q</mi><mo>&gt;</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>w</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C(q,w)=w(q+q^2),
+\qquad q&gt;0,\quad w&gt;0.
+</annotation></semantics></math></p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo>,</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(q,w)=(2,3)</annotation></semantics></math>,
+approximate the change in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>q</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>10</mn></mrow><annotation encoding="application/x-tex">\mathrm{d}q=1/10</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>w</mi><mo>=</mo><mi>−</mi><mn>1</mn><mi>/</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">\mathrm{d}w=-1/5</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Calculate the column gradient and form the
+total differential. Check that the displaced point remains in the
+economically relevant positive domain.</p>
+<p><strong>Solution.</strong> The partial derivatives are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>q</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo>,</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>w</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mn>2</mn><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>C</mi><mi>w</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo>,</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>q</mi><mo>+</mo><msup><mi>q</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C_q(q,w)=w(1+2q),
+\qquad
+C_w(q,w)=q+q^2.
+</annotation></semantics></math></p>
+<p>Thus,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>15</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla C(2,3)
+=
+\begin{bmatrix}
+15\\
+6
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The displaced point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>+</mo><mn>1</mn><mi>/</mi><mn>10</mn><mo>,</mo><mn>3</mn><mo>−</mo><mn>1</mn><mi>/</mi><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>21</mn><mi>/</mi><mn>10</mn><mo>,</mo><mn>14</mn><mi>/</mi><mn>5</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(2+1/10,3-1/5)=(21/10,14/5)</annotation></semantics></math>,
+whose coordinates are both positive. The first-order change is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi mathvariant="normal">d</mi><mi>C</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>∇</mi><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>3</mn><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn><mi>/</mi><mn>10</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn><mi>/</mi><mn>5</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>15</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>10</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>6</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mfrac><mn>1</mn><mn>5</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mo>−</mo><mfrac><mn>6</mn><mn>5</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>10</mn></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathrm{d}C
+&amp;=
+\nabla C(2,3)^{\mathsf T}
+\begin{bmatrix}
+1/10\\
+-1/5
+\end{bmatrix}\\
+&amp;=
+15\left(\frac1{10}\right)
++6\left(-\frac15\right)
+=\frac32-\frac65
+=\frac3{10}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Therefore the local approximation predicts an increase of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>10</mn></mrow><annotation encoding="application/x-tex">3/10</annotation></semantics></math>
+unit in the index.</p>
+<p><strong>Interpretation.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>q</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">C_q(2,3)=15</annotation></semantics></math>
+is the local rate with respect to quantity while the input price is held
+fixed;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>w</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">C_w(2,3)=6</annotation></semantics></math>
+has the analogous holding-quantity-fixed interpretation. The
+differential combines both changes. It is a first-order approximation
+for a finite displacement, not an exact equality.</p>
+<h3 id="example-6-statistics-consolidation-s3-s4">Example 6 — Statistics
+consolidation (<code>S3</code>, <code>S4</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Exponential</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X\sim\operatorname{Exponential}(2),
+</annotation></semantics></math></p>
+<p>where the parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+is the rate and the support is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>.
+Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mn>3</mn><mo>−</mo><mn>2</mn><mi>X</mi></mrow><annotation encoding="application/x-tex">Z=3-2X</annotation></semantics></math>.
+Find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(X&gt;1)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Z</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Z]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Z)</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Retrieve the exponential survival
+probability and its mean and variance under the rate parameterisation.
+Then apply the linear transformation rules.</p>
+<p><strong>Solution.</strong> For an exponential random variable with
+rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\lambda=2</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>x</mi></mrow></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(X&gt;x)=e^{-2x},
+\qquad x\ge0,
+</annotation></semantics></math></p>
+<p>so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(X&gt;1)=e^{-2}.
+</annotation></semantics></math></p>
+<p>Also,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><msup><mn>2</mn><mn>2</mn></msup></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[X]=\frac12,
+\qquad
+\operatorname{Var}(X)=\frac{1}{2^2}=\frac14.
+</annotation></semantics></math></p>
+<p>Therefore,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Z</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>3</mn><mo>−</mo><mn>2</mn><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[Z]
+=3-2\mathbb{E}[X]
+=2
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}(Z)
+=(-2)^2\operatorname{Var}(X)
+=4\left(\frac14\right)
+=1.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> The location shift changes the
+expectation but not the variance. The multiplier is squared in the
+variance. This is earlier-outcome consolidation, not a new Week 4
+Statistics topic.</p>
+<h3 id="reproduction-check">Reproduction check</h3>
+<p>Before starting the exercises, reproduce:</p>
+<ol type="1">
+<li>the gradient–Jacobian orientation relationship;</li>
+<li>the dimension line for each form of the chain rule;</li>
+<li>one gradient, one Jacobian and one Hessian from the examples;</li>
+<li>the direct check of one composition; and</li>
+<li>the support and parameterisation used in the Statistics
+example.</li>
+</ol>
+<p>If you cannot predict the dimensions before calculating entries,
+return to the notation section. Dimension checking is part of the
+method, not a final cosmetic check.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

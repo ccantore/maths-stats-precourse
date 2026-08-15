@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Checkpoint A - question paper</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/checkpoints/checkpoint_a/question_paper.pdf">Download this page as PDF</a></p>
+
+<h1 id="checkpoint-a---question-paper">Checkpoint A - question
+paper</h1>
+<h2 id="source-checkpoints-checkpoint-a-readme">Attempt guide</h2>
+<p>Checkpoint A is a 60-minute, 30-mark cumulative diagnostic covering
+selected required material from Weeks 1–4. All questions are compulsory.
+It does not assess <code>M5</code>, optional dynamics or any excluded
+topic.</p>
+<p>For this controlled first-cohort pilot, your score is diagnostic
+only. It is not used for admission, progression, ranking, funding or
+grading. Use it to identify revision priorities rather than treating the
+result as a pass/fail or ranking decision.</p>
+<h3 id="attempt-sequence">Attempt sequence</h3>
+<ol type="1">
+<li>Open the <a href="question_paper.html#source-checkpoints-checkpoint-a-paper">question
+paper</a> and <a href="question_paper.html#source-checkpoints-checkpoint-a-formula-sheet">formula
+sheet</a>.</li>
+<li>Complete the paper in 60 minutes without notes or solutions.</li>
+<li>Use the <a href="solutions.html#source-checkpoints-checkpoint-a-solutions">full
+solutions</a> to review the attempt and identify revision
+priorities.</li>
+<li>Record the first cause of each lost mark and schedule a blank-page
+reattempt after two or three days.</li>
+</ol>
+<!-- The staff-only `assessment_metadata.csv` is excluded from the student release. Timing remains subject to the checkpoint quality gate and human academic approval. -->
+<h2 id="source-checkpoints-checkpoint-a-paper">Candidate paper</h2>
+<p><strong>Time allowed:</strong> 60 minutes<br />
+<strong>Total marks:</strong> 30<br />
+<strong>Questions:</strong> All questions and all parts are
+compulsory.</p>
+<h3 id="instructions">Instructions</h3>
+<ul>
+<li>Complete the paper without notes or solutions.</li>
+<li>A basic non-programmable scientific calculator is permitted, but no
+question requires one.</li>
+<li>Software, programmable calculators, computer algebra and statistical
+packages are not permitted.</li>
+<li>Show the reasoning and intermediate work needed to support each
+answer. An unsupported answer may not receive full marks.</li>
+<li>Give exact answers unless the question asks for an
+approximation.</li>
+<li>All vectors are column vectors. Use the course notation
+throughout.</li>
+</ul>
+<h3 id="question-1-reasoning-algebra-and-one-variable-calculus-9-marks-17-minutes">Question
+1 — reasoning, algebra and one-variable calculus (9 marks; 17
+minutes)</h3>
+<h4 id="part-a-cpa-q01-pa-4-marks-7-minutes">Part A —
+<code>CPA-Q01-PA</code> (4 marks; 7 minutes)</h4>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">n\in\{1,2,\ldots\}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>∈</mo><mi>ℝ</mi><mo>\</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">r\in\mathbb{R}\setminus\{1\}</annotation></semantics></math>,
+a student makes the claim</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mi>r</mi><mi>j</mi></msup><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>r</mi><mi>n</mi></msup></mrow><mrow><mn>1</mn><mo>−</mo><mi>r</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sum_{j=0}^{n}r^j=\frac{1-r^n}{1-r}.
+</annotation></semantics></math></p>
+<p>Write the claim using the quantifiers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∀</mo><annotation encoding="application/x-tex">\forall</annotation></semantics></math>,
+then write its logical negation using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∃</mo><annotation encoding="application/x-tex">\exists</annotation></semantics></math>.
+Disprove the claim with one admissible counterexample and state the
+correct finite-sum identity.</p>
+<h4 id="part-b-cpa-q01-pb-5-marks-10-minutes">Part B —
+<code>CPA-Q01-PB</code> (5 marks; 10 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>9</mn><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(x)=-x^3+3x^2+9x,
+\qquad x\in[-2,4].
+</annotation></semantics></math></p>
+<p>Find all stationary points in the interval. Evaluate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+at every stationary point and endpoint needed for a global comparison,
+then determine the global maximum of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-2,4]</annotation></semantics></math>,
+including where it is attained.</p>
+<h3 id="question-2-linear-systems-and-multivariable-differentiation-8-marks-17-minutes">Question
+2 — linear systems and multivariable differentiation (8 marks; 17
+minutes)</h3>
+<h4 id="part-a-cpa-q02-pa-4-marks-8-minutes">Part A —
+<code>CPA-Q02-PA</code> (4 marks; 8 minutes)</h4>
+<p>Use Gaussian elimination on the augmented matrix to solve</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>x</mi><mo>+</mo><mi>y</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>3</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mn>2</mn><mi>x</mi><mo>−</mo><mi>y</mi><mo>+</mo><mi>z</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>4</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>y</mi><mo>+</mo><mi>z</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+x+y&amp;=3,\\
+2x-y+z&amp;=4,\\
+y+z&amp;=2.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>State the rank of the coefficient matrix and classify the system as
+having a unique solution, no solution or multiple solutions.</p>
+<p>Show a traceable sequence of row operations. Substitution-only work
+does not earn the Gaussian-elimination method mark, although it may earn
+any separately evidenced solution, rank and classification marks.</p>
+<h4 id="part-b-cpa-q02-pb-4-marks-9-minutes">Part B —
+<code>CPA-Q02-PB</code> (4 marks; 9 minutes)</h4>
+<p>Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">F:\mathbb{R}^2\to\mathbb{R}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐆</mi><mo>:</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>→</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\mathbf{G}:\mathbb{R}^2\to\mathbb{R}^2</annotation></semantics></math>
+by</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>u</mi><mn>2</mn></msup><mo>+</mo><mi>u</mi><mi>v</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐆</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi><mo>+</mo><mi>y</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi><mo>−</mo><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+F(u,v)=u^2+uv,
+\qquad
+\mathbf{G}(x,y)=
+\begin{bmatrix}
+x+y\\
+x-y
+\end{bmatrix},
+</annotation></semantics></math></p>
+<p>and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:=</mo><mi>F</mi><mo>∘</mo><mi>𝐆</mi></mrow><annotation encoding="application/x-tex">h:=F\circ\mathbf{G}</annotation></semantics></math>.
+Use the multivariable chain rule to calculate the column gradient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\nabla h(1,0)</annotation></semantics></math>.
+State the dimensions of the derivative objects that you multiply, and
+verify the first component of your answer by differentiating the
+explicit composition directly.</p>
+<h3 id="question-3-probability-rules-and-bayes-rule-7-marks-13-minutes">Question
+3 — probability rules and Bayes’ rule (7 marks; 13 minutes)</h3>
+<h4 id="part-a-cpa-q03-pa-3-marks-5-minutes">Part A —
+<code>CPA-Q03-PA</code> (3 marks; 5 minutes)</h4>
+<p>For events
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mn>5</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A)=\frac35,
+\qquad
+\mathbb{P}(B)=\frac12,
+\qquad
+\mathbb{P}(A\cap B)=\frac14.
+</annotation></semantics></math></p>
+<p>Calculate the probability of each of the following events:</p>
+<ol type="1">
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\cup B</annotation></semantics></math>;</li>
+<li>exactly one of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>;
+and</li>
+<li>neither
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+nor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</li>
+</ol>
+<h4 id="part-b-cpa-q03-pb-4-marks-8-minutes">Part B —
+<code>CPA-Q03-PB</code> (4 marks; 8 minutes)</h4>
+<p>A submitted application is high-priority with probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">1/4</annotation></semantics></math>.
+Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+denote the event that it is high-priority and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+the event that an initial screen is positive. Suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>∣</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>4</mn><mn>5</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>∣</mo><msup><mi>H</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(S\mid H)=\frac45,
+\qquad
+\mathbb{P}(S\mid H^c)=\frac15.
+</annotation></semantics></math></p>
+<p>Calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(S)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>H</mi><mo>∣</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(H\mid S)</annotation></semantics></math>.
+Show the branches used in the total-probability calculation.</p>
+<h3 id="question-4-random-variables-and-moments-6-marks-13-minutes">Question
+4 — random variables and moments (6 marks; 13 minutes)</h3>
+<h4 id="part-a-cpa-q04-pa-3-marks-5-minutes">Part A —
+<code>CPA-Q04-PA</code> (3 marks; 5 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+have probability mass function</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>c</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+p_X(x)=c(x+1),
+\qquad x\in\{0,1,2\},
+</annotation></semantics></math></p>
+<p>and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">p_X(x)=0</annotation></semantics></math>
+otherwise. Find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>,
+then calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≥</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(X\ge1)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(1)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>X</mi></msub><annotation encoding="application/x-tex">F_X</annotation></semantics></math>
+is the cumulative distribution function of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+<h4 id="part-b-cpa-q04-pb-3-marks-8-minutes">Part B —
+<code>CPA-Q04-PB</code> (3 marks; 8 minutes)</h4>
+<p>Random variables
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+satisfy</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Cov</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[X]=1,
+\quad
+\mathbb{E}[Y]=2,
+\quad
+\operatorname{Var}(X)=2,
+\quad
+\operatorname{Var}(Y)=3,
+\quad
+\operatorname{Cov}(X,Y)=\frac12.
+</annotation></semantics></math></p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mn>2</mn><mi>X</mi><mo>−</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">Z=2X-Y</annotation></semantics></math>,
+calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Z</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Z]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Z)</annotation></semantics></math>.
+Explain how the positive covariance affects
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Z)</annotation></semantics></math>
+relative to a calculation that incorrectly treats
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+as independent.</p>
+<h2 id="source-checkpoints-checkpoint-a-formula-sheet">Formula
+sheet</h2>
+<h3 id="general-conventions">General conventions</h3>
+<ul>
+<li>Give exact answers unless a question asks for an approximation.</li>
+<li>All vectors are column vectors.</li>
+<li>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid B)</annotation></semantics></math>
+for conditional probability,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p_X(x)</annotation></semantics></math>
+for a probability mass function and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≤</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(x)=\mathbb{P}(X\le x)</annotation></semantics></math>
+for a cumulative distribution function.</li>
+<li>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Cov</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Cov}(X,Y)</annotation></semantics></math>
+for expectation, variance and covariance.</li>
+</ul>
+<h3 id="formula-provision">Formula provision</h3>
+<p>No numerical tables or critical values are required for this paper.
+No additional formulae are supplied because the finite-series, calculus,
+linear-system, multivariable-chain-rule and probability identities used
+in the questions are part of the assessed material.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

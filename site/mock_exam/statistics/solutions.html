@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mock diagnostic examination - Probability and Statistics full
+solutions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/mock_exam/statistics/solutions.pdf">Download this page as PDF</a></p>
+
+<h1 id="mock-diagnostic-examination---probability-and-statistics-full-solutions">Mock
+diagnostic examination - Probability and Statistics full solutions</h1>
+<h2 id="source-mock-exam-statistics-solutions">Full solutions</h2>
+<p>Use these solutions only after completing the 90-minute attempt.
+Review each method, result and common mistake, then record the first
+cause of any lost mark.</p>
+<h3 id="section-s0-short-diagnostic-questions">Section S0 — short
+diagnostic questions</h3>
+<h4 id="question-1">Question 1</h4>
+<h5 id="part-a-mock-s0-q01-pa-s1">Part A — <code>MOCK-S0-Q01-PA</code>
+(S1)</h5>
+<p><strong>Method and conditions.</strong> Choose one person from each
+occupational group. The choices are independent stages of the counting
+procedure.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>5</mn><mo>×</mo><mn>3</mn><mo>=</mo><mn>15</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\binom51\binom31=5\times3=15.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> There are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mn>15</mn></menclose><annotation encoding="application/x-tex">\boxed{15}</annotation></semantics></math>
+committees.</p>
+<p><strong>Marks (2).</strong> Correct multiplication-principle setup:
+1. Correct count: 1.</p>
+<p><strong>Common mistakes.</strong> Choosing two people from all eight
+without enforcing the composition; dividing by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>!</mi></mrow><annotation encoding="application/x-tex">2!</annotation></semantics></math>
+even though the roles come from distinct groups; adding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>+</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">5+3</annotation></semantics></math>
+rather than multiplying.</p>
+<h4 id="question-2">Question 2</h4>
+<h5 id="part-a-mock-s0-q02-pa-s3">Part A — <code>MOCK-S0-Q02-PA</code>
+(S3)</h5>
+<p><strong>Method and conditions.</strong> Under the course
+parameterisation, the exponential parameter is the rate and the support
+is non-negative.</p>
+<p>The support is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x\in[0,\infty)</annotation></semantics></math>.
+Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><mi>∞</mi></msubsup><mn>2</mn><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>x</mi></mrow></msup><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(X&gt;1)
+=\int_1^\infty 2e^{-2x}\,\mathrm{d}x
+=e^{-2}.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The support is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">[0,\infty)</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn></mrow></msup></mrow></menclose><annotation encoding="application/x-tex">\boxed{\mathbb{P}(X&gt;1)=e^{-2}}</annotation></semantics></math>.</p>
+<p><strong>Marks (2).</strong> Correct support: 1. Correct exact
+survival probability: 1.</p>
+<p><strong>Common mistakes.</strong> Treating 2 as the mean rather than
+the rate; giving the support as all real numbers; using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1-e^{-2}</annotation></semantics></math>,
+which is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≤</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(X\leq1)</annotation></semantics></math>.</p>
+<h4 id="question-3">Question 3</h4>
+<h5 id="part-a-mock-s0-q03-pa-s4-s6">Part A —
+<code>MOCK-S0-Q03-PA</code> (S4, S6)</h5>
+<p><strong>Method and conditions.</strong> Use linearity of expectation
+and the independence of the identically distributed observations when
+calculating the variance.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>μ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><msup><mn>16</mn><mn>2</mn></msup></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>16</mn></munderover><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>4</mn><mn>16</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[\bar X]=\mu,
+\qquad
+\operatorname{Var}(\bar X)
+=\frac{1}{16^2}\sum_{i=1}^{16}\operatorname{Var}(X_i)
+=\frac4{16}
+=\frac14.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>μ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{\mathbb{E}[\bar X]=\mu,
+\qquad
+\operatorname{Var}(\bar X)=\frac14}.
+</annotation></semantics></math></p>
+<p><strong>Marks (2).</strong> Correct expectation: 1. Correct variance
+with the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1/n</annotation></semantics></math>
+factor: 1.</p>
+<p><strong>Common mistakes.</strong> Dividing the variance by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mn>2</mn></msup><annotation encoding="application/x-tex">n^2</annotation></semantics></math>
+without summing all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+variances; reporting the variance of an individual observation;
+confusing variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">1/4</annotation></semantics></math>
+with standard deviation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">1/4</annotation></semantics></math>.</p>
+<h4 id="question-4">Question 4</h4>
+<h5 id="part-a-mock-s0-q04-pa-s7">Part A — <code>MOCK-S0-Q04-PA</code>
+(S7)</h5>
+<p><strong>Method and conditions.</strong> Distinguish the fixed
+population parameter, the random estimator before data are observed, and
+the numerical estimate after observation.</p>
+<p>The parameter is the fixed but unknown Poisson rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda&gt;0</annotation></semantics></math>.
+The estimator is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>X</mi><mi>i</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat{\lambda}=\bar X=\frac1n\sum_{i=1}^{n}X_i.
+</annotation></semantics></math></p>
+<p>For the observed sample,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mn>1</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>1</mn></mrow><mn>4</mn></mfrac><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat{\lambda}(\mathbf{x})
+=\frac{1+0+2+1}{4}
+=1.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> Parameter:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>.
+Estimator:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">\widehat{\lambda}=\bar X</annotation></semantics></math>.
+Estimate:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mn>1</mn></menclose><annotation encoding="application/x-tex">\boxed{1}</annotation></semantics></math>.</p>
+<p><strong>Marks (2).</strong> Correct distinction between parameter and
+estimator: 1. Correct numerical estimate: 1.</p>
+<p><strong>Common mistakes.</strong> Calling the observed value 1 the
+estimator; treating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+as random; dividing the sample total by the wrong sample size.</p>
+<h4 id="question-5">Question 5</h4>
+<h5 id="part-a-mock-s0-q05-pa-s9">Part A — <code>MOCK-S0-Q05-PA</code>
+(S9)</h5>
+<p><strong>Method and conditions.</strong> Compare the p-value with the
+stated significance level and interpret only the evidence supplied by
+that test.</p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.08</mn><mo>&gt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">0.08&gt;0.05</annotation></semantics></math>,
+we fail to reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+at the 5% level. This does not prove that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true. A false null can fail to be rejected when the sample does not
+provide sufficiently strong evidence against it; this is a Type II
+error.</p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mrow><mtext mathvariant="normal">Fail to reject </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>H</mi><mn>0</mn></msub></mrow></menclose><annotation encoding="application/x-tex">\boxed{\text{Fail to reject }H_0}</annotation></semantics></math>;
+the result is not proof that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true.</p>
+<p><strong>Marks (2).</strong> Correct decision: 1. Correct evidential
+explanation: 1.</p>
+<p><strong>Common mistakes.</strong> Rejecting because the p-value is
+numerically positive; writing “accept
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>”
+as proof; interpreting the p-value as the probability that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true.</p>
+<h3 id="section-s1-probability-random-variables-and-joint-distributions">Section
+S1 — probability, random variables and joint distributions</h3>
+<h4 id="question-6-total-probability-and-bayes-rule">Question 6 — total
+probability and Bayes’ rule</h4>
+<h5 id="part-a-mock-s1-q06-pa-s1-s2">Part A —
+<code>MOCK-S1-Q06-PA</code> (S1, S2)</h5>
+<p><strong>Method and conditions.</strong> Partition the population into
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>A</mi><mi>c</mi></msup><annotation encoding="application/x-tex">A^c</annotation></semantics></math>,
+then use Bayes’ rule with the total probability as the denominator.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo>∣</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo>∣</mo><msup><mi>A</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>A</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mfrac><mn>3</mn><mn>5</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mn>2</mn><mn>5</mn></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>20</mn></mfrac><mo>+</mo><mfrac><mn>4</mn><mn>20</mn></mfrac><mo>=</mo><mfrac><mn>13</mn><mn>20</mn></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbb{P}(D)
+&amp;=\mathbb{P}(D\mid A)\mathbb{P}(A)
+ +\mathbb{P}(D\mid A^c)\mathbb{P}(A^c)\\
+&amp;=\frac34\frac35+\frac12\frac25
+=\frac9{20}+\frac4{20}
+=\frac{13}{20}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Bayes’ rule gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo>∣</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>9</mn><mi>/</mi><mn>20</mn></mrow><mrow><mn>13</mn><mi>/</mi><mn>20</mn></mrow></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>13</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\mid D)
+=\frac{\mathbb{P}(D\mid A)\mathbb{P}(A)}{\mathbb{P}(D)}
+=\frac{9/20}{13/20}
+=\frac9{13}.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>13</mn><mn>20</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>9</mn><mn>13</mn></mfrac></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{\mathbb{P}(D)=\frac{13}{20},
+\qquad
+\mathbb{P}(A\mid D)=\frac9{13}}.
+</annotation></semantics></math></p>
+<p>Among students who complete the task,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mi>/</mi><mn>13</mn></mrow><annotation encoding="application/x-tex">9/13</annotation></semantics></math>
+followed route
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+in this probability model.</p>
+<p><strong>Marks (5).</strong> Correct total-probability setup: 1.
+Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(D)</annotation></semantics></math>:
+1. Correct Bayes numerator and denominator: 1. Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid D)</annotation></semantics></math>:
+1. Correct conditional interpretation: 1.</p>
+<p><strong>Common mistakes.</strong> Using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">3/5</annotation></semantics></math>
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>A</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A^c)</annotation></semantics></math>;
+omitting the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>A</mi><mi>c</mi></msup><annotation encoding="application/x-tex">A^c</annotation></semantics></math>
+branch; reversing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid D)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo>∣</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(D\mid A)</annotation></semantics></math>;
+interpreting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mi>/</mi><mn>13</mn></mrow><annotation encoding="application/x-tex">9/13</annotation></semantics></math>
+among all students rather than completers.</p>
+<h4 id="question-7-a-joint-probability-mass-function">Question 7 — a
+joint probability mass function</h4>
+<h5 id="part-a-mock-s1-q07-pa-s3-s4">Part A —
+<code>MOCK-S1-Q07-PA</code> (S3, S4)</h5>
+<p><strong>Method and conditions.</strong> Check non-negativity and
+total mass, sum across rows or columns for the marginals, and then use
+the marginal PMFs for the expectations.</p>
+<p>All entries are non-negative and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>2</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>4</mn></mrow><mn>12</mn></mfrac><mo>=</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\frac{2+1+1+1+3+4}{12}=1,
+</annotation></semantics></math></p>
+<p>so the table is a valid joint PMF. The marginal PMFs are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>4</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>8</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+p_X(0)=\frac4{12}=\frac13,
+\qquad
+p_X(1)=\frac8{12}=\frac23,
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>Y</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>p</mi><mi>Y</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>4</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>p</mi><mi>Y</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>5</mn><mn>12</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p_Y(0)=\frac3{12}=\frac14,\qquad
+p_Y(1)=\frac4{12}=\frac13,\qquad
+p_Y(2)=\frac5{12}.
+</annotation></semantics></math></p>
+<p>Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>0</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>1</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[X]=0\left(\frac13\right)+1\left(\frac23\right)=\frac23,
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>0</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>1</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>5</mn><mn>12</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>7</mn><mn>6</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[Y]
+=0\left(\frac14\right)
++1\left(\frac13\right)
++2\left(\frac5{12}\right)
+=\frac76.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The table is valid, with the marginals
+displayed above, and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mfrac><mn>7</mn><mn>6</mn></mfrac></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{\mathbb{E}[X]=\frac23,
+\qquad
+\mathbb{E}[Y]=\frac76}.
+</annotation></semantics></math></p>
+<p><strong>Marks (5).</strong> Validity check: 1. Correct marginal PMF
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>:
+1. Correct marginal PMF of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>:
+1. Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]</annotation></semantics></math>:
+1. Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y]</annotation></semantics></math>:
+1.</p>
+<p><strong>Common mistakes.</strong> Checking only that the entries are
+non-negative; summing the wrong row or column; omitting zero-valued
+support points from a PMF without specifying the support; calculating
+expectations from probabilities that do not sum to one.</p>
+<h5 id="part-b-mock-s1-q07-pb-s5">Part B — <code>MOCK-S1-Q07-PB</code>
+(S5)</h5>
+<p><strong>Method and conditions.</strong> Divide the relevant joint
+masses by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p_X(1)</annotation></semantics></math>,
+retain the conditional support, and test independence with any valid
+numerical comparison, such as joint versus product or conditional versus
+marginal probability.</p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>8</mn><mi>/</mi><mn>12</mn></mrow><annotation encoding="application/x-tex">p_X(1)=8/12</annotation></semantics></math>,
+the conditional PMF is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>Y</mi><mo>∣</mo><mi>X</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>∣</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mn>1</mn><mi>/</mi><mn>8</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>3</mn><mi>/</mi><mn>8</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>y</mi><mo>=</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>1</mn><mi>/</mi><mn>2</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>y</mi><mo>=</mo><mn>2</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>0</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mtext mathvariant="normal">otherwise</mtext><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+p_{Y\mid X}(y\mid1)=
+\begin{cases}
+1/8,&amp;y=0,\\
+3/8,&amp;y=1,\\
+1/2,&amp;y=2,\\
+0,&amp;\text{otherwise}.
+\end{cases}
+</annotation></semantics></math></p>
+<p>Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>0</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>8</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>1</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>3</mn><mn>8</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>11</mn><mn>8</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[Y\mid X=1]
+=0\left(\frac18\right)
++1\left(\frac38\right)
++2\left(\frac12\right)
+=\frac{11}{8}.
+</annotation></semantics></math></p>
+<p>The variables are not independent. For example,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>Y</mi><mo>=</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>12</mn></mfrac><mo>≠</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>=</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>6</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(X=1,Y=0)=\frac1{12}
+\neq
+\mathbb{P}(X=1)\mathbb{P}(Y=0)
+=\frac23\frac14
+=\frac16.
+</annotation></semantics></math></p>
+<p>Equivalently,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>=</mo><mn>0</mn><mo>∣</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mn>8</mn><mo>≠</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>=</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(Y=0\mid X=1)=1/8\neq1/4=\mathbb{P}(Y=0)</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong> The conditional PMF is displayed
+above,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>11</mn><mi>/</mi><mn>8</mn></mrow></menclose><annotation encoding="application/x-tex">\boxed{\mathbb{E}[Y\mid X=1]=11/8}</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+are not independent.</p>
+<p><strong>Marks (5).</strong> Correct conditioning denominator and
+support: 1. Correct conditional masses: 1. Correct conditional
+expectation: 1. Valid numerical independence comparison: 1. Correct
+independence conclusion: 1.</p>
+<p><strong>Common mistakes.</strong> Dividing by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>Y</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p_Y(y)</annotation></semantics></math>
+rather than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p_X(1)</annotation></semantics></math>;
+failing to renormalise the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x=1</annotation></semantics></math>
+row; using a conditional PMF that does not sum to one; declaring
+dependence without a numerical justification.</p>
+<h3 id="section-s2-sampling-distributions-the-lln-and-the-clt">Section
+S2 — sampling distributions, the LLN and the CLT</h3>
+<h4 id="question-8-exact-and-approximate-sample-mean-calculations">Question
+8 — exact and approximate sample-mean calculations</h4>
+<h5 id="part-a-mock-s2-q08-pa-s6">Part A — <code>MOCK-S2-Q08-PA</code>
+(S6)</h5>
+<p><strong>Method and conditions.</strong> A mean of independent normal
+variables is exactly normal. Calculate its mean and variance before
+standardising.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>12</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>9</mn><mn>9</mn></mfrac><mo>=</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[\bar X]=12,
+\qquad
+\operatorname{Var}(\bar X)=\frac9{9}=1,
+</annotation></semantics></math></p>
+<p>so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>12</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X\sim\mathcal{N}(12,1).
+</annotation></semantics></math></p>
+<p>Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mn>13</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi mathvariant="normal">Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mn>13</mn><mo>−</mo><mn>12</mn></mrow><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mn>0.8413</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(\bar X&lt;13)
+=\Phi\left(\frac{13-12}{1}\right)
+=\Phi(1)
+\approx0.8413.
+</annotation></semantics></math></p>
+<p>The normal sampling distribution and the exact probability expression
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Phi(1)</annotation></semantics></math>
+are exact because the observations are independent normal random
+variables. The decimal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.8413</mn><annotation encoding="application/x-tex">0.8413</annotation></semantics></math>
+is the supplied rounded value.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>12</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mn>13</mn><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mn>0.8413</mn></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{\bar X\sim\mathcal{N}(12,1),
+\qquad
+\mathbb{P}(\bar X&lt;13)\approx0.8413}.
+</annotation></semantics></math></p>
+<p><strong>Marks (4).</strong> Correct exact sampling distribution: 1.
+Correct standardisation: 1. Correct probability: 1. Correct exactness
+explanation: 1.</p>
+<p><strong>Common mistakes.</strong> Keeping variance 9 for the sample
+mean; using variance rather than standard deviation in the
+standardisation; invoking the CLT even though exact normality is
+available.</p>
+<h5 id="part-b-mock-s2-q08-pb-s6">Part B — <code>MOCK-S2-Q08-PB</code>
+(S6)</h5>
+<p><strong>Method and conditions.</strong> Use the iid, finite-mean and
+finite-variance conditions for a large-sample normal approximation, then
+state the LLN as a separate convergence result.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">n=100</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>W</mi><mo accent="true">‾</mo></mover><mspace width="0.222em"></mspace><mover><mo>∼</mo><mo accent="true">̇</mo></mover><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>50</mn><mo>,</mo><mfrac><mn>100</mn><mn>100</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>50</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar W\ \dot{\sim}
+\mathcal{N}\left(50,\frac{100}{100}\right)
+=\mathcal{N}(50,1).
+</annotation></semantics></math></p>
+<p>Thus, using the supplied rounded normal-table value,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>48</mn><mo>&lt;</mo><mover><mi>W</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mn>52</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≈</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≈</mo><mn>0.9772</mn><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.9772</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0.9544</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbb{P}(48&lt;\bar W&lt;52)
+&amp;\approx\Phi(2)-\Phi(-2)\\
+&amp;\approx0.9772-(1-0.9772)\\
+&amp;=0.9544.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Using a full-precision normal CDF instead gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.9545</mn><annotation encoding="application/x-tex">0.9545</annotation></semantics></math>
+to four decimal places; both values reflect the same correct
+standardisation and differ only because the supplied table is
+rounded.</p>
+<p>The approximation uses independence, identical distribution, finite
+mean and finite variance, together with a sufficiently large sample. The
+law of large numbers states that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>W</mi><mo accent="true">‾</mo></mover><mover><mo>→</mo><mi>p</mi></mover><mn>50</mn><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">as </mtext><mspace width="0.333em"></mspace></mrow><mi>n</mi><mo>→</mo><mi>∞</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar W\xrightarrow{p}50
+\quad\text{as }n\to\infty.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>48</mn><mo>&lt;</mo><mover><mi>W</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mn>52</mn><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mn>0.9544</mn></mrow></menclose><mspace width="1.0em"></mspace><mtext mathvariant="normal">using the supplied table</mtext><mo>,</mo><mspace width="2.0em"></mspace><menclose notation="box"><mrow><mover><mi>W</mi><mo accent="true">‾</mo></mover><mover><mo>→</mo><mi>p</mi></mover><mn>50</mn></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{\mathbb{P}(48&lt;\bar W&lt;52)\approx0.9544}
+\quad\text{using the supplied table},
+\qquad
+\boxed{\bar W\xrightarrow{p}50}.
+</annotation></semantics></math></p>
+<p><strong>Marks (4).</strong> Correct approximate sampling
+distribution: 1. Correct standardised bounds and probability: 1.
+Relevant CLT conditions: 1. Correct, distinct LLN statement: 1.</p>
+<p><strong>Common mistakes.</strong> Using variance 100 rather than 1
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>W</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar W</annotation></semantics></math>;
+calculating a one-sided tail; presenting the CLT as an exact result;
+confusing the LLN’s convergence in probability with convergence of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>W</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar W</annotation></semantics></math>
+to a normal distribution.</p>
+<h3 id="section-s3-estimation-and-inference">Section S3 — estimation and
+inference</h3>
+<h4 id="question-9-estimator-properties-and-method-of-moments">Question
+9 — estimator properties and method of moments</h4>
+<h5 id="part-a-mock-s3-q09-pa-s7">Part A — <code>MOCK-S3-Q09-PA</code>
+(S7)</h5>
+<p><strong>Method and conditions.</strong> Equate the first population
+and sample moments, then compare the repeated-sampling biases, variances
+and concentration of the two estimators.</p>
+<p>For a Poisson variable,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}[X_i]=\lambda</annotation></semantics></math>.
+Equating this moment to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat{\lambda}_{\mathrm{MOM}}=\bar X.
+</annotation></semantics></math></p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">T_1=\bar X</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Bias</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>T</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>λ</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>T</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mi>λ</mi><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Bias}(T_1)
+=\mathbb{E}[\bar X]-\lambda
+=0,
+\qquad
+\operatorname{Var}(T_1)
+=\frac{\lambda}{n}.
+</annotation></semantics></math></p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>=</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">T_2=X_1</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Bias</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>T</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>λ</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>T</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>λ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Bias}(T_2)
+=\mathbb{E}[X_1]-\lambda
+=0,
+\qquad
+\operatorname{Var}(T_2)
+=\lambda.
+</annotation></semantics></math></p>
+<p>Both estimators are unbiased, but only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math>
+is consistent. Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>/</mi><mi>n</mi><mo>→</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda/n\to0</annotation></semantics></math>,
+Chebyshev’s inequality implies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mover><mo>→</mo><mi>p</mi></mover><mi>λ</mi></mrow><annotation encoding="application/x-tex">\bar X\xrightarrow{p}\lambda</annotation></semantics></math>.
+By contrast, the distribution and positive variance of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>=</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">T_2=X_1</annotation></semantics></math>
+do not concentrate as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+increases, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>
+is not consistent for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda&gt;0</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><msub><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo>=</mo><msub><mi>T</mi><mn>1</mn></msub><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> is unbiased and consistent</mtext></mrow></mrow></menclose><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\boxed{\widehat{\lambda}_{\mathrm{MOM}}=T_1=\bar X
+\text{ is unbiased and consistent}},
+</annotation></semantics></math></p>
+<p>whereas
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>=</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">T_2=X_1</annotation></semantics></math>
+is unbiased but not consistent.</p>
+<p><strong>Marks (5).</strong> Correct moment equation and estimator: 1.
+Correct bias of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math>:
+0.5. Correct variance of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math>:
+0.5. Correct bias of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>:
+0.5. Correct variance of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>:
+0.5. Correct consistency conclusion for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math>:
+0.5. Valid concentration argument for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math>:
+0.5. Correct non-consistency conclusion for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>:
+0.5. Valid lack-of-concentration argument for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>:
+0.5.</p>
+<p><strong>Common mistakes.</strong> Equating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+to the sample variance instead of the requested first moment; calling an
+unbiased estimator automatically consistent; dividing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X_1)</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>;
+asserting that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>
+improves as unused observations are added.</p>
+<h4 id="question-10-a-confidence-interval-and-a-two-sided-test">Question
+10 — a confidence interval and a two-sided test</h4>
+<h5 id="part-a-mock-s3-q10-pa-s8-s9">Part A —
+<code>MOCK-S3-Q10-PA</code> (S8, S9)</h5>
+<p><strong>Method and conditions.</strong> The exact one-sample
+Student’s
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+procedure requires an iid random sample from a normal population. The
+population variance is finite and unknown and is estimated by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>.</p>
+<p>The test statistic is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>52.2</mn><mo>−</mo><mn>50</mn></mrow><mrow><mn>4</mn><mi>/</mi><msqrt><mn>16</mn></msqrt></mrow></mfrac><mo>=</mo><mfrac><mn>2.2</mn><mn>1</mn></mfrac><mo>=</mo><mn>2.20</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+t=\frac{52.2-50}{4/\sqrt{16}}
+=\frac{2.2}{1}
+=2.20,
+</annotation></semantics></math></p>
+<p>with 15 degrees of freedom. The supplied two-sided p-value is
+approximately 0.0439. Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.0439</mn><mo>&lt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">0.0439&lt;0.05</annotation></semantics></math>,
+reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">H_0:\mu=50</annotation></semantics></math>
+at the 5% level in favour of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo><mi>μ</mi><mo>≠</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">H_1:\mu\neq50</annotation></semantics></math>.</p>
+<p>Using the supplied rounded critical value, the corresponding 95%
+confidence interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mn>52.2</mn><mo>±</mo><msub><mi>t</mi><mrow><mn>0.975</mn><mo>,</mo><mn>15</mn></mrow></msub><mfrac><mn>4</mn><msqrt><mn>16</mn></msqrt></mfrac></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≈</mo><mn>52.2</mn><mo>±</mo><mn>2.131</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>50.0690</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>54.3310</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+52.2\pm t_{0.975,15}\frac4{\sqrt{16}}
+&amp;\approx52.2\pm2.131(1)\\
+&amp;=[50.0690,\ 54.3310].
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Using a full-precision
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mn>0.975</mn><mo>,</mo><mn>15</mn></mrow></msub><annotation encoding="application/x-tex">t_{0.975,15}</annotation></semantics></math>
+instead gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>50.0686</mn><mo>,</mo><mn>54.3314</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[50.0686,54.3314]</annotation></semantics></math>.
+Both endpoint pairs are valid four-decimal answers for the stated
+method; the small difference is due only to the supplied critical value
+being rounded.</p>
+<p>The hypothesised value 50 is outside this interval, which agrees with
+the rejection by the corresponding two-sided 5% test. In repeated
+sampling, 95% of intervals constructed by this procedure contain the
+fixed population mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.
+It is not correct to assign 95% probability to the fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+lying in this particular realised interval.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>t</mi><mo>=</mo><mn>2.20</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>p</mi><mtext mathvariant="normal">-value</mtext><mo>≈</mo><mn>0.0439</mn><mo>,</mo><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">reject </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>H</mi><mn>0</mn></msub></mrow></menclose><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\boxed{t=2.20,\quad p\text{-value}\approx0.0439,\quad
+\text{reject }H_0},
+</annotation></semantics></math></p>
+<p>and the 95% confidence interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mo stretchy="false" form="prefix">[</mo><mn>50.0690</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>54.3310</mn><mo stretchy="false" form="postfix">]</mo></mrow></menclose><mspace width="1.0em"></mspace><mtext mathvariant="normal">using the supplied critical value</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{[50.0690,\ 54.3310]}
+\quad\text{using the supplied critical value}.
+</annotation></semantics></math></p>
+<p><strong>Marks (7).</strong> Correct exact-procedure conditions: 1.
+Correct statistic and degrees of freedom: 1. Correct p-value decision:
+1. Correct confidence- interval setup: 1. Correct endpoints: 1. Correct
+test–interval duality explanation: 1. Valid repeated-sampling
+interpretation: 1.</p>
+<p><strong>Common mistakes.</strong> Using a normal critical value
+despite unknown variance; omitting the normal-population condition for
+exactness; halving the supplied two-sided p-value; saying there is a 95%
+probability that the fixed mean lies in this realised interval.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

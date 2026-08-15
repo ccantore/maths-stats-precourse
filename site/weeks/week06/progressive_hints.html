@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 6 progressive hints</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week06/progressive_hints.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-6-progressive-hints">Week 6 progressive hints</h1>
+<p>Use the hints in order. After each hint, return to your own work and
+continue until you reach a new, specific impasse.</p>
+<h2 id="w06-q01-pa"><code>W06-Q01-PA</code></h2>
+<ol type="1">
+<li>Write the column gradient and solve its two simultaneous
+equations.</li>
+<li>The Hessian is constant. Use its leading principal minors,
+eigenvalues or a completed-square argument to determine
+definiteness.</li>
+</ol>
+<h2 id="w06-q01-pb"><code>W06-Q01-PB</code></h2>
+<ol type="1">
+<li>The first-order condition is necessary for an interior
+differentiable local optimum, but it does not say which kind of
+candidate has been found.</li>
+<li>Ask whether the Hessian classification holds only at the candidate
+or on all of the convex domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w06-q02-pa"><code>W06-Q02-PA</code></h2>
+<ol type="1">
+<li>Set both entries of the column gradient equal to zero.</li>
+<li>Solve the resulting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>
+linear system, then classify the constant symmetric Hessian by its
+leading principal minors.</li>
+</ol>
+<h2 id="w06-q02-pb"><code>W06-Q02-PB</code></h2>
+<ol type="1">
+<li>A negative definite Hessian everywhere on a convex domain
+establishes strict concavity, not merely local curvature at one
+point.</li>
+<li>Combine strict concavity with the stationary point and then
+substitute the point into
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+to obtain the objective value.</li>
+</ol>
+<h2 id="w06-q03-pa"><code>W06-Q03-PA</code></h2>
+<ol type="1">
+<li>The stationary equations separate: one involves
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mn>2</mn></msup><annotation encoding="application/x-tex">x^2</annotation></semantics></math>,
+and the other sets
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+to zero.</li>
+<li>Evaluate the diagonal Hessian at both candidates; opposite signs
+imply a saddle.</li>
+<li>To decide global existence, hold
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>
+and consider what happens as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+tends to large positive and negative values.</li>
+</ol>
+<h2 id="w06-q04-pa"><code>W06-Q04-PA</code></h2>
+<ol type="1">
+<li>Compute the gradient and Hessian before substituting the stationary
+point.</li>
+<li>A zero Hessian is neither positive nor negative definite. Return to
+the definition of the objective and use the signs of fourth powers.</li>
+<li>Check when both fourth powers can sum to zero, and examine behaviour
+as either coordinate grows without bound.</li>
+</ol>
+<h2 id="w06-q05-pa"><code>W06-Q05-PA</code></h2>
+<ol type="1">
+<li>The Hessian is twice the symmetric matrix of the quadratic form. Its
+eigenvalues can be read from the directions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo>,</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">[1,1]^{\mathsf T}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">[1,-1]^{\mathsf T}</annotation></semantics></math>.</li>
+<li>Separate the cases in which both eigenvalues are negative, one is
+zero, or they have opposite signs.</li>
+<li>At the boundary values of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+rewrite the objective as the negative of one square. Outside the
+boundary, test the two eigenvector directions.</li>
+</ol>
+<h2 id="w06-q06-pa"><code>W06-Q06-PA</code></h2>
+<ol type="1">
+<li>Compute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar x</annotation></semantics></math>,
+then list the four deviations from it.</li>
+<li>Square and sum the deviations, and divide by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n-1=3</annotation></semantics></math>,
+not by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w06-q06-pb"><code>W06-Q06-PB</code></h2>
+<ol type="1">
+<li>For a normal i.i.d. sample,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msup><mi>S</mi><mn>2</mn></msup><mi>/</mi><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(n-1)S^2/\sigma^2</annotation></semantics></math>
+has a chi-squared distribution with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>
+degrees of freedom.</li>
+<li>Rewrite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mn>2</mn></msup><mo>≤</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">S^2\le c</annotation></semantics></math>
+as an inequality for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><msup><mi>S</mi><mn>2</mn></msup><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">9S^2/4</annotation></semantics></math>.</li>
+<li>Match the resulting threshold to the supplied 0.95 quantile and
+solve the equality for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w06-q07-pa"><code>W06-Q07-PA</code></h2>
+<ol type="1">
+<li>A sum of independent normal random variables is normal. Find the
+mean and variance of both
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>.</li>
+<li>The standard deviations are different: use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\sigma/\sqrt n</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>n</mi></msqrt><mspace width="0.167em"></mspace><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sqrt n\,\sigma</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>.</li>
+<li>Standardise each boundary, use symmetry of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>,
+and keep the two requested probabilities separate.</li>
+</ol>
+<h2 id="w06-q07-pb"><code>W06-Q07-PB</code></h2>
+<ol type="1">
+<li>A
+Bernoulli<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0.5)</annotation></semantics></math>
+variable has mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.5</mn><annotation encoding="application/x-tex">0.5</annotation></semantics></math>
+and variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.25</mn><annotation encoding="application/x-tex">0.25</annotation></semantics></math>.</li>
+<li>The standard deviation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>Y</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar Y</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><mn>0.25</mn><mi>/</mi><mn>100</mn></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{0.25/100}</annotation></semantics></math>.
+Standardise both endpoints.</li>
+<li>Apply the large-sample normal approximation to the standardised
+sample mean and use symmetry around zero.</li>
+</ol>
+<h2 id="w06-q08-pa"><code>W06-Q08-PA</code></h2>
+<ol type="1">
+<li>For the stated event, substitute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>=</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">\sigma^2=25</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\varepsilon=1</annotation></semantics></math>
+into the supplied bound.</li>
+<li>Solve
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn><mi>/</mi><mi>n</mi><mo>≤</mo><mn>0.04</mn></mrow><annotation encoding="application/x-tex">25/n\le0.04</annotation></semantics></math>,
+remembering that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+must be a positive integer.</li>
+<li>The bound establishes concentration around the mean; it contains no
+claim about a normal shape.</li>
+</ol>
+<h2 id="w06-q08-pb"><code>W06-Q08-PB</code></h2>
+<ol type="1">
+<li>The law of large numbers concerns convergence in probability of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.</li>
+<li>The central limit theorem concerns
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>n</mi></msqrt><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sqrt n(\bar X-\mu)/\sigma</annotation></semantics></math>,
+not the unscaled equality
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>=</mo><mi>μ</mi></mrow><annotation encoding="application/x-tex">\bar X=\mu</annotation></semantics></math>.</li>
+<li>Separate a claim about the sampling distribution of the mean from a
+claim about the distribution of each observation.</li>
+</ol>
+<h2 id="w06-q09-pa"><code>W06-Q09-PA</code></h2>
+<ol type="1">
+<li>Evaluate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+at the stated point. Then compute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>x</mi></msub><annotation encoding="application/x-tex">F_x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>θ</mi></msub><annotation encoding="application/x-tex">F_\theta</annotation></semantics></math>,
+stacking them in the coordinate order
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x,\theta)</annotation></semantics></math>.</li>
+<li>To define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x=x(\theta)</annotation></semantics></math>
+locally, check the derivative with respect to the variable being solved
+for and recall that a polynomial is continuously differentiable.</li>
+<li>Along
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F(x,\theta)=0</annotation></semantics></math>,
+write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>F</mi><mo>=</mo><msub><mi>F</mi><mi>x</mi></msub><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>+</mo><msub><mi>F</mi><mi>θ</mi></msub><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>θ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathrm{d}F=F_x\,\mathrm{d}x+F_\theta\,\mathrm{d}\theta=0</annotation></semantics></math>,
+then isolate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>x</mi><mi>/</mi><mi mathvariant="normal">d</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}x/\mathrm{d}\theta</annotation></semantics></math>
+before evaluating.</li>
+</ol>
+<h2 id="w06-q10-pa"><code>W06-Q10-PA</code></h2>
+<ol type="1">
+<li>In the symmetric matrix, the cross term is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><msub><mi>a</mi><mn>12</mn></msub><mi>u</mi><mi>v</mi></mrow><annotation encoding="application/x-tex">2a_{12}uv</annotation></semantics></math>.</li>
+<li>For a symmetric
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>
+matrix, positive leading principal minors establish positive
+definiteness.</li>
+<li>Relate positive definiteness of the constant Hessian to strict
+convexity on the convex domain.</li>
+</ol>
+<h2 id="w06-q11-pa"><code>W06-Q11-PA</code></h2>
+<ol type="1">
+<li>With exponential rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>,
+first write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)</annotation></semantics></math>.
+Independence makes the conditional moments of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+given
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+equal to its unconditional moments.</li>
+<li>When conditioning on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+treat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+as known. Then apply iterated expectation to the resulting random
+variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y\mid B]</annotation></semantics></math>.</li>
+<li>Use both terms in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Y)=\mathbb{E}[\operatorname{Var}(Y\mid B)]
++\operatorname{Var}(\mathbb{E}[Y\mid B])</annotation></semantics></math>,
+remembering that scaling by 3 scales variance by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>3</mn><mn>2</mn></msup><annotation encoding="application/x-tex">3^2</annotation></semantics></math>.</li>
+</ol>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

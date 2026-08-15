@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 7 reading guide and worked examples</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week07/reading_guide.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-7-reading-guide-and-worked-examples">Week 7 reading guide
+and worked examples</h1>
+<h2 id="source-weeks-week07-readme">Weekly overview</h2>
+<h3 id="required-learning-outcomes">Required learning outcomes</h3>
+<p>By the end of this week, you should be able to:</p>
+<ul>
+<li>solve equality-constrained optimisation problems with Lagrange
+multipliers, interpret a multiplier under the stated constraint
+encoding, and apply the envelope theorem (<code>M10</code>);</li>
+<li>formulate and solve elementary inequality-constrained optimisation
+problems using the course Kuhn–Tucker convention, complementary
+slackness and explicit interior and corner checks (<code>M11</code>);
+and</li>
+<li>distinguish parameters, estimands, estimators and estimates;
+evaluate elementary estimators by bias, variance, mean squared error and
+consistency; and derive simple method-of-moments and maximum-likelihood
+estimators (<code>S7</code>).</li>
+</ul>
+<h3 id="prerequisites-and-retrieval">Prerequisites and retrieval</h3>
+<p>You will use curvature and sufficiency conditions from
+<code>M8</code>, unconstrained optimisation from <code>M9</code>,
+moments from <code>S4</code>, and sampling results from <code>S6</code>.
+Before beginning, retrieve the column-gradient convention, the
+negative-definite Hessian test, the distinction between a candidate and
+a global solution, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\operatorname{Var}(\bar X)=\operatorname{Var}(X_1)/n</annotation></semantics></math>
+for an iid sample with finite variance.</p>
+<p>Question 10 contains three explicit cumulative retrieval parts on
+<code>M8</code>, <code>M9</code> and <code>S6</code>. Complete that
+block without consulting earlier notes.</p>
+<h3 id="course-convention-for-inequality-constraints">Course convention
+for inequality constraints</h3>
+<p>For every maximisation problem, write inequality constraints as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>
+and use</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛌</mi><mo>,</mo><mi>𝛍</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}(\mathbf{x},\boldsymbol{\lambda},\boldsymbol{\mu})
+=f(\mathbf{x})
++\sum_j\lambda_jg_j(\mathbf{x})
++\sum_k\mu_kh_k(\mathbf{x}),
+\qquad \lambda_j\ge0.
+</annotation></semantics></math></p>
+<p>The required conditions are stationarity, primal feasibility, dual
+feasibility and complementary slackness. Write non-negativity
+restrictions such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_i\ge0</annotation></semantics></math>
+as explicit constraints.</p>
+<h3 id="student-materials">Student materials</h3>
+<p>Before the estimator and method-of-moments work, use the required <a href="../../bridge_notes/estimators_and_method_of_moments.html">estimators
+and method of moments bridge note</a>. It is point-of-need support
+within the existing reading and worked-example allocation, not
+additional workload.</p>
+<ol type="1">
+<li>Follow the exact external sections and skip instructions in the <a href="reading_guide.html#source-weeks-week07-reading-guide">reading
+guide</a>.</li>
+<li>Study the original institutional explanations and reproduce all four
+<a href="reading_guide.html#source-weeks-week07-worked-examples">worked
+examples</a> from a blank page.</li>
+<li>Attempt every part of the <a href="question_sheet.html#source-weeks-week07-exercises">exercise
+sheet</a> without opening the full solutions.</li>
+<li>Use the <a href="progressive_hints.html">progressive hints</a> only
+after a serious attempt, one stage at a time.</li>
+<li>Mark your work from the <a href="complete_solutions.html#source-weeks-week07-solutions">complete
+solutions</a>, record the first cause of each error by outcome ID, and
+reattempt missed parts two or three days later.</li>
+<li>Complete the closed-note <a href="question_sheet.html#source-weeks-week07-self-test-before-self-test-solutions">self-test</a>,
+mark it immediately and update your error log.</li>
+<li>Sit Checkpoint B under its separate timed-paper instructions.</li>
+</ol>
+<p>The external pages remain on their authors’ or institutions’ sites.
+Open only the assigned sections. No video, applet, code or specialist
+software is required.</p>
+<h3 id="suggested-study-sequence">Suggested study sequence</h3>
+<ol type="1">
+<li>Write the course Kuhn–Tucker convention at the top of your
+notes.</li>
+<li>Review equality constraints first. For each multiplier
+interpretation, write the constraint encoding before deciding its
+sign.</li>
+<li>Study the envelope theorem only after you can solve the
+corresponding constrained problem and state the regularity
+conditions.</li>
+<li>For inequality constraints, list all four groups of Kuhn–Tucker
+conditions before choosing active and slack constraints.</li>
+<li>Make a separate terminology card for parameter, estimand, estimator
+and estimate, then derive bias, variance and mean squared error from
+their definitions.</li>
+<li>Derive method-of-moments and maximum-likelihood estimators on paper.
+State the parameter space and check boundary cases.</li>
+<li>Attempt the weekly sheet, use hints only as needed, mark it and
+complete the retrieval block from memory.</li>
+<li>Take the self-test, update the error log, then sit Checkpoint
+B.</li>
+</ol>
+<h3 id="workload-and-required-outputs">Workload and required
+outputs</h3>
+<p>The times below are provisional planning guidance, not a guarantee,
+and have not yet been verified by students. They are subject to
+first-cohort calibration.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Component</th>
+<th style="text-align: right;" scope="col">Target time</th>
+<th scope="col">Required output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exact external reading and closed-source summaries</td>
+<td style="text-align: right;">3 h 45 min</td>
+<td>Original notes covering every stated condition, convention and
+estimator definition</td>
+</tr>
+<tr>
+<td>Institutional worked-example study and reproduction</td>
+<td style="text-align: right;">1 h 5 min</td>
+<td>Four examples reproduced from a blank page</td>
+</tr>
+<tr>
+<td>Week 7 exercise sheet</td>
+<td style="text-align: right;">4 h</td>
+<td>All 17 scorable parts attempted and marked</td>
+</tr>
+<tr>
+<td>Self-test, marking and error-log update</td>
+<td style="text-align: right;">30 min</td>
+<td>Four self-test parts marked and outcome-labelled error entries
+updated</td>
+</tr>
+<tr>
+<td>Checkpoint B</td>
+<td style="text-align: right;">1 h 15 min</td>
+<td>Separate timed attempt under checkpoint conditions</td>
+</tr>
+<tr>
+<td><strong>Core total</strong></td>
+<td style="text-align: right;"><strong>10 h 35 min</strong></td>
+<td>Completed Week 7 study and assessment cycle</td>
+</tr>
+</tbody>
+</table></div>
+<p>The 225-minute external-reading estimate and 65-minute worked-example
+allocation give a 290-minute reading-and-example block. The resulting
+Week 7 total is within the general 9–11-hour planning range. All timings
+remain provisional planning guidance, not a guarantee, and are subject
+to first-cohort calibration.</p>
+<p>The exercise sheet contains 10 numbered questions, 17 scorable parts,
+100 marks and a 240-minute target. Across marks, it contains 30%
+foundation, 60% standard and 10% stretch work. The timings remain
+provisional planning guidance, not a guarantee, and are subject to
+first-cohort calibration.</p>
+<p>Checkpoint B’s timed sitting is included in the core total. Its
+required post-attempt self-marking, diagnosis and spaced reattempt are
+separate provisional activities: no student-validated minute allowance
+is claimed, and they are excluded from the published core total pending
+first-cohort calibration.</p>
+<p>By the end of the week, keep:</p>
+<ul>
+<li>your constraint-convention note and estimator terminology card;</li>
+<li>four reproduced worked examples;</li>
+<li>a complete, marked first attempt at all 17 weekly parts;</li>
+<li>three closed-note retrieval attempts labelled <code>M8</code>,
+<code>M9</code> and <code>S6</code>;</li>
+<li>a marked self-test and a dated reattempt plan; and</li>
+<li>your separate Checkpoint B attempt.</li>
+</ul>
+<h3 id="end-of-week-check">End-of-week check</h3>
+<p>Do not move on merely because you can solve a first-order system.
+Check that you can explain why the candidate is feasible, why the stated
+sufficiency condition applies, how the constraint encoding determines a
+multiplier’s interpretation, and why an estimator property concerns
+repeated sampling rather than one observed estimate.</p>
+<h2 id="source-weeks-week07-reading-guide">Required reading route</h2>
+<h3 id="how-to-use-this-route">How to use this route</h3>
+<p>Complete the four required written selections below before attempting
+the exercise sheet. Open only the exact sections listed and follow every
+skip and notation-conversion instruction. Allow about 225 minutes for
+active reading and brief closed-source summaries. The separate 65-minute
+allocation in <a href="reading_guide.html#source-weeks-week07-worked-examples">worked_examples.md</a>
+completes the combined 4-hour 50-minute reading and example-reproduction
+block. This is a planning estimate for the exact four-route package and
+remains approximate and student- unverified.</p>
+<p>These four exact Week 7 routes, locators and skip instructions were
+approved on 1 August 2026 for external-link-only use. The course does
+not reproduce or adapt an external explanation, example, question or
+solution. If an external page’s mathematical presentation is
+inaccessible to you, stop using that page, use the original
+institutional explanations and examples in this package, and report the
+access problem. To report a broken, inaccessible or unavailable required
+source, email <a href="mailto:cristiano.cantore@uniroma1.it">cristiano.cantore@uniroma1.it</a>
+with the week, item or source locator. You may request this
+confidentially without disclosing disability or other sensitive personal
+information. The programme Coordinator will provide an accessible
+replacement PDF or an approved alternative reading.</p>
+<h3 id="required-bridge-note">Required bridge note</h3>
+<p>Before the estimator and method-of-moments selections, read the <a href="../../bridge_notes/estimators_and_method_of_moments.html">estimators
+and method of moments bridge note</a>. It standardises the course
+terminology within the existing Week 7 reading and worked-example
+allocation, not additional workload.</p>
+<h3 id="equality-constraints-and-the-envelope-theorem-m10">1. Equality
+constraints and the envelope theorem (<code>M10</code>)</h3>
+<p><strong>Resource <code>MATH-M10-OSB-REQ</code>; source
+<code>OSBORNE_MM</code>.</strong> In Martin J. Osborne, <em>Mathematical
+Methods for Economic Theory</em>, read:</p>
+<ul>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/men/t">Section
+6.1.1</a>;</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/ilm/t">Section
+6.1.2</a>;</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/mel/t">Section
+6.1.3</a>;</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/meg/t">Section
+6.1.4</a>;</li>
+<li>in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/mem/t">Section
+6.2</a>, the statement and one simple example only; and</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/mee/t">Section
+6.3, “The envelope theorem”</a>.</li>
+</ul>
+<p><strong>Skip:</strong> general proofs in Section 6.2, advanced
+multiple-constraint examples, and exercises requiring results beyond
+<code>M8</code>–<code>M9</code>. Re-encode every equality constraint as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h_k(\mathbf{x},\mathbf{a})=0</annotation></semantics></math>
+and use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mi>f</mi><mo>+</mo><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal{L}=f+\sum_k\mu_kh_k</annotation></semantics></math>.
+Derive a multiplier’s sign and interpretation from that encoding.</p>
+<p>Target reading and summary time: 65 minutes.</p>
+<h3 id="elementary-kuhntucker-conditions-m11">2. Elementary Kuhn–Tucker
+conditions (<code>M11</code>)</h3>
+<p><strong>Resource <code>MATH-M11-OSB-REQ</code>; source
+<code>OSBORNE_MM</code>.</strong> In Osborne, read:</p>
+<ul>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/ktc/t">Section
+7.1, “The Kuhn–Tucker conditions”</a>;</li>
+<li>the sufficiency result and examples only in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/kts/t">Section
+7.3</a>;</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/nnc/t">Section
+7.4, “Nonnegativity conditions”</a>; and</li>
+<li>the <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/osm/t">Section
+7.5 summary</a>.</li>
+</ul>
+<p><strong>Skip:</strong> Section 7.2 in full, proofs in Section 7.3 and
+advanced constraint qualifications. The source uses a different sign
+convention. Translate every problem to the course convention: maximise
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mi>f</mi><mo>+</mo><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal{L}=f+\sum_j\lambda_jg_j</annotation></semantics></math>,
+and require
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_j\ge0</annotation></semantics></math>.
+Write variable non-negativity as an explicit constraint.</p>
+<p>Target reading and summary time: 55 minutes.</p>
+<h3 id="estimators-and-maximum-likelihood-s7">3. Estimators and maximum
+likelihood (<code>S7</code>)</h3>
+<p><strong>Resource <code>STAT-S7-REQ-PISHRO</code>; source
+<code>PISHRO_NIK</code>.</strong> In Hossein Pishro-Nik,
+<em>Introduction to Probability, Statistics, and Random Processes</em>,
+read the definitions of sample, statistic, estimator and estimate in <a href="https://www.probabilitycourse.com/chapter8/8_1_1_random_sampling.php">§8.1.1,
+“Random Sampling”</a>, then read the following non-contiguous
+point-estimation sections in order:</p>
+<ul>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_0_point_estimation.php">§8.2.0,
+“Point Estimation”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_1_evaluating_estimators.php">§8.2.1,
+“Evaluating Estimators”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_2_point_estimators_for_mean_and_var.php">§8.2.2,
+“Point Estimators for Mean and Variance”</a>; and</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_3_max_likelihood_estimation.php">§8.2.3,
+“Maximum Likelihood Estimation”</a>.</li>
+</ul>
+<p><strong>Skip:</strong> Section 8.2.4 on asymptotic properties of
+maximum-likelihood estimators, Section 8.5 on linear regression, order
+statistics and all software-based work. Use the institutional
+terminology note in <a href="reading_guide.html#source-weeks-week07-worked-examples">worked_examples.md</a>
+for the additional distinction between a parameter and an estimand.</p>
+<p>Target reading and summary time: 85 minutes.</p>
+<h3 id="method-of-moments-s7">4. Method of moments
+(<code>S7</code>)</h3>
+<p><strong>Resource <code>STAT-S7-REQ-PSU-MOM</code>; source
+<code>PSU_STAT415_MOM</code>.</strong> In Penn State STAT 415, whose
+primary course author is Laura Simon, read <a href="https://online.stat.psu.edu/stat415/lesson/1/1.4">Lesson 1,
+Section 1.4, “Method of Moments”</a>: the definitions, “One Form of the
+Method”, and Examples 1-7 and 1-8 only.</p>
+<p><strong>Skip:</strong> “Another Form of the Method” and Examples 1-9
+and 1-10, including gamma-distribution material. Do not navigate from
+this page into unassigned statistics topics or software work.</p>
+<p>Target reading and summary time: 20 minutes.</p>
+<h3 id="reading-output">Reading output</h3>
+<p>After each selection, close the page and write a brief original
+summary. By the end of the route, your notes should contain:</p>
+<ul>
+<li>the equality-constrained Lagrangian and the conditions needed for a
+candidate and a global conclusion;</li>
+<li>the envelope derivative under an explicitly stated constraint
+encoding;</li>
+<li>the complete course Kuhn–Tucker conditions, including explicit
+non-negativity constraints;</li>
+<li>definitions of parameter, estimand, estimator and observed
+estimate;</li>
+<li>the formula
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>MSE</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>Bias</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\operatorname{MSE}(\widehat\theta)
+=\operatorname{Var}(\widehat\theta)
++\operatorname{Bias}(\widehat\theta)^2</annotation></semantics></math>;</li>
+<li>the population-moment equation used by the method of moments;
+and</li>
+<li>the likelihood, log-likelihood, parameter space and boundary checks
+used in elementary maximum likelihood.</li>
+</ul>
+<p>Do not copy external prose, examples, questions or solutions into
+shared notes.</p>
+<h2 id="source-weeks-week07-worked-examples">Worked examples</h2>
+<p>These original institutional explanations and examples support
+<code>M10</code>, <code>M11</code> and <code>S7</code>. They do not
+reproduce or adapt an external example. Allow about 65 minutes to study
+and reproduce them.</p>
+<p>For each example, cover the <strong>Solution</strong>, follow the
+<strong>Method</strong>, then reproduce the derivation from a blank
+page. Do not memorise a multiplier or estimator without its
+conditions.</p>
+<h3 id="equality-constraints-and-multipliers-m10">Equality constraints
+and multipliers (<code>M10</code>)</h3>
+<p>Consider the maximisation problem</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow></munder><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>k</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_{\mathbf{x}\in\mathbb{R}^n} f(\mathbf{x},\mathbf{a})
+\quad\text{subject to}\quad
+h_k(\mathbf{x},\mathbf{a})=0,\qquad k=1,\ldots,m.
+</annotation></semantics></math></p>
+<p>Under the course convention, the Lagrangian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛍</mi><mo>;</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}(\mathbf{x},\boldsymbol{\mu};\mathbf{a})
+=f(\mathbf{x},\mathbf{a})
++\sum_{k=1}^{m}\mu_kh_k(\mathbf{x},\mathbf{a}).
+</annotation></semantics></math></p>
+<p>At a regular local optimum, the equality-constraint gradients must
+have the required linear independence, and the first-order conditions
+are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∇</mi><mi>𝐱</mi></msub><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛍</mi><mo>;</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>𝟎</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla_{\mathbf{x}}\mathcal{L}
+(\mathbf{x},\boldsymbol{\mu};\mathbf{a})
+=\mathbf{0},
+\qquad
+h_k(\mathbf{x},\mathbf{a})=0.
+</annotation></semantics></math></p>
+<p>These conditions identify candidates. A separate argument is needed
+for a maximum. For example, if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is strictly concave and the equality constraints are affine, a feasible
+first-order candidate is the unique global maximiser.</p>
+<p>A multiplier’s sign has no interpretation until the constraint
+encoding is stated. If a scalar resource parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+enters as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h(\mathbf{x},a)=a-r(\mathbf{x})=0</annotation></semantics></math>,
+increasing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+changes the required equality level. It relaxes a resource constraint
+only when this equality is the binding form of an associated restriction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">r(\mathbf{x})\le a</annotation></semantics></math>.
+Under suitable regularity and differentiability conditions, if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+enters the problem only through this constraint (so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>a</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f_a=0</annotation></semantics></math>),
+the envelope theorem gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>V</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>a</mi></mrow></mfrac><mo>=</mo><msub><mrow><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>a</mi></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>𝐱</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><msup><mi>𝛍</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow></msub><mo>=</mo><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\mathrm{d}V}{\mathrm{d}a}
+=
+\left.
+\frac{\partial\mathcal{L}}{\partial a}
+\right|_{(\mathbf{x}^*(a),\boldsymbol{\mu}^*(a))}
+=\mu^*(a).
+</annotation></semantics></math></p>
+<p>If the same feasible set were encoded as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r(\mathbf{x})-a=0</annotation></semantics></math>,
+the multiplier would have the opposite sign.</p>
+<h3 id="example-1-a-nonlinear-equality-constraint-and-envelope-derivative-m10">Example
+1 — a nonlinear equality constraint and envelope derivative
+(<code>M10</code>)</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a&gt;0</annotation></semantics></math>,
+solve</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">}</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mi>a</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_{x,y}\{x+y\}
+\quad\text{subject to}\quad x^2+2y^2=a.
+</annotation></semantics></math></p>
+<p>Find the value function and verify the envelope derivative.</p>
+<p><strong>Method.</strong> Encode the constraint as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h(x,y,a)=a-x^2-2y^2=0</annotation></semantics></math>,
+solve the regular first-order system, compare all candidates on the
+compact feasible ellipse, and then apply the envelope theorem.</p>
+<p><strong>Solution.</strong> The Lagrangian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>μ</mi><mo>;</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}(x,y,\mu;a)
+=x+y+\mu(a-x^2-2y^2).
+</annotation></semantics></math></p>
+<p>The first-order and feasibility conditions are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>μ</mi><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>1</mn><mo>−</mo><mn>4</mn><mi>μ</mi><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>a</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+1-2\mu x=0,
+\qquad
+1-4\mu y=0,
+\qquad
+a-x^2-2y^2=0.
+</annotation></semantics></math></p>
+<p>The first two conditions imply
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>2</mn><mi>y</mi></mrow><annotation encoding="application/x-tex">x=2y</annotation></semantics></math>.
+Feasibility then gives the two candidates</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mi>−</mi><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(x,y)
+=
+\left(2\sqrt{\frac{a}{6}},\sqrt{\frac{a}{6}}\right)
+\quad\text{and}\quad
+(x,y)
+=
+\left(-2\sqrt{\frac{a}{6}},-\sqrt{\frac{a}{6}}\right).
+</annotation></semantics></math></p>
+<p>The constraint gradient is non-zero everywhere on the ellipse because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a&gt;0</annotation></semantics></math>.
+The feasible set is compact, so a global maximum exists, and the two
+candidate objective values are respectively
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><msqrt><mrow><mi>a</mi><mi>/</mi><mn>6</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">3\sqrt{a/6}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn><msqrt><mrow><mi>a</mi><mi>/</mi><mn>6</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">-3\sqrt{a/6}</annotation></semantics></math>.
+Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x^*(a)=2\sqrt{\frac{a}{6}},
+\qquad
+y^*(a)=\sqrt{\frac{a}{6}},
+\qquad
+\mu^*(a)=\frac{\sqrt{6}}{4\sqrt{a}}.
+</annotation></semantics></math></p>
+<p>The value function is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>=</mo><msqrt><mfrac><mrow><mn>3</mn><mi>a</mi></mrow><mn>2</mn></mfrac></msqrt><mo>,</mo></mrow><annotation encoding="application/x-tex">
+V(a)=3\sqrt{\frac{a}{6}}=\sqrt{\frac{3a}{2}},
+</annotation></semantics></math></p>
+<p>so direct differentiation gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+V&#39;(a)=\frac{\sqrt{6}}{4\sqrt{a}}.
+</annotation></semantics></math></p>
+<p>The envelope calculation agrees:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>a</mi></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mo>*</mo></msub><mo>=</mo><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left.
+\frac{\partial\mathcal{L}}{\partial a}
+\right|_*
+=\mu^*(a)
+=\frac{\sqrt{6}}{4\sqrt{a}}.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> Because the constraint was written
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-x^2-2y^2=0</annotation></semantics></math>,
+the positive multiplier measures the marginal value of increasing the
+quadratic-capacity level
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.
+It is a relaxation only when the equality is the binding form of the
+associated capacity restriction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>≤</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">x^2+2y^2\le a</annotation></semantics></math>.
+Reversing the constraint encoding reverses the multiplier sign but
+leaves
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V&#39;(a)</annotation></semantics></math>
+unchanged.</p>
+<h3 id="inequality-constraints-and-the-course-convention-m11">Inequality
+constraints and the course convention (<code>M11</code>)</h3>
+<p>The course-wide convention is a maximisation problem with</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g_j(\mathbf{x})\ge0,
+\qquad
+h_k(\mathbf{x})=0.
+</annotation></semantics></math></p>
+<p>Use</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛌</mi><mo>,</mo><mi>𝛍</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}(\mathbf{x},\boldsymbol{\lambda},\boldsymbol{\mu})
+=f(\mathbf{x})
++\sum_j\lambda_jg_j(\mathbf{x})
++\sum_k\mu_kh_k(\mathbf{x}),
+\qquad \lambda_j\ge0.
+</annotation></semantics></math></p>
+<p>The Kuhn–Tucker conditions are:</p>
+<ol type="1">
+<li><p><strong>Stationarity</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><mi>∇</mi><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><mi>∇</mi><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>𝟎</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(\mathbf{x})
++\sum_j\lambda_j\nabla g_j(\mathbf{x})
++\sum_k\mu_k\nabla h_k(\mathbf{x})
+=\mathbf{0}.
+</annotation></semantics></math></p></li>
+<li><p><strong>Primal feasibility</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g_j(\mathbf{x})\ge0,
+\qquad
+h_k(\mathbf{x})=0.
+</annotation></semantics></math></p></li>
+<li><p><strong>Dual feasibility</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\lambda_j\ge0.
+</annotation></semantics></math></p></li>
+<li><p><strong>Complementary slackness</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\lambda_jg_j(\mathbf{x})=0.
+</annotation></semantics></math></p></li>
+</ol>
+<p>Complementary slackness says that a slack constraint has a zero
+multiplier. It does not say that every zero multiplier corresponds to a
+slack constraint. For the elementary problems in this week, strict
+concavity of the objective and affine constraints provide a direct
+sufficiency route once a feasible Kuhn–Tucker point has been found.</p>
+<h3 id="example-2-a-two-variable-lower-bound-corner-m11">Example 2 — a
+two-variable lower-bound corner (<code>M11</code>)</h3>
+<p>Solve</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mspace width="0.278em"></mspace><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>−</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>y</mi><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_{x,y}\; -(x+2)^2-2(y-1)^2
+\quad\text{subject to}\quad
+x\ge0,\qquad y\ge0.
+</annotation></semantics></math></p>
+<p><strong>Method.</strong> Treat both non-negativity restrictions as
+explicit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(x,y)\ge0</annotation></semantics></math>
+constraints. Use complementary slackness to test the active lower-bound
+branch.</p>
+<p><strong>Solution.</strong> Define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>g</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g_1(x,y)=x,
+\qquad
+g_2(x,y)=y.
+</annotation></semantics></math></p>
+<p>The Lagrangian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>λ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>−</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mi>x</mi><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}(x,y,\lambda_1,\lambda_2)
+=-(x+2)^2-2(y-1)^2+\lambda_1x+\lambda_2y.
+</annotation></semantics></math></p>
+<p>The complete conditions are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mo>−</mo><mn>4</mn><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+-2(x+2)+\lambda_1=0,
+\qquad
+-4(y-1)+\lambda_2=0,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>y</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mn>1</mn></msub><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mn>2</mn></msub><mo>≥</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+x\ge0,\qquad y\ge0,\qquad
+\lambda_1\ge0,\qquad\lambda_2\ge0,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mn>1</mn></msub><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mn>2</mn></msub><mi>y</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\lambda_1x=0,
+\qquad
+\lambda_2y=0.
+</annotation></semantics></math></p>
+<p>The unconstrained maximiser
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-2,1)</annotation></semantics></math>
+violates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>.
+On the branch
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y&gt;0</annotation></semantics></math>,
+complementary slackness gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_2=0</annotation></semantics></math>.
+Stationarity then gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><mn>4</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+y=1,
+\qquad
+\lambda_1=4.
+</annotation></semantics></math></p>
+<p>All primal, dual and complementary-slackness conditions hold, so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><msubsup><mi>λ</mi><mn>1</mn><mo>*</mo></msubsup><mo>,</mo><msubsup><mi>λ</mi><mn>2</mn><mo>*</mo></msubsup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(x^*,y^*)=(0,1),
+\qquad
+(\lambda_1^*,\lambda_2^*)=(4,0).
+</annotation></semantics></math></p>
+<p>The Hessian is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>diag</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo>,</mo><mi>−</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{diag}(-2,-4)</annotation></semantics></math>,
+which is negative definite, and the feasible set is convex. The feasible
+Kuhn–Tucker point is therefore the unique global maximiser.</p>
+<p><strong>Interpretation.</strong> The lower bound on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+prevents movement towards the unconstrained maximiser. Its positive
+multiplier is attached to the explicit course constraint
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>;
+the slack lower bound on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+has multiplier zero.</p>
+<h3 id="estimator-terminology-and-properties-s7">Estimator terminology
+and properties (<code>S7</code>)</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><msub><mi>F</mi><mi>θ</mi></msub></mrow><annotation encoding="application/x-tex">X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}F_\theta</annotation></semantics></math>.</p>
+<ul>
+<li>A <strong>parameter</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+indexes the population model and is fixed but unknown in repeated
+sampling.</li>
+<li>An <strong>estimand</strong> is the population quantity to be
+learned. It may be
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+itself or a function such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\theta^2</annotation></semantics></math>.</li>
+<li>An <strong>estimator</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat\theta=T(X_1,\ldots,X_n)</annotation></semantics></math>
+is a random variable before the sample is observed.</li>
+<li>An <strong>estimate</strong> is the realised numerical value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T(x_1,\ldots,x_n)</annotation></semantics></math>.</li>
+</ul>
+<p>The bias, variance and mean squared error are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Bias</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>θ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\operatorname{Bias}_\theta(\widehat\theta)
+=\mathbb{E}_\theta[\widehat\theta]-\theta,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}_\theta(\widehat\theta),
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>MSE</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>θ</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>Bias</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\operatorname{MSE}_\theta(\widehat\theta)
+&amp;=\mathbb{E}_\theta[(\widehat\theta-\theta)^2]\\
+&amp;=\operatorname{Var}_\theta(\widehat\theta)
+ +\operatorname{Bias}_\theta(\widehat\theta)^2.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>An estimator sequence
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><annotation encoding="application/x-tex">\widehat\theta_n</annotation></semantics></math>
+is consistent for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+if, for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon&gt;0</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo>−</mo><mi>θ</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>→</mo><mn>0</mn><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">as </mtext><mspace width="0.333em"></mspace></mrow><mi>n</mi><mo>→</mo><mi>∞</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}_\theta
+\left(
+|\widehat\theta_n-\theta|&gt;\varepsilon
+\right)
+\longrightarrow0
+\quad\text{as }n\to\infty.
+</annotation></semantics></math></p>
+<p>Unbiasedness is a finite-sample expectation statement; consistency is
+a large-sample probability statement. Neither property is determined by
+one observed estimate.</p>
+<h3 id="example-3-two-unbiased-estimators-with-different-consistency-s7">Example
+3 — two unbiased estimators with different consistency
+(<code>S7</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Bernoulli</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi>p</mi><mo>&lt;</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n
+\overset{\mathrm{iid}}{\sim}\operatorname{Bernoulli}(p),
+\qquad 0&lt;p&lt;1.
+</annotation></semantics></math></p>
+<p>Compare</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>1</mn><mo>,</mo><mi>n</mi></mrow></msub><mo>=</mo><msub><mi>X</mi><mn>1</mn></msub><mspace width="2.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="2.0em"></mspace><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat p_{1,n}=X_1
+\qquad\text{and}\qquad
+\widehat p_{2,n}=\bar X.
+</annotation></semantics></math></p>
+<p><strong>Method.</strong> Compute expectation, variance and mean
+squared error, then apply the definition of consistency.</p>
+<p><strong>Solution.</strong> Both estimators are unbiased:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>1</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}_p[\widehat p_{1,n}]
+=\mathbb{E}_p[X_1]
+=p
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>p</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}_p[\widehat p_{2,n}]
+=\mathbb{E}_p[\bar X]
+=p.
+</annotation></semantics></math></p>
+<p>Their variances, and therefore their mean squared errors, are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>MSE</mi><mo>⁡</mo><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>1</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>Var</mi><mo>⁡</mo><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\operatorname{MSE}_p(\widehat p_{1,n})
+=\operatorname{Var}_p(X_1)
+=p(1-p)
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>MSE</mi><mo>⁡</mo><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>Var</mi><mo>⁡</mo><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{MSE}_p(\widehat p_{2,n})
+=\operatorname{Var}_p(\bar X)
+=\frac{p(1-p)}{n}.
+</annotation></semantics></math></p>
+<p>The second mean squared error tends to zero. For every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon&gt;0</annotation></semantics></math>,
+Chebyshev’s inequality gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>p</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mfrac><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>n</mi><msup><mi>ε</mi><mn>2</mn></msup></mrow></mfrac><mo>→</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}_p(|\bar X-p|&gt;\varepsilon)
+\le
+\frac{p(1-p)}{n\varepsilon^2}
+\longrightarrow0.
+</annotation></semantics></math></p>
+<p>Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\widehat p_{2,n}</annotation></semantics></math>
+is consistent.</p>
+<p>By contrast, choose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>ε</mi><mo>&lt;</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false" form="prefix">{</mo><mi>p</mi><mo>,</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">0&lt;\varepsilon&lt;\min\{p,1-p\}</annotation></semantics></math>.
+Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mn>1</mn></msub><annotation encoding="application/x-tex">X_1</annotation></semantics></math>
+is either zero or one,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>X</mi><mn>1</mn></msub><mo>−</mo><mi>p</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+|X_1-p|&gt;\varepsilon
+</annotation></semantics></math></p>
+<p>with probability one. Therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>1</mn><mo>,</mo><mi>n</mi></mrow></msub><mo>=</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\widehat p_{1,n}=X_1</annotation></semantics></math>
+is not consistent, even though it is unbiased.</p>
+<p><strong>Interpretation.</strong> Increasing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+improves the sample mean because it uses the additional observations.
+The estimator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mn>1</mn></msub><annotation encoding="application/x-tex">X_1</annotation></semantics></math>
+ignores them, so its sampling uncertainty does not shrink.</p>
+<h3 id="method-of-moments-and-maximum-likelihood-s7">Method of moments
+and maximum likelihood (<code>S7</code>)</h3>
+<p>The method of moments matches population moments to their sample
+counterparts. For a one-parameter model, use the lowest raw moment that
+identifies the parameter. When the finite mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">m(\theta)=\mathbb{E}_\theta[X]</annotation></semantics></math>
+identifies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
+solve</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mi>.</mi></mrow><annotation encoding="application/x-tex">
+m(\widehat\theta_{\mathrm{MOM}})=\bar X.
+</annotation></semantics></math></p>
+<p>If the mean does not identify
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
+a higher raw moment may do so. For example, a second-moment equation
+matches
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msup><mi>X</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[X^2]</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msub><mo>∑</mo><mi>i</mi></msub><msubsup><mi>X</mi><mi>i</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">n^{-1}\sum_iX_i^2</annotation></semantics></math>.</p>
+<p>Maximum likelihood treats the observed data
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{x}=(x_1,\ldots,x_n)</annotation></semantics></math>
+as fixed and maximises</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+L(\theta;\mathbf{x})
+</annotation></semantics></math></p>
+<p>over the stated parameter space. A score equation identifies an
+interior candidate, not automatically the global maximum. Check
+curvature, monotonicity or boundary behaviour as appropriate.</p>
+<h3 id="example-4-moments-and-likelihood-for-a-normal-variance-s7">Example 4
+— moments and likelihood for a normal variance (<code>S7</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>θ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n
+\overset{\mathrm{iid}}{\sim}\mathcal{N}(0,\theta),
+\qquad \theta&gt;0.
+</annotation></semantics></math></p>
+<p>Derive the method-of-moments and maximum-likelihood estimators of the
+variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>.
+Treat separately the case in which
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>i</mi></msub><msubsup><mi>x</mi><mi>i</mi><mn>2</mn></msubsup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum_i x_i^2=0</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> The first raw moment is zero for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
+so use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msup><mi>X</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[X^2]=\theta</annotation></semantics></math>
+for the moment equation. For maximum likelihood, write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><msub><mo>∑</mo><mi>i</mi></msub><msubsup><mi>x</mi><mi>i</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">S_2=\sum_i x_i^2</annotation></semantics></math>,
+form the joint density, and check the score sign and both
+parameter-space boundaries.</p>
+<p><strong>Solution.</strong> Matching the second raw moment gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>X</mi><mi>i</mi><mn>2</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat\theta_{\mathrm{MOM}}
+=\frac{1}{n}\sum_{i=1}^{n}X_i^2.
+</annotation></semantics></math></p>
+<p>For any observed real values, the likelihood is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>π</mi><mi>θ</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>−</mi><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><mi>exp</mi><mo>⁡</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>θ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+L(\theta;\mathbf{x})
+=(2\pi\theta)^{-n/2}
+\exp\left(
+-\frac{S_2}{2\theta}
+\right),
+\qquad \theta&gt;0.
+</annotation></semantics></math></p>
+<p>After removing terms that do not depend on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
+the log-likelihood is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℓ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mfrac><mi>n</mi><mn>2</mn></mfrac><mi>log</mi><mo>⁡</mo><mi>θ</mi><mo>−</mo><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo>+</mo><mtext mathvariant="normal">constant</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\ell(\theta;\mathbf{x})
+=-\frac{n}{2}\log\theta-\frac{S_2}{2\theta}+\text{constant}.
+</annotation></semantics></math></p>
+<p>When
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">S_2&gt;0</annotation></semantics></math>,
+the score is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>ℓ</mi></mrow><mrow><mi>∂</mi><mi>θ</mi></mrow></mfrac><mo>=</mo><mi>−</mi><mfrac><mi>n</mi><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo>+</mo><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><msup><mi>θ</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>−</mo><mi>n</mi><mi>θ</mi></mrow><mrow><mn>2</mn><msup><mi>θ</mi><mn>2</mn></msup></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\partial\ell}{\partial\theta}
+=-\frac{n}{2\theta}+\frac{S_2}{2\theta^2}
+=\frac{S_2-n\theta}{2\theta^2}.
+</annotation></semantics></math></p>
+<p>It is positive below
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">S_2/n</annotation></semantics></math>,
+zero at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">S_2/n</annotation></semantics></math>,
+and negative above
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">S_2/n</annotation></semantics></math>.
+Moreover, the log-likelihood tends to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">-\infty</annotation></semantics></math>
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↓</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta\downarrow0</annotation></semantics></math>
+and as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\theta\to\infty</annotation></semantics></math>.
+Therefore the unique global maximum is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">E</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>X</mi><mi>i</mi><mn>2</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat\theta_{\mathrm{MLE}}
+=\frac{1}{n}\sum_{i=1}^{n}X_i^2.
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">S_2=0</annotation></semantics></math>,
+however, the likelihood is proportional to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mrow><mi>−</mi><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><annotation encoding="application/x-tex">\theta^{-n/2}</annotation></semantics></math>
+and is unbounded as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↓</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta\downarrow0</annotation></semantics></math>.
+No finite MLE exists on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta&gt;0</annotation></semantics></math>.
+The second-moment equation gives zero, which is outside the parameter
+space, so there is also no admissible finite method-of-moments estimate
+in this case.</p>
+<p><strong>Interpretation.</strong> On positive-squared-sum samples, the
+two methods happen to give the sample second raw moment in this normal
+variance model. This is not the sample mean used in a Poisson mean
+problem, and agreement between the two methods remains
+model-specific.</p>
+<h3 id="reproduction-check">Reproduction check</h3>
+<p>Before starting the exercise sheet, reproduce:</p>
+<ol type="1">
+<li>the nonlinear equality-constrained candidate comparison and envelope
+check in Example 1;</li>
+<li>all four Kuhn–Tucker condition groups and the active lower-bound
+solution in Example 2;</li>
+<li>the two variance calculations and consistency argument in Example 3;
+and</li>
+<li>the second-moment and normal-variance likelihood derivations,
+including the zero-squared-sum case, in Example 4.</li>
+</ol>
+<p>If you cannot state the constraint encoding, parameter space or
+regularity condition that makes a step valid, return to that step before
+memorising the final formula.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

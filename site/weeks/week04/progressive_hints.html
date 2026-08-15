@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 4 progressive hints</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week04/progressive_hints.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-4-progressive-hints">Week 4 progressive hints</h1>
+<p>Use the hints in order. After each hint, return to your own work and
+continue until you reach a new, specific impasse. The final hint may
+give a nearly complete setup, but it does not give the final result.</p>
+<h2 id="w04-q01-pa"><code>W04-Q01-PA</code></h2>
+<ol type="1">
+<li>When finding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>x</mi></msub><annotation encoding="application/x-tex">f_x</annotation></semantics></math>,
+treat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mi>y</mi></msup><annotation encoding="application/x-tex">e^y</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+in the logarithmic term as constants. When finding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>y</mi></msub><annotation encoding="application/x-tex">f_y</annotation></semantics></math>,
+treat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+as constant.</li>
+<li>Put
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>x</mi></msub><annotation encoding="application/x-tex">f_x</annotation></semantics></math>
+above
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>y</mi></msub><annotation encoding="application/x-tex">f_y</annotation></semantics></math>
+in a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>
+column, then substitute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x=1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mn>0</mn></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">e^0=1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\log1=0</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w04-q01-pb"><code>W04-Q01-PB</code></h2>
+<ol type="1">
+<li>Differentiate each first partial derivative from Part A with respect
+to both variables.</li>
+<li>Arrange
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub><mo>,</mo><msub><mi>f</mi><mrow><mi>x</mi><mi>y</mi></mrow></msub><mo>,</mo><msub><mi>f</mi><mrow><mi>y</mi><mi>x</mi></mrow></msub><mo>,</mo><msub><mi>f</mi><mrow><mi>y</mi><mi>y</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{xx},f_{xy},f_{yx},f_{yy}</annotation></semantics></math>
+in a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>
+matrix and then evaluate it.</li>
+<li>Ask whether all second partial derivatives are continuous on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">(0,\infty)\times\mathbb{R}</annotation></semantics></math>;
+this is the condition relevant to the equality of mixed partials.</li>
+</ol>
+<h2 id="w04-q02-pa"><code>W04-Q02-PA</code></h2>
+<ol type="1">
+<li>The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>-derivative
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>z</mi><mo>−</mo><mi>x</mi></mrow></msup><annotation encoding="application/x-tex">e^{z-x}</annotation></semantics></math>
+includes the derivative of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">z-x</annotation></semantics></math>.</li>
+<li>Put the three first partial derivatives in input order
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">x,y,z</annotation></semantics></math>,
+then evaluate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>z</mi><mo>−</mo><mi>x</mi></mrow></msup><annotation encoding="application/x-tex">e^{z-x}</annotation></semantics></math>
+at the stated point.</li>
+</ol>
+<h2 id="w04-q02-pb"><code>W04-Q02-PB</code></h2>
+<ol type="1">
+<li>The first-order scalar change is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐚</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mi mathvariant="normal">d</mi><mi>𝐱</mi></mrow><annotation encoding="application/x-tex">\nabla g(\mathbf{a})^{\mathsf T}\mathrm{d}\mathbf{x}</annotation></semantics></math>.</li>
+<li>Write the dimensions as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>×</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo>×</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1\times3)(3\times1)</annotation></semantics></math>
+before taking the dot product.</li>
+<li>A differential is the linear part of a local change. Distinguish it
+from evaluating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐚</mi><mo>+</mo><mi mathvariant="normal">d</mi><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g(\mathbf{a}+\mathrm{d}\mathbf{x})-g(\mathbf{a})</annotation></semantics></math>
+exactly.</li>
+</ol>
+<h2 id="w04-q03-pa"><code>W04-Q03-PA</code></h2>
+<ol type="1">
+<li>Find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">f_{xx}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>x</mi><mi>y</mi></mrow></msub><annotation encoding="application/x-tex">f_{xy}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>y</mi><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">f_{yx}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>y</mi><mi>y</mi></mrow></msub><annotation encoding="application/x-tex">f_{yy}</annotation></semantics></math>,
+then evaluate them at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,-1)</annotation></semantics></math>.</li>
+<li>First multiply the Hessian by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐯</mi><annotation encoding="application/x-tex">\mathbf{v}</annotation></semantics></math>,
+then left-multiply by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐯</mi><mi>𝖳</mi></msup><annotation encoding="application/x-tex">\mathbf{v}^{\mathsf T}</annotation></semantics></math>.</li>
+<li>For the direct check, substitute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn><mo>+</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">x=1+t</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>−</mi><mn>1</mn><mo>+</mo><mn>2</mn><mi>t</mi></mrow><annotation encoding="application/x-tex">y=-1+2t</annotation></semantics></math>
+into
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>,
+expand only as far as needed, and differentiate the resulting polynomial
+twice.</li>
+</ol>
+<h2 id="w04-q04-pa"><code>W04-Q04-PA</code></h2>
+<ol type="1">
+<li>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><msup><mi>𝐠</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\nabla f(\mathbf{g}(t))^{\mathsf T}\mathbf{g}&#39;(t)</annotation></semantics></math>,
+not a componentwise product.</li>
+<li>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math>,
+evaluate the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>
+gradient and the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>
+path derivative separately before taking their inner product.</li>
+</ol>
+<h2 id="w04-q04-pb"><code>W04-Q04-PB</code></h2>
+<ol type="1">
+<li>The inner Jacobian is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>,
+while the outer gradient at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐆</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{G}(1,0)</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>.</li>
+<li>In column-gradient form,
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝐉</mi><mi>𝐆</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mi>∇</mi><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐆</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla h(1,0)
+=
+\mathbf{J}_{\mathbf G}(1,0)^{\mathsf T}
+\nabla F(\mathbf{G}(1,0)).
+</annotation></semantics></math></li>
+<li>For the direct check, use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>e</mi><mi>y</mi></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">\log(e^y)=y</annotation></semantics></math>
+when writing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">h(x,y)</annotation></semantics></math>,
+then differentiate the explicit expression.</li>
+</ol>
+<h2 id="w04-q05-pa"><code>W04-Q05-PA</code></h2>
+<ol type="1">
+<li>Put the derivatives of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+in the first row and those of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>2</mn></msub><annotation encoding="application/x-tex">F_2</annotation></semantics></math>
+in the second row.</li>
+<li>There are two outputs and three inputs, so use the required
+dimension as a check before substituting the point.</li>
+</ol>
+<h2 id="w04-q05-pb"><code>W04-Q05-PB</code></h2>
+<ol type="1">
+<li>Multiply the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">2\times3</annotation></semantics></math>
+Jacobian from Part A by the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">3\times1</annotation></semantics></math>
+displacement.</li>
+<li>Each row–column product gives the first-order change in the
+corresponding output component.</li>
+<li>Keep the two changes in a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>
+column and identify which entry belongs to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+and which belongs to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>2</mn></msub><annotation encoding="application/x-tex">F_2</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w04-q06-pa"><code>W04-Q06-PA</code></h2>
+<ol type="1">
+<li>First calculate the intermediate point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{g}(1,2)</annotation></semantics></math>.</li>
+<li>The inner Jacobian has one row per component of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐠</mi><annotation encoding="application/x-tex">\mathbf{g}</annotation></semantics></math>,
+while the outer Jacobian has one column per input of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐅</mi><annotation encoding="application/x-tex">\mathbf{F}</annotation></semantics></math>.</li>
+<li>Multiply in the order
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐇</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><msub><mi>𝐉</mi><mi>𝐠</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf H}(1,2)
+=
+\mathbf{J}_{\mathbf F}(\mathbf{g}(1,2))
+\mathbf{J}_{\mathbf g}(1,2).
+</annotation></semantics></math></li>
+</ol>
+<h2 id="w04-q06-pb"><code>W04-Q06-PB</code></h2>
+<ol type="1">
+<li>Substitute the three components of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{g}(s,t)</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">x,y,z</annotation></semantics></math>
+in each component of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐅</mi><annotation encoding="application/x-tex">\mathbf{F}</annotation></semantics></math>.</li>
+<li>Differentiate each explicit component with respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>;
+each output becomes one Jacobian row.</li>
+<li>The Jacobian of a map from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>
+must be
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>.
+Compare this with the size of the reversed product.</li>
+</ol>
+<h2 id="w04-q07-pa"><code>W04-Q07-PA</code></h2>
+<ol type="1">
+<li>Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>2</mn><msup><mi>K</mi><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup><msup><mi>L</mi><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">Y=2K^{1/2}L^{1/2}</annotation></semantics></math>
+and differentiate powers while holding the other input fixed.</li>
+<li>Differentiate the first partials again to obtain the four Hessian
+entries. Evaluate exact powers such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>4</mn><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup><annotation encoding="application/x-tex">4^{1/2}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>4</mn><mrow><mi>−</mi><mn>3</mn><mi>/</mi><mn>2</mn></mrow></msup><annotation encoding="application/x-tex">4^{-3/2}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>9</mn><mrow><mi>−</mi><mn>3</mn><mi>/</mi><mn>2</mn></mrow></msup><annotation encoding="application/x-tex">9^{-3/2}</annotation></semantics></math>.</li>
+<li>For the change, use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>Y</mi><mo>=</mo><msub><mi>Y</mi><mi>K</mi></msub><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>K</mi><mo>+</mo><msub><mi>Y</mi><mi>L</mi></msub><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>L</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}Y=Y_K\,\mathrm{d}K+Y_L\,\mathrm{d}L</annotation></semantics></math>.
+Interpret each partial with the other input held fixed.</li>
+</ol>
+<h2 id="w04-q08-pa"><code>W04-Q08-PA</code></h2>
+<ol type="1">
+<li>Differentiate the vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ϕ</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo><mi>∇</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">\phi&#39;(g)\nabla g</annotation></semantics></math>
+component by component. One term differentiates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ϕ</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\phi&#39;(g)</annotation></semantics></math>;
+the other differentiates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">\nabla g</annotation></semantics></math>.</li>
+<li>The derivative of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ϕ</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\phi&#39;(g)</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ϕ</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo><mi>∇</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">\phi&#39;&#39;(g)\nabla g</annotation></semantics></math>.
+Its contribution is the outer product
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>g</mi><mi>∇</mi><msup><mi>g</mi><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">\nabla g\nabla g^{\mathsf T}</annotation></semantics></math>.</li>
+<li>For the application, take
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">g(x,y)=x^2+2y^2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\phi(s)=\log(1+s)</annotation></semantics></math>.
+Evaluate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">\nabla g</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐇</mi><mi>g</mi></msub><annotation encoding="application/x-tex">\mathbf{H}_g</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ϕ</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\phi&#39;(g)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ϕ</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\phi&#39;&#39;(g)</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,1)</annotation></semantics></math>
+before combining the two matrices.</li>
+</ol>
+<h2 id="w04-q09-pa"><code>W04-Q09-PA</code></h2>
+<ol type="1">
+<li>Record
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(0)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;(0)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;&#39;(0)</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">f(x)=e^x</annotation></semantics></math>.</li>
+<li>Insert these values into
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mi>x</mi><mo>+</mo><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">T_2(x)=f(0)+f&#39;(0)x+\tfrac12f&#39;&#39;(0)x^2</annotation></semantics></math>,
+then substitute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0.1</mn></mrow><annotation encoding="application/x-tex">x=0.1</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w04-q09-pb"><code>W04-Q09-PB</code></h2>
+<ol type="1">
+<li>The product has outer dimensions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>
+because the inner dimensions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+agree.</li>
+<li>Take the inner product of each row of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐛</mi><annotation encoding="application/x-tex">\mathbf{b}</annotation></semantics></math>,
+preserving the row order.</li>
+</ol>
+<h2 id="w04-q10-pa"><code>W04-Q10-PA</code></h2>
+<ol type="1">
+<li>Under the rate parameterisation, an exponential random variable has
+support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>
+and survival probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbb{P}(X&gt;x)=e^{-\lambda x}</annotation></semantics></math>.</li>
+<li>Express the interval probability as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(X&gt;1/2)-\mathbb{P}(X&gt;1)</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w04-q10-pb"><code>W04-Q10-PB</code></h2>
+<ol type="1">
+<li>Expectation is linear:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mn>2</mn><mi>X</mi><mo>−</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[2X-Y]=2\mathbb{E}[X]-\mathbb{E}[Y]</annotation></semantics></math>.</li>
+<li>Use
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>X</mi><mo>+</mo><mi>b</mi><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>a</mi><mn>2</mn></msup><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>2</mn><mi>a</mi><mi>b</mi><mi>Cov</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}(aX+bY)
+=
+a^2\operatorname{Var}(X)
++b^2\operatorname{Var}(Y)
++2ab\operatorname{Cov}(X,Y).
+</annotation></semantics></math> Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">a=2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">b=-1</annotation></semantics></math>,
+so inspect the sign of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>a</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">2ab</annotation></semantics></math>.</li>
+</ol>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

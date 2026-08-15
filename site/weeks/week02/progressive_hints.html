@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 2 progressive hints</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week02/progressive_hints.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-2-progressive-hints">Week 2 progressive hints</h1>
+<p>Use one hint at a time. Return to the question after each hint before
+reading the next one.</p>
+<h2 id="w02-q01-pa"><code>W02-Q01-PA</code></h2>
+<ol type="1">
+<li>Check the inner dimensions before multiplying:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">2\times3</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐁</mi><annotation encoding="application/x-tex">\mathbf{B}</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">3\times2</annotation></semantics></math>.</li>
+<li>Form each entry by taking one row of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>
+times one column of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐁</mi><annotation encoding="application/x-tex">\mathbf{B}</annotation></semantics></math>.</li>
+<li>For the associativity check, first find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐁</mi><mi>𝐮</mi></mrow><annotation encoding="application/x-tex">\mathbf{B}\mathbf{u}</annotation></semantics></math>,
+then compare the resulting vector with the product of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐁</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}\mathbf{B}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐮</mi><annotation encoding="application/x-tex">\mathbf{u}</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w02-q01-pb"><code>W02-Q01-PB</code></h2>
+<ol type="1">
+<li>The reversed product also exists, but its outer dimensions are
+different.</li>
+<li>Each row of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐁</mi><mi>𝐀</mi></mrow><annotation encoding="application/x-tex">\mathbf{B}\mathbf{A}</annotation></semantics></math>
+is a linear combination of the two rows of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>,
+with coefficients from the corresponding row of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐁</mi><annotation encoding="application/x-tex">\mathbf{B}</annotation></semantics></math>.</li>
+<li>Transpose your
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">3\times3</annotation></semantics></math>
+product. Separately multiply the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">3\times2</annotation></semantics></math>
+matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐀</mi><mi>𝖳</mi></msup><annotation encoding="application/x-tex">\mathbf{A}^{\mathsf T}</annotation></semantics></math>
+by the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">2\times3</annotation></semantics></math>
+matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐁</mi><mi>𝖳</mi></msup><annotation encoding="application/x-tex">\mathbf{B}^{\mathsf T}</annotation></semantics></math>,
+then compare both the dimensions and entries.</li>
+</ol>
+<h2 id="w02-q02-pa"><code>W02-Q02-PA</code></h2>
+<ol type="1">
+<li>For a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>
+matrix, compute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>d</mi><mo>−</mo><mi>b</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">ad-bc</annotation></semantics></math>
+first.</li>
+<li>Because the determinant is non-zero, interchange the diagonal
+entries, change the signs of the off-diagonal entries, and divide by the
+determinant.</li>
+<li>Multiply
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐂</mi><annotation encoding="application/x-tex">\mathbf{C}</annotation></semantics></math>
+by the proposed inverse; the diagonal entries of the product should be
+one and the off-diagonal entries zero.</li>
+</ol>
+<h2 id="w02-q02-pb"><code>W02-Q02-PB</code></h2>
+<ol type="1">
+<li>Left-multiply both sides by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐂</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">\mathbf{C}^{-1}</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐗</mi><mo>=</mo><msup><mi>𝐂</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mi>𝐃</mi></mrow><annotation encoding="application/x-tex">\mathbf{X}=\mathbf{C}^{-1}\mathbf{D}</annotation></semantics></math>
+for the displayed right-hand-side matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐃</mi><annotation encoding="application/x-tex">\mathbf{D}</annotation></semantics></math>.</li>
+<li>Treat the two columns of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐃</mi><annotation encoding="application/x-tex">\mathbf{D}</annotation></semantics></math>
+as two right-hand sides and keep the two solution columns in the same
+order.</li>
+<li>Verify the full matrix product and connect uniqueness to the
+non-zero determinant.</li>
+</ol>
+<h2 id="w02-q03-pa"><code>W02-Q03-PA</code></h2>
+<ol type="1">
+<li>Write the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>×</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">4\times5</annotation></semantics></math>
+augmented matrix and use the first row to eliminate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+from rows 2, 3 and 4.</li>
+<li>One convenient start is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>←</mo><msub><mi>R</mi><mn>2</mn></msub><mo>−</mo><mn>2</mn><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">R_2\leftarrow R_2-2R_1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>3</mn></msub><mo>←</mo><msub><mi>R</mi><mn>3</mn></msub><mo>−</mo><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">R_3\leftarrow R_3-R_1</annotation></semantics></math>,
+followed by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>4</mn></msub><mo>←</mo><msub><mi>R</mi><mn>4</mn></msub><mo>−</mo><mn>3</mn><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">R_4\leftarrow R_4-3R_1</annotation></semantics></math>.</li>
+<li>Swap the new rows 2 and 3 to obtain a pivot of one in the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+column; then eliminate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>,
+eliminate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>,
+and back-substitute from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w02-q04-pa"><code>W02-Q04-PA</code></h2>
+<ol type="1">
+<li>The coefficient row of the third equation is the sum of the first
+two coefficient rows.</li>
+<li>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>←</mo><msub><mi>R</mi><mn>2</mn></msub><mo>−</mo><mn>2</mn><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">R_2\leftarrow R_2-2R_1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>3</mn></msub><mo>←</mo><msub><mi>R</mi><mn>3</mn></msub><mo>−</mo><mn>3</mn><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">R_3\leftarrow R_3-3R_1</annotation></semantics></math>,
+and then subtract the new row 2 from row 3.</li>
+<li>The final augmented entry depends on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>.
+Decide when it is zero.</li>
+</ol>
+<h2 id="w02-q04-pb"><code>W02-Q04-PB</code></h2>
+<ol type="1">
+<li>Compare
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>rank</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{rank}(\mathbf{A})</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>rank</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>𝐀</mi><mo>∣</mo><mi>𝐛</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{rank}([\mathbf{A}\mid\mathbf{b}])</annotation></semantics></math>
+before counting free variables.</li>
+<li>In the consistent case there are three unknowns and only two pivots.
+Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">z=t</annotation></semantics></math>.</li>
+<li>Use the second echelon equation to find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>,
+then the first to find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>.
+Substitute the resulting expressions into each original equation to
+perform the requested verification.</li>
+</ol>
+<h2 id="w02-q05-pa"><code>W02-Q05-PA</code></h2>
+<ol type="1">
+<li>To make
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐏</mi><mi>𝐐</mi><mo>=</mo><msub><mn>𝟎</mn><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\mathbf{P}\mathbf{Q}=\mathbf{0}_{2\times2}</annotation></semantics></math>,
+arrange for every column of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐐</mi><annotation encoding="application/x-tex">\mathbf{Q}</annotation></semantics></math>
+to be sent to zero by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>.</li>
+<li>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>
+keep the first coordinate and kill the second. Choose a rank-one
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐐</mi><annotation encoding="application/x-tex">\mathbf{Q}</annotation></semantics></math>
+whose non-zero output lies in the second coordinate, but which does not
+kill the first coordinate.</li>
+<li>Compute the reverse product separately; do not infer it from the
+forward product.</li>
+</ol>
+<h2 id="w02-q06-pa"><code>W02-Q06-PA</code></h2>
+<ol type="1">
+<li>Use the multiplication rule separately on the branches
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>E</mi><mi>c</mi></msup><annotation encoding="application/x-tex">E^c</annotation></semantics></math>,
+beginning with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(E^c)</annotation></semantics></math>.</li>
+<li>The conditional probabilities of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>M</mi><mi>c</mi></msup><annotation encoding="application/x-tex">M^c</annotation></semantics></math>
+are the complements of the supplied conditional probabilities of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>.</li>
+<li>Arrange the four joint probabilities in a table and obtain each
+marginal by summing its row or column.</li>
+</ol>
+<h2 id="w02-q06-pb"><code>W02-Q06-PB</code></h2>
+<ol type="1">
+<li>Use the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+column total as the denominator of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo>∣</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(E\mid M)</annotation></semantics></math>
+and the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>M</mi><mi>c</mi></msup><annotation encoding="application/x-tex">M^c</annotation></semantics></math>
+column total as the denominator of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo>∣</mo><msup><mi>M</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(E\mid M^c)</annotation></semantics></math>.</li>
+<li>Independence would require the conditional probability of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+to equal its marginal probability in either conditioning group.</li>
+<li>Describe the direction of association by comparing the two
+conditional proportions, without claiming that the context establishes
+causation.</li>
+</ol>
+<h2 id="w02-q07-pa"><code>W02-Q07-PA</code></h2>
+<ol type="1">
+<li>The three session events form a partition, so there are three
+mutually exclusive routes to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>.</li>
+<li>Multiply
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo>∣</mo><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(C\mid R_i)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>C</mi><mi>c</mi></msup><mo>∣</mo><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(C^c\mid R_i)</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(R_i)</annotation></semantics></math>
+to fill each row.</li>
+<li>Add the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+column to obtain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(C)</annotation></semantics></math>,
+and check all six cells sum to one.</li>
+</ol>
+<h2 id="w02-q07-pb"><code>W02-Q07-PB</code></h2>
+<ol type="1">
+<li>The requested conditioning direction is the reverse of the
+probabilities supplied in the question.</li>
+<li>Divide each entry in the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+column by the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+column total.</li>
+<li>A valid posterior distribution over the three sessions must sum to
+one; then compare the three values.</li>
+</ol>
+<h2 id="w02-q08-pa"><code>W02-Q08-PA</code></h2>
+<ol type="1">
+<li>Recover
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\cap B)</annotation></semantics></math>
+from the addition rule for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\cup B)</annotation></semantics></math>.</li>
+<li>Divide the intersection by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(B)</annotation></semantics></math>
+to find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid B)</annotation></semantics></math>.</li>
+<li>Compare the intersection with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A)\mathbb{P}(B)</annotation></semantics></math>
+and the conditional probability with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A)</annotation></semantics></math>.
+For disjointness, compare the intersection with zero.</li>
+</ol>
+<h2 id="w02-q09-pa"><code>W02-Q09-PA</code></h2>
+<ol type="1">
+<li>Treat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>D</mi><mi>c</mi></msup><annotation encoding="application/x-tex">D^c</annotation></semantics></math>
+as a partition and find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(S)</annotation></semantics></math>.</li>
+<li>For the negative signal, complement both conditional signal
+probabilities and find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>S</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(S^c)</annotation></semantics></math>
+before applying Bayes’ rule again.</li>
+<li>To interpret the result, distinguish
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo>∣</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(S\mid D)</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo>∣</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(D\mid S)</annotation></semantics></math>,
+and account for the large
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>D</mi><mi>c</mi></msup><annotation encoding="application/x-tex">D^c</annotation></semantics></math>
+group.</li>
+</ol>
+<h2 id="w02-q10-pa"><code>W02-Q10-PA</code></h2>
+<ol type="1">
+<li>Both logarithm arguments must be positive.</li>
+<li>Combine the logarithms into the logarithm of a product, then use the
+fact that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>log</mi><annotation encoding="application/x-tex">\log</annotation></semantics></math>
+is one-to-one on its domain.</li>
+<li>Solve the resulting quadratic and test every root against the
+original domain.</li>
+</ol>
+<h2 id="w02-q10-pb"><code>W02-Q10-PB</code></h2>
+<ol type="1">
+<li>Evaluate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(1)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;(1)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;&#39;(1)</annotation></semantics></math>.</li>
+<li>Substitute those values into
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">f(1)+f&#39;(1)(x-1)+\tfrac12f&#39;&#39;(1)(x-1)^2</annotation></semantics></math>.</li>
+<li>The displacements are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.1</mn></mrow><annotation encoding="application/x-tex">-0.1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.1</mn><annotation encoding="application/x-tex">0.1</annotation></semantics></math>.
+Squaring removes the sign, while
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f&#39;&#39;(1)&lt;0</annotation></semantics></math>
+fixes the sign of the quadratic correction.</li>
+</ol>
+<h2 id="w02-q10-pc"><code>W02-Q10-PC</code></h2>
+<ol type="1">
+<li>“At least one” corresponds to a union. Apply De Morgan’s law to
+write the complement as the event that neither named student is
+selected.</li>
+<li>There are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom{5}{2}</annotation></semantics></math>
+unordered pairs in total. For the complement, choose both
+representatives from the other three students.</li>
+<li>For a direct check, partition the favourable pairs into the disjoint
+cases “exactly one named student” and “both named students”.</li>
+</ol>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

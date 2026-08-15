@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 8 progressive hints</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week08/progressive_hints.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-8-progressive-hints">Week 8 progressive hints</h1>
+<p>Use one hint at a time. Return to your own work after each hint and
+read the next only if you reach a new, specific impasse.</p>
+<h2 id="w08-q01-pa"><code>W08-Q01-PA</code></h2>
+<ol type="1">
+<li>A parameter is a fixed feature of the population. An estimand is the
+population quantity targeted by the analysis.</li>
+<li>Write the sample count as the random variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+before sampling and as its realised value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>84</mn></mrow><annotation encoding="application/x-tex">x=84</annotation></semantics></math>
+after sampling.</li>
+</ol>
+<h2 id="w08-q01-pb"><code>W08-Q01-PB</code></h2>
+<ol type="1">
+<li>Ask whether the repeated-sampling statement concerns one interval or
+the long-run behaviour of the construction method.</li>
+<li>Before data are observed, the interval endpoints are functions of
+the random sample. After observation, both endpoints and the parameter
+are fixed in the frequentist interpretation.</li>
+</ol>
+<h2 id="w08-q02-pa"><code>W08-Q02-PA</code></h2>
+<ol type="1">
+<li>From
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mn>36</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{N}(\mu,36)</annotation></semantics></math>,
+identify
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
+and calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\sigma/\sqrt n</annotation></semantics></math>.</li>
+<li>Centre the interval at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar x</annotation></semantics></math>
+and move
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.96</mn><annotation encoding="application/x-tex">1.96</annotation></semantics></math>
+standard errors in each direction. The exactness comes from the stated
+normal population and known variance.</li>
+</ol>
+<h2 id="w08-q03-pa"><code>W08-Q03-PA</code></h2>
+<ol type="1">
+<li>Calculate the mean, then make a deviation-and-squared-deviation
+list. Remember that the sample variance denominator is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>.</li>
+<li>The unknown variance is replaced by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>.
+Under the stated normal sampling condition, standardisation uses a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">t_{n-1}</annotation></semantics></math>
+distribution.</li>
+<li>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>/</mi><msqrt><mi>n</mi></msqrt><mo>=</mo><msqrt><mrow><msup><mi>s</mi><mn>2</mn></msup><mi>/</mi><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">s/\sqrt n=\sqrt{s^2/n}</annotation></semantics></math>
+and place the supplied t critical value on both sides of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar x</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w08-q04-pa"><code>W08-Q04-PA</code></h2>
+<ol type="1">
+<li>The observed estimate is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\widehat p(\mathbf{x})=x/n</annotation></semantics></math>.
+Check both
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mover><mi>p</mi><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">n\widehat p</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">n(1-\widehat p)</annotation></semantics></math>.</li>
+<li>Use the estimated standard error
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>n</mi></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{\widehat p(1-\widehat p)/n}</annotation></semantics></math>
+and the supplied 90% critical value.</li>
+</ol>
+<h2 id="w08-q04-pb"><code>W08-Q04-PB</code></h2>
+<ol type="1">
+<li>The conservative margin is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.96</mn><msqrt><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">1.96\sqrt{(1/4)/n}</annotation></semantics></math>.</li>
+<li>Impose the required upper bound on that margin, square both
+non-negative sides and round the resulting lower bound for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+upwards.</li>
+</ol>
+<h2 id="w08-q05-pa"><code>W08-Q05-PA</code></h2>
+<ol type="1">
+<li>The concern “below 50” determines a lower-tailed alternative.
+Standardise the observed sample mean under the null.</li>
+<li>The p-value is the lower-tail standard-normal probability at the
+observed statistic. Compare it with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>,
+or compare the statistic with the supplied lower critical value.</li>
+</ol>
+<h2 id="w08-q05-pb"><code>W08-Q05-PB</code></h2>
+<ol type="1">
+<li>Name the probability model under which the p-value is calculated and
+the set of results counted as at least as incompatible with the
+null.</li>
+<li>A decision rule controls repeated-sampling error probabilities; it
+does not place a probability distribution on the truth of the fixed null
+hypothesis.</li>
+</ol>
+<h2 id="w08-q06-pa"><code>W08-Q06-PA</code></h2>
+<ol type="1">
+<li>Because the population variance is unknown, standardise with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">S/\sqrt n</annotation></semantics></math>.
+Count the degrees of freedom.</li>
+<li>The alternative is two-sided, so equal-magnitude departures in both
+tails count against the null.</li>
+<li>Double the supplied upper-tail probability and compare the result
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.05</mn><annotation encoding="application/x-tex">0.05</annotation></semantics></math>.
+Check that the critical-value decision agrees.</li>
+</ol>
+<h2 id="w08-q06-pb"><code>W08-Q06-PB</code></h2>
+<ol type="1">
+<li>Use the same estimated standard error and the same
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mn>0.975</mn><mo>,</mo><mn>9</mn></mrow></msub><annotation encoding="application/x-tex">t_{0.975,9}</annotation></semantics></math>
+critical value as in the two-sided test.</li>
+<li>A two-sided
+level-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+test using the same pivot rejects a candidate null value exactly when
+that value lies outside the corresponding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><mi>%</mi></mrow><annotation encoding="application/x-tex">100(1-\alpha)\%</annotation></semantics></math>
+interval.</li>
+</ol>
+<h2 id="w08-q07-pa"><code>W08-Q07-PA</code></h2>
+<ol type="1">
+<li>Under the null, use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>n</mi></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{p_0(1-p_0)/n}</annotation></semantics></math>,
+not the observed-proportion standard error.</li>
+<li>Standardise
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>=</mo><mn>0.58</mn></mrow><annotation encoding="application/x-tex">\widehat p=0.58</annotation></semantics></math>,
+double the relevant upper-tail probability and compare the absolute
+statistic with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.96</mn><annotation encoding="application/x-tex">1.96</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w08-q08-pa"><code>W08-Q08-PA</code></h2>
+<ol type="1">
+<li>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">n=16</annotation></semantics></math>,
+the sampling standard deviation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mi>/</mi><msqrt><mn>16</mn></msqrt></mrow><annotation encoding="application/x-tex">4/\sqrt{16}</annotation></semantics></math>.
+Evaluate the fixed rejection boundary under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">\mu=50</annotation></semantics></math>.</li>
+<li>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>53</mn></mrow><annotation encoding="application/x-tex">\mu=53</annotation></semantics></math>,
+a Type II error is the event of not crossing the same rejection
+boundary. Power is its complement.</li>
+</ol>
+<h2 id="w08-q08-pb"><code>W08-Q08-PB</code></h2>
+<ol type="1">
+<li>To make the test have level
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.05</mn><annotation encoding="application/x-tex">0.05</annotation></semantics></math>,
+place
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mi>n</mi></msub><annotation encoding="application/x-tex">c_n</annotation></semantics></math>
+exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>z</mi><mn>0.95</mn></msub><annotation encoding="application/x-tex">z_{0.95}</annotation></semantics></math>
+standard errors above 50.</li>
+<li>Express
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>52</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>ℙ</mi><mrow><mi>μ</mi><mo>=</mo><mn>52</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>≤</mo><msub><mi>c</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\beta(52)=\mathbb{P}_{\mu=52}(\bar X\le c_n)</annotation></semantics></math>
+as a standard-normal probability. Power at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.90</mn><annotation encoding="application/x-tex">0.90</annotation></semantics></math>
+means this Type II error probability is at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.10</mn><annotation encoding="application/x-tex">0.10</annotation></semantics></math>.</li>
+<li>Substitute the expression for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mi>n</mi></msub><annotation encoding="application/x-tex">c_n</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>0.10</mn></msub><mo>=</mo><mi>−</mi><msub><mi>z</mi><mn>0.90</mn></msub></mrow><annotation encoding="application/x-tex">z_{0.10}=-z_{0.90}</annotation></semantics></math>,
+isolate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>n</mi></msqrt><annotation encoding="application/x-tex">\sqrt n</annotation></semantics></math>,
+and check the two adjacent integers.</li>
+</ol>
+<h2 id="w08-q09-pa"><code>W08-Q09-PA</code></h2>
+<ol type="1">
+<li>For the matched two-sided normal procedures, a candidate null value
+is rejected exactly when it is outside the realised confidence
+interval.</li>
+<li>Apply the containment check separately to 100 and 105. Non-rejection
+is a statement about insufficient evidence at the chosen level, not a
+probability assigned to one parameter value.</li>
+</ol>
+<h2 id="w08-q10-pa"><code>W08-Q10-PA</code></h2>
+<ol type="1">
+<li>Use linearity of expectation and independence in the variance of the
+sample mean.</li>
+<li>The standard deviation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+is the population standard deviation divided by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>n</mi></msqrt><annotation encoding="application/x-tex">\sqrt n</annotation></semantics></math>.
+Standardise both probability endpoints and invoke the central limit
+theorem because the population distribution is not stated to be
+normal.</li>
+</ol>
+<h2 id="w08-q10-pb"><code>W08-Q10-PB</code></h2>
+<ol type="1">
+<li>For a Bernoulli random variable,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}[X_i]=p</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X_i)=p(1-p)</annotation></semantics></math>.</li>
+<li>Apply the sample-mean expectation and variance formulae. For
+consistency, consider what happens to the bias and variance as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">n\to\infty</annotation></semantics></math>,
+then distinguish the random estimator from its observed numerical
+estimate.</li>
+</ol>
+<h2 id="w08-q11-pa"><code>W08-Q11-PA</code></h2>
+<ol type="1">
+<li>Differentiate the displayed Lagrangian with respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>.
+Add primal feasibility,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda\ge0</annotation></semantics></math>
+and complementary slackness
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda y=0</annotation></semantics></math>.</li>
+<li>For the interior regime set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda=0</annotation></semantics></math>.
+For the corner regime set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>,
+use the equality constraint and then check the sign of the resulting
+multiplier.</li>
+<li>Substitute each regime’s solution into the objective to obtain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(a)</annotation></semantics></math>.
+Because the equality is encoded as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-x-y=0</annotation></semantics></math>,
+the envelope derivative is the partial derivative of the Lagrangian with
+respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.</li>
+</ol>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

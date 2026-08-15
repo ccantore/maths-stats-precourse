@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 3 question sheet</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week03/question_sheet.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-3-question-sheet">Week 3 question sheet</h1>
+<h2 id="source-weeks-week03-exercises">Problem sheet</h2>
+<h3 id="instructions">Instructions</h3>
+<p>Attempt all ten questions and all 17 scorable parts. The target time
+is 240 minutes and the total is 100 marks. No calculator or software is
+needed. Use exact values unless a comparison value is supplied. State
+supports, parameter restrictions and matrix or vector dimensions when
+they affect the method.</p>
+<p>Use <a href="progressive_hints.html">hints.md</a> only after a
+serious attempt. Do not consult <a href="complete_solutions.html#source-weeks-week03-solutions">solutions.md</a>
+until you have completed or paused every part.</p>
+<h3 id="question-1-membership-in-a-span">Question 1 — membership in a
+span</h3>
+<h4 id="part-a-w03-q01-pa-5-marks-14-minutes">Part A —
+<code>W03-Q01-PA</code> (5 marks; 14 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐯</mi><mn>1</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐯</mi><mn>2</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐰</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{v}_1=
+\begin{bmatrix}1\\0\\1\end{bmatrix},
+\qquad
+\mathbf{v}_2=
+\begin{bmatrix}0\\1\\1\end{bmatrix},
+\qquad
+\mathbf{w}=
+\begin{bmatrix}2\\-1\\1\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Determine whether
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐰</mi><mo>∈</mo><mi>span</mi><mo>⁡</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>𝐯</mi><mn>1</mn></msub><mo>,</mo><msub><mi>𝐯</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathbf{w}\in\operatorname{span}\{\mathbf{v}_1,\mathbf{v}_2\}</annotation></semantics></math>.
+If it is, find the coefficients and verify the linear combination. If it
+is not, show the inconsistent coefficient condition.</p>
+<h3 id="question-2-independence-basis-and-coordinates">Question 2 —
+independence, basis and coordinates</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐮</mi><mn>1</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐮</mi><mn>2</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐮</mi><mn>3</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐮</mi><mn>4</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{u}_1=
+\begin{bmatrix}1\\0\\1\end{bmatrix},
+\qquad
+\mathbf{u}_2=
+\begin{bmatrix}0\\1\\1\end{bmatrix},
+\qquad
+\mathbf{u}_3=
+\begin{bmatrix}1\\1\\2\end{bmatrix},
+\qquad
+\mathbf{u}_4=
+\begin{bmatrix}1\\1\\0\end{bmatrix}.
+</annotation></semantics></math></p>
+<h4 id="part-a-w03-q02-pa-5-marks-14-minutes">Part A —
+<code>W03-Q02-PA</code> (5 marks; 14 minutes)</h4>
+<p>Determine whether
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>𝐮</mi><mn>1</mn></msub><mo>,</mo><msub><mi>𝐮</mi><mn>2</mn></msub><mo>,</mo><msub><mi>𝐮</mi><mn>3</mn></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{\mathbf{u}_1,\mathbf{u}_2,\mathbf{u}_3\}</annotation></semantics></math>
+is linearly independent. Give an explicit dependence relation and state
+the dimension of its span.</p>
+<h4 id="part-b-w03-q02-pb-6-marks-14-minutes">Part B —
+<code>W03-Q02-PB</code> (6 marks; 14 minutes)</h4>
+<p>Show that the ordered set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℬ</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>𝐮</mi><mn>1</mn></msub><mo>,</mo><msub><mi>𝐮</mi><mn>2</mn></msub><mo>,</mo><msub><mi>𝐮</mi><mn>4</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{B}=(\mathbf{u}_1,\mathbf{u}_2,\mathbf{u}_4)</annotation></semantics></math>
+is a basis of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^3</annotation></semantics></math>.
+Then find the coordinate vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>𝐱</mi><msub><mo stretchy="false" form="postfix">]</mo><mi>ℬ</mi></msub></mrow><annotation encoding="application/x-tex">[\mathbf{x}]_{\mathcal{B}}</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{x}=[3,1,2]^{\mathsf T}</annotation></semantics></math>.
+Explain why the coordinate vector is unique.</p>
+<h3 id="question-3-eigenvalues-eigenvectors-and-a-diagonalisation">Question
+3 — eigenvalues, eigenvectors and a diagonalisation</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{A}
+=
+\begin{bmatrix}
+4&amp;1\\
+2&amp;3
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<h4 id="part-a-w03-q03-pa-5-marks-14-minutes">Part A —
+<code>W03-Q03-PA</code> (5 marks; 14 minutes)</h4>
+<p>Compute the characteristic polynomial and the eigenvalues of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>.</p>
+<h4 id="part-b-w03-q03-pb-7-marks-16-minutes">Part B —
+<code>W03-Q03-PB</code> (7 marks; 16 minutes)</h4>
+<p>For each eigenvalue, find a corresponding non-zero eigenvector.
+Construct matrices
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐃</mi><annotation encoding="application/x-tex">\mathbf{D}</annotation></semantics></math>
+such that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>=</mo><mi>𝐏</mi><mi>𝐃</mi><msup><mi>𝐏</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbf{A}=\mathbf{P}\mathbf{D}\mathbf{P}^{-1}</annotation></semantics></math>.
+Verify the eigenvector relation in the compact form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐏</mi><mo>=</mo><mi>𝐏</mi><mi>𝐃</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}\mathbf{P}=\mathbf{P}\mathbf{D}</annotation></semantics></math>,
+and state why
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>
+is invertible.</p>
+<h3 id="question-4-diagonalisation-and-eigenbasis-coordinates">Question
+4 — diagonalisation and eigenbasis coordinates</h3>
+<h4 id="part-a-w03-q04-pa-10-marks-20-minutes">Part A —
+<code>W03-Q04-PA</code> (10 marks; 20 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐁</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{B}
+=
+\begin{bmatrix}
+3&amp;1\\
+0&amp;2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Diagonalise
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐁</mi><annotation encoding="application/x-tex">\mathbf{B}</annotation></semantics></math>
+over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>.
+Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐮</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{u}=\begin{bmatrix}5\\2\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐮</mi><annotation encoding="application/x-tex">\mathbf{u}</annotation></semantics></math>
+in the ordered eigenbasis you use for the diagonalisation. Then use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐁</mi><mo>=</mo><mi>𝐏</mi><mi>𝐃</mi><msup><mi>𝐏</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbf{B}=\mathbf{P}\mathbf{D}\mathbf{P}^{-1}</annotation></semantics></math>
+to calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐁</mi><mi>𝐮</mi></mrow><annotation encoding="application/x-tex">\mathbf{B}\mathbf{u}</annotation></semantics></math>,
+and verify the result by direct matrix multiplication. Your derivation
+must keep eigenvectors and eigenvalues in a consistent order.</p>
+<h3 id="question-5-a-pmf-its-cdf-and-moments">Question 5 — a PMF, its
+CDF and moments</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+have support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1,2,3\}</annotation></semantics></math>
+and PMF</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>c</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p_X(x)=c(x+1),
+\qquad x\in\{0,1,2,3\}.
+</annotation></semantics></math></p>
+<h4 id="part-a-w03-q05-pa-5-marks-14-minutes">Part A —
+<code>W03-Q05-PA</code> (5 marks; 14 minutes)</h4>
+<p>Find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>,
+write the CDF
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(x)</annotation></semantics></math>
+for every real
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+and calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>&lt;</mo><mi>X</mi><mo>≤</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(1&lt;X\le3)</annotation></semantics></math>.</p>
+<h4 id="part-b-w03-q05-pb-6-marks-14-minutes">Part B —
+<code>W03-Q05-PB</code> (6 marks; 14 minutes)</h4>
+<p>Derive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)</annotation></semantics></math>.
+Then let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>3</mn><mo>−</mo><mn>2</mn><mi>X</mi></mrow><annotation encoding="application/x-tex">Y=3-2X</annotation></semantics></math>
+and calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Y)</annotation></semantics></math>,
+explaining why the additive constant affects one quantity but not the
+other.</p>
+<h3 id="question-6-required-discrete-distributions">Question 6 —
+required discrete distributions</h3>
+<h4 id="part-a-w03-q06-pa-5-marks-14-minutes">Part A —
+<code>W03-Q06-PA</code> (5 marks; 14 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>∼</mo><mi>Binomial</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K\sim\operatorname{Binomial}(4,1/2)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+counts successes in four independent Bernoulli trials, and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>∼</mo><mi>Geometric</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">G\sim\operatorname{Geometric}(1/4)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>
+counts trials up to and including the first success.</p>
+<p>Calculate</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mo>=</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mo>≥</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo>&gt;</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(K=2),\qquad
+\mathbb{P}(K\ge1),\qquad
+\mathbb{P}(G&gt;3).
+</annotation></semantics></math></p>
+<p>State the support of each random variable.</p>
+<h4 id="part-b-w03-q06-pb-7-marks-16-minutes">Part B —
+<code>W03-Q06-PB</code> (7 marks; 16 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>∼</mo><mi>Poisson</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">N\sim\operatorname{Poisson}(2)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+is the mean/rate, and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+be as in Part A. Calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo>≤</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(N\le1)</annotation></semantics></math>.
+Then compare the means and variances of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.
+Explain how two count distributions can have the same mean but different
+variances.</p>
+<h3 id="question-7-required-continuous-distributions">Question 7 —
+required continuous distributions</h3>
+<h4 id="part-a-w03-q07-pa-5-marks-14-minutes">Part A —
+<code>W03-Q07-PA</code> (5 marks; 14 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>∼</mo><mi>Uniform</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">U\sim\operatorname{Uniform}(-1,3)</annotation></semantics></math>.
+State its support and PDF, write its CDF for every real
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>,
+and calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>&lt;</mo><mi>U</mi><mo>≤</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(0&lt;U\le2)</annotation></semantics></math>.</p>
+<h4 id="part-b-w03-q07-pb-7-marks-16-minutes">Part B —
+<code>W03-Q07-PB</code> (7 marks; 16 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∼</mo><mi>Exponential</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T\sim\operatorname{Exponential}(2)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+is the rate. State its support and PDF, calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo>&gt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(T&gt;1)</annotation></semantics></math>,
+and find its mean and variance. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>4</mn><mi>T</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">Y=4T-1</annotation></semantics></math>,
+calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Y)</annotation></semantics></math>.</p>
+<h3 id="question-8-covariance-correlation-and-linear-transformations">Question
+8 — covariance, correlation and linear transformations</h3>
+<h4 id="part-a-w03-q08-pa-8-marks-16-minutes">Part A —
+<code>W03-Q08-PA</code> (8 marks; 16 minutes)</h4>
+<p>Random variables
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+have finite second moments and satisfy</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>9</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>Cov</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>3</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[X]=1,\qquad
+\mathbb{E}[Y]=2,\qquad
+\operatorname{Var}(X)=4,\qquad
+\operatorname{Var}(Y)=9,\qquad
+\operatorname{Cov}(X,Y)=-3.
+</annotation></semantics></math></p>
+<p>Calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Corr</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Corr}(X,Y)</annotation></semantics></math>.
+Then define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mn>2</mn><mi>X</mi><mo>−</mo><mi>Y</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>V</mi><mo>=</mo><mi>X</mi><mo>+</mo><mi>Y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+U=2X-Y,
+\qquad
+V=X+Y.
+</annotation></semantics></math></p>
+<p>Derive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>U</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[U]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>U</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(U)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(V)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Cov</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>U</mi><mo>,</mo><mi>V</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Cov}(U,V)</annotation></semantics></math>.</p>
+<h3 id="question-9-indicator-variables-and-sampling-without-replacement">Question
+9 — indicator variables and sampling without replacement</h3>
+<h4 id="part-a-w03-q09-pa-8-marks-14-minutes">Part A —
+<code>W03-Q09-PA</code> (8 marks; 14 minutes)</h4>
+<p>Two cards are drawn without replacement from a set of four cards, of
+which two are red. Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mn>1</mn></msub><annotation encoding="application/x-tex">I_1</annotation></semantics></math>
+equal one if the first card is red and zero otherwise, and define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mn>2</mn></msub><annotation encoding="application/x-tex">I_2</annotation></semantics></math>
+analogously for the second card. Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><msub><mi>I</mi><mn>1</mn></msub><mo>+</mo><msub><mi>I</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">R=I_1+I_2</annotation></semantics></math>.</p>
+<p>Using the indicators, derive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>R</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[R]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(R)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Corr</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>I</mi><mn>1</mn></msub><mo>,</mo><msub><mi>I</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Corr}(I_1,I_2)</annotation></semantics></math>.
+Interpret the sign of the correlation in the context of sampling without
+replacement.</p>
+<h3 id="question-10-earlier-outcome-retrieval">Question 10 —
+earlier-outcome retrieval</h3>
+<p>Complete all three parts without consulting Week 1 or Week 2
+notes.</p>
+<h4 id="part-a-w03-q10-pa-m4-3-marks-10-minutes">Part A —
+<code>W03-Q10-PA</code> (<code>M4</code>; 3 marks; 10 minutes)</h4>
+<p>Solve and classify the system</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>+</mo><mn>2</mn><mi>z</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>4</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>x</mi><mo>−</mo><mi>y</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+x+y+z&amp;=2,\\
+2x+2y+2z&amp;=4,\\
+x-y&amp;=0.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>State the coefficient and augmented ranks and write the complete
+solution using a real free parameter.</p>
+<h4 id="part-b-w03-q10-pb-s2-4-marks-10-minutes">Part B —
+<code>W03-Q10-PB</code> (<code>S2</code>; 4 marks; 10 minutes)</h4>
+<p>Events
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>A</mi><mi>c</mi></msup><annotation encoding="application/x-tex">A^c</annotation></semantics></math>
+form a partition. Suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>∣</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>∣</mo><msup><mi>A</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A)=\frac13,\qquad
+\mathbb{P}(B\mid A)=\frac34,\qquad
+\mathbb{P}(B\mid A^c)=\frac14.
+</annotation></semantics></math></p>
+<p>Use total probability and Bayes’ rule to calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid B)</annotation></semantics></math>.
+State the positivity condition needed for the posterior.</p>
+<h4 id="part-c-w03-q10-pc-m2-4-marks-10-minutes">Part C —
+<code>W03-Q10-PC</code> (<code>M2</code>; 4 marks; 10 minutes)</h4>
+<p>Throughout this part,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>log</mi><annotation encoding="application/x-tex">\log</annotation></semantics></math>
+is the natural logarithm. Solve</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>log</mi><mo>⁡</mo><mi>x</mi><mo>=</mo><mi>log</mi><mo>⁡</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\log(x-1)-\log x=\log\left(\frac13\right)
+</annotation></semantics></math></p>
+<p>over the real numbers. State the domain before combining logarithms
+and check the final value in the original equation.</p>
+<h2 id="source-weeks-week03-self-test-before-self-test-solutions">Self-test
+questions</h2>
+<p>Set aside 25 minutes and attempt all four parts without the reading
+guide, worked examples, hints or exercise solutions. No calculator is
+needed. Show the condition, support or dimension check that justifies
+each conclusion. The self-test has 20 marks and does not contribute to a
+checkpoint or mock-examination score.</p>
+<h3 id="questions">Questions</h3>
+<h4 id="w03-st01-pa-eigenstructure-and-diagonalisation-m5-5-marks-7-minutes"><code>W03-ST01-PA</code>
+— eigenstructure and diagonalisation (<code>M5</code>; 5 marks; 7
+minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐂</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{C}
+=
+\begin{bmatrix}
+2&amp;1\\
+0&amp;3
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Find the eigenvalues and one eigenvector for each. Construct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐃</mi><annotation encoding="application/x-tex">\mathbf{D}</annotation></semantics></math>
+such that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐂</mi><mo>=</mo><mi>𝐏</mi><mi>𝐃</mi><msup><mi>𝐏</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbf{C}=\mathbf{P}\mathbf{D}\mathbf{P}^{-1}</annotation></semantics></math>,
+and state why
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>
+is invertible.</p>
+<h4 id="w03-st02-pa-a-normal-probability-s3-5-marks-6-minutes"><code>W03-ST02-PA</code>
+— a normal probability (<code>S3</code>; 5 marks; 6 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>10</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\mathcal{N}(10,4)</annotation></semantics></math>,
+where the second parameter is the variance. State the support and
+standard deviation. Standardise
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
+then calculate</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>8</mn><mo>≤</mo><mi>X</mi><mo>≤</mo><mn>12</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(8\le X\le12).
+</annotation></semantics></math></p>
+<p>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.8413</mn></mrow><annotation encoding="application/x-tex">\Phi(1)=0.8413</annotation></semantics></math>
+and symmetry of the standard normal CDF. Give the probability to four
+decimal places.</p>
+<h4 id="w03-st03-pa-a-transformed-second-moment-s4-5-marks-6-minutes"><code>W03-ST03-PA</code>
+— a transformed second moment (<code>S4</code>; 5 marks; 6 minutes)</h4>
+<p>Suppose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]=2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)=3</annotation></semantics></math>.
+Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>5</mn><mo>−</mo><mn>2</mn><mi>X</mi></mrow><annotation encoding="application/x-tex">Y=5-2X</annotation></semantics></math>.
+Calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Y)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><msup><mi>Y</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y^2]</annotation></semantics></math>.</p>
+<h4 id="w03-st04-pa-a-poisson-distribution-s3-s4-5-marks-6-minutes"><code>W03-ST04-PA</code>
+— a Poisson distribution (<code>S3</code>, <code>S4</code>; 5 marks; 6
+minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>∼</mo><mi>Poisson</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">N\sim\operatorname{Poisson}(3)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+is the mean/rate. State the support, calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo>≤</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(N\le1)</annotation></semantics></math>,
+and state
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>N</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[N]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(N)</annotation></semantics></math>.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 6 reading guide and worked examples</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week06/reading_guide.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-6-reading-guide-and-worked-examples">Week 6 reading guide
+and worked examples</h1>
+<h2 id="source-weeks-week06-readme">Weekly overview</h2>
+<h3 id="required-learning-outcomes">Required learning outcomes</h3>
+<p>By the end of this week, you should be able to:</p>
+<ul>
+<li>solve unconstrained multivariable optimisation problems and
+distinguish candidates, local optima and global optima using necessary
+and sufficient conditions (<code>M9</code>); and</li>
+<li>work with independent and identically distributed samples, sample
+means and sample variances, use elementary sampling distributions, and
+distinguish and apply the law of large numbers and the central limit
+theorem (<code>S6</code>).</li>
+</ul>
+<h3 id="prerequisites-and-retrieval">Prerequisites and retrieval</h3>
+<p>For optimisation, retrieve column gradients (<code>M6</code>),
+implicit differentiation (<code>M7</code>) and definiteness, convexity
+and concavity (<code>M8</code>). For sampling, retrieve algebra
+(<code>M2</code>), standard distributions (<code>S3</code>), expectation
+and variance (<code>S4</code>), and conditional moments
+(<code>S5</code>). Questions 9–11 are a cumulative block on
+<code>M6</code>–<code>M8</code> and <code>S3</code>–<code>S5</code>.
+Complete those three parts without consulting earlier notes.</p>
+<h3 id="student-materials">Student materials</h3>
+<p>Use the <a href="reading_guide.html#source-weeks-week06-reading-guide">reading
+guide</a> for the exact written sections, locators and skip
+instructions. Then study and reproduce the original <a href="reading_guide.html#source-weeks-week06-worked-examples">worked
+examples</a>. Attempt all parts of the <a href="question_sheet.html#source-weeks-week06-exercises">exercise
+sheet</a> before consulting the <a href="progressive_hints.html">progressive hints</a> or <a href="complete_solutions.html#source-weeks-week06-solutions">complete
+solutions</a>. Finish with the 25-minute <a href="question_sheet.html#source-weeks-week06-self-test-before-self-test-solutions">self-test</a>,
+mark it, and update your error log by outcome ID.</p>
+<p>The external readings remain on their authors’ sites. No external
+exercise is reproduced here. No video, applet, code or specialist
+software is required.</p>
+<h3 id="suggested-study-sequence">Suggested study sequence</h3>
+<ol type="1">
+<li>Review column gradients, Hessian definiteness, normal means and
+variances.</li>
+<li>Complete the exact reading selections and their closed-source
+summaries.</li>
+<li>Cover each worked solution, reproduce the example from a blank page,
+and explain which conditions make the conclusion valid.</li>
+<li>Attempt all 16 scorable exercise parts. Use hints only after a
+serious attempt and stop as soon as a hint supplies a useful next
+step.</li>
+<li>Mark from the full solutions. Record the first cause of each error
+under <code>M9</code>, <code>S6</code>, or the relevant retrieval
+outcome.</li>
+<li>Take the self-test without notes. Use the final five minutes of the
+weekly review block to record errors and schedule a blank-page reattempt
+two or three days later.</li>
+</ol>
+<h3 id="workload-and-required-outputs">Workload and required
+outputs</h3>
+<p>The times below are approximate planning estimates and have not yet
+been verified by students.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Component</th>
+<th style="text-align: right;" scope="col">Target time</th>
+<th scope="col">Required output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required external reading</td>
+<td style="text-align: right;">3 h 5 min</td>
+<td>Two brief original summaries with the relevant conditions and
+conventions</td>
+</tr>
+<tr>
+<td>Institutional notes and worked-example reproduction</td>
+<td style="text-align: right;">1 h 10 min</td>
+<td>Four examples reproduced from a blank page</td>
+</tr>
+<tr>
+<td>Week 6 problem sheet</td>
+<td style="text-align: right;">4 h 30 min</td>
+<td>All 16 scorable parts attempted and marked</td>
+</tr>
+<tr>
+<td>Self-test, immediate marking and error-log update</td>
+<td style="text-align: right;">30 min</td>
+<td>Four self-test parts attempted and marked; errors labelled by
+outcome</td>
+</tr>
+<tr>
+<td><strong>Core total</strong></td>
+<td style="text-align: right;"><strong>9 h 15 min</strong></td>
+<td>Completed Week 6 study cycle</td>
+</tr>
+</tbody>
+</table></div>
+<p>The problem sheet has 11 numbered questions, 16 scorable parts, 100
+marks and a 270-minute target. Across marks, 32% is foundation, 58% is
+standard and 10% is stretch. Parts whose primary demand is explanation,
+derivation or synthesis carry 44% of the marks.</p>
+<h3 id="end-of-week-check">End-of-week check</h3>
+<p>Before moving on, make sure that you can state why a stationary
+condition is only necessary in its usual interior setting, identify
+evidence that upgrades a local conclusion to a global one, write the
+course definitions of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>,
+and explain the different jobs of the law of large numbers and the
+central limit theorem.</p>
+<h2 id="source-weeks-week06-reading-guide">Required reading route</h2>
+<h3 id="how-to-use-this-route">How to use this route</h3>
+<p>Complete the two required written selections below. Read only the
+named sections and follow every skip instruction. Allow 185 minutes for
+the external reading and closed-source summaries. The separate 70-minute
+allocation in <a href="reading_guide.html#source-weeks-week06-worked-examples">worked_examples.md</a>
+is for institutional notes and example reproduction.</p>
+<p>If equation rendering or assistive-mathematics access prevents you
+from using a linked page, skip that page and use this course’s original
+worked examples, hints and solutions for the same outcome. Report the
+access problem to the course team. To report a broken, inaccessible or
+unavailable required source, email <a href="mailto:cristiano.cantore@uniroma1.it">cristiano.cantore@uniroma1.it</a>
+with the week, item or source locator. You may request this
+confidentially without disclosing disability or other sensitive personal
+information. The programme Coordinator will provide an accessible
+replacement PDF or an approved alternative reading. You will not be
+assessed on source-specific wording.</p>
+<h3 id="unconstrained-multivariable-optimisation-m9">Unconstrained
+multivariable optimisation (<code>M9</code>)</h3>
+<p><strong>Resource <code>MATH-M9-OSB-REQ</code>; source
+<code>OSBORNE_MM</code>.</strong> In Martin J. Osborne, <em>Mathematical
+Methods for Economic Theory</em>, read:</p>
+<ul>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/def/t">Section
+4.2, “Optimization: definitions”</a>;</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/opn/t">Section
+4.3, “Existence of an optimum”</a>;</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/nen/t">Section
+5.1 on necessary conditions</a>;</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/lon/t">Section
+5.2 on local optima</a>; and</li>
+<li><a href="https://mjo.osborne.economics.utoronto.ca/index.php/tutorial/index/1/gop/t">Section
+5.3 on global optima</a>.</li>
+</ul>
+<p><strong>Skip:</strong> the proof in Section 4.3; topology beyond the
+operational statement that a continuous function on a non-empty closed
+and bounded feasible set attains a maximum and a minimum; interactive
+graphs; and one-variable repetition already assigned under
+<code>M3</code>. Approval is limited to this exact external-link route:
+do not copy, excerpt, adapt, translate, reformat or embed the source’s
+text, diagrams, exercises or solutions.</p>
+<p>Target reading time: 85 minutes.</p>
+<p>After closing the source, write an original half-page summary that
+distinguishes a candidate, a strict local optimum, a local optimum and a
+global optimum. State separately: the interior first-order necessary
+condition, the definite-Hessian local sufficient conditions, a curvature
+condition that can support a global conclusion, and an operational
+existence condition.</p>
+<h3 id="random-samples-sampling-distributions-lln-and-clt-s6">Random
+samples, sampling distributions, LLN and CLT (<code>S6</code>)</h3>
+<p><strong>Resource <code>STAT-S6-REQ-PISHRO</code>; source
+<code>PISHRO_NIK</code>.</strong> In Hossein Pishro-Nik,
+<em>Introduction to Probability, Statistics, and Random Processes</em>,
+read the following non-contiguous sections in order:</p>
+<ul>
+<li><a href="https://www.probabilitycourse.com/chapter7/7_1_1_law_of_large_numbers.php">§7.1.1,
+“Law of Large Numbers”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter7/7_1_2_central_limit_theorem.php">§7.1.2,
+“Central Limit Theorem”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter7/7_1_3_solved_probs.php">§7.1.3,
+“Solved Problems”</a>, only the registered problems;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_1_1_random_sampling.php">§8.1.1,
+“Random Sampling”</a>, from “Random Sampling” through “Sample Mean”
+only; and</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_2_2_point_estimators_for_mean_and_var.php">§8.2.2,
+“Point Estimators for Mean and Variance”</a>, only the definition and
+elementary sample-variance discussion.</li>
+</ul>
+<p><strong>Skip:</strong> in §8.1.1 stop before “Order Statistics”; in
+§8.2.2 stop after the elementary sample mean and sample variance. Do not
+use simulations, MATLAB, other software or material on later estimation
+or inference. Approval is limited to this exact external-link route: do
+not copy, excerpt, adapt, translate, reformat or embed the source’s
+explanations, examples, questions or solutions.</p>
+<p>Target reading time: 100 minutes.</p>
+<p>After closing the source, write the course conventions</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>X</mi><mi>i</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>S</mi><mn>2</mn></msup><mo>=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>−</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X=\frac1n\sum_{i=1}^{n}X_i,
+\qquad
+S^2=\frac1{n-1}\sum_{i=1}^{n}(X_i-\bar X)^2.
+</annotation></semantics></math></p>
+<p>Then write an original comparison of the law of large numbers and the
+central limit theorem. Include the i.i.d. assumption, the population
+mean and finite variance conditions used in this week, the quantity that
+converges under the law of large numbers, and the correctly standardised
+quantity whose distribution is approximated by the central limit
+theorem.</p>
+<h3 id="reading-output-check">Reading output check</h3>
+<p>Your two summaries should make every condition visible. Do not
+describe the law of large numbers as a claim of approximate normality,
+and do not describe the central limit theorem as saying that the
+observations themselves become normal. Keep source wording out of the
+summaries: the output must be your own account of the assigned
+ideas.</p>
+<h2 id="source-weeks-week06-worked-examples">Worked examples</h2>
+<p>These original institutional notes and examples support
+<code>M9</code> and <code>S6</code>. Allow about 70 minutes to study and
+reproduce them. Cover each <strong>Solution</strong>, follow the
+<strong>Method</strong>, and reproduce the work from a blank page before
+reading the <strong>Interpretation</strong>.</p>
+<h3 id="optimisation-conditions">Optimisation conditions</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}^n\to\mathbb{R}</annotation></semantics></math>.
+A point is a candidate when it has survived the relevant
+necessary-condition and feasibility checks; it is not thereby an
+optimum. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is differentiable and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐱</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\mathbf{x}^\ast</annotation></semantics></math>
+is an interior local optimum, then the first-order necessary condition
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>𝐱</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>𝟎</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(\mathbf{x}^\ast)=\mathbf{0}.
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is twice continuously differentiable near a stationary point, a positive
+definite Hessian is sufficient for a strict local minimum and a negative
+definite Hessian is sufficient for a strict local maximum. An indefinite
+Hessian identifies a saddle point. A semidefinite or zero Hessian does
+not generally settle the classification.</p>
+<p>Local and global conclusions are different. Strict concavity on a
+convex domain makes any stationary point the unique global maximiser,
+provided the point exists in the domain. More generally, a continuous
+objective on a non-empty closed and bounded feasible set attains both a
+maximum and a minimum. This operational existence statement is enough
+here; no topological proof is required.</p>
+<h3 id="example-1-classifying-stationary-points-m9">Example 1 —
+classifying stationary points (<code>M9</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(x,y)=(x^2-1)^2+y^2.
+</annotation></semantics></math></p>
+<p>Find and classify every stationary point.</p>
+<p><strong>Method.</strong> Set the column gradient equal to zero.
+Evaluate the Hessian at each candidate and classify it by
+definiteness.</p>
+<p><strong>Solution.</strong> The column gradient and Hessian are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn><mi>x</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐇</mi><mi>f</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>12</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(x,y)=
+\begin{bmatrix}
+4x(x^2-1)\\
+2y
+\end{bmatrix},
+\qquad
+\mathbf{H}_f(x,y)=
+\begin{bmatrix}
+12x^2-4&amp;0\\
+0&amp;2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The stationary equations give
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">x\in\{-1,0,1\}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>.
+At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-1,0)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,0)</annotation></semantics></math>,
+the Hessian is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>diag</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>8</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{diag}(8,2)</annotation></semantics></math>,
+which is positive definite, so both points are strict local minima. At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math>,
+the Hessian is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>diag</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>4</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{diag}(-4,2)</annotation></semantics></math>,
+which is indefinite, so the origin is a saddle point.</p>
+<p><strong>Interpretation.</strong> The first-order condition produces
+three candidates, and the Hessian distinguishes their local behaviour.
+The expression defining
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is non-negative and equals zero only at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-1,0)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,0)</annotation></semantics></math>,
+so those two points are also global minimisers. That global conclusion
+comes from the objective on the whole domain, not from evaluating the
+Hessian only at the candidates.</p>
+<h3 id="example-2-upgrading-a-local-result-to-a-global-one-m9">Example 2
+— upgrading a local result to a global one (<code>M9</code>)</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>log</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>log</mi><mo>⁡</mo><mi>y</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g(x,y)=\log x+\log y-x-y,
+\qquad (x,y)\in(0,\infty)^2.
+</annotation></semantics></math></p>
+<p>Find the global maximiser and maximum value.</p>
+<p><strong>Method.</strong> Solve the stationary equations. Use the
+Hessian to establish strict concavity on the whole domain, then evaluate
+the objective.</p>
+<p><strong>Solution.</strong> We have</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn><mi>/</mi><mi>x</mi><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn><mi>/</mi><mi>y</mi><mo>−</mo><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐇</mi><mi>g</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn><mi>/</mi><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn><mi>/</mi><msup><mi>y</mi><mn>2</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla g(x,y)=
+\begin{bmatrix}
+1/x-1\\
+1/y-1
+\end{bmatrix},
+\qquad
+\mathbf{H}_g(x,y)=
+\begin{bmatrix}
+-1/x^2&amp;0\\
+0&amp;-1/y^2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The unique stationary point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,1)</annotation></semantics></math>.
+For every point in the domain and every non-zero vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">[a,b]^{\mathsf T}</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>a</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>b</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><msub><mi>𝐇</mi><mi>g</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>a</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>b</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>−</mi><mfrac><msup><mi>a</mi><mn>2</mn></msup><msup><mi>x</mi><mn>2</mn></msup></mfrac><mo>−</mo><mfrac><msup><mi>b</mi><mn>2</mn></msup><msup><mi>y</mi><mn>2</mn></msup></mfrac><mo>&lt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\begin{bmatrix}a&amp;b\end{bmatrix}
+\mathbf{H}_g(x,y)
+\begin{bmatrix}a\\b\end{bmatrix}
+=-\frac{a^2}{x^2}-\frac{b^2}{y^2}&lt;0.
+</annotation></semantics></math></p>
+<p>Thus the Hessian is negative definite everywhere, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+is strictly concave on the convex domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(0,\infty)^2</annotation></semantics></math>.
+Hence the stationary point is the unique global maximiser. The maximum
+value is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g(1,1)=-2.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> Negative definiteness at a point
+gives a strict local maximum. Negative definiteness everywhere on the
+convex domain supplies the global strict-concavity argument. The domain
+and the curvature calculation are different from merely classifying a
+constant quadratic Hessian.</p>
+<h3 id="random-samples-and-sampling-distributions">Random samples and
+sampling distributions</h3>
+<p>Write</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>F</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}F
+</annotation></semantics></math></p>
+<p>only when the observations are both independent and identically
+distributed. If their common mean and variance are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\sigma^2&lt;\infty</annotation></semantics></math>,
+then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>μ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[\bar X]=\mu,
+\qquad
+\operatorname{Var}(\bar X)=\frac{\sigma^2}{n}.
+</annotation></semantics></math></p>
+<p>The sample variance convention is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mn>2</mn></msup><mo>=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>−</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S^2=\frac1{n-1}\sum_{i=1}^{n}(X_i-\bar X)^2.
+</annotation></semantics></math></p>
+<p>For a normal random sample,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mi>n</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\bar X\sim\mathcal{N}\left(\mu,\frac{\sigma^2}{n}\right)
+</annotation></semantics></math></p>
+<p>exactly, and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msup><mi>S</mi><mn>2</mn></msup></mrow><msup><mi>σ</mi><mn>2</mn></msup></mfrac><mo>∼</mo><msubsup><mi>χ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mn>2</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.
+</annotation></semantics></math></p>
+<p>For a non-normal i.i.d. sample with finite, positive variance, the
+central limit theorem instead gives the
+large-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+approximation</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi></mrow><mrow><mi>σ</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow></mfrac><mspace width="0.222em"></mspace><mover><mo>∼</mo><mtext mathvariant="normal">approximately</mtext></mover><mspace width="0.222em"></mspace><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\bar X-\mu}{\sigma/\sqrt n}\ \overset{\text{approximately}}{\sim}\
+\mathcal{N}(0,1).
+</annotation></semantics></math></p>
+<h3 id="example-3-an-exact-sampling-distribution-for-a-count-s6">Example
+3 — an exact sampling distribution for a count (<code>S6</code>)</h3>
+<p>Suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>10</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Uniform</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_{10}\overset{\mathrm{iid}}{\sim}
+\operatorname{Uniform}(0,1),
+</annotation></semantics></math></p>
+<p>and let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>:=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>10</mn></munderover><mn>𝟏</mn><mo stretchy="false" form="prefix">{</mo><msub><mi>X</mi><mi>i</mi></msub><mo>&gt;</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+K:=\sum_{i=1}^{10}\mathbf{1}\{X_i&gt;3/4\}.
+</annotation></semantics></math></p>
+<p>Find the exact distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>,
+and calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mo>=</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(K=0)</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Identify the distribution of each indicator,
+then use independence to recognise the distribution of their sum.</p>
+<p><strong>Solution.</strong> For each observation,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>&gt;</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(X_i&gt;3/4)=\frac14.
+</annotation></semantics></math></p>
+<p>The indicators are independent
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Bernoulli</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Bernoulli}(1/4)</annotation></semantics></math>
+random variables. Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>∼</mo><mi>Binomial</mi><mo>⁡</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>10</mn><mo>,</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+K\sim\operatorname{Binomial}\left(10,\frac14\right)
+</annotation></semantics></math></p>
+<p>exactly, and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>K</mi><mo>=</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>10</mn><mn>0</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>0</mn></msup><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>10</mn></msup><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>10</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(K=0)
+=\binom{10}{0}\left(\frac14\right)^0
+\left(\frac34\right)^{10}
+=\left(\frac34\right)^{10}.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> A sampling distribution need not be
+normal and need not belong to the sample mean. Here the statistic counts
+observations with a specified property, and its exact law follows from
+the i.i.d. sampling model.</p>
+<h3 id="example-4-independence-is-not-identical-distribution-s6">Example
+4 — independence is not identical distribution (<code>S6</code>)</h3>
+<p>Suppose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><msub><mi>X</mi><mn>2</mn></msub><mo>,</mo><msub><mi>X</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">X_1,X_2,X_3</annotation></semantics></math>
+are independent and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>X</mi><mn>2</mn></msub><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>X</mi><mn>3</mn></msub><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mo>,</mo><mn>9</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1\sim\mathcal{N}(2,1),\qquad
+X_2\sim\mathcal{N}(4,4),\qquad
+X_3\sim\mathcal{N}(6,9).
+</annotation></semantics></math></p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>:=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo>+</mo><msub><mi>X</mi><mn>2</mn></msub><mo>+</mo><msub><mi>X</mi><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">A:=(X_1+X_2+X_3)/3</annotation></semantics></math>,
+find the exact distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>.
+Decide whether these observations form an i.i.d. random sample and
+whether the course’s i.i.d. LLN or CLT can be invoked from the stated
+information.</p>
+<p><strong>Method.</strong> Use independence to combine normal
+variables, but check independence and identical distribution as separate
+conditions.</p>
+<p><strong>Solution.</strong> Independence gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>A</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>6</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[A]=\frac{2+4+6}{3}=4
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mn>1</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>9</mn></mrow><msup><mn>3</mn><mn>2</mn></msup></mfrac><mo>=</mo><mfrac><mn>14</mn><mn>9</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}(A)
+=\frac{1+4+9}{3^2}
+=\frac{14}{9}.
+</annotation></semantics></math></p>
+<p>Because a linear combination of independent normal variables is
+normal,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mfrac><mn>14</mn><mn>9</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+A\sim\mathcal{N}\left(4,\frac{14}{9}\right)
+</annotation></semantics></math></p>
+<p>exactly. The observations are independent, but they are not
+identically distributed: their means and variances differ. Therefore
+they cannot be written as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><msub><mi>X</mi><mn>2</mn></msub><mo>,</mo><msub><mi>X</mi><mn>3</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>F</mi></mrow><annotation encoding="application/x-tex">X_1,X_2,X_3\overset{\mathrm{iid}}{\sim}F</annotation></semantics></math>,
+and the course’s i.i.d. LLN or CLT does not follow from these three
+observations and assumptions.</p>
+<p><strong>Interpretation.</strong> Independence allows variances to add
+in the calculation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+but it does not make the marginal distributions identical. Check both
+words in “i.i.d.” before using a random-sample formula or a limiting
+theorem.</p>
+<h3 id="reproduction-check">Reproduction check</h3>
+<p>Before starting the exercise sheet, reproduce one complete
+optimisation classification and one sampling standardisation. Say aloud
+which assumptions support each local, global, exact or approximate
+conclusion.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

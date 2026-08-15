@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 2 reading guide and worked examples</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week02/reading_guide.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-2-reading-guide-and-worked-examples">Week 2 reading guide
+and worked examples</h1>
+<h2 id="source-weeks-week02-readme">Weekly overview</h2>
+<h3 id="required-learning-outcomes">Required learning outcomes</h3>
+<p>By the end of this week, you should be able to:</p>
+<ul>
+<li><strong>M4:</strong> perform matrix operations; compute simple
+determinants and inverses; use Gaussian elimination; compute rank; solve
+a linear system; and classify a system as having a unique solution, no
+solution or multiple solutions; and</li>
+<li><strong>S2:</strong> compute and interpret conditional
+probabilities; use or test independence; and apply the law of total
+probability and Bayes’ rule.</li>
+</ul>
+<h3 id="prerequisites-and-retrieval">Prerequisites and retrieval</h3>
+<p>You will use algebra and functions from <code>M2</code> and
+event/probability rules from <code>S1</code> throughout the new
+material. The final question contains three explicit Week 1 retrieval
+parts on logarithms (<code>M2</code>), Taylor approximation
+(<code>M3</code>) and set notation with elementary counting/probability
+(<code>M1</code>, <code>S1</code>).</p>
+<p>Before starting, check that you can rearrange a linear equation,
+multiply signed numbers and fractions, use set notation for events, and
+apply the addition rule for two events.</p>
+<h3 id="student-materials">Student materials</h3>
+<ol type="1">
+<li>Read the exact external sections and skip instructions in the <a href="reading_guide.html#source-weeks-week02-reading-guide">reading
+guide</a>.</li>
+<li>Study and reproduce the original <a href="reading_guide.html#source-weeks-week02-worked-examples">worked
+examples</a>.</li>
+<li>Attempt every part in the <a href="question_sheet.html#source-weeks-week02-exercises">exercise
+sheet</a> without consulting the full solutions.</li>
+<li>Use the <a href="progressive_hints.html">progressive hints</a> only
+after a serious attempt.</li>
+<li>Mark your work with the <a href="complete_solutions.html#source-weeks-week02-solutions">complete
+solutions</a>, record errors by outcome ID, and reattempt missed parts
+after two or three days.</li>
+<li>Finish with the 25-minute <a href="question_sheet.html#source-weeks-week02-self-test-before-self-test-solutions">self-test</a>,
+then use its solutions to update your error log.</li>
+</ol>
+<p>The required external readings are Jim Hefferon’s <em>Linear
+Algebra</em>, at the listed chapter and subsection locators, and MIT
+OpenCourseWare 18.05 Class 3 Reading, §§2–7.2. Do not read or attempt
+the excluded software, video or out-of-scope sections named in
+<code>reading_guide.md</code>.</p>
+<h3 id="suggested-study-sequence">Suggested study sequence</h3>
+<ol type="1">
+<li>Review matrix dimensions and multiplication.</li>
+<li>Work through Gaussian elimination, pivots and rank.</li>
+<li>Connect rank to the three possible classifications of a linear
+system.</li>
+<li>Review conditional probability, then derive total probability and
+Bayes’ rule from the multiplication rule.</li>
+<li>Alternate linear-algebra and probability questions rather than
+completing one entire strand first.</li>
+<li>Finish with the Week 1 retrieval block, mark all work, and update
+your error log.</li>
+</ol>
+<h3 id="time-plan">Time plan</h3>
+<p>The core workload is about 9 hours 20 minutes.</p>
+<p>The times below are approximate planning estimates and have not yet
+been verified by students. Students in the first live course run will be
+invited to report their actual component times so the plan can be
+recalibrated for the following year.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th scope="col">Activity</th>
+<th style="text-align: right;" scope="col">Suggested time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required external reading</td>
+<td style="text-align: right;">155 minutes</td>
+</tr>
+<tr>
+<td>Institutional notes and worked-example reproduction</td>
+<td style="text-align: right;">105 minutes</td>
+</tr>
+<tr>
+<td>Exercise sheet</td>
+<td style="text-align: right;">240 minutes</td>
+</tr>
+<tr>
+<td>Self-check, marking, error logging and first reattempt</td>
+<td style="text-align: right;">60 minutes</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>560 minutes</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="required-outputs">Required outputs</h3>
+<p>By the end of the week, you should have:</p>
+<ul>
+<li>handwritten or typed notes stating the rank solvability criterion
+and the four central probability formulas;</li>
+<li>your own reproduction of the worked elimination and Bayes
+examples;</li>
+<li>a complete first attempt at all 17 scorable parts;</li>
+<li>marked corrections for each error, labelled <code>M4</code>,
+<code>S2</code> or the relevant Week 1 retrieval outcome; and</li>
+<li>a dated plan to reattempt every missed part after two or three
+days.</li>
+</ul>
+<p>There is no optional or non-examined material in this Week 2
+package.</p>
+<h2 id="source-weeks-week02-reading-guide">Required reading route</h2>
+<p>Complete these two required written selections before using the
+institutional <a href="reading_guide.html#source-weeks-week02-worked-examples">worked
+examples</a>. The exact locators and skip instructions are part of the
+assignment: do not treat either whole source as required. No video,
+applet, code or specialist software is required.</p>
+<h3 id="linear-algebra-m4">Linear algebra (<code>M4</code>)</h3>
+<p>Read Jim Hefferon, <a href="https://jheffero.w3.uvm.edu/linearalgebra/book.pdf"><em>Linear
+Algebra</em></a>, at these locators:</p>
+<ul>
+<li>Chapter One I.1, “Gauss’s Method”;</li>
+<li>Chapter One I.2, “Describing the Solution Set”;</li>
+<li>Chapter One III.1, “Gauss–Jordan Reduction”;</li>
+<li>Chapter Three IV.1–IV.4, “Matrix Operations”; and</li>
+<li>Chapter Four I.2, “Properties of Determinants”.</li>
+</ul>
+<p><strong>Skip:</strong> chapter-end Topics, especially Computer
+Algebra Systems; the Sage lab and videos; determinant permutation
+proofs; Cramer’s Rule; and every software computation.</p>
+<p>Course resource record: <code>MATH-M4-HEF-REQ</code>; source record:
+<code>HEFFERON_LA</code>.</p>
+<p>Target reading time: 100 minutes.</p>
+<h3 id="conditional-probability-s2">Conditional probability
+(<code>S2</code>)</h3>
+<p>Read Jeremy Orloff and Jonathan Bloom, MIT OpenCourseWare 18.05, <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/">Class
+3 Reading, §§2–7.2</a>.</p>
+<p><strong>Skip:</strong> Problem Set 2 Problem 6, which requires R, and
+all linked videos, interactive questions and applets. Do not treat the
+whole course as required.</p>
+<p>Course resource record: <code>STAT-S2-REQ-MIT</code>; source record:
+<code>MIT_1805</code>.</p>
+<p>Target reading time: 55 minutes.</p>
+<h3 id="reading-output">Reading output</h3>
+<p>After each selection, close the source and write a brief original
+summary. For <code>M4</code>, state the rank test for unique, multiple
+and no-solution cases. For <code>S2</code>, state conditional
+probability, independence, total probability and Bayes’ rule with their
+conditions. Do not copy external explanations or exercise prompts into
+shared notes.</p>
+<h2 id="source-weeks-week02-worked-examples">Worked examples</h2>
+<p>These original institutional notes and examples support
+<code>M4</code> and <code>S2</code>. Work through each
+<strong>Method</strong> before reading its <strong>Solution</strong>,
+then reproduce the calculation from a blank page. The examples do not
+reproduce an external exercise or solution.</p>
+<p>The notes and examples below are original course material. All
+vectors are column vectors.</p>
+<h3 id="matrices-and-their-operations">Matrices and their
+operations</h3>
+<p>An
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>
+matrix has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+rows and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+columns. Two matrices can be added only when their dimensions are the
+same. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐁</mi><annotation encoding="application/x-tex">\mathbf{B}</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">n\times p</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐁</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}\mathbf{B}</annotation></semantics></math>
+exists and is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">m\times p</annotation></semantics></math>.
+Its entry in row
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+and column
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mi>𝐁</mi><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>a</mi><mrow><mi>i</mi><mi>k</mi></mrow></msub><msub><mi>b</mi><mrow><mi>k</mi><mi>j</mi></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(\mathbf{A}\mathbf{B})_{ij}
+=\sum_{k=1}^{n}a_{ik}b_{kj}.
+</annotation></semantics></math></p>
+<p>The order matters. Even when both products exist,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐁</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}\mathbf{B}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐁</mi><mi>𝐀</mi></mrow><annotation encoding="application/x-tex">\mathbf{B}\mathbf{A}</annotation></semantics></math>
+need not be equal and may have different dimensions.</p>
+<p>The transpose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐀</mi><mi>𝖳</mi></msup><annotation encoding="application/x-tex">\mathbf{A}^{\mathsf T}</annotation></semantics></math>
+interchanges rows and columns. Thus, if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐀</mi><mi>𝖳</mi></msup><annotation encoding="application/x-tex">\mathbf{A}^{\mathsf T}</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n\times m</annotation></semantics></math>.</p>
+<h4 id="example-checking-dimensions-before-multiplying">Example:
+checking dimensions before multiplying</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐛</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{A}=
+\begin{bmatrix}
+1&amp;-1&amp;2\\
+0&amp;3&amp;1
+\end{bmatrix},
+\qquad
+\mathbf{b}=
+\begin{bmatrix}
+2\\1\\-1
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p><strong>Method.</strong> The matrix is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">2\times3</annotation></semantics></math>
+and the vector is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">3\times1</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐛</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}\mathbf{b}</annotation></semantics></math>
+exists and is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>.</p>
+<p><strong>Solution.</strong> Row-by-column multiplication gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐛</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>3</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>1</mn><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{A}\mathbf{b}
+=
+\begin{bmatrix}
+1(2)+(-1)(1)+2(-1)\\
+0(2)+3(1)+1(-1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+-1\\2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> A dimension check prevents an
+undefined product and also predicts the dimension of the answer.</p>
+<h3 id="linear-systems-and-gaussian-elimination">Linear systems and
+Gaussian elimination</h3>
+<p>A system of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+linear equations in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+unknowns can be written</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐱</mi><mo>=</mo><mi>𝐛</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbf{A}\mathbf{x}=\mathbf{b},
+</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{x}\in\mathbb{R}^n</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐛</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{b}\in\mathbb{R}^m</annotation></semantics></math>.
+The augmented matrix is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>𝐀</mi><mo>∣</mo><mi>𝐛</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[\mathbf{A}\mid\mathbf{b}]</annotation></semantics></math>.</p>
+<p>The elementary row operations are:</p>
+<ol type="1">
+<li>interchange two rows;</li>
+<li>multiply a row by a non-zero scalar; and</li>
+<li>add a scalar multiple of one row to another row.</li>
+</ol>
+<p>These operations preserve the solution set. Gaussian elimination uses
+them to reach row-echelon form. A leading non-zero entry in a non-zero
+row is a pivot. Back-substitution then recovers the unknowns.
+Gauss–Jordan elimination continues until each pivot is the only non-zero
+entry in its column.</p>
+<h4 id="example-a-system-with-a-free-variable">Example: a system with a
+free variable</h4>
+<p>Consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>−</mo><mi>z</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>3</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mn>2</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>4</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mn>3</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>7</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+x+2y-z&amp;=3,\\
+2x+y+z&amp;=4,\\
+3x+3y&amp;=7.
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Method.</strong> Form the augmented matrix and eliminate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+from rows 2 and 3.</p>
+<p><strong>Solution.</strong> Begin with</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>7</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[
+\begin{array}{ccc|c}
+1&amp;2&amp;-1&amp;3\\
+2&amp;1&amp;1&amp;4\\
+3&amp;3&amp;0&amp;7
+\end{array}
+\right].
+</annotation></semantics></math></p>
+<p>Apply
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>←</mo><msub><mi>R</mi><mn>2</mn></msub><mo>−</mo><mn>2</mn><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">R_2\leftarrow R_2-2R_1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>3</mn></msub><mo>←</mo><msub><mi>R</mi><mn>3</mn></msub><mo>−</mo><mn>3</mn><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">R_3\leftarrow R_3-3R_1</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[
+\begin{array}{ccc|c}
+1&amp;2&amp;-1&amp;3\\
+0&amp;-3&amp;3&amp;-2\\
+0&amp;-3&amp;3&amp;-2
+\end{array}
+\right].
+</annotation></semantics></math></p>
+<p>Then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>3</mn></msub><mo>←</mo><msub><mi>R</mi><mn>3</mn></msub><mo>−</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">R_3\leftarrow R_3-R_2</annotation></semantics></math>,
+so the third row is zero. There are only two pivots, not three. Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>t</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">z=t\in\mathbb{R}</annotation></semantics></math>.
+The second row gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn><mi>y</mi><mo>+</mo><mn>3</mn><mi>t</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">-3y+3t=-2</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>t</mi><mo>+</mo><mn>2</mn><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">y=t+2/3</annotation></semantics></math>.
+The first row gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn><mi>/</mi><mn>3</mn><mo>−</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">x=5/3-t</annotation></semantics></math>.
+Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>5</mn><mi>/</mi><mn>3</mn><mo>−</mo><mi>t</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>/</mi><mn>3</mn><mo>+</mo><mi>t</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>t</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>t</mi><mo>∈</mo><mi>ℝ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{x}=
+\begin{bmatrix}
+5/3-t\\
+2/3+t\\
+t
+\end{bmatrix},
+\qquad t\in\mathbb{R}.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> An apparently square system can
+still have multiple solutions. The number of equations alone does not
+determine solvability.</p>
+<h3 id="rank-and-solvability">Rank and solvability</h3>
+<p>The rank of a matrix is the number of pivots in any row-echelon form.
+Write it as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>rank</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{rank}(\mathbf{A})</annotation></semantics></math>.
+For a system with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+unknowns:</p>
+<ul>
+<li>if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>rank</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mi>rank</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">[</mo><mi>𝐀</mi><mo>∣</mo><mi>𝐛</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{rank}(\mathbf{A})\ne
+\operatorname{rank}([\mathbf{A}\mid\mathbf{b}])</annotation></semantics></math>,
+the system has no solution;</li>
+<li>if the two ranks are equal to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+the system has a unique solution; and</li>
+<li>if the two ranks are equal but are less than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+the system has multiple solutions, with at least one free variable.</li>
+</ul>
+<p>A row of the form</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>⋯</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn><mo>∣</mo><mi>c</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>c</mi><mo>≠</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\begin{bmatrix}0&amp;\cdots&amp;0\mid c\end{bmatrix},
+\qquad c\ne0,
+</annotation></semantics></math></p>
+<p>is a contradiction. It increases the augmented rank but not the
+coefficient rank, so the system is inconsistent.</p>
+<h4 id="example-a-parameter-changes-consistency">Example: a parameter
+changes consistency</h4>
+<p>Suppose elimination gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>θ</mi><mo>−</mo><mn>4</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[
+\begin{array}{ccc|c}
+1&amp;0&amp;2&amp;1\\
+0&amp;1&amp;-1&amp;3\\
+0&amp;0&amp;0&amp;\theta-4
+\end{array}
+\right].
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>≠</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\theta\ne4</annotation></semantics></math>,
+the last row is a contradiction, so the system has no solution. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\theta=4</annotation></semantics></math>,
+the last row is zero. There are two pivots and three unknowns, so the
+consistent system has multiple solutions.</p>
+<h3 id="determinants-and-inverses">Determinants and inverses</h3>
+<p>For a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>
+matrix,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>a</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>b</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>c</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>d</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>det</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mi>d</mi><mo>−</mo><mi>b</mi><mi>c</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{A}=
+\begin{bmatrix}
+a&amp;b\\c&amp;d
+\end{bmatrix},
+\qquad
+\det(\mathbf{A})=ad-bc.
+</annotation></semantics></math></p>
+<p>The matrix is invertible exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>det</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\det(\mathbf{A})\ne0</annotation></semantics></math>.
+In that case,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝐀</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>=</mo><mfrac><mn>1</mn><mrow><mi>a</mi><mi>d</mi><mo>−</mo><mi>b</mi><mi>c</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>d</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mi>b</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mi>c</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>a</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{A}^{-1}
+=\frac{1}{ad-bc}
+\begin{bmatrix}
+d&amp;-b\\-c&amp;a
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>When
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐀</mi><annotation encoding="application/x-tex">\mathbf{A}</annotation></semantics></math>
+is an invertible
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math>
+matrix, the system
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐱</mi><mo>=</mo><mi>𝐛</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}\mathbf{x}=\mathbf{b}</annotation></semantics></math>
+has the unique solution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>=</mo><msup><mi>𝐀</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mi>𝐛</mi></mrow><annotation encoding="application/x-tex">\mathbf{x}=\mathbf{A}^{-1}\mathbf{b}</annotation></semantics></math>.
+Elimination remains the more general method because it also diagnoses
+singular and non-square systems.</p>
+<h3 id="conditional-probability">Conditional probability</h3>
+<p>For events
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(B)&gt;0</annotation></semantics></math>,
+the conditional probability of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+given
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\mid B)
+=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}.
+</annotation></semantics></math></p>
+<p>Rearranging gives the multiplication rule,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\cap B)
+=\mathbb{P}(A\mid B)\mathbb{P}(B).
+</annotation></semantics></math></p>
+<p>Conditioning changes the relevant reference group. The denominator is
+the probability of the event after the vertical bar.</p>
+<h3 id="independence">Independence</h3>
+<p>Events
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+are independent when</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B).
+</annotation></semantics></math></p>
+<p>If both conditioning events have positive probability, equivalent
+statements are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid B)=\mathbb{P}(A)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>∣</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(B\mid A)=\mathbb{P}(B)</annotation></semantics></math>.
+Independence is not the same as disjointness. Two disjoint events with
+positive probability cannot be independent because their intersection
+has probability zero while the product of their probabilities is
+positive.</p>
+<h3 id="total-probability-and-bayes-rule">Total probability and Bayes’
+rule</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>B</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">B_1,\ldots,B_k</annotation></semantics></math>
+be a partition of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>:
+the events are pairwise disjoint, their union is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>,
+and each has positive probability. The law of total probability states
+that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></munderover><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><msub><mi>B</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>B</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A)
+=\sum_{i=1}^{k}\mathbb{P}(A\mid B_i)\mathbb{P}(B_i).
+</annotation></semantics></math></p>
+<p>For any
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(A)&gt;0</annotation></semantics></math>,
+Bayes’ rule gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>B</mi><mi>j</mi></msub><mo>∣</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><msub><mi>B</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>B</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></munderover><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><msub><mi>B</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>B</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(B_j\mid A)
+=\frac{\mathbb{P}(A\mid B_j)\mathbb{P}(B_j)}
+{\sum_{i=1}^{k}\mathbb{P}(A\mid B_i)\mathbb{P}(B_i)}.
+</annotation></semantics></math></p>
+<p>The numerator is the joint probability of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>j</mi></msub><annotation encoding="application/x-tex">B_j</annotation></semantics></math>.
+The denominator adds the joint probabilities for every route by which
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+can occur.</p>
+<h4 id="example-total-probability-and-reversal-of-conditioning">Example:
+total probability and reversal of conditioning</h4>
+<p>A department offers a morning session to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">3/5</annotation></semantics></math>
+of students and an evening session to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>/</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">2/5</annotation></semantics></math>.
+Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+denote the two session events, and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+denote completing a diagnostic correctly. Suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo>∣</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo>∣</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(C\mid M)=\frac{2}{3},
+\qquad
+\mathbb{P}(C\mid E)=\frac{1}{2}.
+</annotation></semantics></math></p>
+<p><strong>Method.</strong> The events
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+form a partition. First find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(C)</annotation></semantics></math>,
+then reverse the conditioning with Bayes’ rule.</p>
+<p><strong>Solution.</strong> Total probability gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mfrac><mn>3</mn><mn>5</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mn>2</mn><mn>5</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>5</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(C)
+=\frac{2}{3}\frac{3}{5}+\frac{1}{2}\frac{2}{5}
+=\frac{3}{5}.
+</annotation></semantics></math></p>
+<p>Therefore,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo>∣</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo>∣</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>/</mi><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>/</mi><mn>5</mn><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mn>3</mn><mi>/</mi><mn>5</mn></mrow></mfrac><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(M\mid C)
+=\frac{\mathbb{P}(C\mid M)\mathbb{P}(M)}{\mathbb{P}(C)}
+=\frac{(2/3)(3/5)}{3/5}
+=\frac{2}{3}.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> The conditional probability must be
+computed in the direction asked. In general,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>M</mi><mo>∣</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(M\mid C)</annotation></semantics></math>
+is not the same as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo>∣</mo><mi>M</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(C\mid M)</annotation></semantics></math>,
+even though they happen to be numerically equal in this example.</p>
+<h3 id="common-pitfalls">Common pitfalls</h3>
+<ul>
+<li>Check matrix dimensions before multiplying.</li>
+<li>Record row operations so an arithmetic error can be located.</li>
+<li>Do not infer uniqueness merely because the system is square.</li>
+<li>Compare the coefficient and augmented ranks before classifying a
+system.</li>
+<li>Read
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid B)</annotation></semantics></math>
+as “probability of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+given
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>”.</li>
+<li>Do not interchange
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid B)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>∣</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(B\mid A)</annotation></semantics></math>.</li>
+<li>Test independence with a valid equality; do not infer it from a
+verbal impression.</li>
+<li>In total probability, verify that the conditioning events form a
+partition.</li>
+</ul>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

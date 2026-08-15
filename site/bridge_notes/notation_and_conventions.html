@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Notation And Conventions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../contents.html">Package contents</a></li>
+<li><a href="../syllabus.html">Syllabus</a></li>
+<li><a href="../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../contents.html#assessments">Assessments</a></li>
+<li><a href="../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/bridge_notes/notation_and_conventions.pdf">Download this page as PDF</a></p>
+
+<h1 id="notation-and-conventions">Notation and conventions</h1>
+<p>This card is a translation layer between the assigned readings. It
+fixes the notation used in this course; it does not replace the
+derivations in the <a href="../weeks/week01/reading_guide.html#source-weeks-week01-reading-guide">Week
+1 reading route</a>, <a href="../weeks/week04/reading_guide.html#source-weeks-week04-reading-guide">Week
+4 reading route</a>, <a href="../weeks/week05/reading_guide.html#source-weeks-week05-reading-guide">Week
+5 reading route</a> or <a href="../weeks/week07/reading_guide.html#source-weeks-week07-reading-guide">Week
+7 reading route</a>. Use <code>:=</code> when introducing a definition
+and <code>=</code> for an asserted equality. Define domains, dimensions,
+supports and regularity conditions whenever they affect a
+calculation.</p>
+<h2 id="sets-logic-and-functions">Sets, logic and functions</h2>
+<p>The real numbers are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>,
+Euclidean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>-space
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^n</annotation></semantics></math>,
+the natural numbers are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℕ</mi><annotation encoding="application/x-tex">\mathbb{N}</annotation></semantics></math>,
+and the empty set is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⌀</mi><annotation encoding="application/x-tex">\varnothing</annotation></semantics></math>.
+If whether
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>∈</mo><mi>ℕ</mi></mrow><annotation encoding="application/x-tex">0\in\mathbb{N}</annotation></semantics></math>
+matters, state the convention; for sample sizes and finite sums below,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+is a positive integer. For sets, use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a\in A</annotation></semantics></math>
+(membership),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>⊆</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\subseteq B</annotation></semantics></math>
+(inclusion),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\cup B</annotation></semantics></math>
+(union),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\cap B</annotation></semantics></math>
+(intersection) and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>A</mi><mi>c</mi></msup><annotation encoding="application/x-tex">A^c</annotation></semantics></math>
+(complement relative to the stated universe). For propositions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∀</mo><annotation encoding="application/x-tex">\forall</annotation></semantics></math>
+(for all),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∃</mo><annotation encoding="application/x-tex">\exists</annotation></semantics></math>
+(there exists),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>⇒</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P\Rightarrow Q</annotation></semantics></math>
+(implication) and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>⇔</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P\Leftrightarrow Q</annotation></semantics></math>
+(equivalence). An implication is not an equality.</p>
+<p>Write a function with its domain and codomain when they matter, for
+example
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>m</mi></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐱</mi><mo>↦</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f:\mathbb{R}^n\to\mathbb{R}^m,\qquad
+\mathbf{x}\mapsto f(\mathbf{x}).
+</annotation></semantics></math> Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+is the number of inputs and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+the number of outputs. Intervals use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[a,b]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">(a,b]</annotation></semantics></math>
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">[a,b)</annotation></semantics></math>;
+the brackets, not surrounding prose, state endpoint inclusion.</p>
+<h2 id="logs-sums-and-products">Logs, sums and products</h2>
+<p>The unqualified logarithm is natural:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\log x</annotation></semantics></math>
+means base
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>
+is Euler’s number, and requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x&gt;0</annotation></semantics></math>.
+For another base write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>log</mi><mo>⁡</mo><mi>b</mi></msub><mi>x</mi></mrow><annotation encoding="application/x-tex">\log_b x</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">b&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>≠</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">b\ne1</annotation></semantics></math>.
+In particular, log identities are used only where their arguments are in
+the logarithm’s domain.</p>
+<p>For scalars
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mi>i</mi></msub><annotation encoding="application/x-tex">a_i</annotation></semantics></math>
+indexed by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">i=1,\ldots,n</annotation></semantics></math>,
+write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\sum_{i=1}^{n}a_i</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\prod_{i=1}^{n}a_i</annotation></semantics></math>.
+A geometric sequence with first term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+common ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>,
+and final index
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>∈</mo><mi>ℕ</mi><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">N\in\mathbb{N}\cup\{0\}</annotation></semantics></math>
+has
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><mi>N</mi></munderover><mi>a</mi><msup><mi>r</mi><mi>t</mi></msup><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mi>a</mi><mstyle displaystyle="true"><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>r</mi><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mrow><mn>1</mn><mo>−</mo><mi>r</mi></mrow></mfrac></mstyle><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>r</mi><mo>≠</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>a</mi><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>r</mi><mo>=</mo><mn>1</mn><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+\sum_{t=0}^{N}ar^t=
+\begin{cases}
+a\dfrac{1-r^{N+1}}{1-r},&amp;r\ne1,\\
+(N+1)a,&amp;r=1.
+\end{cases}
+</annotation></semantics></math> The infinite version is written only
+after its convergence condition is checked:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><mo accent="false">∞</mo></munderover><mi>a</mi><msup><mi>r</mi><mi>t</mi></msup><mo>=</mo><mfrac><mi>a</mi><mrow><mn>1</mn><mo>−</mo><mi>r</mi></mrow></mfrac><mspace width="2.0em"></mspace><mrow><mtext mathvariant="normal">when </mtext><mspace width="0.333em"></mspace></mrow><mo stretchy="false" form="prefix">|</mo><mi>r</mi><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sum_{t=0}^{\infty}ar^t=\frac{a}{1-r}
+\qquad\text{when }|r|&lt;1.
+</annotation></semantics></math></p>
+<h2 id="scalars-vectors-and-matrices">Scalars, vectors and matrices</h2>
+<p>Scalars use italic lower-case letters such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>.
+Vectors use bold lower-case letters and are always columns; thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{x}\in\mathbb{R}^n</annotation></semantics></math>
+means an
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\times1</annotation></semantics></math>
+vector. Matrices use bold upper-case letters. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbf{A}\in\mathbb{R}^{m\times n}</annotation></semantics></math>,
+it has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+rows and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+columns. The identity matrix is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐈</mi><mi>n</mi></msub><annotation encoding="application/x-tex">\mathbf{I}_n</annotation></semantics></math>,
+and a zero matrix is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mn>𝟎</mn><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\mathbf{0}_{m\times n}</annotation></semantics></math>
+when its dimensions need to be made explicit. Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐀</mi><mi>𝖳</mi></msup><annotation encoding="application/x-tex">\mathbf{A}^{\mathsf T}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>rank</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{rank}(\mathbf{A})</annotation></semantics></math>
+for any rectangular matrix. For a square matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbf{A}\in\mathbb{R}^{n\times n}</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>det</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\det(\mathbf{A})</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>tr</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{tr}(\mathbf{A})</annotation></semantics></math>;
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝐀</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">\mathbf{A}^{-1}</annotation></semantics></math>
+only when that square matrix is nonsingular.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>,</mo><mi>𝐲</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{x},\mathbf{y}\in\mathbb{R}^n</annotation></semantics></math>,
+the Euclidean inner product is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⟨</mo><mi>𝐱</mi><mo>,</mo><mi>𝐲</mi><mo stretchy="false" form="postfix">⟩</mo><mo>:=</mo><msup><mi>𝐱</mi><mi>𝖳</mi></msup><mi>𝐲</mi></mrow><annotation encoding="application/x-tex">\langle\mathbf{x},\mathbf{y}\rangle:=
+\mathbf{x}^{\mathsf T}\mathbf{y}</annotation></semantics></math>. A
+linear system is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐱</mi><mo>=</mo><mi>𝐛</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}\mathbf{x}=\mathbf{b}</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbf{A}\in\mathbb{R}^{m\times n}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{x}\in\mathbb{R}^n</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐛</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{b}\in\mathbb{R}^m</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbf{A}\in\mathbb{R}^{n\times n}</annotation></semantics></math>,
+an eigenvalue
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">\lambda\in\mathbb{R}</annotation></semantics></math>
+and corresponding eigenvector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐯</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>\</mo><mo stretchy="false" form="prefix">{</mo><mn>𝟎</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathbf{v}\in\mathbb{R}^n\setminus\{\mathbf{0}\}</annotation></semantics></math>
+satisfy
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mi>𝐯</mi><mo>=</mo><mi>λ</mi><mi>𝐯</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}\mathbf{v}=\lambda\mathbf{v}</annotation></semantics></math>.</p>
+<h2 id="differentiation-and-dimension-checks">Differentiation and
+dimension checks</h2>
+<p>For a one-variable function use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;(x)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;&#39;(x)</annotation></semantics></math>,
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>f</mi><mi>/</mi><mi mathvariant="normal">d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}f/\mathrm{d}x</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}^n\to\mathbb{R}</annotation></semantics></math>,
+the gradient is the <strong>column</strong>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>∂</mi><mi>f</mi><mi>/</mi><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>∂</mi><mi>f</mi><mi>/</mi><mi>∂</mi><msub><mi>x</mi><mi>n</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(\mathbf{x}):=
+\begin{bmatrix}
+\partial f/\partial x_1\\
+\vdots\\
+\partial f/\partial x_n
+\end{bmatrix}
+\in\mathbb{R}^n.
+</annotation></semantics></math> For a vector-valued map
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐟</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{f}:\mathbb{R}^n\to\mathbb{R}^m</annotation></semantics></math>
+with components
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>f</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">f_1,\ldots,f_m</annotation></semantics></math>,
+the Jacobian has one output per row and one input per column:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐟</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><msub><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><mi>∂</mi><msub><mi>f</mi><mi>i</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>j</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mo>;</mo><mspace width="0.167em"></mspace><mi>j</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi></mrow></msub><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf{f}}(\mathbf{x}):=
+\left[\frac{\partial f_i}{\partial x_j}\right]_{
+i=1,\ldots,m;\,j=1,\ldots,n}
+\in\mathbb{R}^{m\times n}.
+</annotation></semantics></math> Thus the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\times n</annotation></semantics></math>
+Jacobian of a scalar function is the transpose of its
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\times1</annotation></semantics></math>
+gradient. A source row such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><msub><mi>f</mi><msub><mi>x</mi><mn>1</mn></msub></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>f</mi><msub><mi>x</mi><mi>n</mi></msub></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[f_{x_1},\ldots,f_{x_n}]</annotation></semantics></math>
+is therefore translated as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo>=</mo><mo stretchy="false" form="prefix">[</mo><msub><mi>f</mi><msub><mi>x</mi><mn>1</mn></msub></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>f</mi><msub><mi>x</mi><mi>n</mi></msub></msub><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">\nabla f=[f_{x_1},\ldots,f_{x_n}]^{\mathsf T}</annotation></semantics></math>.</p>
+<p>The Hessian of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math>
+matrix
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐇</mi><mi>f</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><msub><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>i</mi></msub><mi>∂</mi><msub><mi>x</mi><mi>j</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mi>i</mi><mo>,</mo><mi>j</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{H}_f(\mathbf{x}):=
+\left[\frac{\partial^2 f}{\partial x_i\partial x_j}\right]_{i,j=1,
+\ldots,n}.
+</annotation></semantics></math> If the second partial derivatives are
+continuous near the point, the mixed partials agree and this Hessian is
+symmetric. For a small column change
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathrm{d}\mathbf{x}\in\mathbb{R}^n</annotation></semantics></math>,
+the total differential is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>f</mi><mo>=</mo><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mi mathvariant="normal">d</mi><mi>𝐱</mi><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>×</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>×</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>×</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{d}f=\nabla f(\mathbf{x})^{\mathsf T}\mathrm{d}\mathbf{x},
+\qquad (1\times n)(n\times1)=1\times1.
+</annotation></semantics></math></p>
+<p>For differentiable maps
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐠</mi><mo>:</mo><msup><mi>ℝ</mi><mi>p</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{g}:\mathbb{R}^p\to\mathbb{R}^n</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐟</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{f}:\mathbb{R}^n\to\mathbb{R}^m</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐡</mi><mo>:=</mo><mi>𝐟</mi><mo>∘</mo><mi>𝐠</mi></mrow><annotation encoding="application/x-tex">\mathbf{h}:=\mathbf{f}\circ\mathbf{g}</annotation></semantics></math>.
+Then
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐡</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝐉</mi><mi>𝐟</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><msub><mi>𝐉</mi><mi>𝐠</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>m</mi><mo>×</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>×</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>m</mi><mo>×</mo><mi>p</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf{h}}(\mathbf{u})
+=\mathbf{J}_{\mathbf{f}}(\mathbf{g}(\mathbf{u}))
+  \mathbf{J}_{\mathbf{g}}(\mathbf{u}),
+\qquad (m\times n)(n\times p)=m\times p.
+</annotation></semantics></math> If the outer map is scalar-valued, the
+equivalent column-gradient form is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo>∘</mo><mi>𝐠</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝐉</mi><mi>𝐠</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐠</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla(f\circ\mathbf{g})(\mathbf{u})
+=\mathbf{J}_{\mathbf{g}}(\mathbf{u})^{\mathsf T}
+  \nabla f(\mathbf{g}(\mathbf{u})).
+</annotation></semantics></math> For a differentiable path
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{x}(t)</annotation></semantics></math>
+from a scalar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+this reduces to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi mathvariant="normal">d</mi><mi>t</mi><mo>=</mo><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup><msup><mi>𝐱</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathrm{d}f(\mathbf{x}(t))/\mathrm{d}t=
+\nabla f(\mathbf{x}(t))^{\mathsf T}\mathbf{x}&#39;(t)</annotation></semantics></math>.</p>
+<p>Suppose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>0</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F(x_0,\theta_0)=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+is continuously differentiable near
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>0</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x_0,\theta_0)</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>x</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>0</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_x(x_0,\theta_0)\ne0</annotation></semantics></math>.
+Then the equation defines a differentiable local solution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x(\theta)</annotation></semantics></math>,
+and along that solution
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>x</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>θ</mi></mrow></mfrac><mo>=</mo><mi>−</mi><mfrac><msub><mi>F</mi><mi>θ</mi></msub><msub><mi>F</mi><mi>x</mi></msub></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\mathrm{d}x}{\mathrm{d}\theta}=-\frac{F_\theta}{F_x}.
+</annotation></semantics></math> For a system
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>×</mo><mi>ℝ</mi><mo>→</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{F}:\mathbb{R}^n\times\mathbb{R}\to\mathbb{R}^n</annotation></semantics></math>,
+suppose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>𝐱</mi><mn>0</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>𝟎</mn></mrow><annotation encoding="application/x-tex">\mathbf{F}(\mathbf{x}_0,\theta_0)=\mathbf{0}</annotation></semantics></math>,
+the map is continuously differentiable nearby, and the Jacobian with
+respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐱</mi><annotation encoding="application/x-tex">\mathbf{x}</annotation></semantics></math>
+is nonsingular at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>𝐱</mi><mn>0</mn></msub><mo>,</mo><msub><mi>θ</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\mathbf{x}_0,\theta_0)</annotation></semantics></math>.
+The system then defines a differentiable local solution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{x}(\theta)</annotation></semantics></math>.
+Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐉</mi><mrow><mi>𝐅</mi><mo>,</mo><mi>𝐱</mi></mrow></msub><annotation encoding="application/x-tex">\mathbf{J}_{\mathbf{F},\mathbf{x}}</annotation></semantics></math>
+be the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math>
+Jacobian with respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐱</mi><annotation encoding="application/x-tex">\mathbf{x}</annotation></semantics></math>,
+and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐅</mi><mi>θ</mi></msub><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{F}_\theta\in\mathbb{R}^n</annotation></semantics></math>
+collect the partial derivatives with respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>.
+Along the local solution, the derivative is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝐱</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><msubsup><mi>𝐉</mi><mrow><mi>𝐅</mi><mo>,</mo><mi>𝐱</mi></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msubsup><msub><mi>𝐅</mi><mi>θ</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{x}&#39;(\theta)=
+-\mathbf{J}_{\mathbf{F},\mathbf{x}}^{-1}\mathbf{F}_\theta.
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is twice continuously differentiable near the scalar point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+Taylor notation records its centre: the second-order approximation about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>a</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(x)\approx f(a)+f&#39;(a)(x-a)+\tfrac12f&#39;&#39;(a)(x-a)^2.
+</annotation></semantics></math></p>
+<h2 id="curvature-and-optimisation-conventions">Curvature and
+optimisation conventions</h2>
+<p>A quadratic form is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><msup><mi>𝐱</mi><mi>𝖳</mi></msup><mi>𝐀</mi><mi>𝐱</mi></mrow><annotation encoding="application/x-tex">q(\mathbf{x}):=\mathbf{x}^{\mathsf T}\mathbf{A}\mathbf{x}</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbf{A}\in\mathbb{R}^{n\times n}</annotation></semantics></math>.
+Definiteness tests use the symmetric part
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐀</mi><mi>s</mi></msub><mo>:=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo>+</mo><msup><mi>𝐀</mi><mi>𝖳</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{A}_{s}:=\frac12(\mathbf{A}+\mathbf{A}^{\mathsf T})</annotation></semantics></math>.
+After the terms are defined,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐀</mi><mi>s</mi></msub><mo>≻</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbf{A}_{s}\succ0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐀</mi><mi>s</mi></msub><mo>≽</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbf{A}_{s}\succeq0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐀</mi><mi>s</mi></msub><mo>≺</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbf{A}_{s}\prec0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐀</mi><mi>s</mi></msub><mo>≼</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbf{A}_{s}\preceq0</annotation></semantics></math>
+mean positive definite, positive semidefinite, negative definite and
+negative semidefinite. Curvature conclusions are global only with the
+relevant domain and differentiability assumptions. Quasiconcavity means
+convex upper contour sets; it is not a synonym for concavity.</p>
+<p>For a scalar maximisation problem with equality constraints
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h_k(\mathbf{x},\mathbf{a})=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">k=1,\ldots,K</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+is the number of equalities and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐚</mi><annotation encoding="application/x-tex">\mathbf{a}</annotation></semantics></math>
+is a parameter vector, use
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛍</mi><mo>;</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>K</mi></munderover><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}(\mathbf{x},\boldsymbol{\mu};\mathbf{a})
+:=f(\mathbf{x},\mathbf{a})
+  +\sum_{k=1}^{K}\mu_kh_k(\mathbf{x},\mathbf{a}).
+</annotation></semantics></math> For continuously differentiable data,
+at a regular local optimum where the equality-constraint gradients are
+linearly independent, unrestricted multipliers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mi>k</mi></msub><annotation encoding="application/x-tex">\mu_k</annotation></semantics></math>
+exist such that stationarity in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐱</mi><annotation encoding="application/x-tex">\mathbf{x}</annotation></semantics></math>
+and all equalities hold. Solutions of these equations are candidates;
+concavity, feasibility and other stated assumptions are needed for a
+global conclusion. The sign of a multiplier is tied to the constraint’s
+encoding. For a value function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(\mathbf{a})</annotation></semantics></math>,
+the envelope derivative is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>V</mi></mrow><mrow><mi>∂</mi><msub><mi>a</mi><mi>r</mi></msub></mrow></mfrac><mo>=</mo><msub><mrow><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><msub><mi>a</mi><mi>r</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mo>*</mo></msub></mrow><annotation encoding="application/x-tex">
+\frac{\partial V}{\partial a_r}
+=\left.\frac{\partial\mathcal{L}}{\partial a_r}\right|_*
+</annotation></semantics></math> under the stated regularity and
+optimality conditions, where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>*</mi><annotation encoding="application/x-tex">*</annotation></semantics></math>
+denotes the optimum.</p>
+<p>The course-wide Kuhn–Tucker convention is <strong>maximise</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(\mathbf{x})</annotation></semantics></math>
+subject to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>J</mi></mrow><annotation encoding="application/x-tex">j=1,\ldots,J</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h_k(\mathbf{x})=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">k=1,\ldots,K</annotation></semantics></math>.
+With non-negative multipliers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_j\ge0</annotation></semantics></math>
+and unrestricted equality multipliers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mi>k</mi></msub><annotation encoding="application/x-tex">\mu_k</annotation></semantics></math>,
+write
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛌</mi><mo>,</mo><mi>𝛍</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></munderover><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>K</mi></munderover><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}(\mathbf{x},\boldsymbol{\lambda},\boldsymbol{\mu})
+:=f(\mathbf{x})+\sum_{j=1}^{J}\lambda_jg_j(\mathbf{x})
+  +\sum_{k=1}^{K}\mu_kh_k(\mathbf{x}).
+</annotation></semantics></math> The four checks are stationarity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∇</mi><mi>𝐱</mi></msub><mi>ℒ</mi><mo>=</mo><mn>𝟎</mn></mrow><annotation encoding="application/x-tex">\nabla_{\mathbf{x}}\mathcal{L}=\mathbf{0}</annotation></semantics></math>,
+primal feasibility
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j\ge0,\ h_k=0</annotation></semantics></math>,
+dual feasibility
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_j\ge0</annotation></semantics></math>,
+and complementary slackness
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_jg_j=0</annotation></semantics></math>.
+Write a restriction such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_i\ge0</annotation></semantics></math>
+explicitly as a constraint. Rewrite a minimisation question into this
+maximisation convention before applying the template. With
+differentiable data and a suitable constraint qualification, these
+conditions are necessary at a regular local optimum. In general they
+identify candidates, not optima; they are sufficient only when an
+applicable concavity result and a convex feasible set supply the
+required global conditions.</p>
+<h2 id="probability-and-random-variables">Probability and random
+variables</h2>
+<p>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+for the sample space and upper-case Roman letters such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+for events. Their probabilities are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A)</annotation></semantics></math>,
+and conditional probability is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid B)</annotation></semantics></math>.
+Independence can be recorded as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)</annotation></semantics></math>.
+Random variables use upper-case letters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>,</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X,Y</annotation></semantics></math>;
+their realised values use lower-case letters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math>.
+Random vectors use bold upper-case letters.</p>
+<p>For a discrete
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
+write its PMF as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p_X(x)</annotation></semantics></math>;
+for a continuous variable, write its density as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_X(x)</annotation></semantics></math>;
+in either case write the support alongside the formula. The CDF is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≤</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(x):=\mathbb{P}(X\le x)</annotation></semantics></math>.
+Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Cov</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Cov}(X,Y)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Corr</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Corr}(X,Y)</annotation></semantics></math>.
+Conditional expectation is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo>∣</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X\mid Y]</annotation></semantics></math>
+as a random variable and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo>∣</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X\mid Y=y]</annotation></semantics></math>
+at the value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>.</p>
+<p>When conditional probability is written as a ratio,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(A\mid B):=\mathbb{P}(A\cap B)/\mathbb{P}(B)</annotation></semantics></math>
+requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(B)&gt;0</annotation></semantics></math>.</p>
+<p>The following parameterisations are the course standard. In the
+table,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+is a success probability,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+is a positive integer,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+is a rate or Poisson mean,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+is a normal mean,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>σ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math>
+is a variance, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math>
+is a positive degrees-of-freedom value.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Distribution</th>
+<th scope="col">Notation, support and parameterisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bernoulli</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Bernoulli</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Bernoulli}(p)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>p</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0\le p\le1</annotation></semantics></math>,
+support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1\}</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">\mathbb{P}(X=1)=p</annotation></semantics></math>.</td>
+</tr>
+<tr>
+<td>Binomial</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Binomial</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>,</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Binomial}(n,p)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>p</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0\le p\le1</annotation></semantics></math>,
+the number of successes in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+independent Bernoulli trials; support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,\ldots,n\}</annotation></semantics></math>.</td>
+</tr>
+<tr>
+<td>Geometric</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Geometric</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Geometric}(p)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>p</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;p\le1</annotation></semantics></math>,
+number of trials through the first success; support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1,2,\ldots\}</annotation></semantics></math>.</td>
+</tr>
+<tr>
+<td>Poisson</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Poisson</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Poisson}(\lambda)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda&gt;0</annotation></semantics></math>
+is both rate and mean; support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1,\ldots\}</annotation></semantics></math>.</td>
+</tr>
+<tr>
+<td>Uniform</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Uniform</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Uniform}(a,b)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&lt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a&lt;b</annotation></semantics></math>,
+density
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">1/(b-a)</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[a,b]</annotation></semantics></math>.</td>
+</tr>
+<tr>
+<td>Exponential</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Exponential</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Exponential}(\lambda)</annotation></semantics></math>,
+rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda&gt;0</annotation></semantics></math>,
+density
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\lambda e^{-\lambda x}</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>,
+mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">1/\lambda</annotation></semantics></math>.</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\mathcal{N}(\mu,\sigma^2)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma^2&gt;0</annotation></semantics></math>,
+support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>;
+the second parameter is the variance.</td>
+</tr>
+<tr>
+<td>Student’s
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∼</mo><msub><mi>t</mi><mi>ν</mi></msub></mrow><annotation encoding="application/x-tex">T\sim t_\nu</annotation></semantics></math>,
+the standard
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+distribution with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math>
+degrees of freedom and support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>.</td>
+</tr>
+<tr>
+<td>Chi-squared</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>∼</mo><msubsup><mi>χ</mi><mi>ν</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">Q\sim\chi^2_\nu</annotation></semantics></math>,
+the chi-squared distribution with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math>
+degrees of freedom and support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">[0,\infty)</annotation></semantics></math>;
+use it only where the scope permits.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sampling-and-inference-distinctions">Sampling and inference
+distinctions</h2>
+<p>A random sample from a population distribution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>θ</mi></msub><annotation encoding="application/x-tex">F_\theta</annotation></semantics></math>
+indexed by the parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+is written
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><msub><mi>F</mi><mi>θ</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}F_\theta.
+</annotation></semantics></math> The label <code>iid</code> asserts both
+independence and identical distribution; do not use it for independent
+but non-identically distributed observations. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n\ge2</annotation></semantics></math>,
+use
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>:=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>X</mi><mi>i</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>S</mi><mn>2</mn></msup><mo>:=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>−</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X:=\frac1n\sum_{i=1}^{n}X_i,
+\qquad
+S^2:=\frac1{n-1}\sum_{i=1}^{n}(X_i-\bar X)^2.
+</annotation></semantics></math> After observing data
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{x}=(x_1,\ldots,x_n)</annotation></semantics></math>,
+write the corresponding values as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>s</mi><mn>2</mn></msup><annotation encoding="application/x-tex">s^2</annotation></semantics></math>.</p>
+<p>The population <strong>parameter</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+is fixed but unknown. An <strong>estimand</strong> is the population
+quantity of interest, possibly a function of the parameter. An
+<strong>estimator</strong> is a random variable, for example
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat{\theta}=T(X_1,\ldots,X_n)</annotation></semantics></math>;
+its observed numerical value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T(\mathbf{x})</annotation></semantics></math>
+is the <strong>estimate</strong>. Bias and variance refer to the
+estimator’s repeated-sampling distribution, not to one estimate.</p>
+<p>For observed data
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐱</mi><annotation encoding="application/x-tex">\mathbf{x}</annotation></semantics></math>,
+define the likelihood
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">L(\theta;\mathbf{x})</annotation></semantics></math>
+on a stated parameter space
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">\Theta</annotation></semantics></math>.
+The log-likelihood is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℓ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>log</mi><mo>⁡</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\ell(\theta;\mathbf{x}):=\log L(\theta;\mathbf{x})</annotation></semantics></math>,
+and an MLE is a maximiser over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>∈</mo><mi mathvariant="normal">Θ</mi></mrow><annotation encoding="application/x-tex">\theta\in\Theta</annotation></semantics></math>,
+including boundary checks when relevant.</p>
+<p>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>1</mn></msub><annotation encoding="application/x-tex">H_1</annotation></semantics></math>
+for null and alternative hypotheses. The significance level
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+is the Type I error probability under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>;
+at a specified alternative,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\beta(\theta)</annotation></semantics></math>
+is the Type II error probability and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">1-\beta(\theta)</annotation></semantics></math>
+is power. A
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-value
+is, under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>,
+the probability of a result at least as incompatible with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+as the observed result, using the stated statistic and tail convention.
+It is not the probability that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true. A confidence interval must name its confidence level and
+method; write the random interval as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐗</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐗</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[L(\mathbf{X}),U(\mathbf{X})]</annotation></semantics></math>
+and report numerical endpoints after observing data.</p>
+<h2 id="final-checks">Final checks</h2>
+<ul>
+<li>Domains, endpoint conventions, dimensions, parameter restrictions
+and distribution supports are visible wherever they affect
+validity.</li>
+<li>Vectors and gradients are columns; a Jacobian of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><msup><mi>ℝ</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">\mathbb{R}^n\to\mathbb{R}^m</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m\times n</annotation></semantics></math>;
+chain-rule factors multiply in that order.</li>
+<li>Infinite sums carry a convergence condition, and <code>log</code>
+means the natural logarithm unless a base is written.</li>
+<li>Equality multipliers follow the displayed constraint encoding; KKT
+uses maximisation,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j\ge0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_j\ge0</annotation></semantics></math>,
+feasibility and complementary slackness.</li>
+<li>Upper-case random variables are separated from lower-case
+observations; <code>iid</code> means independent and identically
+distributed;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>
+uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>.</li>
+<li>A
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-value
+is a tail probability under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>,
+and every confidence interval states its level and method.</li>
+</ul>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

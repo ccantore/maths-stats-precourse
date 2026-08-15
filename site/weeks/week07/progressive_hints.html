@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 7 progressive hints</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week07/progressive_hints.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-7-progressive-hints">Week 7 progressive hints</h1>
+<p>Use the hints in order. After each hint, return to your own work and
+continue until you reach a new, specific impasse. The last hint may give
+a nearly complete setup but does not give the final result.</p>
+<h2 id="w07-q01-pa"><code>W07-Q01-PA</code></h2>
+<ol type="1">
+<li>With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>12</mn><mo>−</mo><mi>x</mi><mo>−</mo><mn>2</mn><mi>y</mi></mrow><annotation encoding="application/x-tex">h(x,y)=12-x-2y</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mi>log</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mn>2</mn><mi>log</mi><mo>⁡</mo><mi>y</mi><mo>+</mo><mi>μ</mi><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{L}=\log x+2\log y+\mu h(x,y)</annotation></semantics></math>.</li>
+<li>Compare the two stationarity equations after accounting for the
+factor two in both the objective derivative with respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+and the constraint derivative.</li>
+</ol>
+<h2 id="w07-q01-pb"><code>W07-Q01-PB</code></h2>
+<ol type="1">
+<li>The logarithmic objective is strictly concave on the positive
+orthant, and the equality constraint is affine.</li>
+<li>With resource
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+first express both optimisers as functions of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.
+Substitute them into the objective, then compare
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V&#39;(a)</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∂</mi><mi>ℒ</mi><mi>/</mi><mi>∂</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">\partial\mathcal{L}/\partial a</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w07-q02-pa"><code>W07-Q02-PA</code></h2>
+<ol type="1">
+<li>Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{L}=-(x-2)^2-(y-1)^2+\mu(a-x-y)</annotation></semantics></math>.</li>
+<li>Express
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+in terms of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>,
+then impose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">x+y=a</annotation></semantics></math>.</li>
+<li>Substitute the optimisers into the two squared deviations. The
+objective’s Hessian supplies a direct sufficiency argument.</li>
+</ol>
+<h2 id="w07-q02-pb"><code>W07-Q02-PB</code></h2>
+<ol type="1">
+<li>Under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-x-y=0</annotation></semantics></math>,
+the partial derivative of the Lagrangian with respect to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+is the multiplier.</li>
+<li>Multiplying an equality constraint by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>
+leaves its feasible set unchanged but changes the sign of the
+coefficient multiplying it in the Lagrangian.</li>
+</ol>
+<h2 id="w07-q03-pa"><code>W07-Q03-PA</code></h2>
+<ol type="1">
+<li>Use one multiplier for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>−</mo><mi>z</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-x-y-z=0</annotation></semantics></math>
+and another for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x-y=0</annotation></semantics></math>.
+Check that their two gradient vectors are linearly independent.</li>
+<li>Add or compare the first two stationarity equations, then use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x=y</annotation></semantics></math>.
+The third stationarity equation links
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+to the first multiplier.</li>
+<li>Solve as a function of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+substitute into the objective, and compare the derivative of the
+resulting value function with the first multiplier.</li>
+</ol>
+<h2 id="w07-q04-pa"><code>W07-Q04-PA</code></h2>
+<ol type="1">
+<li>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">g_1(x)=x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">g_2(x)=3-x</annotation></semantics></math>,
+both written as non-negative constraints.</li>
+<li>After stationarity, list the two primal inequalities, the two
+multiplier inequalities and one complementary-slackness equation for
+each constraint.</li>
+</ol>
+<h2 id="w07-q04-pb"><code>W07-Q04-PB</code></h2>
+<ol type="1">
+<li>The unconstrained stationary point lies beyond the upper bound.</li>
+<li>At a positive upper-bound solution, complementary slackness
+determines the multiplier on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>.
+Use stationarity for the remaining multiplier, then check its sign.</li>
+<li>Strict concavity of the objective and convexity of the feasible
+interval turn a feasible Kuhn–Tucker point into the unique global
+solution.</li>
+</ol>
+<h2 id="w07-q05-pa"><code>W07-Q05-PA</code></h2>
+<ol type="1">
+<li>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">g_1(x,y)=x</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">g_2(x,y)=y</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>3</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">g_3(x,y)=4-x-y</annotation></semantics></math>.</li>
+<li>On the requested branch, complementary slackness sets the first two
+multipliers to zero while the third constraint holds with equality.</li>
+<li>Equate the two expressions for the resource multiplier and combine
+the result with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">x+y=4</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w07-q05-pb"><code>W07-Q05-PB</code></h2>
+<ol type="1">
+<li>If the resource constraint is slack and both inputs are positive,
+the stationarity conditions reproduce the unconstrained candidate. Test
+its feasibility.</li>
+<li>On
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math>,
+examine separately whether the resource is slack or binding; then do the
+symmetric case
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>.
+A negative required multiplier rejects a branch.</li>
+<li>The Hessian is a constant multiple of the identity matrix, and the
+feasible set is the intersection of three affine half-spaces.</li>
+</ol>
+<h2 id="w07-q06-pa"><code>W07-Q06-PA</code></h2>
+<ol type="1">
+<li>The inequality
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x\le1</annotation></semantics></math>
+must be written
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">1-x\ge0</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>
+is a separate constraint.</li>
+<li>Under the course convention, both multiplier terms enter the
+Lagrangian with a plus sign.</li>
+<li>The unconstrained maximiser is outside the interval. At the upper
+endpoint, complementary slackness sets the lower-bound multiplier to
+zero; stationarity determines the other multiplier.</li>
+</ol>
+<h2 id="w07-q07-pa"><code>W07-Q07-PA</code></h2>
+<ol type="1">
+<li>Before observation,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>+</mo><mn>1</mn><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\bar X+1/n</annotation></semantics></math>
+is random; after inserting the four data values, it is a number.</li>
+<li>Use linearity of expectation and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\operatorname{Var}(\bar X)=\sigma^2/n</annotation></semantics></math>.
+Then use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>MSE</mi><mo>⁡</mo><mo>=</mo><mi>Var</mi><mo>⁡</mo><mo>+</mo><msup><mi>Bias</mi><mo>⁡</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\operatorname{MSE}=\operatorname{Var}+\operatorname{Bias}^2</annotation></semantics></math>.</li>
+<li>To prove consistency, apply Chebyshev’s inequality to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\bar X-\theta</annotation></semantics></math>
+and account for the deterministic term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1/n</annotation></semantics></math>,
+or use the fact that the derived mean squared error tends to zero.</li>
+</ol>
+<h2 id="w07-q08-pa"><code>W07-Q08-PA</code></h2>
+<ol type="1">
+<li>Equate the population first moment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\theta/2</annotation></semantics></math>
+to the sample first moment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>.</li>
+<li>For bias, take expectations of the resulting estimator. For
+consistency, combine the law of large numbers with the transformation
+used in the estimator.</li>
+<li>The fitted uniform support is an interval beginning at zero. Compare
+its estimated upper endpoint with the largest observed value.</li>
+</ol>
+<h2 id="w07-q09-pa"><code>W07-Q09-PA</code></h2>
+<ol type="1">
+<li>Independence gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>p</mi><mi>s</mi></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>n</mi><mo>−</mo><mi>s</mi></mrow></msup></mrow><annotation encoding="application/x-tex">L(p;\mathbf{x})=p^s(1-p)^{n-s}</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">p\in[0,1]</annotation></semantics></math>.</li>
+<li>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>s</mi><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0&lt;s&lt;n</annotation></semantics></math>,
+differentiate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>log</mi><mo>⁡</mo><mi>p</mi><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">s\log p+(n-s)\log(1-p)</annotation></semantics></math>
+and check its curvature.</li>
+<li>When
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s=0</annotation></semantics></math>
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">s=n</annotation></semantics></math>,
+the logarithmic interior calculation is not valid at the relevant
+endpoint. Inspect the likelihood directly on the closed parameter
+space.</li>
+</ol>
+<h2 id="w07-q09-pb"><code>W07-Q09-PB</code></h2>
+<ol type="1">
+<li>Multiply the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+exponential densities and state the observed-sample support condition
+before taking logs.</li>
+<li>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">T=\sum_i x_i</annotation></semantics></math>
+and separate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">T&gt;0</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">T=0</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">T&gt;0</annotation></semantics></math>,
+differentiate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>λ</mi><mo>−</mo><mi>λ</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">n\log\lambda-\lambda T</annotation></semantics></math>
+and check both parameter-space boundaries; for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">T=0</annotation></semantics></math>,
+inspect the likelihood directly.</li>
+<li>For method of moments, equate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">1/\lambda</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>.
+Express both methods in terms of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+and compare their finite-solution conditions.</li>
+</ol>
+<h2 id="w07-q10-pa"><code>W07-Q10-PA</code></h2>
+<ol type="1">
+<li>The matrix is symmetric. For a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math>
+symmetric matrix, use the signs of the leading principal minors.</li>
+<li>The Hessian of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msup><mi>𝐛</mi><mi>𝖳</mi></msup><mi>𝐱</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">q(\mathbf{x})+\mathbf{b}^{\mathsf T}\mathbf{x}+c</annotation></semantics></math>
+is twice the quadratic-form matrix.</li>
+</ol>
+<h2 id="w07-q10-pb"><code>W07-Q10-PB</code></h2>
+<ol type="1">
+<li>Set the two components of the column gradient equal to zero.</li>
+<li>The Hessian is constant. Its definiteness supplies a global
+conclusion on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.</li>
+</ol>
+<h2 id="w07-q10-pc"><code>W07-Q10-PC</code></h2>
+<ol type="1">
+<li>A mean of independent normal random variables is normal. Divide the
+individual variance by the sample size.</li>
+<li>Standardise the two-sided event. Express the probability using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\Phi(2)-1</annotation></semantics></math>
+before using the supplied CDF value.</li>
+</ol>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

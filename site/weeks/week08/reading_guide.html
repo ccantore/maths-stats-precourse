@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 8 reading guide and worked examples</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week08/reading_guide.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-8-reading-guide-and-worked-examples">Week 8 reading guide
+and worked examples</h1>
+<h2 id="source-weeks-week08-readme">Weekly overview</h2>
+<h3 id="required-learning-outcomes">Required learning outcomes</h3>
+<p>By the end of this week, you should be able to:</p>
+<ul>
+<li>construct and interpret elementary confidence intervals for a
+population mean or proportion under stated normal, large-sample or
+Student’s t conditions (<code>S8</code>); and</li>
+<li>formulate null and alternative hypotheses, calculate and interpret
+test statistics and p-values, distinguish one- and two-sided tests, and
+analyse Type I error, Type II error, power and test–confidence-interval
+links (<code>S9</code>).</li>
+</ul>
+<h3 id="prerequisites-and-retrieval">Prerequisites and retrieval</h3>
+<p>Retrieve sampling distributions, standard errors, the law of large
+numbers and the central limit theorem (<code>S6</code>). Also retrieve
+the distinctions among a parameter, an estimand, an estimator and an
+observed estimate, together with bias, variance, mean squared error and
+consistency (<code>S7</code>).</p>
+<p>The sheet integrates <code>S7</code> retrieval in
+<code>W08-Q01-PA</code>. Its final exercise block then contains three
+further earlier-outcome retrieval parts: <code>W08-Q10-PA</code>
+(<code>S6</code>), <code>W08-Q10-PB</code> (<code>S7</code>) and
+<code>W08-Q11-PA</code> (<code>M10</code>, <code>M11</code>). These
+prepare you for the cumulative Statistics and Maths mock papers without
+adding a new Week 8 mathematics outcome.</p>
+<p>For the newly taught outcomes, later sheet items retrieve methods
+after their initial teaching and practice: <code>W08-Q06-PB</code> and
+<code>W08-Q09-PA</code> revisit <code>S8</code>, while
+<code>W08-Q09-PA</code> revisits <code>S9</code>. The closed-note
+self-test then provides two further retrieval parts for each of
+<code>S8</code> and <code>S9</code>.</p>
+<h3 id="student-materials">Student materials</h3>
+<p>Before selecting or interpreting critical values, use the required <a href="../../bridge_notes/distribution_and_critical_values.html">distributions
+and critical values bridge note</a>. It is point-of-need support within
+the existing reading and worked-example allocation, not additional
+workload.</p>
+<ol type="1">
+<li>Follow the exact written routes and skip instructions in the <a href="reading_guide.html#source-weeks-week08-reading-guide">reading
+guide</a>.</li>
+<li>Study the original <a href="reading_guide.html#source-weeks-week08-worked-examples">worked
+examples</a>. Cover each solution and reproduce its main derivation from
+a blank page.</li>
+<li>Attempt all questions in the <a href="question_sheet.html#source-weeks-week08-exercises">exercise
+sheet</a> without consulting full solutions.</li>
+<li>Use the <a href="progressive_hints.html">progressive hints</a> only
+after a serious attempt.</li>
+<li>Mark your work with the <a href="complete_solutions.html#source-weeks-week08-solutions">complete
+solutions</a>. Record the first cause of each error by learning-outcome
+ID.</li>
+<li>Complete the closed-note <a href="question_sheet.html#source-weeks-week08-self-test-before-self-test-solutions">self-test</a>.</li>
+<li>Sit the separate 90-minute Maths and 90-minute Statistics mock
+papers under the conditions stated in the course syllabus.</li>
+</ol>
+<p>No video, applet, code, calculator or specialist software is
+required. Every critical value, square-root approximation or normal
+probability needed for the intended hand calculation is supplied.</p>
+<h3 id="suggested-study-sequence">Suggested study sequence</h3>
+<ol type="1">
+<li>Write the <code>S6</code> and <code>S7</code> prerequisite
+definitions from memory.</li>
+<li>Read the confidence-interval selection first. Make a method card
+that distinguishes known-variance normal, unknown-variance normal,
+large-sample mean and large-sample proportion intervals.</li>
+<li>Read the testing selection. Put the null distribution, tail
+convention and definition of a p-value beside every test.</li>
+<li>Reproduce the institutional examples before attempting the
+sheet.</li>
+<li>Complete Questions 1–4, then Questions 5–9, before the cumulative
+retrieval block.</li>
+<li>Mark the sheet and self-test. Reattempt missed items from a blank
+page before sitting the mocks.</li>
+<li>After marking both mocks, select no more than five outcome IDs for
+final targeted revision.</li>
+</ol>
+<h3 id="workload-and-required-outputs">Workload and required
+outputs</h3>
+<p>The times below are provisional planning guidance, not a guarantee,
+and have not yet been verified by students. They are subject to
+first-cohort calibration. The Week 8 allocation is compressed because it
+also contains two timed mock papers.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Component</th>
+<th style="text-align: right;" scope="col">Target time</th>
+<th scope="col">Required output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required external reading, including its assigned source
+examples</td>
+<td style="text-align: right;">2 h 40 min</td>
+<td>A one-page method comparison for <code>S8</code> and
+<code>S9</code></td>
+</tr>
+<tr>
+<td>Institutional worked-example review and reproduction</td>
+<td style="text-align: right;">50 min</td>
+<td>All four examples studied; the central setup from at least one
+<code>S8</code> and one <code>S9</code> example reproduced</td>
+</tr>
+<tr>
+<td>Week 8 problem sheet</td>
+<td style="text-align: right;">4 h</td>
+<td>All 17 scorable parts attempted and marked</td>
+</tr>
+<tr>
+<td>Self-test, immediate marking and error-log update</td>
+<td style="text-align: right;">30 min</td>
+<td>Four self-test parts completed and diagnosed</td>
+</tr>
+<tr>
+<td>Maths mock</td>
+<td style="text-align: right;">1 h 30 min</td>
+<td>Separate closed-note timed attempt</td>
+</tr>
+<tr>
+<td>Statistics mock</td>
+<td style="text-align: right;">1 h 30 min</td>
+<td>Separate closed-note timed attempt</td>
+</tr>
+<tr>
+<td><strong>Core total</strong></td>
+<td style="text-align: right;"><strong>11 h</strong></td>
+<td>Completed Week 8 study and diagnostic cycle</td>
+</tr>
+</tbody>
+</table></div>
+<p>The problem sheet contains 11 numbered questions, 17 scorable parts,
+100 marks and a 240-minute target. Its difficulty balance is 30%
+foundation, 60% standard and 10% stretch. Parts whose primary demand is
+explanation, derivation or synthesis carry 58 marks.</p>
+<p>The two timed mock sittings are included in the core total. Required
+post-attempt self-marking, diagnosis and spaced reattempt are separate
+provisional activities: no student-validated minute allowance is
+claimed, and they are excluded from the published core total pending
+first-cohort calibration.</p>
+<h3 id="end-of-course-check">End-of-course check</h3>
+<p>Before finishing, make sure that you can state why each interval or
+test is valid, not only substitute numbers into a formula. In
+particular, do not describe a p-value as the probability that the null
+hypothesis is true, and do not describe a realised confidence interval
+as assigning probability to a fixed parameter. Keep the error log for
+later targeted revision.</p>
+<h2 id="source-weeks-week08-reading-guide">Required reading route</h2>
+<h3 id="how-to-use-this-route">How to use this route</h3>
+<p>Complete the two required written selections in order. Open only the
+named sections and follow every skip instruction. The external
+selections remain on their authors’ or institutions’ sites; this guide
+does not reproduce their explanations, examples, questions or
+solutions.</p>
+<p>Allow about 160 minutes for the required selections, including the
+named source examples. The separate institutional examples have their
+own 50-minute allowance for checking the course notation and
+distinctions. All times are approximate and student-unverified.</p>
+<p>If formula rendering, PDF reading order or another source-format
+barrier prevents access to a required page, stop using that page. Use
+the original institutional worked examples, hints and complete solutions
+for the assessed method, and report the inaccessible locator so that an
+alternative can be provided. To report a broken, inaccessible or
+unavailable required source, email <a href="mailto:cristiano.cantore@uniroma1.it">cristiano.cantore@uniroma1.it</a>
+with the week, item or source locator. You may request this
+confidentially without disclosing disability or other sensitive personal
+information. The programme Coordinator will provide an accessible
+replacement PDF or an approved alternative reading.</p>
+<h3 id="required-bridge-note">Required bridge note</h3>
+<p>Before selecting or interpreting critical values, read the <a href="../../bridge_notes/distribution_and_critical_values.html">distributions
+and critical values bridge note</a>. It provides point-of-need
+distribution and critical-value support within the existing Week 8
+reading and worked-example allocation, not additional workload.</p>
+<h3 id="confidence-intervals-s8">1. Confidence intervals
+(<code>S8</code>)</h3>
+<p><strong>Resource <code>STAT-S8-REQ-PISHRO</code>; source
+<code>PISHRO_NIK</code>.</strong> In Hossein Pishro-Nik,
+<em>Introduction to Probability, Statistics, and Random Processes</em>,
+read the following non-contiguous sections in order:</p>
+<ul>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_3_1_gen_framework_of_int_estimation.php">§8.3.1,
+“The General Framework of Interval Estimation”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_3_2_finding_interval_estimators.php">§8.3.2,
+“Finding Interval Estimators”</a>;</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_3_3_confidence_intervals_for_norm_samples.php">§8.3.3,
+“Confidence Intervals for Normal Samples”</a>; and</li>
+<li><a href="https://www.probabilitycourse.com/chapter8/8_3_4_solved_probs.php">§8.3.4,
+“Solved Problems”</a>, restricted to the registered problems. Restrict
+the reading to confidence intervals for a population mean or proportion
+under normal, large-sample and Student’s t conditions.</li>
+</ul>
+<p>Within Section 8.3.4, use Solved Problems 2, 3, 5 and Problem 6(1) as
+written source examples. Re-derive the displayed interval setup before
+checking the source solution.</p>
+<p><strong>Skip:</strong> Section 8.3.4 Problem 1, Problem 4 and Problem
+6(2), including confidence intervals for a variance. Do not use software
+or navigate into unassigned distribution or inference topics.</p>
+<p>Target time: 70 minutes.</p>
+<h3 id="hypothesis-tests-errors-power-and-interval-links-s9">2.
+Hypothesis tests, errors, power and interval links
+(<code>S9</code>)</h3>
+<p><strong>Resource <code>STAT-S9-REQ-MIT</code>; source
+<code>MIT_1805</code>.</strong> On Jeremy Orloff and Jonathan Bloom’s <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/classes-reading-and-in-class-materials/">MIT
+OpenCourseWare 18.05 classes and written-materials page</a>, read:</p>
+<ul>
+<li>Class 17 Reading 17b, Sections 3–7.1;</li>
+<li>Class 18 Reading, Sections 3.1–5.4 except Section 5.3; and</li>
+<li>Class 23 Reading 23a, Sections 4 and 7.</li>
+</ul>
+<p>Use only Problem Set 8 Problems 1(a–e), 2, 3(a–b(i–ii), c) and 4, and
+Problem Set 9 Problem 1(a–b), when following the registered
+written-practice route.</p>
+<p><strong>Skip:</strong> Class 18 Sections 5.3 and 5.5; Problem Set 8
+Problems 1(f–g), 3(b)(iii–iv) and 5; and Problem Set 9 Problems 2–6.
+These skipped parts enter software, two-sample, Bayesian, chi-squared, F
+or ANOVA material outside this week’s scope. Skip every linked video,
+applet and software activity.</p>
+<p>Target time: 90 minutes.</p>
+<h3 id="reading-output">Reading output</h3>
+<p>After each selection, close the source and write a brief original
+summary. Your one-page comparison should contain:</p>
+<ul>
+<li>the parameter or estimand;</li>
+<li>the estimator and its standard error;</li>
+<li>the assumptions or approximation conditions;</li>
+<li>the critical distribution and supplied critical value;</li>
+<li>the random interval or test statistic;</li>
+<li>the observed numerical conclusion; and</li>
+<li>one interpretation that is valid and one that is not.</li>
+</ul>
+<p>Do not copy source prose, examples, exercise prompts or solutions
+into shared notes. The Week 8 institutional examples, questions and
+solutions are original course material.</p>
+<h2 id="source-weeks-week08-worked-examples">Worked examples</h2>
+<p>These original institutional examples support <code>S8</code> and
+<code>S9</code>. Allow about 50 minutes to cover each
+<strong>Solution</strong>, follow the <strong>Method</strong>, and study
+all four examples. Reproduce the central setup from at least one
+<code>S8</code> and one <code>S9</code> example on a blank page. The
+Week 8 schedule is compressed by the two mock papers, so use these
+examples as concise notation and condition checks after the assigned
+reading.</p>
+<h3 id="example-1-a-confidence-interval-for-a-mean-s8">Example 1 — a
+confidence interval for a mean (<code>S8</code>)</h3>
+<p>Suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>25</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mn>16</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_{25}\overset{\mathrm{iid}}{\sim}\mathcal{N}(\mu,16),
+</annotation></semantics></math></p>
+<p>where the population variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>16</mn><annotation encoding="application/x-tex">16</annotation></semantics></math>
+is known. The observed sample mean is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>42</mn></mrow><annotation encoding="application/x-tex">\bar x=42</annotation></semantics></math>.
+Construct a 95% confidence interval for the population mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.
+Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>0.975</mn></msub><mo>=</mo><mn>1.96</mn></mrow><annotation encoding="application/x-tex">z_{0.975}=1.96</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>≤</mo><msub><mi>z</mi><mn>0.975</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.975</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(Z\le z_{0.975})=0.975</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Z\sim\mathcal{N}(0,1)</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Identify the fixed parameter, random
+estimator and observed estimate. Use the exact normal sampling
+distribution because the population is normal and its variance is
+known.</p>
+<p><strong>Solution.</strong> The parameter and estimand are both the
+population mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.
+The estimator is the random variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>,
+and its observed estimate is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>42</mn></mrow><annotation encoding="application/x-tex">\bar x=42</annotation></semantics></math>.
+The standard error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>σ</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>=</mo><mfrac><mn>4</mn><mn>5</mn></mfrac><mo>=</mo><mn>0.8</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\sigma}{\sqrt n}
+=\frac{4}{5}
+=0.8.
+</annotation></semantics></math></p>
+<p>The random 95% interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mn>1.96</mn><mfrac><mn>4</mn><mn>5</mn></mfrac><mo>,</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>+</mo><mn>1.96</mn><mfrac><mn>4</mn><mn>5</mn></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[
+\bar X-1.96\frac{4}{5},
+\bar X+1.96\frac{4}{5}
+\right].
+</annotation></semantics></math></p>
+<p>After observing the data, the realised interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>42</mn><mo>−</mo><mn>1.568</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>42</mn><mo>+</mo><mn>1.568</mn><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>40.432</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>43.568</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+[42-1.568,\ 42+1.568]=[40.432,\ 43.568].
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> In repeated independent samples, 95%
+of intervals constructed by this method cover the fixed parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.
+After the sample is observed, this frequentist interval is fixed; it
+does not assign a 95% probability to the proposition that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+lies between these realised endpoints.</p>
+<h3 id="example-2-choosing-students-t-s8">Example 2 — choosing Student’s
+t (<code>S8</code>)</h3>
+<p>Suppose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>9</mn></msub></mrow><annotation encoding="application/x-tex">X_1,\ldots,X_9</annotation></semantics></math>
+are independent observations from a normal population with unknown mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+and unknown variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma^2&gt;0</annotation></semantics></math>.
+The observed sample mean and sample standard deviation are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">\bar x=12</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">s=3</annotation></semantics></math>.
+Construct a 95% confidence interval for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>.
+Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mrow><mn>0.975</mn><mo>,</mo><mn>8</mn></mrow></msub><mo>=</mo><mn>2.306</mn></mrow><annotation encoding="application/x-tex">t_{0.975,8}=2.306</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Because the population is normal, the
+variance is unknown and it is estimated by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>,
+use the Student’s t pivot with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">n-1=8</annotation></semantics></math>
+degrees of freedom.</p>
+<p><strong>Solution.</strong> Under the stated assumptions,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi></mrow><mrow><mi>S</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow></mfrac><mo>∼</mo><msub><mi>t</mi><mn>8</mn></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T=\frac{\bar X-\mu}{S/\sqrt n}\sim t_8.
+</annotation></semantics></math></p>
+<p>The standard-error estimate is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>/</mi><msqrt><mi>n</mi></msqrt><mo>=</mo><mn>3</mn><mi>/</mi><mn>3</mn><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">s/\sqrt n=3/3=1</annotation></semantics></math>.
+Therefore the realised 95% interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mn>12</mn><mo>−</mo><mn>2.306</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>12</mn><mo>+</mo><mn>2.306</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>9.694</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>14.306</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[
+12-2.306,\ 12+2.306
+\right]
+=[9.694,\ 14.306].
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> Replacing the unknown
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+changes the reference distribution from standard normal to Student’s t.
+A small sample does not by itself justify the t method; the
+normal-population condition is material here.</p>
+<h3 id="example-3-a-one-sided-p-value-s9">Example 3 — a one-sided
+p-value (<code>S9</code>)</h3>
+<p>Suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>36</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mn>36</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_{36}\overset{\mathrm{iid}}{\sim}\mathcal{N}(\mu,36),
+</annotation></semantics></math></p>
+<p>with known variance. An observed sample has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>102</mn></mrow><annotation encoding="application/x-tex">\bar x=102</annotation></semantics></math>.
+Test</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>100</mn><mspace width="2.0em"></mspace><mtext mathvariant="normal">against</mtext><mspace width="2.0em"></mspace><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo><mi>μ</mi><mo>&gt;</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">
+H_0:\mu=100
+\qquad\text{against}\qquad
+H_1:\mu&gt;100
+</annotation></semantics></math></p>
+<p>at significance level
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\alpha=0.05</annotation></semantics></math>.
+Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>≥</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.0228</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(Z\ge2)=0.0228</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>0.95</mn></msub><mo>=</mo><mn>1.645</mn></mrow><annotation encoding="application/x-tex">z_{0.95}=1.645</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Standardise under the null value and use the
+upper tail selected by the alternative.</p>
+<p><strong>Solution.</strong> Under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mn>100</mn></mrow><mrow><mn>6</mn><mi>/</mi><msqrt><mn>36</mn></msqrt></mrow></mfrac><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+Z=\frac{\bar X-100}{6/\sqrt{36}}\sim\mathcal{N}(0,1).
+</annotation></semantics></math></p>
+<p>The observed statistic is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">s</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>102</mn><mo>−</mo><mn>100</mn></mrow><mn>1</mn></mfrac><mo>=</mo><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+z_{\mathrm{obs}}=\frac{102-100}{1}=2.
+</annotation></semantics></math></p>
+<p>The p-value is the null probability of a statistic at least as large
+as the observed value:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><msub><mi>H</mi><mn>0</mn></msub></msub><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>≥</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.0228</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}_{H_0}(Z\ge2)=0.0228.
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.0228</mn><mo>&lt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">0.0228&lt;0.05</annotation></semantics></math>,
+reject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>.
+Equivalently,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>&gt;</mo><msub><mi>z</mi><mn>0.95</mn></msub><mo>=</mo><mn>1.645</mn></mrow><annotation encoding="application/x-tex">2&gt;z_{0.95}=1.645</annotation></semantics></math>.</p>
+<p><strong>Interpretation.</strong> The result is evidence against the
+null in the stated upper-tail direction. The p-value is not the
+probability that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true and does not measure the size or practical importance of the
+difference.</p>
+<h3 id="example-4-type-ii-error-and-power-s9">Example 4 — Type II error
+and power (<code>S9</code>)</h3>
+<p>Suppose a test of</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>10</mn><mspace width="2.0em"></mspace><mtext mathvariant="normal">against</mtext><mspace width="2.0em"></mspace><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo><mi>μ</mi><mo>&gt;</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">
+H_0:\mu=10
+\qquad\text{against}\qquad
+H_1:\mu&gt;10
+</annotation></semantics></math></p>
+<p>uses one observation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\mathcal{N}(\mu,4)</annotation></semantics></math>
+and rejects when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>&gt;</mo><mn>13</mn></mrow><annotation encoding="application/x-tex">X&gt;13</annotation></semantics></math>.
+Find the Type I error probability. Then find the Type II error
+probability and power at the specific alternative
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>14</mn></mrow><annotation encoding="application/x-tex">\mu=14</annotation></semantics></math>.
+Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.9332</mn></mrow><annotation encoding="application/x-tex">\Phi(1.5)=0.9332</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.3085</mn></mrow><annotation encoding="application/x-tex">\Phi(-0.5)=0.3085</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>≤</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Phi(z)=\mathbb{P}(Z\le z)</annotation></semantics></math>.</p>
+<p><strong>Method.</strong> Evaluate the same fixed rejection rule under
+two different parameter values. Type I error is rejection under the
+null; Type II error is non-rejection at the specified alternative.</p>
+<p><strong>Solution.</strong> At the null value,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><msub><mi>ℙ</mi><mrow><mi>μ</mi><mo>=</mo><mn>10</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mn>13</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo>&gt;</mo><mfrac><mrow><mn>13</mn><mo>−</mo><mn>10</mn></mrow><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn><mo>−</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.0668</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\alpha
+=\mathbb{P}_{\mu=10}(X&gt;13)
+=\mathbb{P}\left(Z&gt;\frac{13-10}{2}\right)
+=1-\Phi(1.5)
+=0.0668.
+</annotation></semantics></math></p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>14</mn></mrow><annotation encoding="application/x-tex">\mu=14</annotation></semantics></math>,
+the Type II error probability is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>14</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>ℙ</mi><mrow><mi>μ</mi><mo>=</mo><mn>14</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≤</mo><mn>13</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo>≤</mo><mfrac><mrow><mn>13</mn><mo>−</mo><mn>14</mn></mrow><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.3085</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\beta(14)
+=\mathbb{P}_{\mu=14}(X\le13)
+=\mathbb{P}\left(Z\le\frac{13-14}{2}\right)
+=\Phi(-0.5)
+=0.3085.
+</annotation></semantics></math></p>
+<p>The power at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>14</mn></mrow><annotation encoding="application/x-tex">\mu=14</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mn>14</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.6915</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+1-\beta(14)=0.6915.
+</annotation></semantics></math></p>
+<p><strong>Interpretation.</strong> The Type II error probability and
+power must name an alternative parameter value. They are not single
+properties of a composite alternative without such a value or a power
+function.</p>
+<h3 id="reproduction-check">Reproduction check</h3>
+<p>Before starting the exercise sheet, reproduce:</p>
+<ol type="1">
+<li>one interval formula with its standard error and conditions;
+and</li>
+<li>one test statistic with its null distribution, tail direction and
+decision rule.</li>
+</ol>
+<p>If you cannot distinguish a parameter from an estimate, or a p-value
+from a posterior probability, return to the relevant example before
+continuing.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

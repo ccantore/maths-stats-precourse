@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 6 question sheet</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week06/question_sheet.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-6-question-sheet">Week 6 question sheet</h1>
+<h2 id="source-weeks-week06-exercises">Problem sheet</h2>
+<h3 id="instructions">Instructions</h3>
+<p>Attempt all 11 questions and all 16 scorable parts. The target time
+is 270 minutes and the total is 100 marks. Show column gradients,
+Hessians, distributional assumptions, standardisations and every
+condition needed for a local, global, exact or approximate conclusion. A
+basic scientific calculator is permitted only for the final decimal in
+<code>W06-Q06-PB</code>; the exact answer is sufficient. No software is
+needed.</p>
+<p>Use <a href="progressive_hints.html">hints.md</a> only after a
+serious attempt. Do not consult <a href="complete_solutions.html#source-weeks-week06-solutions">solutions.md</a>
+until you have completed or paused every part.</p>
+<h3 id="question-1-necessary-and-sufficient-conditions">Question 1 —
+necessary and sufficient conditions</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi><mi>y</mi><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>−</mo><mn>6</mn><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(x,y)=x^2+xy+y^2-6x,
+\qquad (x,y)\in\mathbb{R}^2.
+</annotation></semantics></math></p>
+<h4 id="w06-q01-pa-6-marks-16-minutes"><code>W06-Q01-PA</code> (6 marks;
+16 minutes)</h4>
+<p>Find every stationary point. Compute the Hessian and use it to
+classify each stationary point locally.</p>
+<h4 id="w06-q01-pb-4-marks-11-minutes"><code>W06-Q01-PB</code> (4 marks;
+11 minutes)</h4>
+<p>Explain why solving
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>𝟎</mn></mrow><annotation encoding="application/x-tex">\nabla f(\mathbf{x})=\mathbf{0}</annotation></semantics></math>
+alone would give only a candidate. Then justify whether your local
+classification from Part A is also a unique global classification.</p>
+<h3 id="question-2-a-strictly-concave-objective">Question 2 — a strictly
+concave objective</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>8</mn><mi>x</mi><mo>+</mo><mn>6</mn><mi>y</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup><mo>−</mo><mi>x</mi><mi>y</mi><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g(x,y)=8x+6y-x^2-y^2-xy,
+\qquad (x,y)\in\mathbb{R}^2.
+</annotation></semantics></math></p>
+<h4 id="w06-q02-pa-7-marks-21-minutes"><code>W06-Q02-PA</code> (7 marks;
+21 minutes)</h4>
+<p>Find every stationary point and classify it using the Hessian.</p>
+<h4 id="w06-q02-pb-5-marks-13-minutes"><code>W06-Q02-PB</code> (5 marks;
+13 minutes)</h4>
+<p>State the conditions that allow a global conclusion on the stated
+domain. Prove that the point found in Part A is the unique global
+maximiser and calculate the maximum value.</p>
+<h3 id="question-3-a-local-maximum-and-a-saddle-point">Question 3 — a
+local maximum and a saddle point</h3>
+<h4 id="w06-q03-pa-6-marks-20-minutes"><code>W06-Q03-PA</code> (6 marks;
+20 minutes)</h4>
+<p>For</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mn>3</mn><mi>x</mi><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+h(x,y)=x^3-3x-y^2,
+\qquad (x,y)\in\mathbb{R}^2,
+</annotation></semantics></math></p>
+<p>find and classify every stationary point. Decide whether
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+has a global maximum or a global minimum on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>,
+giving a reason rather than relying only on the Hessian at the
+candidates.</p>
+<h3 id="question-4-when-the-hessian-test-is-inconclusive">Question 4 —
+when the Hessian test is inconclusive</h3>
+<h4 id="w06-q04-pa-8-marks-22-minutes"><code>W06-Q04-PA</code> (8 marks;
+22 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>4</mn></msup><mo>+</mo><msup><mi>y</mi><mn>4</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(x,y)=x^4+y^4,
+\qquad (x,y)\in\mathbb{R}^2.
+</annotation></semantics></math></p>
+<p>Find the stationary points and evaluate the Hessian there. Explain
+why the usual definite-Hessian test is inconclusive. Then classify the
+point by a direct argument, including whether the conclusion is local or
+global and whether the optimiser is unique. State whether a global
+maximum exists.</p>
+<h3 id="question-5-parameter-dependent-curvature">Question 5 —
+parameter-dependent curvature</h3>
+<h4 id="w06-q05-pa-10-marks-25-minutes"><code>W06-Q05-PA</code> (10
+marks; 25 minutes)</h4>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">a\in\mathbb{R}</annotation></semantics></math>,
+define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>a</mi><mi>x</mi><mi>y</mi><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+q_a(x,y)=-x^2-2axy-y^2,
+\qquad (x,y)\in\mathbb{R}^2.
+</annotation></semantics></math></p>
+<p>Classify the curvature of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mi>a</mi></msub><annotation encoding="application/x-tex">q_a</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|&lt;1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|=1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|&gt;1</annotation></semantics></math>.
+In each case, classify the origin and describe the complete set of
+global maximisers, or explain why no global maximum exists. Your answer
+must distinguish negative definiteness, negative semidefiniteness and
+indefiniteness.</p>
+<h3 id="question-6-sample-mean-and-sample-variance">Question 6 — sample
+mean and sample variance</h3>
+<h4 id="w06-q06-pa-5-marks-13-minutes"><code>W06-Q06-PA</code> (5 marks;
+13 minutes)</h4>
+<p>The observations
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">2,4,4,6</annotation></semantics></math>
+are realised values of a random sample
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">X_1,\ldots,X_4</annotation></semantics></math>.
+Calculate the observed sample mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar x</annotation></semantics></math>
+and the observed sample variance</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mfrac><mn>1</mn><mrow><mn>4</mn><mo>−</mo><mn>1</mn></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>4</mn></munderover><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+s^2=\frac1{4-1}\sum_{i=1}^{4}(x_i-\bar x)^2.
+</annotation></semantics></math></p>
+<p>Distinguish these observed values from the random variables
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>.</p>
+<h4 id="w06-q06-pb-8-marks-19-minutes"><code>W06-Q06-PB</code> (8 marks;
+19 minutes)</h4>
+<p>Suppose instead that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>10</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_{10}\overset{\mathrm{iid}}{\sim}
+\mathcal{N}(\mu,4),
+</annotation></semantics></math></p>
+<p>where the second normal parameter is the variance. State the sampling
+distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><msup><mi>S</mi><mn>2</mn></msup><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">9S^2/4</annotation></semantics></math>.
+Given that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Q</mi><mo>≤</mo><mn>16.919</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.95</mn><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">for </mtext><mspace width="0.333em"></mspace></mrow><mi>Q</mi><mo>∼</mo><msubsup><mi>χ</mi><mn>9</mn><mn>2</mn></msubsup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(Q\le16.919)=0.95
+\quad\text{for }Q\sim\chi^2_9,
+</annotation></semantics></math></p>
+<p>find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+such that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>S</mi><mn>2</mn></msup><mo>≤</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.95</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(S^2\le c)=0.95</annotation></semantics></math>.
+Give an exact expression; a basic calculator may be used to report a
+two-decimal approximation. State the assumption needed for this exact
+chi-squared result.</p>
+<h3 id="question-7-exact-and-approximate-distributions-of-a-sample-mean">Question
+7 — exact and approximate distributions of a sample mean</h3>
+<h4 id="w06-q07-pa-7-marks-17-minutes"><code>W06-Q07-PA</code> (7 marks;
+17 minutes)</h4>
+<p>Suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>16</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>20</mn><mo>,</mo><mn>16</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_{16}\overset{\mathrm{iid}}{\sim}\mathcal{N}(20,16).
+</annotation></semantics></math></p>
+<p>Find the exact distributions of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>:=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>16</mn></msubsup><msub><mi>X</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">T:=\sum_{i=1}^{16}X_i</annotation></semantics></math>.
+Using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.8413</mn></mrow><annotation encoding="application/x-tex">\Phi(1)=0.8413</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.9772</mn></mrow><annotation encoding="application/x-tex">\Phi(2)=0.9772</annotation></semantics></math>,
+calculate</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>18</mn><mo>&lt;</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mn>22</mn><mo stretchy="false" form="postfix">)</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo>&gt;</mo><mn>336</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(18&lt;\bar X&lt;22)
+\quad\text{and}\quad
+\mathbb{P}(T&gt;336),
+</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+is the CDF of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{N}(0,1)</annotation></semantics></math>.</p>
+<h4 id="w06-q07-pb-7-marks-19-minutes"><code>W06-Q07-PB</code> (7 marks;
+19 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>Y</mi><mn>100</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Bernoulli</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+Y_1,\ldots,Y_{100}\overset{\mathrm{iid}}{\sim}
+\operatorname{Bernoulli}(0.5),
+</annotation></semantics></math></p>
+<p>with support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1\}</annotation></semantics></math>.
+Use the central limit theorem, without a continuity correction, to
+approximate</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>0.4</mn><mo>≤</mo><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mo>≤</mo><mn>0.6</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(0.4\le\bar Y\le0.6).
+</annotation></semantics></math></p>
+<p>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.9772</mn></mrow><annotation encoding="application/x-tex">\Phi(2)=0.9772</annotation></semantics></math>.
+State the mean and variance used, show the correct standardisation, and
+explain why the calculation is approximate rather than exact.</p>
+<h3 id="question-8-concentration-and-limiting-shape">Question 8 —
+concentration and limiting shape</h3>
+<h4 id="w06-q08-pa-6-marks-21-minutes"><code>W06-Q08-PA</code> (6 marks;
+21 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">X_1,\ldots,X_n</annotation></semantics></math>
+be i.i.d. with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">\mathbb{E}[X_i]=50</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X_i)=25</annotation></semantics></math>.
+Use</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi><mo stretchy="false" form="prefix">|</mo><mo>≥</mo><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mrow><mi>n</mi><msup><mi>ε</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(|\bar X-\mu|\ge\varepsilon)
+\le\frac{\sigma^2}{n\varepsilon^2}
+</annotation></semantics></math></p>
+<p>to find the smallest integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+for which this bound is at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.04</mn><annotation encoding="application/x-tex">0.04</annotation></semantics></math>
+when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\varepsilon=1</annotation></semantics></math>.
+Explain how the bound supports the law of large numbers without
+asserting a normal sampling distribution.</p>
+<h4 id="w06-q08-pb-5-marks-13-minutes"><code>W06-Q08-PB</code> (5 marks;
+13 minutes)</h4>
+<p>A student writes: “The law of large numbers and the central limit
+theorem both say that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+becomes normal and equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+is large.” Correct the statement. Your answer must identify the type of
+convergence supplied by the law of large numbers, the correctly
+standardised quantity in the central limit theorem, and what neither
+result says about the individual observations.</p>
+<h3 id="cumulative-retrieval">Cumulative retrieval</h3>
+<p>Complete Questions 9–11 without consulting earlier notes.</p>
+<h3 id="question-9-column-gradient-and-implicit-differentiation-retrieval">Question
+9 — column gradient and implicit-differentiation retrieval</h3>
+<h4 id="w06-q09-pa-5-marks-12-minutes"><code>W06-Q09-PA</code> (5 marks;
+12 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>:</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">F:\mathbb{R}^2\to\mathbb{R}</annotation></semantics></math>
+be defined by</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>θ</mi><mi>x</mi><mo>−</mo><mn>3</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F(x,\theta)=x^2+\theta x-3.
+</annotation></semantics></math></p>
+<p>Verify that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F(1,2)=0</annotation></semantics></math>.
+Compute the column gradient of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x,\theta)=(1,2)</annotation></semantics></math>
+and state its dimension. Check the condition that locally permits the
+equation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F(x,\theta)=0</annotation></semantics></math>
+to define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x=x(\theta)</annotation></semantics></math>.
+Then use the total differential to calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>x</mi><mi>/</mi><mi mathvariant="normal">d</mi><mi>θ</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}x/\mathrm{d}\theta</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,2)</annotation></semantics></math>.</p>
+<h3 id="question-10-definiteness-retrieval">Question 10 — definiteness
+retrieval</h3>
+<h4 id="w06-q10-pa-5-marks-14-minutes"><code>W06-Q10-PA</code> (5 marks;
+14 minutes)</h4>
+<p>Classify the quadratic form</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><msup><mi>u</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>u</mi><mi>v</mi><mo>+</mo><mn>3</mn><msup><mi>v</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+k(u,v)=2u^2+2uv+3v^2
+</annotation></semantics></math></p>
+<p>by writing its symmetric matrix and applying a valid definiteness
+test. State the implication for the curvature of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.</p>
+<h3 id="question-11-conditional-moments-retrieval">Question 11 —
+conditional moments retrieval</h3>
+<h4 id="w06-q11-pa-6-marks-14-minutes"><code>W06-Q11-PA</code> (6 marks;
+14 minutes)</h4>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Exponential</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Exponential}(2)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+is the rate and the support is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>.
+Independently, let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>∼</mo><mi>Bernoulli</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B\sim\operatorname{Bernoulli}(1/2)</annotation></semantics></math>,
+with support
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1\}</annotation></semantics></math>,
+and define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>3</mn><mi>X</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">Y=3X+B</annotation></semantics></math>.
+Calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y\mid B]</annotation></semantics></math>
+as a random variable. Use iterated expectation to obtain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y]</annotation></semantics></math>,
+then use the law of total variance to calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Y)</annotation></semantics></math>.</p>
+<h2 id="source-weeks-week06-self-test-before-self-test-solutions">Self-test
+questions</h2>
+<p>Set aside 25 minutes and attempt all four parts without the reading
+guide, worked examples, hints or exercise solutions. No calculator is
+needed. Show the condition that supports every local, global, exact or
+approximate conclusion. The self-test has 20 marks and does not
+contribute to a checkpoint or mock-examination score.</p>
+<h3 id="questions">Questions</h3>
+<h4 id="w06-st01-pa-a-global-maximum-m9-5-marks-6-minutes"><code>W06-ST01-PA</code>
+— a global maximum (<code>M9</code>; 5 marks; 6 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(x,y)=4x+2y-x^2-2y^2,
+\qquad (x,y)\in\mathbb{R}^2.
+</annotation></semantics></math></p>
+<p>Find the stationary point, classify it locally, and justify whether
+it is the unique global maximiser. Calculate the maximum value.</p>
+<h4 id="w06-st02-pa-an-inconclusive-hessian-m9-5-marks-6-minutes"><code>W06-ST02-PA</code>
+— an inconclusive Hessian (<code>M9</code>; 5 marks; 6 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>4</mn></msup><mo>−</mo><msup><mi>y</mi><mn>4</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g(x,y)=x^4-y^4.
+</annotation></semantics></math></p>
+<p>Classify the origin. Your answer must evaluate the gradient and
+Hessian there and then use a direct sign argument. State whether a
+global maximum or minimum exists on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.</p>
+<h4 id="w06-st03-pa-observed-sample-summaries-s6-5-marks-6-minutes"><code>W06-ST03-PA</code>
+— observed sample summaries (<code>S6</code>; 5 marks; 6 minutes)</h4>
+<p>For the realised sample
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">1,3,5,7</annotation></semantics></math>,
+calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar x</annotation></semantics></math>
+and the course sample variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>s</mi><mn>2</mn></msup><annotation encoding="application/x-tex">s^2</annotation></semantics></math>.
+State the denominator convention and distinguish the observed values
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>.</p>
+<h4 id="w06-st04-pa-an-exact-sampling-distribution-s6-5-marks-7-minutes"><code>W06-ST04-PA</code>
+— an exact sampling distribution (<code>S6</code>; 5 marks; 7
+minutes)</h4>
+<p>Suppose</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>9</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>,</mo><mn>9</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_9\overset{\mathrm{iid}}{\sim}\mathcal{N}(5,9).
+</annotation></semantics></math></p>
+<p>Find the exact distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>&lt;</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(4&lt;\bar X&lt;6)</annotation></semantics></math>,
+using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.8413</mn></mrow><annotation encoding="application/x-tex">\Phi(1)=0.8413</annotation></semantics></math>.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

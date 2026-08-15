@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 1 complete solutions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week01/complete_solutions.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-1-complete-solutions">Week 1 complete solutions</h1>
+<h2 id="source-weeks-week01-solutions">Problem-sheet solutions</h2>
+<p>Each solution states the intended method, relevant conditions, mark
+allocation and common mistakes. Award method credit after a purely
+arithmetic slip when the setup remains valid.</p>
+<h3 id="question-1-sets-and-functions">Question 1 — sets and
+functions</h3>
+<h4 id="w01-q01-pa-m1"><code>W01-Q01-PA</code> (<code>M1</code>)</h4>
+<p><strong>Method and conditions.</strong> List the two subsets of the
+stated universal set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>,
+then apply the definitions of intersection, union, complement and
+subset.</p>
+<p>We have</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>A</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>8</mn><mo>,</mo><mn>10</mn><mo>,</mo><mn>12</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>B</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>12</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+A&amp;=\{2,4,6,8,10,12\},\\
+B&amp;=\{1,2,3,4,6,12\}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>It follows that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>A</mi><mo>∩</mo><mi>B</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>12</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>A</mi><mo>∪</mo><mi>B</mi></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>8</mn><mo>,</mo><mn>10</mn><mo>,</mo><mn>12</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msup><mi>A</mi><mi>c</mi></msup></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>7</mn><mo>,</mo><mn>9</mn><mo>,</mo><mn>11</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+A\cap B&amp;=\{2,4,6,12\},\\
+A\cup B&amp;=\{1,2,3,4,6,8,10,12\},\\
+A^c&amp;=\{1,3,5,7,9,11\}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>The statement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>⊆</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">B\subseteq A</annotation></semantics></math>
+is false. For example,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>∈</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">1\in B</annotation></semantics></math>
+but
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>∉</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">1\notin A</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Intersection 1; union 1; complement 1;
+correct subset decision 1; valid counterexample 1.</p>
+<p><strong>Common mistakes.</strong> Confusing union with intersection;
+taking the complement relative to a set other than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>;
+giving a conclusion about the subset relation without a
+counterexample.</p>
+<h4 id="w01-q01-pb-m1"><code>W01-Q01-PB</code> (<code>M1</code>)</h4>
+<p><strong>Method and conditions.</strong> Test injectivity and
+surjectivity against the stated domain/codomain, then distinguish
+implication from equivalence and use an odd-square contradiction for the
+reverse implication.</p>
+<p>Every input having exactly one output makes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+a function. Injectivity instead requires distinct inputs to have
+distinct outputs. Here,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f(-2)=f(2)=4\quad\text{and}\quad f(-1)=f(1)=1,
+</annotation></semantics></math></p>
+<p>so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is not injective. Its range is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1,4\}</annotation></semantics></math>,
+which equals the stated codomain. Therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is surjective.</p>
+<p>The parity relation is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>⇔</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P\Leftrightarrow Q</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn><mi>k</mi></mrow><annotation encoding="application/x-tex">n=2k</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>=</mo><mn>4</mn><msup><mi>k</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2=4k^2</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>⇒</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P\Rightarrow Q</annotation></semantics></math>.
+Conversely, suppose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mn>2</mn></msup><annotation encoding="application/x-tex">n^2</annotation></semantics></math>
+is even but
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+is odd. Then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=2k+1</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>=</mo><mn>4</mn><msup><mi>k</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi>k</mi><mo>+</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+n^2=4k^2+4k+1,
+</annotation></semantics></math></p>
+<p>which is odd, a contradiction. Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>⇒</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">Q\Rightarrow P</annotation></semantics></math>.</p>
+<p><strong>Marks (4).</strong> Valid collision and non-injectivity
+conclusion, 1; range and surjectivity conclusion, 1; correct equivalence
+relation, 1; valid contradiction for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>⇒</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">Q\Rightarrow P</annotation></semantics></math>,
+1.</p>
+<p><strong>Common mistakes.</strong> Treating “one output per input” as
+injectivity; checking surjectivity without the stated codomain; giving
+only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>⇒</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P\Rightarrow Q</annotation></semantics></math>;
+assuming the reverse implication without justification.</p>
+<h3 id="question-2-quantifiers-and-induction">Question 2 — quantifiers
+and induction</h3>
+<h4 id="w01-q02-pa-m1"><code>W01-Q02-PA</code> (<code>M1</code>)</h4>
+<p><strong>Method and conditions.</strong> Negate both the universal
+quantifier and the strict inequality, then use a property of real
+squares.</p>
+<p>The negation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>x</mi><mo>∈</mo><mi>ℝ</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">such that</mtext><mspace width="1.0em"></mspace><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo>≤</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\exists x\in\mathbb{R}\quad\text{such that}\quad x^2+1\le0.
+</annotation></semantics></math></p>
+<p>The original statement is true. For every real
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x^2\ge0</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo>≥</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x^2+1\ge1&gt;0</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Existential quantifier 1; correctly
+negated inequality 1; truth value 1; use of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x^2\ge0</annotation></semantics></math>
+1; complete conclusion for every real
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+1.</p>
+<p><strong>Common mistakes.</strong> Retaining the universal quantifier;
+writing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">&lt;0</annotation></semantics></math>
+instead of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\le0</annotation></semantics></math>;
+citing a few numerical cases as a universal proof.</p>
+<h4 id="w01-q02-pb-m1-m2"><code>W01-Q02-PB</code> (<code>M1</code>,
+<code>M2</code>)</h4>
+<p><strong>Method and conditions.</strong> Prove the identity for all
+integers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\ge1</annotation></semantics></math>
+by establishing a base case and the implication from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math>.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>,
+the left-hand side is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">3(1)-1=2</annotation></semantics></math>,
+while the right-hand side is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">1(3+1)/2=2</annotation></semantics></math>.
+The base case holds.</p>
+<p>Assume for some
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\ge1</annotation></semantics></math>
+that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sum_{k=1}^{n}(3k-1)=\frac{n(3n+1)}{2}.
+</annotation></semantics></math></p>
+<p>Then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></munderover><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>3</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></mfrac><mo>+</mo><mn>3</mn><mi>n</mi><mo>+</mo><mn>2</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mrow><mn>3</mn><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>7</mn><mi>n</mi><mo>+</mo><mn>4</mn></mrow><mn>2</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>n</mi><mo>+</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\sum_{k=1}^{n+1}(3k-1)
+&amp;=\sum_{k=1}^{n}(3k-1)+3(n+1)-1\\
+&amp;=\frac{n(3n+1)}{2}+3n+2\\
+&amp;=\frac{3n^2+7n+4}{2}\\
+&amp;=\frac{(n+1)(3n+4)}{2}\\
+&amp;=\frac{(n+1)(3(n+1)+1)}{2}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>This is the required formula at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math>.
+Therefore the identity holds for all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mi>ℕ</mi></mrow><annotation encoding="application/x-tex">n\in\mathbb{N}</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\ge1</annotation></semantics></math>.</p>
+<p><strong>Marks (8).</strong> Base-case calculation 2; induction
+hypothesis 1; correct next summand 1; substitution of the hypothesis 1;
+algebra and factorisation 2; induction conclusion 1.</p>
+<p><strong>Common mistakes.</strong> Omitting the base case; assuming
+the result at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math>;
+adding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">3n-1</annotation></semantics></math>
+rather than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">3(n+1)-1</annotation></semantics></math>;
+reaching the target expression without stating the induction
+conclusion.</p>
+<h3 id="question-3-logarithms-and-a-declining-benefit-stream">Question 3
+— logarithms and a declining benefit stream</h3>
+<h4 id="w01-q03-pa-m2"><code>W01-Q03-PA</code> (<code>M2</code>)</h4>
+<p><strong>Method and conditions.</strong> State the positivity
+conditions for the logarithm arguments, combine the logarithms, and
+retain only admissible roots.</p>
+<p>The domain requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x-1&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mn>2</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x+2&gt;0</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x&gt;1</annotation></semantics></math>.
+On this domain,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mo>=</mo><mi>log</mi><mo>⁡</mo><mn>18</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\log\bigl((x-1)(x+2)\bigr)=\log18.
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>log</mi><annotation encoding="application/x-tex">\log</annotation></semantics></math>
+is injective on its positive domain,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>18</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+(x-1)(x+2)=18,
+</annotation></semantics></math></p>
+<p>and hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi><mo>−</mo><mn>20</mn><mo>=</mo><mn>0</mn><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x^2+x-20=0=(x-4)(x+5).
+</annotation></semantics></math></p>
+<p>The candidates are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">x=4</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">x=-5</annotation></semantics></math>.
+Only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">x=4</annotation></semantics></math>
+satisfies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x&gt;1</annotation></semantics></math>,
+so the solution is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">x=4</annotation></semantics></math>.</p>
+<p><strong>Marks (6).</strong> Domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x&gt;1</annotation></semantics></math>
+1; logarithm product rule 1; equation after injectivity 1; quadratic
+solution 2; rejection of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">-5</annotation></semantics></math>
+and final answer 1.</p>
+<p><strong>Common mistakes.</strong> Manipulating logarithms before
+enforcing positivity; writing a sum rather than a product inside the
+logarithm; keeping the inadmissible root.</p>
+<h4 id="w01-q03-pb-m2"><code>W01-Q03-PB</code> (<code>M2</code>)</h4>
+<p><strong>Method and conditions.</strong> Model the stream as a
+geometric series. An infinite geometric series converges when the
+absolute value of its common ratio is less than one.</p>
+<p>The index range in the product is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">i=1,2,3,4</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>4</mn></munderover><msup><mi>r</mi><mi>i</mi></msup><mo>=</mo><msup><mi>r</mi><mn>1</mn></msup><msup><mi>r</mi><mn>2</mn></msup><msup><mi>r</mi><mn>3</mn></msup><msup><mi>r</mi><mn>4</mn></msup><mo>=</mo><msup><mi>r</mi><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>4</mn></mrow></msup><mo>=</mo><msup><mi>r</mi><mn>10</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\prod_{i=1}^{4}r^i=r^1r^2r^3r^4=r^{1+2+3+4}=r^{10}.
+</annotation></semantics></math></p>
+<p>The benefit at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>/</mi><mn>4</mn><msup><mo stretchy="false" form="postfix">)</mo><mi>t</mi></msup></mrow><annotation encoding="application/x-tex">100(3/4)^t</annotation></semantics></math>.
+Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|3/4|&lt;1</annotation></semantics></math>,
+the infinite total is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><mo accent="false">∞</mo></munderover><mn>100</mn><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi></msup><mo>=</mo><mfrac><mn>100</mn><mrow><mn>1</mn><mo>−</mo><mn>3</mn><mi>/</mi><mn>4</mn></mrow></mfrac><mo>=</mo><mn>400</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sum_{t=0}^{\infty}100\left(\frac34\right)^t
+=\frac{100}{1-3/4}=400.
+</annotation></semantics></math></p>
+<p>The cumulative benefit through year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>N</mi></msub><mo>=</mo><mn>100</mn><mfrac><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>/</mi><mn>4</mn><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mrow><mn>1</mn><mo>−</mo><mn>3</mn><mi>/</mi><mn>4</mn></mrow></mfrac><mo>=</mo><mn>400</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S_N=100\frac{1-(3/4)^{N+1}}{1-3/4}
+=400\left(1-\left(\frac34\right)^{N+1}\right).
+</annotation></semantics></math></p>
+<p>The threshold
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>N</mi></msub><mo>≥</mo><mn>350</mn></mrow><annotation encoding="application/x-tex">S_N\ge350</annotation></semantics></math>
+is equivalent to</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>≤</mo><mfrac><mn>1</mn><mn>8</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left(\frac34\right)^{N+1}\le\frac18.
+</annotation></semantics></math></p>
+<p>Taking logarithms gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>8</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(N+1)\log(3/4)\le\log(1/8).
+</annotation></semantics></math></p>
+<p>Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\log(3/4)&lt;0</annotation></semantics></math>,
+division reverses the inequality:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>+</mo><mn>1</mn><mo>≥</mo><mfrac><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>8</mn><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>≈</mo><mn>7.23</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+N+1\ge\frac{\log(1/8)}{\log(3/4)}\approx7.23.
+</annotation></semantics></math></p>
+<p>Thus the smallest possible integer is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">N+1=8</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">N=7</annotation></semantics></math>.
+The total through
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">t=0,\ldots,7</annotation></semantics></math>
+is the first one to reach 350 units.</p>
+<p><strong>Marks (8).</strong> Indexed-product range/expansion, 1;
+product simplification, 1; geometric model with convergence and infinite
+total, 2; finite-sum expression and threshold inequality, 2; logarithmic
+solution with reversed inequality and smallest integer, 2.</p>
+<p><strong>Common mistakes.</strong> Starting the product at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">i=0</annotation></semantics></math>;
+multiplying rather than adding exponents; starting the series at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t=1</annotation></semantics></math>;
+omitting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>r</mi><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|r|&lt;1</annotation></semantics></math>;
+forgetting that division by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\log(3/4)&lt;0</annotation></semantics></math>
+reverses the inequality.</p>
+<h3 id="question-4-a-logarithmic-function">Question 4 — a logarithmic
+function</h3>
+<h4 id="w01-q04-pa-m2"><code>W01-Q04-PA</code> (<code>M2</code>)</h4>
+<p><strong>Method and conditions.</strong> First impose strict
+positivity of the logarithm argument. Then use that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>log</mi><annotation encoding="application/x-tex">\log</annotation></semantics></math>
+is strictly increasing.</p>
+<p>The domain condition is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>&gt;</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+9-x^2&gt;0,
+</annotation></semantics></math></p>
+<p>so the domain is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>3</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-3,3)</annotation></semantics></math>.
+Within this domain,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>9</mn><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≥</mo><mi>log</mi><mo>⁡</mo><mn>5</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mn>9</mn><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≥</mo><mn>5</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>≤</mo><mn>4</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\log(9-x^2)&amp;\ge\log5\\
+9-x^2&amp;\ge5\\
+x^2&amp;\le4.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">-2\le x\le2</annotation></semantics></math>.
+This interval is contained in the domain, so the required set is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>2</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-2,2]</annotation></semantics></math>.</p>
+<p><strong>Marks (6).</strong> Positivity condition 1; domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>3</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-3,3)</annotation></semantics></math>
+1; justified use of monotonicity 1; reduction to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>≤</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">x^2\le4</annotation></semantics></math>
+1; solution of that inequality 1; domain intersection and interval
+answer 1.</p>
+<p><strong>Common mistakes.</strong> Including
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>±</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">x=\pm3</annotation></semantics></math>;
+reversing the inequality even though
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>log</mi><annotation encoding="application/x-tex">\log</annotation></semantics></math>
+is increasing; solving the algebraic inequality without checking the
+logarithm’s domain.</p>
+<h3 id="question-5-derivatives-an-integral-and-marginal-cost">Question 5
+— derivatives, an integral and marginal cost</h3>
+<h4 id="w01-q05-pa-m3"><code>W01-Q05-PA</code> (<code>M3</code>)</h4>
+<p><strong>Method and conditions.</strong> Use the product rule on the
+domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x&gt;0</annotation></semantics></math>,
+then differentiate once more. Evaluate the definite integral from an
+antiderivative obtained by integration by parts.</p>
+<p>The derivatives are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mi>x</mi><mi>log</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>x</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mi>log</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mn>3</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+f&#39;(x)&amp;=2x\log x+x,\\
+f&#39;&#39;(x)&amp;=2\log x+3.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Integration by parts gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∫</mo><mi>log</mi><mo>⁡</mo><mi>x</mi><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>=</mo><mi>x</mi><mi>log</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>x</mi><mo>+</mo><mi>C</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\int\log x\,\mathrm{d}x=x\log x-x+C.
+</annotation></semantics></math></p>
+<p>Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>1</mn><mi>e</mi></msubsup><mi>log</mi><mo>⁡</mo><mi>x</mi><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>x</mi><mi>log</mi><mi>x</mi><mo>−</mo><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow><mn>1</mn><mi>e</mi></msubsup><mo>=</mo><mn>0</mn><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\int_1^e\log x\,\mathrm{d}x
+=\left[x\log x-x\right]_1^e
+=0-(-1)=1.
+</annotation></semantics></math></p>
+<p><strong>Marks (6).</strong> Product-rule structure for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mo>′</mo></msup><annotation encoding="application/x-tex">f&#39;</annotation></semantics></math>
+1; correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mo>′</mo></msup><annotation encoding="application/x-tex">f&#39;</annotation></semantics></math>
+1; correct differentiation to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mo>″</mo></msup><annotation encoding="application/x-tex">f&#39;&#39;</annotation></semantics></math>
+2; antiderivative 1; endpoint evaluation 1.</p>
+<p><strong>Common mistakes.</strong> Omitting a product-rule term; using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>log</mi><mo>⁡</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><mo>=</mo><mi>log</mi><mo>⁡</mo><mi>x</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">(\log x)&#39;=\log x/x</annotation></semantics></math>;
+evaluating the lower endpoint as zero.</p>
+<h4 id="w01-q05-pb-m3"><code>W01-Q05-PB</code> (<code>M3</code>)</h4>
+<p><strong>Method and conditions.</strong> Interpret the derivative as a
+local rate under the given differentiable approximation, and compare it
+with the finite change over a whole unit.</p>
+<p>We have
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>C</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mo>+</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">C&#39;(q)=4+q</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>C</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">C&#39;(6)=10</annotation></semantics></math>
+euros per unit. This is the instantaneous marginal cost at output 6: for
+a small increase
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">\Delta q</annotation></semantics></math>,
+the cost increase is approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mi mathvariant="normal">Δ</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">10\Delta q</annotation></semantics></math>
+euros.</p>
+<p>The exact increase from 6 to 7 is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mn>7</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mo stretchy="false" form="prefix">(</mo><mn>7</mn><mo>−</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><msup><mn>7</mn><mn>2</mn></msup><mo>−</mo><msup><mn>6</mn><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mo>+</mo><mfrac><mn>13</mn><mn>2</mn></mfrac><mo>=</mo><mn>10.5</mn></mrow><annotation encoding="application/x-tex">
+C(7)-C(6)
+=4(7-6)+\frac12(7^2-6^2)
+=4+\frac{13}{2}=10.5
+</annotation></semantics></math></p>
+<p>euros. The colleague’s claim is therefore not exact; 10 euros is a
+local linear approximation, while the model gives 10.5 euros for the
+full one-unit increase.</p>
+<p><strong>Marks (4).</strong> Derivative calculation 1; local marginal
+interpretation with units 1; exact finite difference 1; correct
+assessment of the claim 1.</p>
+<p><strong>Common mistakes.</strong> Treating a derivative as an exact
+discrete increment; omitting euros per unit from the derivative;
+computing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mn>7</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>C</mi><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">C(7)-C(6)</annotation></semantics></math>
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>C</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>7</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">C&#39;(7)</annotation></semantics></math>.</p>
+<h3 id="question-6-taylor-approximation">Question 6 — Taylor
+approximation</h3>
+<h4 id="w01-q06-pa-m3"><code>W01-Q06-PA</code> (<code>M3</code>)</h4>
+<p><strong>Method and conditions.</strong> Centre both approximations at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>,
+which is in the domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x&gt;0</annotation></semantics></math>.
+Use the function and derivative values at the centre.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>log</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=\log x</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mfrac><mn>1</mn><msup><mi>x</mi><mn>2</mn></msup></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(1)=0,\qquad f&#39;(x)=\frac1x,\qquad f&#39;(1)=1,
+\qquad f&#39;&#39;(x)=-\frac1{x^2},\qquad f&#39;&#39;(1)=-1.
+</annotation></semantics></math></p>
+<p>The first-order approximation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+T_1(x)=x-1,
+</annotation></semantics></math></p>
+<p>and the second-order approximation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T_2(x)=(x-1)-\frac12(x-1)^2.
+</annotation></semantics></math></p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1.2</mn></mrow><annotation encoding="application/x-tex">x=1.2</annotation></semantics></math>,
+these give</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mn>1.2</mn><mo>≈</mo><msub><mi>T</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>1.2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.2</mn></mrow><annotation encoding="application/x-tex">
+\log1.2\approx T_1(1.2)=0.2
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mn>1.2</mn><mo>≈</mo><msub><mi>T</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>1.2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.2</mn><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mn>0.2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>0.18</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\log1.2\approx T_2(1.2)=0.2-\frac12(0.2)^2=0.18.
+</annotation></semantics></math></p>
+<p><strong>Marks (8).</strong> Function and derivative values at the
+centre 2; first-order formula 2; second-order formula including the
+factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math>
+2; two numerical approximations 2.</p>
+<p><strong>Common mistakes.</strong> Centring at zero; omitting the
+factorial factor; using a positive quadratic term; substituting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+instead of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x-1</annotation></semantics></math>.</p>
+<h4 id="w01-q06-pb-m3"><code>W01-Q06-PB</code> (<code>M3</code>)</h4>
+<p><strong>Method and conditions.</strong> Compare absolute, rather than
+signed, errors and interpret only what this pointwise calculation
+establishes.</p>
+<p>Using the supplied comparison value, the first-order absolute error
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>0.2</mn><mo>−</mo><mn>0.1823</mn><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>0.0177</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+|0.2-0.1823|=0.0177,
+</annotation></semantics></math></p>
+<p>whereas the second-order absolute error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>0.18</mn><mo>−</mo><mn>0.1823</mn><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>0.0023</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+|0.18-0.1823|=0.0023.
+</annotation></semantics></math></p>
+<p>The second-order approximation is substantially closer at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1.2</mn></mrow><annotation encoding="application/x-tex">x=1.2</annotation></semantics></math>.
+This single comparison illustrates the benefit of the quadratic term
+near the centre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>;
+it does not prove that a higher-order approximation is better at every
+point or on every domain.</p>
+<p><strong>Marks (3).</strong> First absolute error 1; second absolute
+error 1; appropriately limited interpretation 1.</p>
+<p><strong>Common mistakes.</strong> Comparing signed errors; claiming
+that the second-order approximation is exact; turning one local
+comparison into a global theorem.</p>
+<h3 id="question-7-optimisation-on-an-interval">Question 7 —
+optimisation on an interval</h3>
+<h4 id="w01-q07-pa-m3"><code>W01-Q07-PA</code> (<code>M3</code>)</h4>
+<p><strong>Method and conditions.</strong> A continuous function on the
+closed interval
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>12</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,12]</annotation></semantics></math>
+attains a global maximum. Compare all feasible stationary points with
+both endpoints.</p>
+<p>The derivatives are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>π</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>18</mn><mo>−</mo><mn>2</mn><mi>q</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><msup><mi>π</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi&#39;(q)=18-2q\quad\text{and}\quad\pi&#39;&#39;(q)=-2.
+</annotation></semantics></math></p>
+<p>The stationary point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">q=9</annotation></semantics></math>,
+which is feasible. Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>π</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>2</mn><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\pi&#39;&#39;(q)=-2&lt;0</annotation></semantics></math>,
+the profit function is strictly concave. The candidate values are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>32</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mn>9</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>162</mn><mo>−</mo><mn>81</mn><mo>−</mo><mn>32</mn><mo>=</mo><mn>49</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mn>12</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>216</mn><mo>−</mo><mn>144</mn><mo>−</mo><mn>32</mn><mo>=</mo><mn>40</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi(0)=-32,\qquad
+\pi(9)=162-81-32=49,
+\qquad
+\pi(12)=216-144-32=40.
+</annotation></semantics></math></p>
+<p>The global profit-maximising output is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">q=9</annotation></semantics></math>,
+and the maximum profit is 49.</p>
+<p><strong>Marks (8).</strong> Derivative and stationary point 2;
+feasibility and second-derivative information 1; three candidate values
+3; comparison 1; output and maximum profit 1.</p>
+<p><strong>Common mistakes.</strong> Omitting the endpoints; treating
+the first-order condition as sufficient without curvature or comparison;
+reporting only the maximising output.</p>
+<h4 id="w01-q07-pb-m3"><code>W01-Q07-PB</code> (<code>M3</code>)</h4>
+<p><strong>Method and conditions.</strong> Identify the gap in a
+first-order-condition-only argument and then use the evidence specific
+to this function and feasible set.</p>
+<p>On a closed interval, an interior stationary point must be compared
+with the endpoints; in general it might be a minimum or fail to be
+globally best. Here the endpoint comparison shows that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mn>9</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\pi(9)</annotation></semantics></math>
+exceeds both endpoint values. Moreover, strict concavity means there is
+at most one maximiser. These facts validate the global conclusion.</p>
+<p><strong>Marks (2).</strong> Missing endpoint or sufficiency check
+identified 1; valid problem-specific global justification 1.</p>
+<p><strong>Common mistakes.</strong> Saying every stationary point is a
+maximum; mentioning endpoints without comparing their values; invoking
+concavity without noting its sign.</p>
+<h3 id="question-8-probability-as-set-algebra">Question 8 — probability
+as set algebra</h3>
+<h4 id="w01-q08-pa-s1"><code>W01-Q08-PA</code> (<code>S1</code>)</h4>
+<p><strong>Method and conditions.</strong> Apply inclusion–exclusion,
+then use complements and the disjoint pieces of the union.</p>
+<p>First,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.58</mn><mo>+</mo><mn>0.47</mn><mo>−</mo><mn>0.31</mn><mo>=</mo><mn>0.74</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\cup B)=0.58+0.47-0.31=0.74.
+</annotation></semantics></math></p>
+<p>Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>A</mi><mi>c</mi></msup><mo>∩</mo><msup><mi>B</mi><mi>c</mi></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.26</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A^c\cap B^c)=1-\mathbb{P}(A\cup B)=0.26.
+</annotation></semantics></math></p>
+<p>The event that exactly one occurs is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>\</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>∪</mo><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>\</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(A\setminus B)\cup(B\setminus A)</annotation></semantics></math>,
+a disjoint union. Its probability is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.74</mn><mo>−</mo><mn>0.31</mn><mo>=</mo><mn>0.43</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\cup B)-\mathbb{P}(A\cap B)
+=0.74-0.31=0.43.
+</annotation></semantics></math></p>
+<p><strong>Marks (8).</strong> Inclusion–exclusion setup and union value
+2; complement setup and neither value 2; correct event or formula for
+exactly one 2; exactly-one value 2.</p>
+<p><strong>Common mistakes.</strong> Adding the two marginal
+probabilities without removing overlap; treating “neither” as the
+complement of the intersection; retaining the intersection in the
+exactly-one event.</p>
+<h4 id="w01-q08-pb-s1"><code>W01-Q08-PB</code> (<code>S1</code>)</h4>
+<p><strong>Method and conditions.</strong> Interpret addition as
+counting event regions.</p>
+<p>The sum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.58</mn><mo>+</mo><mn>0.47</mn></mrow><annotation encoding="application/x-tex">0.58+0.47</annotation></semantics></math>
+counts every outcome in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\cap B</annotation></semantics></math>
+once as part of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+and again as part of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.
+The intersection has probability 0.31, so it must be subtracted once.
+Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.58</mn><mo>+</mo><mn>0.47</mn><mo>−</mo><mn>0.31</mn><mo>=</mo><mn>0.74</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\cup B)=0.58+0.47-0.31=0.74.
+</annotation></semantics></math></p>
+<p><strong>Marks (2).</strong> Double-counted intersection identified 1;
+correct event-level correction and result 1.</p>
+<p><strong>Common mistakes.</strong> Saying only that probabilities
+cannot exceed one; subtracting the intersection twice; assuming the
+events are disjoint despite the supplied overlap.</p>
+<h3 id="question-9-a-panel-with-a-chair">Question 9 — a panel with a
+chair</h3>
+<h4 id="w01-q09-pa-s1"><code>W01-Q09-PA</code> (<code>S1</code>)</h4>
+<p><strong>Method and conditions.</strong> Count unrestricted unordered
+panels with a designated chair, then subtract the outcomes containing
+both prohibited applicants.</p>
+<p>Without the restriction, there are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>8</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mn>3</mn><mo>=</mo><mn>56</mn><mo>×</mo><mn>3</mn><mo>=</mo><mn>168</mn></mrow><annotation encoding="application/x-tex">
+\binom83\times3=56\times3=168
+</annotation></semantics></math></p>
+<p>panel-and-chair outcomes. If Ada and Bruno both sit, the third member
+can be any of the other six applicants, and any of the three panel
+members can chair. Thus there are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>×</mo><mn>3</mn><mo>=</mo><mn>18</mn></mrow><annotation encoding="application/x-tex">
+6\times3=18
+</annotation></semantics></math></p>
+<p>forbidden outcomes. The required number is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>168</mn><mo>−</mo><mn>18</mn><mo>=</mo><mn>150</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+168-18=150.
+</annotation></semantics></math></p>
+<p><strong>Marks (7).</strong> Unrestricted panel count 1; chair
+designation 1; forbidden third-member count 1; forbidden chair count 1;
+correct subtraction setup 2; final total 1.</p>
+<p><strong>Common mistakes.</strong> Ordering all three panel members;
+excluding every panel containing Ada or Bruno; forgetting that each
+forbidden panel has three possible chairs.</p>
+<h3 id="question-10-representation-across-proposal-fields">Question 10 —
+representation across proposal fields</h3>
+<h4 id="w01-q10-pa-s1"><code>W01-Q10-PA</code> (<code>S1</code>)</h4>
+<p><strong>Method and conditions.</strong> All
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>12</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom{12}{4}</annotation></semantics></math>
+unordered selections are equally likely. A selection representing three
+fields must have field counts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2,1,1</annotation></semantics></math>.</p>
+<p>The total number of selections is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>12</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>495</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\binom{12}{4}=495.
+</annotation></semantics></math></p>
+<p>Counting by the field that supplies two proposals gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mrow><mtext mathvariant="normal">two theory: </mtext><mspace width="0.333em"></mspace></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>120</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mrow><mtext mathvariant="normal">two applied: </mtext><mspace width="0.333em"></mspace></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>90</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mrow><mtext mathvariant="normal">two history: </mtext><mspace width="0.333em"></mspace></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>60</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\text{two theory: }&amp;\binom52\binom41\binom31=120,\\
+\text{two applied: }&amp;\binom51\binom42\binom31=90,\\
+\text{two history: }&amp;\binom51\binom41\binom32=60.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Thus there are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>120</mn><mo>+</mo><mn>90</mn><mo>+</mo><mn>60</mn><mo>=</mo><mn>270</mn></mrow><annotation encoding="application/x-tex">120+90+60=270</annotation></semantics></math>
+favourable selections, and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">all three fields represented</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>270</mn><mn>495</mn></mfrac><mo>=</mo><mfrac><mn>6</mn><mn>11</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(\text{all three fields represented})
+=\frac{270}{495}=\frac6{11}.
+</annotation></semantics></math></p>
+<p>For a check, let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>T</mi></msub><annotation encoding="application/x-tex">E_T</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>A</mi></msub><annotation encoding="application/x-tex">E_A</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>H</mi></msub><annotation encoding="application/x-tex">E_H</annotation></semantics></math>
+be the events that theory, applied economics and economic history,
+respectively, are absent. The counts are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>E</mi><mi>T</mi></msub><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>7</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>35</mn><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">|</mo><msub><mi>E</mi><mi>A</mi></msub><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>8</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>70</mn><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">|</mo><msub><mi>E</mi><mi>H</mi></msub><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>9</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>126</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+|E_T|=\binom74=35,\qquad
+|E_A|=\binom84=70,\qquad
+|E_H|=\binom94=126.
+</annotation></semantics></math></p>
+<p>The pairwise-intersection counts are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>E</mi><mi>T</mi></msub><mo>∩</mo><msub><mi>E</mi><mi>A</mi></msub><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">|</mo><msub><mi>E</mi><mi>T</mi></msub><mo>∩</mo><msub><mi>E</mi><mi>H</mi></msub><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">|</mo><msub><mi>E</mi><mi>A</mi></msub><mo>∩</mo><msub><mi>E</mi><mi>H</mi></msub><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>5</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+|E_T\cap E_A|=\binom34=0,\quad
+|E_T\cap E_H|=\binom44=1,\quad
+|E_A\cap E_H|=\binom54=5,
+</annotation></semantics></math></p>
+<p>and the triple intersection is empty. Inclusion–exclusion therefore
+gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>E</mi><mi>T</mi></msub><mo>∪</mo><msub><mi>E</mi><mi>A</mi></msub><mo>∪</mo><msub><mi>E</mi><mi>H</mi></msub><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>35</mn><mo>+</mo><mn>70</mn><mo>+</mo><mn>126</mn><mo>−</mo><mn>0</mn><mo>−</mo><mn>1</mn><mo>−</mo><mn>5</mn><mo>=</mo><mn>225</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+|E_T\cup E_A\cup E_H|
+=35+70+126-0-1-5=225.
+</annotation></semantics></math></p>
+<p>The complement has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>495</mn><mo>−</mo><mn>225</mn><mo>=</mo><mn>270</mn></mrow><annotation encoding="application/x-tex">495-225=270</annotation></semantics></math>
+selections, agreeing with the direct count and hence with the
+probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mi>/</mi><mn>11</mn></mrow><annotation encoding="application/x-tex">6/11</annotation></semantics></math>.</p>
+<p><strong>Marks (10).</strong> Total sample-space count 1;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2,1,1</annotation></semantics></math>
+case structure 1; three direct case counts 3; favourable total and
+probability 2; correct complement inclusion–exclusion count 2;
+reconciliation 1.</p>
+<p><strong>Common mistakes.</strong> Treating the draw order as
+relevant; omitting one of the three doubled-field cases; forgetting
+pairwise intersections in the complement count; using a denominator
+other than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>12</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom{12}{4}</annotation></semantics></math>.</p>
+<h2 id="source-weeks-week01-self-test-self-test-solutions">Self-test
+solutions and error check</h2>
+<h3 id="solutions-and-error-check">Solutions and error check</h3>
+<h4 id="solution-to-w01-st01-pa-m1">Solution to <code>W01-ST01-PA</code>
+(<code>M1</code>)</h4>
+<p><strong>Method.</strong> Distinguish the definition of a function
+from the definitions of injectivity and surjectivity, using the stated
+domain and codomain.</p>
+<p>Every input has exactly one output, so the rule defines a function.
+It is not injective because</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+f(-1)=f(1)=1
+</annotation></semantics></math></p>
+<p>for two distinct inputs. Its set of output values is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">}</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\{f(-1),f(0),f(1),f(2)\}=\{0,1,4\},
+</annotation></semantics></math></p>
+<p>which equals the stated codomain. Therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is surjective.</p>
+<p><strong>Marks (5).</strong> Function/injectivity distinction, 1;
+valid collision, 1; correct non-injectivity conclusion, 1; output-set
+check, 1; correct surjectivity conclusion, 1.</p>
+<p><strong>Common mistakes.</strong> Calling every function injective;
+checking only adjacent inputs; ignoring the stated codomain when testing
+surjectivity.</p>
+<h4 id="solution-to-w01-st02-pa-m2">Solution to <code>W01-ST02-PA</code>
+(<code>M2</code>)</h4>
+<p><strong>Method.</strong> Enforce positivity of both logarithm
+arguments before using the product rule.</p>
+<p>The real-log domain requires</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mn>2</mn><mo>&gt;</mo><mn>0</mn><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>+</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+x-2&gt;0
+\quad\text{and}\quad
+x+1&gt;0,
+</annotation></semantics></math></p>
+<p>so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">x&gt;2</annotation></semantics></math>.
+On this domain,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>log</mi><mo>⁡</mo><mn>10</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\log((x-2)(x+1))=\log 10.
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>log</mi><annotation encoding="application/x-tex">\log</annotation></semantics></math>
+is one-to-one,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>10</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+(x-2)(x+1)=10,
+</annotation></semantics></math></p>
+<p>and hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>12</mn><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x^2-x-12=(x-4)(x+3)=0.
+</annotation></semantics></math></p>
+<p>The algebraic candidates are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">-3</annotation></semantics></math>.
+Only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>
+satisfies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">x&gt;2</annotation></semantics></math>,
+so the solution is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">x=4</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Complete domain, 1; valid logarithm
+combination, 1; correct quadratic, 1; both algebraic candidates, 1;
+domain check and final answer, 1.</p>
+<p><strong>Common mistakes.</strong> Combining logarithms before stating
+the domain; adding the two arguments; retaining the inadmissible
+negative root.</p>
+<h4 id="solution-to-w01-st03-pa-m3">Solution to <code>W01-ST03-PA</code>
+(<code>M3</code>)</h4>
+<p><strong>Method.</strong> Find every feasible stationary point and
+compare it with both endpoints.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>π</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>8</mn><mo>−</mo><mn>2</mn><mi>q</mi><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>π</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi&#39;(q)=8-2q,
+\qquad
+\pi&#39;&#39;(q)=-2.
+</annotation></semantics></math></p>
+<p>The stationary point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">q=4</annotation></semantics></math>,
+and the negative second derivative shows strict concavity. The candidate
+values are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>16</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>12</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi(0)=0,
+\qquad
+\pi(4)=16,
+\qquad
+\pi(6)=12.
+</annotation></semantics></math></p>
+<p>Therefore the global maximiser is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">q=4</annotation></semantics></math>,
+and the maximum value is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>16</mn><annotation encoding="application/x-tex">16</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Correct derivative and stationary point,
+2; curvature check, 1; both endpoint values, 1; global maximiser and
+value, 1.</p>
+<p><strong>Common mistakes.</strong> Stopping at the first-order
+condition; omitting one endpoint; reporting the maximiser without the
+maximum value.</p>
+<h4 id="solution-to-w01-st04-pa-s1">Solution to <code>W01-ST04-PA</code>
+(<code>S1</code>)</h4>
+<p><strong>Method.</strong> Use inclusion–exclusion, then take the
+relevant complement and remove the overlap when counting exactly one
+event.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.6</mn><mo>+</mo><mn>0.5</mn><mo>−</mo><mn>0.3</mn><mo>=</mo><mn>0.8</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(A\cup B)
+=0.6+0.5-0.3
+=0.8.
+</annotation></semantics></math></p>
+<p>Therefore,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">neither</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(\text{neither})
+=1-\mathbb{P}(A\cup B)
+=0.2.
+</annotation></semantics></math></p>
+<p>Exactly one event occurs on the union excluding the intersection,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mtext mathvariant="normal">exactly one</mtext><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.8</mn><mo>−</mo><mn>0.3</mn><mo>=</mo><mn>0.5</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(\text{exactly one})
+=\mathbb{P}(A\cup B)-\mathbb{P}(A\cap B)
+=0.8-0.3
+=0.5.
+</annotation></semantics></math></p>
+<p><strong>Marks (5).</strong> Correct union setup and value, 2; correct
+complement, 1; correct exactly-one setup and value, 2.</p>
+<p><strong>Common mistakes.</strong> Adding probabilities without
+subtracting the overlap; taking the complement of the intersection for
+neither; retaining the intersection in the exactly-one event.</p>
+<p>Record the first cause of each error under <code>M1</code>,
+<code>M2</code>, <code>M3</code> or <code>S1</code>, then reattempt that
+part from a blank page in two or three days.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

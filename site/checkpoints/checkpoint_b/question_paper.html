@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Checkpoint B - question paper</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/checkpoints/checkpoint_b/question_paper.pdf">Download this page as PDF</a></p>
+
+<h1 id="checkpoint-b---question-paper">Checkpoint B - question
+paper</h1>
+<h2 id="source-checkpoints-checkpoint-b-readme">Attempt guide</h2>
+<p>Checkpoint B is a formative cumulative assessment of selected
+required material from Weeks 5–7. It contains 40 marks and has a
+75-minute time limit. All questions and parts are compulsory.</p>
+<h3 id="student-sequence">Student sequence</h3>
+<ol type="1">
+<li>Open the formula sheet and candidate paper only.</li>
+<li>Complete the paper in 75 minutes without notes or solutions.</li>
+<li>Use the full solutions to review the attempt and identify revision
+priorities.</li>
+<li>Record the first cause of each lost mark by learning-outcome
+ID.</li>
+<li>Revisit the named Week 5, 6 or 7 material and reattempt missed parts
+from a blank page after two or three days.</li>
+</ol>
+<h3 id="attempt-sequence">Attempt sequence</h3>
+<ol type="1">
+<li>Open the <a href="question_paper.html#source-checkpoints-checkpoint-b-paper">question
+paper</a> and <a href="question_paper.html#source-checkpoints-checkpoint-b-formula-sheet">formula
+sheet</a>.</li>
+<li>Complete the paper in 60 minutes without notes or solutions.</li>
+<li>Use the <a href="solutions.html#source-checkpoints-checkpoint-b-solutions">full
+solutions</a> to review the attempt and identify revision
+priorities.</li>
+<li>Record the first cause of each lost mark and schedule a blank-page
+reattempt after two or three days.</li>
+</ol>
+<!-- The staff-only assessment metadata is excluded from the student release. -->
+<h3 id="conditions">Conditions</h3>
+<p>A basic non-programmable scientific calculator is permitted, although
+no question requires one. Software, programmable calculators, computer
+algebra and statistical packages are not permitted. The checkpoint
+contains no optional dynamics, regression or other excluded content.</p>
+<p>Checkpoint B is diagnostic and not pass/fail. Use the evidence from
+the attempt to guide revision and reattempts. For this controlled
+first-cohort pilot, scores are not used for admission, progression,
+ranking, funding or grading.</p>
+<h2 id="source-checkpoints-checkpoint-b-paper">Candidate paper</h2>
+<p><strong>Time allowed:</strong> 75 minutes<br />
+<strong>Total marks:</strong> 40<br />
+<strong>Questions:</strong> All questions and all parts are
+compulsory.</p>
+<h3 id="instructions">Instructions</h3>
+<ul>
+<li>Complete the paper without notes or solutions.</li>
+<li>A basic non-programmable scientific calculator is permitted, but no
+question requires one.</li>
+<li>Software, programmable calculators, computer algebra and statistical
+packages are not permitted.</li>
+<li>Show the reasoning and intermediate work needed to support each
+answer. An unsupported answer may not receive full marks.</li>
+<li>Give exact answers unless the question asks for an
+approximation.</li>
+<li>All vectors are column vectors. Use the course notation
+throughout.</li>
+<li>For inequality-constrained maximisation, write every constraint as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>
+and use the course Kuhn–Tucker convention.</li>
+</ul>
+<h3 id="question-1-quadratic-forms-and-convexity-4-marks-8-minutes">Question
+1 — quadratic forms and convexity (4 marks; 8 minutes)</h3>
+<h4 id="part-a-cpb-q01-pa-4-marks-8-minutes">Part A —
+<code>CPB-Q01-PA</code> (4 marks; 8 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>𝐱</mi><mi>𝖳</mi></msup><mi>𝐀</mi><mi>𝐱</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{A}=
+\begin{bmatrix}
+-2&amp;3\\
+-1&amp;-1
+\end{bmatrix},
+\qquad
+q(\mathbf{x})=\mathbf{x}^{\mathsf T}\mathbf{A}\mathbf{x},
+\qquad
+\mathbf{x}\in\mathbb{R}^2.
+</annotation></semantics></math></p>
+<p>Find the symmetric matrix that represents the same quadratic form and
+classify
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+by definiteness using a valid test. Hence determine whether</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>:=</mo><mo stretchy="false" form="prefix">{</mo><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>:</mo><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+C:=\{\mathbf{x}\in\mathbb{R}^2:q(\mathbf{x})\ge-1\}
+</annotation></semantics></math></p>
+<p>is convex. Justify the conclusion without relying on a sketch.</p>
+<h3 id="question-2-unconstrained-optimisation-5-marks-8-minutes">Question 2
+— unconstrained optimisation (5 marks; 8 minutes)</h3>
+<h4 id="part-a-cpb-q02-pa-5-marks-8-minutes">Part A —
+<code>CPB-Q02-PA</code> (5 marks; 8 minutes)</h4>
+<p>For</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>6</mn><mi>x</mi><mo>+</mo><mn>8</mn><mi>y</mi><mo>−</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f(x,y)=6x+8y-2x^2-y^2,
+\qquad (x,y)\in\mathbb{R}^2,
+</annotation></semantics></math></p>
+<p>find every stationary point and classify it. State the condition that
+turns the local classification into a unique global conclusion on the
+stated domain, then calculate the global optimum value.</p>
+<h3 id="question-3-equality-constrained-optimisation-and-the-envelope-theorem-8-marks-15-minutes">Question
+3 — equality-constrained optimisation and the envelope theorem (8 marks;
+15 minutes)</h3>
+<p>For a resource parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a&gt;0</annotation></semantics></math>,
+consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow></munder><msqrt><mrow><mi>x</mi><mi>y</mi></mrow></msqrt><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mn>2</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mi>a</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\max_{x&gt;0,\,y&gt;0}\sqrt{xy}
+\quad\text{subject to}\quad
+2x+y=a.
+</annotation></semantics></math></p>
+<p>Encode the constraint as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mn>2</mn><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-2x-y=0</annotation></semantics></math>.</p>
+<h4 id="part-a-cpb-q03-pa-5-marks-10-minutes">Part A —
+<code>CPB-Q03-PA</code> (5 marks; 10 minutes)</h4>
+<p>Form the Lagrangian and solve the first-order and feasibility
+conditions for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x^*(a)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y^*(a)</annotation></semantics></math>
+and the multiplier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mu^*(a)</annotation></semantics></math>.
+State a sufficient condition for the solution to be the unique global
+maximiser. Report the optimisers and multiplier at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">a=12</annotation></semantics></math>.</p>
+<h4 id="part-b-cpb-q03-pb-3-marks-5-minutes">Part B —
+<code>CPB-Q03-PB</code> (3 marks; 5 minutes)</h4>
+<p>Derive the value function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(a)</annotation></semantics></math>.
+Use the envelope theorem to calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V&#39;(a)</annotation></semantics></math>,
+verify the result by direct differentiation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(a)</annotation></semantics></math>,
+and interpret its sign under the stated constraint encoding.</p>
+<h3 id="question-4-a-kuhntucker-corner-6-marks-13-minutes">Question 4 —
+a Kuhn–Tucker corner (6 marks; 13 minutes)</h3>
+<h4 id="part-a-cpb-q04-pa-6-marks-13-minutes">Part A —
+<code>CPB-Q04-PA</code> (6 marks; 13 minutes)</h4>
+<p>Consider</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mo stretchy="false" form="prefix">{</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+\max_{x,y}\{4x+y-x^2-y^2\}
+</annotation></semantics></math></p>
+<p>subject to</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>y</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>1</mn><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x\ge0,
+\qquad y\ge0,
+\qquad 1-x-y\ge0.
+</annotation></semantics></math></p>
+<p>Form the Lagrangian and write the complete Kuhn–Tucker conditions
+under the course convention. Solve them, explicitly identifying the
+active and slack constraints and reporting every multiplier. Use
+curvature and the feasible set to justify whether the maximiser is
+unique and global.</p>
+<h3 id="question-5-a-joint-density-and-conditional-expectation-5-marks-10-minutes">Question
+5 — a joint density and conditional expectation (5 marks; 10
+minutes)</h3>
+<h4 id="part-a-cpb-q05-pa-5-marks-10-minutes">Part A —
+<code>CPB-Q05-PA</code> (5 marks; 10 minutes)</h4>
+<p>The joint density of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>X</mi><mo>,</mo><mi>Y</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>,</mo><mspace width="2.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi>y</mi><mo>&lt;</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f_{X,Y}(x,y)=x+y,
+\qquad 0&lt;x&lt;1,\quad 0&lt;y&lt;1,
+</annotation></semantics></math></p>
+<p>and is zero otherwise.</p>
+<p>Derive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>Y</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_Y(y)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>X</mi><mo>∣</mo><mi>Y</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>∣</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_{X\mid Y}(x\mid y)</annotation></semantics></math>,
+including their supports. Then calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo>∣</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X\mid Y=y]</annotation></semantics></math>
+and determine whether
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+are independent. Justify the independence conclusion.</p>
+<h3 id="question-6-exact-and-approximate-sampling-distributions-5-marks-9-minutes">Question
+6 — exact and approximate sampling distributions (5 marks; 9
+minutes)</h3>
+<h4 id="part-a-cpb-q06-pa-5-marks-9-minutes">Part A —
+<code>CPB-Q06-PA</code> (5 marks; 9 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mn>32</mn></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Poisson</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_{32}
+\overset{\mathrm{iid}}{\sim}\operatorname{Poisson}(2),
+</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+is the mean and rate, and define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>:=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>32</mn></munderover><msub><mi>X</mi><mi>i</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>:=</mo><mfrac><mn>1</mn><mn>32</mn></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>32</mn></munderover><msub><mi>X</mi><mi>i</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T:=\sum_{i=1}^{32}X_i,
+\qquad
+\bar X:=\frac1{32}\sum_{i=1}^{32}X_i.
+</annotation></semantics></math></p>
+<p>State the exact distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>,
+and calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[\bar X]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(\bar X)</annotation></semantics></math>.
+Then use the central limit theorem, without a continuity correction, to
+approximate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&gt;</mo><mn>2.5</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(\bar X&gt;2.5)</annotation></semantics></math>.
+You may use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.9772</mn></mrow><annotation encoding="application/x-tex">\Phi(2)=0.9772</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+is the standard normal CDF. Explain why the distributional statement for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+is exact but the final probability calculation is approximate.</p>
+<h3 id="question-7-method-of-moments-and-maximum-likelihood-7-marks-12-minutes">Question
+7 — method of moments and maximum likelihood (7 marks; 12 minutes)</h3>
+<h4 id="part-a-cpb-q07-pa-7-marks-12-minutes">Part A —
+<code>CPB-Q07-PA</code> (7 marks; 12 minutes)</h4>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Geometric</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi>p</mi><mo>≤</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n
+\overset{\mathrm{iid}}{\sim}\operatorname{Geometric}(p),
+\qquad 0&lt;p\le1,
+</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mi>i</mi></msub><annotation encoding="application/x-tex">X_i</annotation></semantics></math>
+is the number of trials up to and including the first success, so its
+support is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1,2,\ldots\}</annotation></semantics></math>,
+its PMF is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+p_X(x)=p(1-p)^{x-1},
+\qquad x\in\{1,2,\ldots\},
+</annotation></semantics></math></p>
+<p>and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>1</mn><mi>/</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}_p[X_i]=1/p</annotation></semantics></math>.</p>
+<p>Derive the one-moment method-of-moments estimator of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+Derive the maximum-likelihood estimator, treating both samples with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>x</mi><mi>i</mi></msub><mo>&gt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\sum_{i=1}^{n}x_i&gt;n</annotation></semantics></math>
+and the boundary sample
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><mi>⋯</mi><mo>=</mo><msub><mi>x</mi><mi>n</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x_1=\cdots=x_n=1</annotation></semantics></math>.
+Explain the relationship between the two estimators. Calculate the
+estimate for the observed sample
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,2,1,4)</annotation></semantics></math>,
+and state why the estimator is consistent for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.</p>
+<h2 id="source-checkpoints-checkpoint-b-formula-sheet">Formula
+sheet</h2>
+<h3 id="general-conventions">General conventions</h3>
+<ul>
+<li>Give exact answers unless a question asks for an approximation.</li>
+<li>All vectors and gradients are column vectors.</li>
+<li>For a maximisation problem, write inequalities as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>
+and use the course Kuhn–Tucker sign convention stated in the course
+materials.</li>
+<li>For a random sample,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>=</mo><msup><mi>n</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>X</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\bar X=n^{-1}\sum_{i=1}^{n}X_i</annotation></semantics></math>.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+denotes the standard normal cumulative distribution function.</li>
+</ul>
+<h3 id="formula-provision">Formula provision</h3>
+<p>The geometric PMF, support and mean needed in Question 7 and the
+numerical normal CDF value needed in Question 6 are supplied in the
+candidate paper. No additional formulae or numerical tables are supplied
+because the definiteness, optimisation, conditioning, sampling and
+estimation identities used in the questions are part of the assessed
+material.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

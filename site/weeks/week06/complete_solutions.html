@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week 6 complete solutions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/weeks/week06/complete_solutions.pdf">Download this page as PDF</a></p>
+
+<h1 id="week-6-complete-solutions">Week 6 complete solutions</h1>
+<h2 id="source-weeks-week06-solutions">Problem-sheet solutions</h2>
+<p>Each solution states the intended method, relevant conditions,
+derivation, final result, mark allocation and common mistakes. Award
+method credit after a purely arithmetic slip when the setup and
+conditions remain valid.</p>
+<h3 id="w06-q01-pa-m9"><code>W06-Q01-PA</code> (<code>M9</code>)</h3>
+<p><strong>Method and conditions.</strong> For an unconstrained
+differentiable objective on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>,
+an interior local optimum must be stationary. A definite Hessian at a
+stationary point supplies a strict local sufficient condition.</p>
+<p>The column gradient is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>−</mo><mn>6</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(x,y)=
+\begin{bmatrix}
+2x+y-6\\
+x+2y
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The stationary equations are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>6</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+2x+y=6,
+\qquad
+x+2y=0.
+</annotation></semantics></math></p>
+<p>They give
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">y=-2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">x=4</annotation></semantics></math>.
+The Hessian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐇</mi><mi>f</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{H}_f=
+\begin{bmatrix}
+2&amp;1\\
+1&amp;2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Its leading principal minors are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">2&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>3</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">4-1=3&gt;0</annotation></semantics></math>,
+so it is positive definite.</p>
+<p><strong>Final result.</strong> The only stationary point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4,-2)</annotation></semantics></math>.
+It is a strict local minimum.</p>
+<p><strong>Marks (6).</strong> Correct column gradient, 1; stationary
+equations, 1; solution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4,-2)</annotation></semantics></math>,
+2; correct Hessian, 1; valid positive-definiteness classification and
+local conclusion, 1.</p>
+<p><strong>Common mistakes.</strong> Writing the gradient as a row;
+solving only one stationary equation; treating the first-order condition
+as sufficient; misclassifying a positive definite Hessian as a
+maximum.</p>
+<h3 id="w06-q01-pb-m9"><code>W06-Q01-PB</code> (<code>M9</code>)</h3>
+<p><strong>Method and conditions.</strong> Separate the necessary
+first-order condition from the sufficient curvature condition, then
+check whether the curvature is global on a convex domain.</p>
+<p>The equation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo>=</mo><mn>𝟎</mn></mrow><annotation encoding="application/x-tex">\nabla f=\mathbf{0}</annotation></semantics></math>
+is necessary for an interior differentiable local optimum, but
+stationary points can be minima, maxima or saddles. It therefore
+produces candidates rather than a classification.</p>
+<p>Here the Hessian is positive definite at every point of the convex
+domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.
+Hence
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is strictly convex on the whole domain. A stationary point of a
+differentiable convex function is a global minimiser, and strict
+convexity makes it unique.</p>
+<p><strong>Final result.</strong> The point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4,-2)</annotation></semantics></math>
+is the unique global minimiser.</p>
+<p><strong>Marks (4).</strong> Necessary-versus-sufficient distinction,
+1; global positive-definiteness or strict-convexity condition, 1; valid
+global-minimum conclusion, 1; uniqueness, 1.</p>
+<p><strong>Common mistakes.</strong> Calling every stationary point
+optimal; using curvature only at the point to assert a global result;
+omitting the convex domain; reversing convexity and concavity.</p>
+<h3 id="w06-q02-pa-m9"><code>W06-Q02-PA</code> (<code>M9</code>)</h3>
+<p><strong>Method and conditions.</strong> Solve the interior
+first-order conditions and use the symmetric Hessian to classify the
+candidate locally.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>8</mn><mo>−</mo><mn>2</mn><mi>x</mi><mo>−</mo><mi>y</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>6</mn><mo>−</mo><mi>x</mi><mo>−</mo><mn>2</mn><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐇</mi><mi>g</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla g(x,y)=
+\begin{bmatrix}
+8-2x-y\\
+6-x-2y
+\end{bmatrix},
+\qquad
+\mathbf{H}_g=
+\begin{bmatrix}
+-2&amp;-1\\
+-1&amp;-2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The stationary equations are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>8</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>6</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+2x+y=8,
+\qquad
+x+2y=6.
+</annotation></semantics></math></p>
+<p>Solving gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>10</mn><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">x=10/3</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>4</mn><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">y=4/3</annotation></semantics></math>.
+The first leading principal minor of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐇</mi><mi>g</mi></msub><annotation encoding="application/x-tex">\mathbf{H}_g</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">-2&lt;0</annotation></semantics></math>,
+while its determinant is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>3</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">4-1=3&gt;0</annotation></semantics></math>.
+Therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐇</mi><mi>g</mi></msub><annotation encoding="application/x-tex">\mathbf{H}_g</annotation></semantics></math>
+is negative definite.</p>
+<p><strong>Final result.</strong> The unique stationary point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>10</mn><mi>/</mi><mn>3</mn><mo>,</mo><mn>4</mn><mi>/</mi><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(10/3,4/3)</annotation></semantics></math>,
+and it is a strict local maximum.</p>
+<p><strong>Marks (7).</strong> Correct column gradient, 2; stationary
+equations and solution, 2; correct Hessian, 1; valid
+negative-definiteness test, 1; local classification, 1.</p>
+<p><strong>Common mistakes.</strong> Losing a cross-partial term;
+solving the linear system incorrectly; applying the positive-definite
+sign pattern; calling the local result global without an additional
+argument.</p>
+<h3 id="w06-q02-pb-m9"><code>W06-Q02-PB</code> (<code>M9</code>)</h3>
+<p><strong>Method and conditions.</strong> A negative definite Hessian
+everywhere on a convex domain makes the objective strictly concave. For
+a differentiable concave objective, a stationary point is a global
+maximiser.</p>
+<p>The Hessian found in Part A is constant and negative definite
+throughout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>,
+which is convex. Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+is strictly concave. The stationary point exists and is in the domain,
+so it is the unique global maximiser.</p>
+<p>Its value is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>10</mn><mn>3</mn></mfrac><mo>,</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mn>80</mn><mn>3</mn></mfrac><mo>+</mo><mn>8</mn><mo>−</mo><mfrac><mn>100</mn><mn>9</mn></mfrac><mo>−</mo><mfrac><mn>16</mn><mn>9</mn></mfrac><mo>−</mo><mfrac><mn>40</mn><mn>9</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mfrac><mn>52</mn><mn>3</mn></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+g\left(\frac{10}{3},\frac{4}{3}\right)
+&amp;=\frac{80}{3}+8-\frac{100}{9}-\frac{16}{9}-\frac{40}{9}\\
+&amp;=\frac{52}{3}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The unique global maximiser is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>10</mn><mi>/</mi><mn>3</mn><mo>,</mo><mn>4</mn><mi>/</mi><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(10/3,4/3)</annotation></semantics></math>,
+and the global maximum is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>52</mn><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">52/3</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Global negative-definiteness condition,
+1; convex-domain and strict-concavity statement, 1; valid global and
+uniqueness conclusion, 1; correct substitution, 1; maximum value, 1.</p>
+<p><strong>Common mistakes.</strong> Treating local negative
+definiteness as automatically global; omitting the domain condition;
+failing to distinguish maximiser from maximum; arithmetic error in the
+cross term.</p>
+<h3 id="w06-q03-pa-m9"><code>W06-Q03-PA</code> (<code>M9</code>)</h3>
+<p><strong>Method and conditions.</strong> Find all stationary points,
+apply the definite or indefinite Hessian tests locally, then study an
+unbounded path to decide global existence.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>3</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐇</mi><mi>h</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>6</mn><mi>x</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla h(x,y)=
+\begin{bmatrix}
+3x^2-3\\
+-2y
+\end{bmatrix},
+\qquad
+\mathbf{H}_h(x,y)=
+\begin{bmatrix}
+6x&amp;0\\
+0&amp;-2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The stationary points are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-1,0)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,0)</annotation></semantics></math>.
+At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-1,0)</annotation></semantics></math>,
+the Hessian is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>diag</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>6</mn><mo>,</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{diag}(-6,-2)</annotation></semantics></math>,
+which is negative definite, so the point is a strict local maximum. At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,0)</annotation></semantics></math>,
+the Hessian is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>diag</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mo>,</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{diag}(6,-2)</annotation></semantics></math>,
+which is indefinite, so the point is a saddle.</p>
+<p>Along the line
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mn>3</mn><mi>x</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+h(x,0)=x^3-3x.
+</annotation></semantics></math></p>
+<p>This tends to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">+\infty</annotation></semantics></math>
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">x\to+\infty</annotation></semantics></math>
+and to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">-\infty</annotation></semantics></math>
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">x\to-\infty</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong> The point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-1,0)</annotation></semantics></math>
+is a strict local maximum and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,0)</annotation></semantics></math>
+is a saddle. There is no global maximum and no global minimum on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.</p>
+<p><strong>Marks (6).</strong> Correct gradient and both candidates, 2;
+correct Hessian, 1; two correct local classifications, 2; valid
+unboundedness argument and both global conclusions, 1.</p>
+<p><strong>Common mistakes.</strong> Missing one square-root candidate;
+reversing the Hessian classifications; calling a saddle a minimum;
+inferring global existence from the finite list of stationary
+points.</p>
+<h3 id="w06-q04-pa-m9"><code>W06-Q04-PA</code> (<code>M9</code>)</h3>
+<p><strong>Method and conditions.</strong> Use the first-order condition
+to locate candidates. When the Hessian test is inconclusive, classify
+directly from the objective and examine its behaviour on the whole
+domain.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn><msup><mi>x</mi><mn>3</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn><msup><mi>y</mi><mn>3</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐇</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>12</mn><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>12</mn><msup><mi>y</mi><mn>2</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla p(x,y)=
+\begin{bmatrix}
+4x^3\\
+4y^3
+\end{bmatrix},
+\qquad
+\mathbf{H}_p(x,y)=
+\begin{bmatrix}
+12x^2&amp;0\\
+0&amp;12y^2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The only stationary point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐇</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mn>𝟎</mn><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\mathbf{H}_p(0,0)=\mathbf{0}_{2\times2}</annotation></semantics></math>.
+The zero matrix is positive semidefinite and negative semidefinite but
+not definite, so the usual definite-Hessian sufficient tests are
+inconclusive.</p>
+<p>For all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>4</mn></msup><mo>+</mo><msup><mi>y</mi><mn>4</mn></msup><mo>≥</mo><mn>0</mn><mo>=</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(x,y)=x^4+y^4\ge0=p(0,0).
+</annotation></semantics></math></p>
+<p>Equality requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=y=0</annotation></semantics></math>.
+Therefore the origin is the unique global minimiser and hence also a
+strict local minimiser. As either coordinate tends in magnitude to
+infinity,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">p(x,y)\to\infty</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+is unbounded above.</p>
+<p><strong>Final result.</strong> The origin is the unique global
+minimum, despite the inconclusive Hessian there. No global maximum
+exists.</p>
+<p><strong>Marks (8).</strong> Correct gradient and stationary point, 2;
+correct Hessian and evaluation, 1; explanation of inconclusiveness, 1;
+direct non-negativity argument, 2; uniqueness and local/global
+distinction, 1; no-maximum conclusion, 1.</p>
+<p><strong>Common mistakes.</strong> Calling the zero Hessian positive
+definite; concluding that an inconclusive test means no optimum;
+omitting the equality case needed for uniqueness; assuming a stationary
+point guarantees a global maximum.</p>
+<h3 id="w06-q05-pa-m9"><code>W06-Q05-PA</code> (<code>M9</code>)</h3>
+<p><strong>Method and conditions.</strong> Classify the constant
+symmetric Hessian by its eigenvalues, then use the resulting quadratic
+form to describe global behaviour.</p>
+<p>The Hessian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐇</mi><msub><mi>q</mi><mi>a</mi></msub></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn><mi>a</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn><mi>a</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{H}_{q_a}=
+\begin{bmatrix}
+-2&amp;-2a\\
+-2a&amp;-2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The directions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo>,</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">[1,1]^{\mathsf T}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo>,</mo><mi>−</mi><mn>1</mn><msup><mo stretchy="false" form="postfix">]</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">[1,-1]^{\mathsf T}</annotation></semantics></math>
+have eigenvalues</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><mo>−</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+-2(1+a)
+\quad\text{and}\quad
+-2(1-a),
+</annotation></semantics></math></p>
+<p>respectively.</p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|&lt;1</annotation></semantics></math>,
+both eigenvalues are negative. The objective is strictly concave, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q_a(x,y)&lt;0</annotation></semantics></math>
+for every non-zero
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math>,
+while
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q_a(0,0)=0</annotation></semantics></math>.
+The origin is the unique global maximiser.</p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>,
+then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+q_1(x,y)=-(x+y)^2.
+</annotation></semantics></math></p>
+<p>It is concave but not strictly concave, and every point with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>−</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">y=-x</annotation></semantics></math>
+is a global maximiser with value zero. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">a=-1</annotation></semantics></math>,
+then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mrow><mi>−</mi><mn>1</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+q_{-1}(x,y)=-(x-y)^2,
+</annotation></semantics></math></p>
+<p>and every point with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y=x</annotation></semantics></math>
+is a global maximiser. In both boundary cases the Hessian is negative
+semidefinite, and the origin is a non-strict global maximiser.</p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|&gt;1</annotation></semantics></math>,
+the eigenvalues have opposite signs, so the Hessian is indefinite. Along
+one eigenvector direction the quadratic tends to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">+\infty</annotation></semantics></math>
+after scaling, and along the other it tends to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">-\infty</annotation></semantics></math>.
+Thus the origin is a saddle and no global maximum exists.</p>
+<p><strong>Final result.</strong> Negative definite curvature and a
+unique global maximum occur for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|&lt;1</annotation></semantics></math>;
+negative semidefinite curvature and a line of global maximisers occur
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|=1</annotation></semantics></math>;
+indefinite curvature, a saddle at the origin and no global maximum occur
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|&gt;1</annotation></semantics></math>.</p>
+<p><strong>Marks (10).</strong> Correct Hessian, 1; correct eigenvalues
+or equivalent definiteness test, 2; complete
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|&lt;1</annotation></semantics></math>
+classification, 2; both
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|=1</annotation></semantics></math>
+square representations and maximiser sets, 3; complete
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>a</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|a|&gt;1</annotation></semantics></math>
+saddle and unboundedness argument, 2.</p>
+<p><strong>Common mistakes.</strong> Treating semidefinite as definite;
+omitting one boundary value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>;
+reporting only the origin on a ridge of maximisers; claiming an
+indefinite objective has a global maximum.</p>
+<h3 id="w06-q06-pa-s6"><code>W06-Q06-PA</code> (<code>S6</code>)</h3>
+<p><strong>Method and conditions.</strong> Apply the course definitions
+to the realised sample and keep random statistics distinct from their
+observed values.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mfrac><mrow><mn>2</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>6</mn></mrow><mn>4</mn></mfrac><mo>=</mo><mn>4</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar x=\frac{2+4+4+6}{4}=4.
+</annotation></semantics></math></p>
+<p>The deviations are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">-2,0,0,2</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><msup><mn>0</mn><mn>2</mn></msup><mo>+</mo><msup><mn>0</mn><mn>2</mn></msup><mo>+</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>8</mn><mn>3</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+s^2=\frac{(-2)^2+0^2+0^2+2^2}{3}
+=\frac83.
+</annotation></semantics></math></p>
+<p>Before observation,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>
+are random variables because they are functions of the random sample.
+After observing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">2,4,4,6</annotation></semantics></math>,
+their realisations are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\bar x=4</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mn>8</mn><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">s^2=8/3</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\bar x=4</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mn>8</mn><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">s^2=8/3</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Correct mean, 1; deviations and
+squared-deviation sum, 1; correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>
+denominator, 1; correct variance, 1; random-versus-observed distinction,
+1.</p>
+<p><strong>Common mistakes.</strong> Dividing the variance sum by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>;
+using deviations from zero; failing to square negative deviations;
+calling observed values random variables.</p>
+<h3 id="w06-q06-pb-s6"><code>W06-Q06-PB</code> (<code>S6</code>)</h3>
+<p><strong>Method and conditions.</strong> For an i.i.d. normal sample
+with population variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>σ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msup><mi>S</mi><mn>2</mn></msup><mi>/</mi><msup><mi>σ</mi><mn>2</mn></msup><mo>∼</mo><msubsup><mi>χ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">(n-1)S^2/\sigma^2\sim\chi^2_{n-1}</annotation></semantics></math>
+exactly.</p>
+<p>Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">n=10</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\sigma^2=4</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>9</mn><msup><mi>S</mi><mn>2</mn></msup></mrow><mn>4</mn></mfrac><mo>∼</mo><msubsup><mi>χ</mi><mn>9</mn><mn>2</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{9S^2}{4}\sim\chi^2_9.
+</annotation></semantics></math></p>
+<p>Moreover,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>S</mi><mn>2</mn></msup><mo>≤</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>ℙ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mn>9</mn><msup><mi>S</mi><mn>2</mn></msup></mrow><mn>4</mn></mfrac><mo>≤</mo><mfrac><mrow><mn>9</mn><mi>c</mi></mrow><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbb{P}(S^2\le c)
+&amp;=\mathbb{P}\left(\frac{9S^2}{4}\le\frac{9c}{4}\right).
+\end{aligned}
+</annotation></semantics></math></p>
+<p>To make this probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.95</mn><annotation encoding="application/x-tex">0.95</annotation></semantics></math>,
+set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mi>c</mi><mi>/</mi><mn>4</mn><mo>=</mo><mn>16.919</mn></mrow><annotation encoding="application/x-tex">9c/4=16.919</annotation></semantics></math>.
+Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mfrac><mrow><mn>4</mn><mo stretchy="false" form="prefix">(</mo><mn>16.919</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>9</mn></mfrac><mo>=</mo><mfrac><mn>67.676</mn><mn>9</mn></mfrac><mo>≈</mo><mn>7.52</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+c=\frac{4(16.919)}9=\frac{67.676}{9}\approx7.52.
+</annotation></semantics></math></p>
+<p>The exact chi-squared sampling result requires that the common
+population distribution be normal, in addition to the stated i.i.d.
+sampling.</p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><msup><mi>S</mi><mn>2</mn></msup><mi>/</mi><mn>4</mn><mo>∼</mo><msubsup><mi>χ</mi><mn>9</mn><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">9S^2/4\sim\chi^2_9</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>4</mn><mo stretchy="false" form="prefix">(</mo><mn>16.919</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>9</mn><mo>≈</mo><mn>7.52</mn></mrow><annotation encoding="application/x-tex">c=4(16.919)/9\approx7.52</annotation></semantics></math>.</p>
+<p><strong>Marks (8).</strong> Correct chi-squared statistic, 2; correct
+degrees of freedom, 1; probability transformation, 2; equation for and
+solution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>,
+2; normality condition, 1.</p>
+<p><strong>Common mistakes.</strong> Using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+rather than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>;
+treating 4 as a standard deviation; inverting the chi-squared scaling;
+omitting the population normality condition.</p>
+<h3 id="w06-q07-pa-s6"><code>W06-Q07-PA</code> (<code>S6</code>)</h3>
+<p><strong>Method and conditions.</strong> Independence and normality
+make both linear combinations exactly normal. Use the variance, rather
+than the standard deviation, as the second normal parameter.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>20</mn><mo>,</mo><mfrac><mn>16</mn><mn>16</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>20</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\bar X\sim\mathcal{N}\left(20,\frac{16}{16}\right)
+=\mathcal{N}(20,1),
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>16</mn><mo>⋅</mo><mn>20</mn><mo>,</mo><mn>16</mn><mo>⋅</mo><mn>16</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>320</mn><mo>,</mo><mn>256</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+T\sim\mathcal{N}(16\cdot20,16\cdot16)
+=\mathcal{N}(320,256).
+</annotation></semantics></math></p>
+<p>Thus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>18</mn><mo>&lt;</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mn>22</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo>&lt;</mo><mi>Z</mi><mo>&lt;</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>0.9772</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>0.9544</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbb{P}(18&lt;\bar X&lt;22)
+&amp;=\mathbb{P}(-2&lt;Z&lt;2)\\
+&amp;=2\Phi(2)-1\\
+&amp;=2(0.9772)-1=0.9544.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>The standard deviation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>16</mn><annotation encoding="application/x-tex">16</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo>&gt;</mo><mn>336</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>&gt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.1587</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(T&gt;336)
+=\mathbb{P}(Z&gt;1)
+=1-\Phi(1)
+=0.1587.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The exact distributions are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>20</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\bar X\sim\mathcal{N}(20,1)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>320</mn><mo>,</mo><mn>256</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T\sim\mathcal{N}(320,256)</annotation></semantics></math>.
+The probabilities are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.9544</mn><annotation encoding="application/x-tex">0.9544</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.1587</mn><annotation encoding="application/x-tex">0.1587</annotation></semantics></math>,
+respectively.</p>
+<p><strong>Marks (7).</strong> Correct distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>,
+2; correct distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>,
+2; first standardisation and probability, 2; second standardisation and
+probability, 1.</p>
+<p><strong>Common mistakes.</strong> Using 16 as the population standard
+deviation; dividing the variance of the sum by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>;
+standardising
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+with the standard error of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>;
+treating the second normal parameter as a standard deviation.</p>
+<h3 id="w06-q07-pb-s6"><code>W06-Q07-PB</code> (<code>S6</code>)</h3>
+<p><strong>Method and conditions.</strong> The observations are i.i.d.
+with finite positive variance, so the central limit theorem supports a
+large-sample normal approximation for the standardised sample mean.</p>
+<p>For a
+Bernoulli<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0.5)</annotation></semantics></math>
+variable,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>0.5</mn><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>σ</mi><mn>2</mn></msup><mo>=</mo><mn>0.5</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.25</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mu=0.5,
+\qquad
+\sigma^2=0.5(1-0.5)=0.25.
+</annotation></semantics></math></p>
+<p>Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>0.25</mn><mn>100</mn></mfrac><mo>=</mo><mn>0.0025</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>SD</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.05</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}(\bar Y)=\frac{0.25}{100}=0.0025,
+\qquad
+\operatorname{SD}(\bar Y)=0.05.
+</annotation></semantics></math></p>
+<p>The standardised endpoints are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>0.4</mn><mo>−</mo><mn>0.5</mn></mrow><mn>0.05</mn></mfrac><mo>=</mo><mi>−</mi><mn>2</mn><mo>,</mo><mspace width="2.0em"></mspace><mfrac><mrow><mn>0.6</mn><mo>−</mo><mn>0.5</mn></mrow><mn>0.05</mn></mfrac><mo>=</mo><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{0.4-0.5}{0.05}=-2,
+\qquad
+\frac{0.6-0.5}{0.05}=2.
+</annotation></semantics></math></p>
+<p>Hence, without a continuity correction,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>0.4</mn><mo>≤</mo><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mo>≤</mo><mn>0.6</mn><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>0.9544</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(0.4\le\bar Y\le0.6)
+\approx\Phi(2)-\Phi(-2)
+=2\Phi(2)-1
+=0.9544.
+</annotation></semantics></math></p>
+<p>This is approximate because a Bernoulli sample mean has a discrete
+distribution and is not exactly normal. The CLT supplies the normal
+approximation at large
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong> The requested CLT approximation is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.9544</mn><annotation encoding="application/x-tex">0.9544</annotation></semantics></math>.</p>
+<p><strong>Marks (7).</strong> Correct Bernoulli mean and variance, 1;
+correct variance or standard deviation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>Y</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar Y</annotation></semantics></math>,
+2; two correct standardisations, 2; probability calculation, 1;
+exact-versus-approximate explanation, 1.</p>
+<p><strong>Common mistakes.</strong> Using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.25</mn><annotation encoding="application/x-tex">0.25</annotation></semantics></math>
+as the standard deviation; omitting the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>n</mi></msqrt><annotation encoding="application/x-tex">\sqrt n</annotation></semantics></math>
+scaling; claiming exact normality; standardising the observations
+instead of the sample mean.</p>
+<h3 id="w06-q08-pa-s6"><code>W06-Q08-PA</code> (<code>S6</code>)</h3>
+<p><strong>Method and conditions.</strong> Substitute the common finite
+variance and the specified tolerance into the supplied concentration
+bound, then enforce the integer sample-size condition.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mn>50</mn><mo stretchy="false" form="prefix">|</mo><mo>≥</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mfrac><mn>25</mn><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}(|\bar X-50|\ge1)
+\le\frac{25}{n}.
+</annotation></semantics></math></p>
+<p>We require</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>25</mn><mi>n</mi></mfrac><mo>≤</mo><mn>0.04</mn><mo>=</mo><mfrac><mn>1</mn><mn>25</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{25}{n}\le0.04=\frac1{25}.
+</annotation></semantics></math></p>
+<p>Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n&gt;0</annotation></semantics></math>,
+this is equivalent to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>625</mn></mrow><annotation encoding="application/x-tex">n\ge625</annotation></semantics></math>.
+Thus the smallest integer is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>625</mn><annotation encoding="application/x-tex">625</annotation></semantics></math>.</p>
+<p>As
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">n\to\infty</annotation></semantics></math>,
+the bound
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">25/n</annotation></semantics></math>
+tends to zero. This supports
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mover><mo>→</mo><mi>p</mi></mover><mn>50</mn></mrow><annotation encoding="application/x-tex">\bar X\xrightarrow{p}50</annotation></semantics></math>,
+the law-of-large-numbers conclusion. The bound concerns concentration
+and does not specify a normal sampling shape.</p>
+<p><strong>Final result.</strong> The smallest sample size certified by
+the bound is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>625</mn></mrow><annotation encoding="application/x-tex">n=625</annotation></semantics></math>.</p>
+<p><strong>Marks (6).</strong> Correct substitution into the bound, 1;
+correct inequality, 1; correct algebra, 1; integer boundary, 1;
+convergence-in-probability interpretation, 1; no-normality distinction,
+1.</p>
+<p><strong>Common mistakes.</strong> Using the standard deviation in
+place of the variance; reversing the sample-size inequality; rounding
+below the boundary; claiming the bound proves approximate normality.</p>
+<h3 id="w06-q08-pb-s6"><code>W06-Q08-PB</code> (<code>S6</code>)</h3>
+<p><strong>Method and conditions.</strong> State the limiting object and
+convergence mode for each result under the stated i.i.d. and
+finite-variance framework.</p>
+<p>The law of large numbers says</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mover><mo>→</mo><mi>p</mi></mover><mi>μ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X\xrightarrow{p}\mu.
+</annotation></semantics></math></p>
+<p>Equivalently, for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon&gt;0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathbb{P}(|\bar X-\mu|&gt;\varepsilon)\to0</annotation></semantics></math>.
+It does not say that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+at a finite sample size or that it becomes normal.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">0&lt;\sigma^2&lt;\infty</annotation></semantics></math>,
+the central limit theorem says</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><msqrt><mi>n</mi></msqrt><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>σ</mi></mfrac><mover><mo>→</mo><mi>d</mi></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\sqrt n(\bar X-\mu)}{\sigma}
+\xrightarrow{d}\mathcal{N}(0,1).
+</annotation></semantics></math></p>
+<p>It supplies an approximate sampling shape for the mean at large
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+with scale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\sigma/\sqrt n</annotation></semantics></math>.
+Neither theorem says that the individual observations become normal as
+the sample size grows.</p>
+<p><strong>Final result.</strong> The law of large numbers concerns
+concentration of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>;
+the central limit theorem concerns the limiting distribution of the
+correctly standardised sampling error.</p>
+<p><strong>Marks (5).</strong> Correct LLN convergence and object, 1;
+finite-sample qualification, 1; correct CLT standardisation, 1;
+distributional conclusion, 1; correct statement about individual
+observations, 1.</p>
+<p><strong>Common mistakes.</strong> Describing the LLN as a normal
+approximation; omitting the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>n</mi></msqrt><annotation encoding="application/x-tex">\sqrt n</annotation></semantics></math>
+scaling; asserting finite-sample equality; claiming the observations
+themselves become normal.</p>
+<h3 id="w06-q09-pa-m6-m7-retrieval"><code>W06-Q09-PA</code>
+(<code>M6</code>; <code>M7</code> retrieval)</h3>
+<p><strong>Method and conditions.</strong> Apply the course convention
+that gradients are column vectors. Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+is a polynomial, it is continuously differentiable. To define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x=x(\theta)</annotation></semantics></math>
+locally, the relevant implicit-function condition is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>x</mi></msub><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_x\ne0</annotation></semantics></math>.</p>
+<p>At the stated point,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>−</mo><mn>3</mn><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F(1,2)=1+2-3=0.
+</annotation></semantics></math></p>
+<p>The partial derivatives and column gradient are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>x</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>x</mi><mo>+</mo><mi>θ</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>F</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>∇</mi><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi><mo>+</mo><mi>θ</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F_x(x,\theta)=2x+\theta,
+\qquad
+F_\theta(x,\theta)=x,
+\qquad
+\nabla F(x,\theta)=
+\begin{bmatrix}
+2x+\theta\\
+x
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Thus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>dim</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>∇</mi><mi>F</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>×</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla F(1,2)=
+\begin{bmatrix}
+4\\
+1
+\end{bmatrix},
+\qquad
+\dim(\nabla F)=2\times1.
+</annotation></semantics></math></p>
+<p>Moreover,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>x</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_x(1,2)=4\ne0</annotation></semantics></math>,
+so the equation defines a local branch
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x=x(\theta)</annotation></semantics></math>
+through the point. Along that branch,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>=</mo><mi mathvariant="normal">d</mi><mi>F</mi><mo>=</mo><msub><mi>F</mi><mi>x</mi></msub><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>+</mo><msub><mi>F</mi><mi>θ</mi></msub><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>θ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+0=\mathrm{d}F=F_x\,\mathrm{d}x+F_\theta\,\mathrm{d}\theta,
+</annotation></semantics></math></p>
+<p>and hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>x</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>θ</mi></mrow></mfrac><mo>=</mo><mi>−</mi><mfrac><msub><mi>F</mi><mi>θ</mi></msub><msub><mi>F</mi><mi>x</mi></msub></mfrac><mo>=</mo><mi>−</mi><mfrac><mi>x</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\mathrm{d}x}{\mathrm{d}\theta}
+=-\frac{F_\theta}{F_x}
+=-\frac{x}{2x+\theta}.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x,\theta)=(1,2)</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>x</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow></msub><mo>=</mo><mi>−</mi><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left.\frac{\mathrm{d}x}{\mathrm{d}\theta}\right|_{(1,2)}=-\frac14.
+</annotation></semantics></math></p>
+<p><strong>Marks (5).</strong> Verification that the point satisfies the
+equation, 1; correct column gradient and dimension, 2; valid local
+implicit-function condition, 1; correct total-differential derivative
+and evaluation, 1.</p>
+<p><strong>Common mistakes.</strong> Writing the gradient as a row;
+checking
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>θ</mi></msub><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_\theta\ne0</annotation></semantics></math>
+instead of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>x</mi></msub><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_x\ne0</annotation></semantics></math>;
+omitting the minus sign; reporting the general derivative without
+evaluating it at the stated point.</p>
+<h3 id="w06-q10-pa-m8-retrieval"><code>W06-Q10-PA</code>
+(<code>M8</code> retrieval)</h3>
+<p><strong>Method and conditions.</strong> Represent the quadratic form
+by a symmetric matrix and apply the leading-principal-minor test.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>u</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>v</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>u</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>v</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+k(u,v)=
+\begin{bmatrix}u&amp;v\end{bmatrix}
+\begin{bmatrix}
+2&amp;1\\
+1&amp;3
+\end{bmatrix}
+\begin{bmatrix}u\\v\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The leading principal minors are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>&gt;</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>det</mi><mo>⁡</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>6</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>5</mn><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+2&gt;0,
+\qquad
+\det
+\begin{bmatrix}
+2&amp;1\\
+1&amp;3
+\end{bmatrix}
+=6-1=5&gt;0.
+</annotation></semantics></math></p>
+<p>Thus the symmetric matrix is positive definite. The Hessian of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+is twice this matrix and is also positive definite everywhere.</p>
+<p><strong>Final result.</strong> The quadratic form is positive
+definite, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+is strictly convex on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.</p>
+<p><strong>Marks (5).</strong> Correct symmetric matrix, 2; first
+principal minor, 1; determinant, 1; definiteness and curvature
+conclusions, 1.</p>
+<p><strong>Common mistakes.</strong> Using 2 rather than 1 in each
+off-diagonal entry; checking only the determinant; confusing positive
+definite with positive semidefinite; inferring concavity instead of
+convexity.</p>
+<h3 id="w06-q11-pa-s3-s4-s5-retrieval"><code>W06-Q11-PA</code>
+(<code>S3</code>; <code>S4</code>; <code>S5</code> retrieval)</h3>
+<p><strong>Method and conditions.</strong> Use the stated exponential
+rate parameterisation, then use independence to obtain conditional
+moments. Apply both iterated expectation and the law of total
+variance.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[X]=\frac12,
+\qquad
+\operatorname{Var}(X)=\frac14.
+</annotation></semantics></math></p>
+<p>Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+are independent,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>3</mn><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mi>B</mi><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mo>+</mo><mi>B</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[Y\mid B]
+=3\mathbb{E}[X\mid B]+B
+=\frac32+B.
+</annotation></semantics></math></p>
+<p>This random variable takes the value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">3/2</annotation></semantics></math>
+when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">B=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">5/2</annotation></semantics></math>
+when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">B=1</annotation></semantics></math>.
+By iterated expectation,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mo>+</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[Y]
+=\mathbb{E}[\mathbb{E}[Y\mid B]]
+=\frac32+\mathbb{E}[B]
+=2.
+</annotation></semantics></math></p>
+<p>Conditional on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+the variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+is constant. Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>9</mn><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>9</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}(Y\mid B)
+=9\operatorname{Var}(X\mid B)
+=\frac94.
+</annotation></semantics></math></p>
+<p>Also,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Var</mi><mo>⁡</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mo>+</mo><mi>B</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}(\mathbb{E}[Y\mid B])
+=\operatorname{Var}\left(\frac32+B\right)
+=\operatorname{Var}(B)
+=\frac14.
+</annotation></semantics></math></p>
+<p>The law of total variance gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>9</mn><mn>4</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>5</mn><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Var}(Y)
+=\mathbb{E}[\operatorname{Var}(Y\mid B)]
+ +\operatorname{Var}(\mathbb{E}[Y\mid B])
+=\frac94+\frac14
+=\frac52.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>B</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>3</mn><mi>/</mi><mn>2</mn><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y\mid B]=3/2+B</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\mathbb{E}[Y]=2</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>5</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\operatorname{Var}(Y)=5/2</annotation></semantics></math>.</p>
+<p><strong>Marks (6).</strong> Correct exponential moments, 1; correct
+conditional-expectation random variable, 1; valid iterated-expectation
+setup and mean, 2; both total-variance components and final variance,
+2.</p>
+<p><strong>Common mistakes.</strong> Treating the exponential rate as a
+mean; omitting conditioning on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>;
+averaging conditional means without the Bernoulli probabilities;
+omitting one component of total variance.</p>
+<h2 id="source-weeks-week06-self-test-self-test-solutions">Self-test
+solutions and error check</h2>
+<h3 id="solutions-and-error-check">Solutions and error check</h3>
+<h4 id="solution-to-w06-st01-pa-m9">Solution to <code>W06-ST01-PA</code>
+(<code>M9</code>)</h4>
+<p><strong>Method.</strong> Solve the first-order conditions, classify
+with the Hessian, and use global strict concavity on the convex
+domain.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn><mo>−</mo><mn>2</mn><mi>x</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mo>−</mo><mn>4</mn><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐇</mi><mi>f</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>4</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f(x,y)=
+\begin{bmatrix}
+4-2x\\
+2-4y
+\end{bmatrix},
+\qquad
+\mathbf{H}_f=
+\begin{bmatrix}
+-2&amp;0\\
+0&amp;-4
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The stationary point is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(2,1/2)</annotation></semantics></math>.
+The Hessian is negative definite everywhere, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is strictly concave on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.
+Hence this point is both a strict local maximum and the unique global
+maximum. Its value is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>,</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>8</mn><mo>+</mo><mn>1</mn><mo>−</mo><mn>4</mn><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f\left(2,\frac12\right)
+=8+1-4-\frac12
+=\frac92.
+</annotation></semantics></math></p>
+<p><strong>Marks (5).</strong> Correct gradient and stationary point, 2;
+Hessian and local classification, 1; strict-concavity global
+justification, 1; maximum value, 1.</p>
+<p><strong>Common mistakes.</strong> Solving only one first-order
+condition; reversing the negative-definite classification; asserting a
+global result without whole-domain curvature; omitting the maximum
+value.</p>
+<h4 id="solution-to-w06-st02-pa-m9">Solution to <code>W06-ST02-PA</code>
+(<code>M9</code>)</h4>
+<p><strong>Method.</strong> Recognise that the Hessian test is
+inconclusive and inspect directions through the origin.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn><msup><mi>x</mi><mn>3</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>4</mn><msup><mi>y</mi><mn>3</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐇</mi><mi>g</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>12</mn><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>12</mn><msup><mi>y</mi><mn>2</mn></msup></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla g(x,y)=
+\begin{bmatrix}
+4x^3\\
+-4y^3
+\end{bmatrix},
+\qquad
+\mathbf{H}_g(x,y)=
+\begin{bmatrix}
+12x^2&amp;0\\
+0&amp;-12y^2
+\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Both the gradient and Hessian are zero at the origin, so the
+definite-Hessian test is inconclusive. Along
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>4</mn></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x,0)=x^4&gt;0</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ne0</annotation></semantics></math>,
+whereas along
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><msup><mi>y</mi><mn>4</mn></msup><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(0,y)=-y^4&lt;0</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y\ne0</annotation></semantics></math>.
+Every neighbourhood of the origin contains values above and below zero,
+so the origin is a saddle. The same two paths show that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+is unbounded above and below.</p>
+<p><strong>Marks (5).</strong> Correct gradient and stationary point, 1;
+correct Hessian and inconclusive result, 1; positive direction, 1;
+negative direction and saddle classification, 1; no global maximum or
+minimum, 1.</p>
+<p><strong>Common mistakes.</strong> Calling the zero Hessian definite;
+treating an inconclusive test as a minimum; checking only one path;
+claiming a global optimum exists.</p>
+<h4 id="solution-to-w06-st03-pa-s6">Solution to <code>W06-ST03-PA</code>
+(<code>S6</code>)</h4>
+<p><strong>Method.</strong> Use the course definitions with denominator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>
+for the sample variance.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mfrac><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>7</mn></mrow><mn>4</mn></mfrac><mo>=</mo><mn>4</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar x=\frac{1+3+5+7}{4}=4.
+</annotation></semantics></math></p>
+<p>The deviations are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn><mo>,</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">-3,-1,1,3</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mn>9</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>9</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>20</mn><mn>3</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+s^2=\frac{9+1+1+9}{3}=\frac{20}{3}.
+</annotation></semantics></math></p>
+<p>The quantities
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>
+are random statistics before the sample is observed;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\bar x=4</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mn>20</mn><mi>/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">s^2=20/3</annotation></semantics></math>
+are their observed values.</p>
+<p><strong>Marks (5).</strong> Correct mean, 1; deviations and squared
+sum, 1; denominator, 1; variance, 1; random-versus-observed distinction,
+1.</p>
+<p><strong>Common mistakes.</strong> Dividing by 4; taking deviations
+from zero; failing to square negative deviations; using upper-case
+notation for the observed values.</p>
+<h4 id="solution-to-w06-st04-pa-s6">Solution to <code>W06-ST04-PA</code>
+(<code>S6</code>)</h4>
+<p><strong>Method.</strong> Use the exact normal sampling distribution
+and standardise with the standard deviation of the sample mean.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>5</mn><mo>,</mo><mfrac><mn>9</mn><mn>9</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X\sim\mathcal{N}\left(5,\frac99\right)
+=\mathcal{N}(5,1).
+</annotation></semantics></math></p>
+<p>Therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>&lt;</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>&lt;</mo><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>&lt;</mo><mi>Z</mi><mo>&lt;</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>0.8413</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>0.6826</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbb{P}(4&lt;\bar X&lt;6)
+&amp;=\mathbb{P}(-1&lt;Z&lt;1)\\
+&amp;=2\Phi(1)-1\\
+&amp;=2(0.8413)-1\\
+&amp;=0.6826.
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Marks (5).</strong> Correct mean of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>,
+1; correct variance, 1; exact normal distribution, 1; standardisation,
+1; probability, 1.</p>
+<p><strong>Common mistakes.</strong> Using variance 9 for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>;
+treating 9 as a standard deviation; invoking the CLT instead of exact
+normality; omitting symmetry in the two-sided probability.</p>
+<p>Record the first cause of each error under <code>M9</code> or
+<code>S6</code>, then reattempt that part from a blank page in two or
+three days.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

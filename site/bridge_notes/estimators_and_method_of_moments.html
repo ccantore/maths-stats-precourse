@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Estimators And Method Of Moments</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../contents.html">Package contents</a></li>
+<li><a href="../syllabus.html">Syllabus</a></li>
+<li><a href="../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../contents.html#assessments">Assessments</a></li>
+<li><a href="../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/bridge_notes/estimators_and_method_of_moments.pdf">Download this page as PDF</a></p>
+
+<h1 id="estimators-and-the-method-of-moments">Estimators and the method
+of moments</h1>
+<p>This note is a short bridge for outcome <code>S7</code>. It
+standardises the language used in Week 7; it does not replace the
+assigned point-estimation and Penn State readings. The examples below
+are original institutional examples.</p>
+<h2 id="sampling-notation-and-the-objects-being-estimated">1. Sampling
+notation and the objects being estimated</h2>
+<p>For this note, let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n\ge2</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+be a scalar parameter in a stated parameter space
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo>⊆</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">\Theta\subseteq\mathbb{R}</annotation></semantics></math>,
+and let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><msub><mi>F</mi><mi>θ</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}F_\theta.
+</annotation></semantics></math></p>
+<p>The observations are random variables before sampling and their
+realised values are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_1,\ldots,x_n</annotation></semantics></math>.
+We use the course conventions</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>:=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>X</mi><mi>i</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>S</mi><mn>2</mn></msup><mo>:=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>−</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\bar X:=\frac1n\sum_{i=1}^{n}X_i,
+\qquad
+S^2:=\frac1{n-1}\sum_{i=1}^{n}(X_i-\bar X)^2,
+</annotation></semantics></math></p>
+<p>with observed values
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>s</mi><mn>2</mn></msup><annotation encoding="application/x-tex">s^2</annotation></semantics></math>.
+The denominator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>
+in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>
+is part of this convention; it is not the denominator used for an
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">n^{-1}</annotation></semantics></math>
+raw or central sample moment in the method of moments.</p>
+<p>The following distinctions prevent most terminology errors.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Object</th>
+<th scope="col">Meaning before the data are observed</th>
+<th scope="col">Typical notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Population parameter</strong></td>
+<td>A fixed, unknown value indexing the population model.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>∈</mo><mi mathvariant="normal">Θ</mi></mrow><annotation encoding="application/x-tex">\theta\in\Theta</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><strong>Estimand</strong></td>
+<td>The population quantity to be learned; it may be
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\tau(\theta)</annotation></semantics></math>,
+not only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+itself.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\tau(\theta)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><strong>Statistic</strong></td>
+<td>Any function of the sample, hence a random variable.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T=T(X_1,\ldots,X_n)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><strong>Estimator</strong></td>
+<td>A statistic selected to estimate the estimand. For the direct target
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\tau(\theta)=\theta</annotation></semantics></math>,
+write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat\theta=T(X_1,\ldots,X_n)</annotation></semantics></math>.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo>:=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat\tau:=T(X_1,\ldots,X_n)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><strong>Observed estimate</strong></td>
+<td>The number obtained after substituting the realised data.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat\tau(\mathbf{x})=T(x_1,\ldots,x_n)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><strong>Sampling distribution</strong></td>
+<td>The probability distribution of an estimator under repeated samples
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>θ</mi></msub><annotation encoding="application/x-tex">F_\theta</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
+held fixed.</td>
+<td>distribution of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>θ</mi></msub><annotation encoding="application/x-tex">F_\theta</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><strong>Standard error</strong></td>
+<td>The standard deviation of the estimator’s sampling
+distribution.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>se</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><msqrt><mrow><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo></mrow></msqrt></mrow><annotation encoding="application/x-tex">\operatorname{se}_\theta(\widehat\tau):=\sqrt{\operatorname{Var}_\theta(\widehat\tau)}</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table></div>
+<p>Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>θ</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\widehat\theta</annotation></semantics></math>
+is random, whereas
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat\theta(\mathbf{x})</annotation></semantics></math>
+is an observed number. A statistic need not be an estimator: for
+example,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>max</mi><mo>⁡</mo><mi>i</mi></msub><msub><mi>X</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\max_iX_i</annotation></semantics></math>
+is a statistic, but it is an estimator only if a stated estimand and
+purpose give it that role.</p>
+<p>For a population mean with finite variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\operatorname{Var}_\theta(X_i)=\sigma^2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>se</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>σ</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\operatorname{se}_\theta(\bar X)=\sigma/\sqrt n</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
+is unknown, the usual plug-in standard-error estimate is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">S/\sqrt n</annotation></semantics></math>.
+This is sampling variability, not the estimator’s bias and not its mean
+squared error.</p>
+<h2 id="bias-variance-and-mean-squared-error">2. Bias, variance and mean
+squared error</h2>
+<p>Write the target as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\tau=\tau(\theta)</annotation></semantics></math>.
+Provided the required expectations exist, the bias and variance of an
+estimator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>τ</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\widehat\tau</annotation></semantics></math>
+are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Bias</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>τ</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo>−</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">]</mo><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Bias}_\theta(\widehat\tau)
+ :=\mathbb{E}_\theta[\widehat\tau]-\tau,
+\qquad
+\operatorname{Var}_\theta(\widehat\tau)
+ :=\mathbb{E}_\theta\!\left[
+ (\widehat\tau-\mathbb{E}_\theta[\widehat\tau])^2
+ \right].
+</annotation></semantics></math></p>
+<p>The estimator is <strong>unbiased</strong> for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+when its bias is zero for every admissible
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>.
+The mean squared error (MSE) measures squared error around the
+target:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>MSE</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>τ</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{MSE}_\theta(\widehat\tau)
+ :=\mathbb{E}_\theta[(\widehat\tau-\tau)^2].
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msup><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[\widehat\tau^2]&lt;\infty</annotation></semantics></math>,
+the bias–variance decomposition is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>MSE</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>Bias</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\operatorname{MSE}_\theta(\widehat\tau)
+ &amp;=\operatorname{Var}_\theta(\widehat\tau)
+   +\operatorname{Bias}_\theta(\widehat\tau)^2.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>To see why, insert and subtract
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[\widehat\tau]</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>τ</mi><mo>=</mo><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo>−</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">]</mo><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mo>+</mo><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>τ</mi><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat\tau-\tau
+ =\bigl(\widehat\tau-\mathbb{E}_\theta[\widehat\tau]\bigr)
+  +\bigl(\mathbb{E}_\theta[\widehat\tau]-\tau\bigr).
+</annotation></semantics></math></p>
+<p>After squaring and taking expectations, the cross term is zero
+because the first bracket has expectation zero. The finite-second-moment
+condition is what makes the displayed variance and MSE finite. A smaller
+variance does not automatically mean a smaller MSE: a biased estimator
+can trade bias for less sampling variation.</p>
+<p>The standard error is the square root of the variance term only. It
+is not the square root of MSE unless the estimator is unbiased.</p>
+<h2 id="consistency-in-probability">3. Consistency in probability</h2>
+<p>An estimator sequence
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><annotation encoding="application/x-tex">\widehat\tau_n</annotation></semantics></math>
+is <strong>consistent in probability</strong> for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\tau(\theta)</annotation></semantics></math>
+when, for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon&gt;0</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>θ</mi></msub><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><msub><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo>−</mo><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>→</mo><mn>0</mn><mspace width="2.0em"></mspace><mrow><mtext mathvariant="normal">as </mtext><mspace width="0.333em"></mspace></mrow><mi>n</mi><mo>→</mo><mi>∞</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}_\theta\!\left(
+ |\widehat\tau_n-\tau(\theta)|&gt;\varepsilon
+ \right)\longrightarrow0
+ \qquad\text{as }n\longrightarrow\infty.
+</annotation></semantics></math></p>
+<p>We write this as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mover><mo>→</mo><mi>p</mi></mover><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat\tau_n\overset{p}{\longrightarrow}\tau(\theta)</annotation></semantics></math>.
+It says that large samples make a fixed-sized error unlikely; it is not
+a statement that every estimate is close, nor that the estimator is
+unbiased at a finite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.</p>
+<p>An elementary sufficient check is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>MSE</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mn>0</mn><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><msub><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mover><mo>→</mo><mi>p</mi></mover><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\operatorname{MSE}_\theta(\widehat\tau_n)\longrightarrow0
+\quad\Longrightarrow\quad
+\widehat\tau_n\overset{p}{\longrightarrow}\tau(\theta),
+</annotation></semantics></math></p>
+<p>because Markov’s inequality gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><msub><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo>−</mo><mi>τ</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mfrac><mrow><msub><mi>MSE</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><msup><mi>ε</mi><mn>2</mn></msup></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}_\theta(|\widehat\tau_n-\tau|&gt;\varepsilon)
+ \le
+ \frac{\operatorname{MSE}_\theta(\widehat\tau_n)}{\varepsilon^2}.
+</annotation></semantics></math></p>
+<p>For an iid sample with finite variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>σ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\operatorname{Var}_\theta(\bar X)=\sigma^2/n</annotation></semantics></math>,
+so Chebyshev’s inequality gives consistency of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+for the population mean. By contrast, an unbiased statistic that keeps
+using only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mn>1</mn></msub><annotation encoding="application/x-tex">X_1</annotation></semantics></math>
+has variance that does not shrink with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+and need not be consistent. No advanced asymptotic theory is needed for
+these checks.</p>
+<h2 id="the-one-parameter-method-of-moments">4. The one-parameter method
+of moments</h2>
+<p>The method of moments (MOM) matches population raw moments with
+sample raw moments. For a one-parameter model, use the following
+recipe.</p>
+<h3 id="method">Method</h3>
+<ol type="1">
+<li><strong>State the model and domain.</strong> Write the support and
+the parameter space
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">\Theta</annotation></semantics></math>.
+Confirm that the selected population moment is finite on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">\Theta</annotation></semantics></math>.</li>
+<li><strong>Choose an identifying moment.</strong> For a raw moment of
+order
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>,
+define
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>r</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msup><mi>X</mi><mi>r</mi></msup><mo stretchy="false" form="postfix">]</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>M</mi><mi>r</mi></msub><mo>:=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>X</mi><mi>i</mi><mi>r</mi></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+m_r(\theta):=\mathbb{E}_\theta[X^r],
+\qquad
+M_r:=\frac1n\sum_{i=1}^{n}X_i^r.
+</annotation></semantics></math> Usually start with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r=1</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mn>1</mn></msub><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">M_1=\bar X</annotation></semantics></math>.
+The map
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↦</mo><msub><mi>m</mi><mi>r</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\theta\mapsto m_r(\theta)</annotation></semantics></math>
+should identify the parameter, at least on the relevant part of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">\Theta</annotation></semantics></math>.</li>
+<li><strong>Match and solve.</strong> Set
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>r</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>M</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">
+m_r(\widehat\theta_{\mathrm{MOM}})=M_r
+</annotation></semantics></math> and solve for all candidate values of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><annotation encoding="application/x-tex">\widehat\theta_{\mathrm{MOM}}</annotation></semantics></math>.</li>
+<li><strong>Check the candidates.</strong> State whether each
+moment-matching candidate is in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">\Theta</annotation></semantics></math>,
+and check that the observed data lie in the fitted model’s support. A
+total estimating statistic may take a realised value outside
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">\Theta</annotation></semantics></math>;
+report it as an out-of-space or boundary-valued result, not as an
+admissible parameter value. A moment equation can also have no solution
+or several roots when the moment map is not one-to-one. Report the
+failure or ambiguity; do not silently choose a root or project it to a
+boundary.</li>
+<li><strong>Evaluate and, if requested, assess.</strong> Substitute the
+observed data to obtain the estimate. Use expectation, variance, MSE or
+a law of large numbers argument only after checking their moment
+conditions.</li>
+</ol>
+<p>The one-parameter recipe does not require a second equation. With two
+or more parameters, additional identifying moments would be needed; that
+is a separate extension of the same idea, not a reason to use an
+unverified moment equation.</p>
+<h3 id="example-a-poisson-mean">Example: a Poisson mean</h3>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Poisson</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>λ</mi><mo>∈</mo><mi mathvariant="normal">Θ</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}
+\operatorname{Poisson}(\lambda),
+\qquad
+\lambda\in\Theta=(0,\infty),
+</annotation></semantics></math></p>
+<p>where the support is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1,2,\ldots\}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>λ</mi></msub><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}_\lambda[X]=\lambda</annotation></semantics></math>.
+The first-moment equation is therefore</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat\lambda_{\mathrm{MOM}}=\bar X.
+</annotation></semantics></math></p>
+<p>For the observed count data
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>,</mo><msub><mi>x</mi><mn>4</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x_1,x_2,x_3,x_4)=(2,0,1,3)</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mfrac><mrow><mn>2</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>3</mn></mrow><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar x=\frac{2+0+1+3}{4}=\frac32,
+\qquad
+\widehat\lambda_{\mathrm{MOM}}(\mathbf{x})=\frac32.
+</annotation></semantics></math></p>
+<p>The estimate is admissible and the data respect the Poisson support.
+Under the model,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>λ</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>λ</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>Var</mi><mo>⁡</mo><mi>λ</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mi>λ</mi><mi>n</mi></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>MSE</mi><mo>⁡</mo><mi>λ</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mi>λ</mi><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}_\lambda[\widehat\lambda_{\mathrm{MOM}}]=\lambda,
+\qquad
+\operatorname{Var}_\lambda(\widehat\lambda_{\mathrm{MOM}})=\frac{\lambda}{n},
+\qquad
+\operatorname{MSE}_\lambda(\widehat\lambda_{\mathrm{MOM}})=\frac{\lambda}{n}.
+</annotation></semantics></math></p>
+<p>The Poisson second moment is finite, so Chebyshev’s inequality gives,
+for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon&gt;0</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>λ</mi></msub><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>λ</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mfrac><mi>λ</mi><mrow><mi>n</mi><msup><mi>ε</mi><mn>2</mn></msup></mrow></mfrac><mo>→</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{P}_\lambda(|\bar X-\lambda|&gt;\varepsilon)
+ \le \frac{\lambda}{n\varepsilon^2}\longrightarrow0.
+</annotation></semantics></math></p>
+<p>Hence
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><annotation encoding="application/x-tex">\widehat\lambda_{\mathrm{MOM}}</annotation></semantics></math>
+is unbiased and consistent. If all observed counts are zero, the total
+estimating statistic still has the realised value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\bar x=0</annotation></semantics></math>.
+This boundary-valued MOM estimate lies outside the specified parameter
+space
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,\infty)</annotation></semantics></math>,
+so it is not an admissible parameter value under this model. This does
+not make
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>X</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar X</annotation></semantics></math>
+undefined, and the unconditional expectation, variance, MSE and
+consistency statements above remain valid. If a different model
+explicitly allowed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda=0</annotation></semantics></math>,
+the same realised value would be admissible under that model. A negative
+observed count is outside the stated support and cannot be treated as an
+ordinary Poisson sample.</p>
+<h2 id="candidate-checks-and-the-elementary-likelihood-contrast">5.
+Candidate checks and the elementary likelihood contrast</h2>
+<p>Moment matching is not a guarantee of a valid estimator. Before
+reporting a MOM answer, check all of the following:</p>
+<ul>
+<li><strong>Domain:</strong> is the candidate in the declared
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Θ</mi><annotation encoding="application/x-tex">\Theta</annotation></semantics></math>,
+including any endpoint convention?</li>
+<li><strong>Support:</strong> are the realised data possible under the
+fitted distribution?</li>
+<li><strong>Identification:</strong> does the chosen moment map have one
+admissible root?</li>
+<li><strong>Moment existence:</strong> are the expectations and
+variances used in the calculation finite?</li>
+<li><strong>Interpretation:</strong> have you reported both the random
+estimator and the observed estimate when both are requested?</li>
+</ul>
+<p>The same candidate discipline applies to elementary maximum
+likelihood. For fixed data
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐱</mi><annotation encoding="application/x-tex">\mathbf{x}</annotation></semantics></math>,
+maximise</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>ℓ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>log</mi><mo>⁡</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+L(\theta;\mathbf{x}),
+\qquad
+\ell(\theta;\mathbf{x}):=\log L(\theta;\mathbf{x}),
+</annotation></semantics></math></p>
+<p>over the stated parameter space. A score equation gives only an
+interior candidate. Check curvature or monotonicity, the data support,
+and every allowed boundary; an open boundary may give a supremum but no
+attained MLE. This note does not develop advanced likelihood theory.</p>
+<h2 id="pitfalls-and-final-checks">6. Pitfalls and final checks</h2>
+<ul>
+<li>Do not call
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat\theta(\mathbf{x})</annotation></semantics></math>
+an estimator: it is the observed estimate;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>θ</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\widehat\theta</annotation></semantics></math>
+is random before observation.</li>
+<li>Do not call the standard error a bias or an MSE. Standard error is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>Var</mi></msqrt><annotation encoding="application/x-tex">\sqrt{\operatorname{Var}}</annotation></semantics></math>;
+MSE also includes squared bias.</li>
+<li>Keep
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mn>2</mn></msup><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>−</mi><mn>1</mn></mrow></msup><msub><mo>∑</mo><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>−</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">S^2=(n-1)^{-1}\sum_i(X_i-\bar X)^2</annotation></semantics></math>
+distinct from the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">n^{-1}</annotation></semantics></math>
+raw or central moments used in MOM.</li>
+<li>State finite-moment assumptions before using a variance, MSE or
+Chebyshev calculation.</li>
+<li>Unbiasedness at each finite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+does not by itself imply consistency.</li>
+<li>A moment equation may produce no admissible root or more than one
+root; report the issue and the parameter-space reason.</li>
+<li>A score root, like a moment root, is a candidate until the
+objective, support and boundaries have been checked.</li>
+</ul>
+<p>For the assigned external route, use <a href="https://www.probabilitycourse.com/chapter8/8_2_0_point_estimation.php">Pishro-Nik,
+Section 8.1.1 definitions and Sections 8.2.0–8.2.3</a> and <a href="https://online.stat.psu.edu/stat415/lesson/1/1.4">Penn State STAT
+415, primary course author Laura Simon, Lesson 1 Section 1.4</a> only at
+the locators specified in the Week 7 reading guide. Those resources are
+<strong>EXTERNAL-LINK-ONLY</strong>: this bridge uses original prose and
+examples and does not reproduce, adapt or extend their examples. Skip
+the sections and examples listed in that guide, including advanced MLE
+material, regression and software-based work.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

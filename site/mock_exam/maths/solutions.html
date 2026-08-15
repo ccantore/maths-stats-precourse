@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mock diagnostic examination - Maths full solutions</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../../contents.html">Package contents</a></li>
+<li><a href="../../syllabus.html">Syllabus</a></li>
+<li><a href="../../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../../contents.html#assessments">Assessments</a></li>
+<li><a href="../../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/mock_exam/maths/solutions.pdf">Download this page as PDF</a></p>
+
+<h1 id="mock-diagnostic-examination---maths-full-solutions">Mock
+diagnostic examination - Maths full solutions</h1>
+<h2 id="source-mock-exam-maths-solutions">Full solutions</h2>
+<p>Use these solutions only after completing the 90-minute attempt.
+Review each method, result and common mistake, then record the first
+cause of any lost mark.</p>
+<h3 id="section-m0-short-diagnostic-questions">Section M0 — short
+diagnostic questions</h3>
+<h4 id="question-1">Question 1</h4>
+<h5 id="part-a-mock-m0-q01-pa-m1">Part A — <code>MOCK-M0-Q01-PA</code>
+(M1)</h5>
+<p><strong>Method and conditions.</strong> Negate the universal
+quantifier and the inequality, then exhibit one real number for which
+the negated inequality holds.</p>
+<p>The negation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∃</mo><mi>x</mi><mo>∈</mo><mi>ℝ</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">such that</mtext><mspace width="1.0em"></mspace><msup><mi>x</mi><mn>2</mn></msup><mo>&lt;</mo><mi>x</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\exists x\in\mathbb{R}\quad\text{such that}\quad x^2&lt;x.
+</annotation></semantics></math></p>
+<p>For example,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=1/2</annotation></semantics></math>
+gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo>&lt;</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">x^2=1/4&lt;1/2=x</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong> The displayed existential statement is
+the negation, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=1/2</annotation></semantics></math>
+is a counterexample.</p>
+<p><strong>Marks (2).</strong> Correct existential negation: 1. Valid
+counterexample with the inequality checked: 1.</p>
+<p><strong>Common mistakes.</strong> Keeping
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∀</mo><annotation encoding="application/x-tex">\forall</annotation></semantics></math>
+in the negation; replacing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≥</mo><annotation encoding="application/x-tex">\geq</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≤</mo><annotation encoding="application/x-tex">\leq</annotation></semantics></math>
+rather than by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>&lt;</mo><annotation encoding="application/x-tex">&lt;</annotation></semantics></math>;
+naming a value without checking the inequality.</p>
+<h4 id="question-2">Question 2</h4>
+<h5 id="part-a-mock-m0-q02-pa-m2">Part A — <code>MOCK-M0-Q02-PA</code>
+(M2)</h5>
+<p><strong>Method and conditions.</strong> Establish the logarithms’
+real domain before combining them.</p>
+<p>The two logarithms require
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x-1&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x+1&gt;0</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x&gt;1</annotation></semantics></math>.
+On this domain,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>log</mi><mo>⁡</mo><mn>8</mn><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><mn>8</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\log((x-1)(x+1))=\log 8
+\quad\Longrightarrow\quad
+x^2-1=8.
+</annotation></semantics></math></p>
+<p>Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>±</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">x=\pm3</annotation></semantics></math>,
+but only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">x=3</annotation></semantics></math>
+satisfies the domain restriction.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>x</mi><mo>=</mo><mn>3</mn></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{x=3}.
+</annotation></semantics></math></p>
+<p><strong>Marks (2).</strong> Correct domain and logarithm combination:
+1. Correct admissible solution after rejecting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">x=-3</annotation></semantics></math>:
+1.</p>
+<p><strong>Common mistakes.</strong> Omitting the domain; writing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\log(x-1)+\log(x+1)=\log(2x)</annotation></semantics></math>;
+retaining the extraneous root
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">x=-3</annotation></semantics></math>.</p>
+<h4 id="question-3">Question 3</h4>
+<h5 id="part-a-mock-m0-q03-pa-m3">Part A — <code>MOCK-M0-Q03-PA</code>
+(M3)</h5>
+<p><strong>Method and conditions.</strong> Use the first-order Taylor
+approximation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)\approx f(a)+f&#39;(a)(x-a)</annotation></semantics></math>
+about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">a=4</annotation></semantics></math>.</p>
+<p>Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">f(4)=2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><msqrt><mn>4</mn></msqrt><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">f&#39;(4)=1/(2\sqrt4)=1/4</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>x</mi></msqrt><mo>≈</mo><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sqrt{x}\approx2+\frac14(x-4).
+</annotation></semantics></math></p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4.4</mn></mrow><annotation encoding="application/x-tex">x=4.4</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>4.4</mn></msqrt><mo>≈</mo><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mn>0.4</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2.1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sqrt{4.4}\approx2+\frac14(0.4)=2.1.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The approximation is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>x</mi></msqrt><mo>≈</mo><mn>2</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">\sqrt{x}\approx2+(x-4)/4</annotation></semantics></math>,
+giving
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msqrt><mn>4.4</mn></msqrt><mo>≈</mo><mn>2.1</mn></mrow></menclose><annotation encoding="application/x-tex">\boxed{\sqrt{4.4}\approx2.1}</annotation></semantics></math>.</p>
+<p><strong>Marks (2).</strong> Correct linear approximation about 4: 1.
+Correct substitution and numerical approximation: 1.</p>
+<p><strong>Common mistakes.</strong> Centring the approximation at zero;
+omitting the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x-4)</annotation></semantics></math>
+term; using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">f&#39;(4)=1/2</annotation></semantics></math>.</p>
+<h4 id="question-4">Question 4</h4>
+<h5 id="part-a-mock-m0-q04-pa-m6">Part A — <code>MOCK-M0-Q04-PA</code>
+(M6)</h5>
+<p><strong>Method and conditions.</strong> A Jacobian has one row for
+each output and one column for each input. Under the course convention,
+a gradient is a column vector.</p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo>:</mo><msup><mi>ℝ</mi><mn>3</mn></msup><mo>→</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\mathbf{F}:\mathbb{R}^3\to\mathbb{R}^2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{J}_{\mathbf{F}}(\mathbf{x})</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">2\times3</annotation></semantics></math>.
+Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><msup><mi>ℝ</mi><mn>2</mn></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">h:\mathbb{R}^2\to\mathbb{R}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐮</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\nabla h(\mathbf{u})</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\times1</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>dim</mi><mo>⁡</mo><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo>=</mo><mn>2</mn><mo>×</mo><mn>3</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>dim</mi><mo>⁡</mo><mi>∇</mi><mi>h</mi><mo>=</mo><mn>2</mn><mo>×</mo><mn>1</mn></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{\dim\mathbf{J}_{\mathbf{F}}=2\times3,
+\qquad
+\dim\nabla h=2\times1}.
+</annotation></semantics></math></p>
+<p><strong>Marks (2).</strong> Correct Jacobian dimension: 1. Correct
+column-gradient dimension: 1.</p>
+<p><strong>Common mistakes.</strong> Reversing the Jacobian dimensions;
+treating the gradient as a row vector; counting the scalar output of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+as the gradient length.</p>
+<h4 id="question-5">Question 5</h4>
+<h5 id="part-a-mock-m0-q05-pa-m8">Part A — <code>MOCK-M0-Q05-PA</code>
+(M8)</h5>
+<p><strong>Method and conditions.</strong> Represent the form with its
+symmetric matrix and apply Sylvester’s criterion.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+q(x,y)=
+\begin{bmatrix}x&amp;y\end{bmatrix}
+\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}
+\begin{bmatrix}x\\y\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>The leading principal minors are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">2&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>3</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">4-1=3&gt;0</annotation></semantics></math>.
+Sylvester’s criterion therefore shows that the matrix is positive
+definite.</p>
+<p><strong>Final result.</strong> The quadratic form is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtext mathvariant="normal">positive definite</mtext></menclose><annotation encoding="application/x-tex">\boxed{\text{positive definite}}</annotation></semantics></math>.</p>
+<p><strong>Marks (2).</strong> Valid definiteness test or calculation:
+1. Correct classification: 1.</p>
+<p><strong>Common mistakes.</strong> Using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+rather than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+in each off-diagonal entry; giving a classification without a supporting
+test; confusing positive definiteness with positive
+semidefiniteness.</p>
+<h3 id="section-m1-linear-algebra">Section M1 — linear algebra</h3>
+<h4 id="question-6-systems-rank-and-parameter-cases">Question 6 —
+systems, rank and parameter cases</h4>
+<h5 id="part-a-mock-m1-q06-pa-m4">Part A — <code>MOCK-M1-Q06-PA</code>
+(M4)</h5>
+<p><strong>Method and conditions.</strong> Eliminate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+from the last two equations and separate the cases
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≠</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a\neq1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>.</p>
+<p>Subtracting the first equation from the second and third gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>a</mi><mo>−</mo><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>b</mi><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>a</mi><mo>−</mo><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>b</mi><mo>−</mo><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[
+\begin{array}{ccc|c}
+1&amp;1&amp;1&amp;1\\
+0&amp;a-1&amp;0&amp;b-1\\
+0&amp;0&amp;a-1&amp;b-1
+\end{array}
+\right].
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≠</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a\neq1</annotation></semantics></math>,
+the coefficient matrix has rank 3, so the solution is unique:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>z</mi><mo>=</mo><mfrac><mrow><mi>b</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>=</mo><mn>1</mn><mo>−</mo><mi>y</mi><mo>−</mo><mi>z</mi><mo>=</mo><mfrac><mrow><mi>a</mi><mo>+</mo><mn>1</mn><mo>−</mo><mn>2</mn><mi>b</mi></mrow><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+y=z=\frac{b-1}{a-1},
+\qquad
+x=1-y-z=\frac{a+1-2b}{a-1}.
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">b=1</annotation></semantics></math>,
+the final two rows vanish. The coefficient and augmented ranks are both
+1, so there are multiple solutions:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">{</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>3</mn></msup><mo>:</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi><mo>=</mo><mn>1</mn><mo stretchy="true" form="postfix">}</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left\{(x,y,z)\in\mathbb{R}^3:x+y+z=1\right\}.
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>≠</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">b\neq1</annotation></semantics></math>,
+a reduced row asserts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>=</mo><mi>b</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0=b-1</annotation></semantics></math>.
+The coefficient rank is 1 and the augmented-matrix rank is 2, so the
+system is inconsistent.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mi>a</mi><mo>≠</mo><mn>1</mn></mtd><mtd columnalign="left" style="text-align: left"><mo>:</mo><mrow><mtext mathvariant="normal">unique solution </mtext><mspace width="0.333em"></mspace></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mstyle displaystyle="true"><mfrac><mrow><mi>a</mi><mo>+</mo><mn>1</mn><mo>−</mo><mn>2</mn><mi>b</mi></mrow><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></mfrac></mstyle><mo>,</mo><mstyle displaystyle="true"><mfrac><mrow><mi>b</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></mfrac></mstyle><mo>,</mo><mstyle displaystyle="true"><mfrac><mrow><mi>b</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></mfrac></mstyle><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>a</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>b</mi><mo>=</mo><mn>1</mn></mtd><mtd columnalign="left" style="text-align: left"><mo>:</mo><mrow><mtext mathvariant="normal">multiple solutions, with both ranks equal to </mtext><mspace width="0.333em"></mspace></mrow><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>a</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>b</mi><mo>≠</mo><mn>1</mn></mtd><mtd columnalign="left" style="text-align: left"><mo>:</mo><mrow><mtext mathvariant="normal">no solution, with ranks </mtext><mspace width="0.333em"></mspace></mrow><mn>1</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> and </mtext><mspace width="0.333em"></mspace></mrow><mn>2</mn><mi>.</mi></mtd></mtr></mtable></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\begin{cases}
+a\neq1 &amp;: \text{unique solution }
+\left(\dfrac{a+1-2b}{a-1},
+\dfrac{b-1}{a-1},
+\dfrac{b-1}{a-1}\right),\\[6pt]
+a=1,\ b=1 &amp;: \text{multiple solutions, with both ranks equal to }1,\\
+a=1,\ b\neq1 &amp;: \text{no solution, with ranks }1\text{ and }2.
+\end{cases}}
+</annotation></semantics></math></p>
+<p><strong>Marks (8).</strong> Correct elimination: 1. Correct
+unique-case classification: 1. Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>:
+1. Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>:
+1. Correct multiple-solution case and solution set: 1. Correct two ranks
+in that case: 1. Correct no-solution case: 1. Correct two ranks in that
+case: 1.</p>
+<p><strong>Common mistakes.</strong> Dividing by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a-1</annotation></semantics></math>
+without treating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a=1</annotation></semantics></math>;
+failing to separate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">b=1</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>≠</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">b\neq1</annotation></semantics></math>;
+confusing coefficient rank with augmented rank; reporting a unique-case
+formula that does not satisfy the first equation.</p>
+<h4 id="question-7-eigenvalues-eigenvectors-and-diagonalisation">Question 7
+— eigenvalues, eigenvectors and diagonalisation</h4>
+<h5 id="part-a-mock-m1-q07-pa-m5">Part A — <code>MOCK-M1-Q07-PA</code>
+(M5)</h5>
+<p><strong>Method and conditions.</strong> Use triangularity for the
+eigenvalues, solve each null-space equation, and use the resulting
+eigenvectors as the columns of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>.</p>
+<p>The eigenvalues are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\lambda=4</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>𝐀</mi><mo>−</mo><mn>4</mn><msub><mi>𝐈</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>𝐯</mi><mo>=</mo><mn>𝟎</mn><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><msub><mi>v</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+(\mathbf{A}-4\mathbf{I}_2)\mathbf{v}=\mathbf{0}
+\quad\Longrightarrow\quad v_2=0,
+</annotation></semantics></math></p>
+<p>so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mn>4</mn></msub><mo>=</mo><mi>span</mi><mo>⁡</mo><mrow><mo stretchy="true" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">}</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E_4=\operatorname{span}\left\{
+\begin{bmatrix}1\\0\end{bmatrix}\right\}.
+</annotation></semantics></math></p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lambda=1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><msub><mi>v</mi><mn>1</mn></msub><mo>+</mo><msub><mi>v</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">3v_1+v_2=0</annotation></semantics></math>,
+hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mn>1</mn></msub><mo>=</mo><mi>span</mi><mo>⁡</mo><mrow><mo stretchy="true" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>3</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">}</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E_1=\operatorname{span}\left\{
+\begin{bmatrix}1\\-3\end{bmatrix}\right\}.
+</annotation></semantics></math></p>
+<p>Eigenvectors corresponding to distinct eigenvalues are linearly
+independent. Equivalently, the determinant of the matrix with these
+vectors as columns is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">-3\neq0</annotation></semantics></math>,
+so they form a basis of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>.
+One valid diagonalisation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐏</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>3</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐃</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><menclose notation="box"><mrow><mi>𝐀</mi><mo>=</mo><mi>𝐏</mi><mi>𝐃</mi><msup><mi>𝐏</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{P}=
+\begin{bmatrix}1&amp;1\\0&amp;-3\end{bmatrix},
+\qquad
+\mathbf{D}=
+\begin{bmatrix}4&amp;0\\0&amp;1\end{bmatrix},
+\qquad
+\boxed{\mathbf{A}=\mathbf{P}\mathbf{D}\mathbf{P}^{-1}}.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The eigenspaces and one consistent
+pair
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>𝐏</mi><mo>,</mo><mi>𝐃</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\mathbf{P},\mathbf{D})</annotation></semantics></math>
+are displayed above.</p>
+<p><strong>Marks (7).</strong> Both eigenvalues: 1. Basis for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mn>4</mn></msub><annotation encoding="application/x-tex">E_4</annotation></semantics></math>:
+1. Basis for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mn>1</mn></msub><annotation encoding="application/x-tex">E_1</annotation></semantics></math>:
+1. Valid basis justification: 1. Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>:
+1. Matching
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐃</mi><annotation encoding="application/x-tex">\mathbf{D}</annotation></semantics></math>:
+1. Correct diagonalisation relation or verification: 1.</p>
+<p><strong>Common mistakes.</strong> Using the same eigenvector for both
+eigenvalues; placing eigenvalues in an order inconsistent with the
+columns of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐏</mi><annotation encoding="application/x-tex">\mathbf{P}</annotation></semantics></math>;
+writing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐀</mi><mo>=</mo><msup><mi>𝐏</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mi>𝐃</mi><mi>𝐏</mi></mrow><annotation encoding="application/x-tex">\mathbf{A}=\mathbf{P}^{-1}\mathbf{D}\mathbf{P}</annotation></semantics></math>;
+omitting the basis justification.</p>
+<h3 id="section-m2-multivariable-calculus">Section M2 — multivariable
+calculus</h3>
+<h4 id="question-8-a-vector-chain-rule">Question 8 — a vector chain
+rule</h4>
+<h5 id="part-a-mock-m2-q08-pa-m6">Part A — <code>MOCK-M2-Q08-PA</code>
+(M6)</h5>
+<p><strong>Method and conditions.</strong> Form the two Jacobians,
+evaluate the outer Jacobian at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐆</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{G}(1,1,1)</annotation></semantics></math>,
+and multiply in chain-rule order.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>u</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>v</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>u</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>×</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐉</mi><mi>𝐆</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>z</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>y</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>×</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{J}_{\mathbf{F}}(u,v)
+=\begin{bmatrix}2u&amp;1\\v&amp;u\end{bmatrix}
+\quad(2\times2),
+\qquad
+\mathbf{J}_{\mathbf{G}}(x,y,z)
+=\begin{bmatrix}1&amp;1&amp;0\\0&amp;z&amp;y\end{bmatrix}
+\quad(2\times3).
+</annotation></semantics></math></p>
+<p>Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐆</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mi>𝖳</mi></msup></mrow><annotation encoding="application/x-tex">\mathbf{G}(1,1,1)=(2,1)^{\mathsf T}</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>𝐉</mi><mrow><mi>𝐅</mi><mo>∘</mo><mi>𝐆</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>𝐉</mi><mi>𝐅</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msub><mi>𝐉</mi><mi>𝐆</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\mathbf{J}_{\mathbf{F}\circ\mathbf{G}}(1,1,1)
+&amp;=\mathbf{J}_{\mathbf{F}}(2,1)
+  \mathbf{J}_{\mathbf{G}}(1,1,1)\\
+&amp;=
+\begin{bmatrix}4&amp;1\\1&amp;2\end{bmatrix}
+\begin{bmatrix}1&amp;1&amp;0\\0&amp;1&amp;1\end{bmatrix}\\
+&amp;=\begin{bmatrix}4&amp;5&amp;1\\1&amp;3&amp;2\end{bmatrix}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><msub><mi>𝐉</mi><mrow><mi>𝐅</mi><mo>∘</mo><mi>𝐆</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{\mathbf{J}_{\mathbf{F}\circ\mathbf{G}}(1,1,1)
+=\begin{bmatrix}4&amp;5&amp;1\\1&amp;3&amp;2\end{bmatrix}}.
+</annotation></semantics></math></p>
+<p><strong>Marks (4).</strong> Correct individual Jacobians and
+dimensions: 1. Correct evaluation point and evaluated outer Jacobian: 1.
+Dimensionally valid chain-rule product: 1. Correct product: 1.</p>
+<p><strong>Common mistakes.</strong> Evaluating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐉</mi><mi>𝐅</mi></msub><annotation encoding="application/x-tex">\mathbf{J}_{\mathbf{F}}</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,1)</annotation></semantics></math>
+rather than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(2,1)</annotation></semantics></math>;
+reversing the multiplication order; using a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">3\times2</annotation></semantics></math>
+Jacobian for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐆</mi><annotation encoding="application/x-tex">\mathbf{G}</annotation></semantics></math>;
+making a row-by-column arithmetic error.</p>
+<h4 id="question-9-implicit-differentiation">Question 9 — implicit
+differentiation</h4>
+<h5 id="part-a-mock-m2-q09-pa-m7">Part A — <code>MOCK-M2-Q09-PA</code>
+(M7)</h5>
+<p><strong>Method and conditions.</strong> To solve locally for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+as a differentiable function of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+require
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>y</mi></msub><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_y\neq0</annotation></semantics></math>.
+Then use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>y</mi><mi>/</mi><mi mathvariant="normal">d</mi><mi>x</mi><mo>=</mo><mi>−</mi><msub><mi>F</mi><mi>x</mi></msub><mi>/</mi><msub><mi>F</mi><mi>y</mi></msub></mrow><annotation encoding="application/x-tex">\mathrm{d}y/\mathrm{d}x=-F_x/F_y</annotation></semantics></math>.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>y</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+F_y(x,y)=x+2y.
+</annotation></semantics></math></p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,2)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>y</mi></msub><mo>=</mo><mn>5</mn><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_y=5\neq0</annotation></semantics></math>,
+so the local condition holds. Also,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>y</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>x</mi></mrow></mfrac><mo>=</mo><mi>−</mi><mfrac><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>y</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>x</mi></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow></msub><mo>=</mo><mi>−</mi><mfrac><mn>4</mn><mn>5</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\mathrm{d}y}{\mathrm{d}x}
+=-\frac{2x+y}{x+2y},
+\qquad
+\left.\frac{\mathrm{d}y}{\mathrm{d}x}\right|_{(1,2)}
+=-\frac45.
+</annotation></semantics></math></p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>x</mi><mo>=</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\Delta x=0.05</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi><mo>≈</mo><mi>−</mi><mfrac><mn>4</mn><mn>5</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mn>0.05</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.04</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\Delta y\approx-\frac45(0.05)=-0.04.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The required condition holds, the
+derivative is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>4</mn><mi>/</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">-4/5</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi><mo>≈</mo><mi>−</mi><mn>0.04</mn></mrow></menclose><annotation encoding="application/x-tex">\boxed{\Delta y\approx-0.04}</annotation></semantics></math>.</p>
+<p><strong>Marks (4).</strong> Correct local derivative condition and
+check: 1. Correct implicit-derivative formula: 1. Correct derivative
+value: 1. Correct first-order change: 1.</p>
+<p><strong>Common mistakes.</strong> Checking
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>x</mi></msub><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_x\neq0</annotation></semantics></math>
+when solving for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
+omitting the minus sign; evaluating away from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,2)</annotation></semantics></math>;
+treating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.04</mn></mrow><annotation encoding="application/x-tex">-0.04</annotation></semantics></math>
+as the new level of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+rather than its approximate change.</p>
+<h4 id="question-10-homogeneity-and-eulers-theorem">Question 10 —
+homogeneity and Euler’s theorem</h4>
+<h5 id="part-a-mock-m2-q10-pa-m7">Part A — <code>MOCK-M2-Q10-PA</code>
+(M7)</h5>
+<p><strong>Method and conditions.</strong> Apply the definition with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t&gt;0</annotation></semantics></math>,
+then use Euler’s theorem for a differentiable homogeneous function.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mi>x</mi><mo>,</mo><mi>t</mi><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mn>2</mn><mi>/</mi><mn>5</mn></mrow></msup><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mn>3</mn><mi>/</mi><mn>5</mn></mrow></msup><mo>=</mo><msup><mi>t</mi><mrow><mn>2</mn><mi>/</mi><mn>5</mn><mo>+</mo><mn>3</mn><mi>/</mi><mn>5</mn></mrow></msup><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>t</mi><mspace width="0.167em"></mspace><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(tx,ty)
+=(tx)^{2/5}(ty)^{3/5}
+=t^{2/5+3/5}p(x,y)
+=t\,p(x,y).
+</annotation></semantics></math></p>
+<p>Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+is homogeneous of degree 1. Euler’s theorem gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>x</mi><msub><mi>p</mi><mi>x</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>y</mi><msub><mi>p</mi><mi>y</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{x p_x(x,y)+y p_y(x,y)=p(x,y)}.
+</annotation></semantics></math></p>
+<p>Taking
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">t=2</annotation></semantics></math>
+in the defining relation gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo>,</mo><mn>2</mn><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p(2x,2y)=2p(x,y).
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong> The function has degree 1, satisfies
+the displayed Euler relation, and doubling both inputs doubles
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.</p>
+<p><strong>Marks (4).</strong> Correct definition-based scaling
+calculation: 1. Correct degree: 1. Correct Euler relation: 1. Correct
+doubling conclusion and interpretation: 1.</p>
+<p><strong>Common mistakes.</strong> Adding the inputs’ exponents
+incorrectly; verifying only the special case
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">t=2</annotation></semantics></math>
+rather than the definition; omitting the input weights
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+from Euler’s relation.</p>
+<h3 id="section-m3-curvature-and-optimisation">Section M3 — curvature
+and optimisation</h3>
+<h4 id="question-11-unconstrained-optimisation">Question 11 —
+unconstrained optimisation</h4>
+<h5 id="part-a-mock-m3-q11-pa-m8-m9">Part A —
+<code>MOCK-M3-Q11-PA</code> (M8, M9)</h5>
+<p><strong>Method and conditions.</strong> Solve the stationary
+equations, use the Hessian for local classification, and use strict
+concavity on the whole convex domain for the global conclusion.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>−</mo><mn>2</mn><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mn>6</mn><mo>−</mo><mi>x</mi><mo>−</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+4-2x-y=0,
+\qquad
+6-x-2y=0.
+</annotation></semantics></math></p>
+<p>The unique stationary point is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>,</mo><mfrac><mn>8</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(x^*,y^*)=\left(\frac23,\frac83\right).
+</annotation></semantics></math></p>
+<p>The Hessian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐇</mi><mi>f</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{H}_f=
+\begin{bmatrix}-2&amp;-1\\-1&amp;-2\end{bmatrix}.
+</annotation></semantics></math></p>
+<p>Its eigenvalues are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">-3</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>,
+so it is negative definite. The point is a strict local maximum. Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+is strictly concave on the convex domain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math>,
+it is also the unique global maximiser. Finally,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>,</mo><mfrac><mn>8</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>28</mn><mn>3</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f\left(\frac23,\frac83\right)=\frac{28}{3}.
+</annotation></semantics></math></p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>,</mo><mfrac><mn>8</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>28</mn><mn>3</mn></mfrac></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{(x^*,y^*)=\left(\frac23,\frac83\right),
+\qquad f(x^*,y^*)=\frac{28}{3}}.
+</annotation></semantics></math></p>
+<p><strong>Marks (6).</strong> Correct stationary equations: 1. Correct
+stationary point: 1. Correct Hessian: 1. Valid negative-definite test
+and local classification: 1. Valid strict-concavity global argument: 1.
+Correct optimum value: 1.</p>
+<p><strong>Common mistakes.</strong> Treating the stationary equations
+as sufficient for a global maximum; classifying the Hessian by its
+diagonal entries alone; forgetting that the global conclusion needs
+concavity on the whole domain; mis-evaluating the cross term.</p>
+<h4 id="question-12-equality-constrained-optimisation-and-the-envelope-theorem">Question
+12 — equality-constrained optimisation and the envelope theorem</h4>
+<h5 id="part-a-mock-m3-q12-pa-m10">Part A — <code>MOCK-M3-Q12-PA</code>
+(M10)</h5>
+<p><strong>Method and conditions.</strong> Use the stated constraint
+encoding, solve the first-order system on the positive domain, and apply
+the envelope theorem with that same encoding.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>μ</mi><mo>;</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>log</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>log</mi><mo>⁡</mo><mi>y</mi><mo>+</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>−</mo><mn>2</mn><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}(x,y,\mu;a)
+=2\log x+\log y+\mu(a-2x-y).
+</annotation></semantics></math></p>
+<p>The first-order conditions are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>2</mn><mi>x</mi></mfrac><mo>−</mo><mn>2</mn><mi>μ</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mfrac><mn>1</mn><mi>y</mi></mfrac><mo>−</mo><mi>μ</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>a</mi><mo>−</mo><mn>2</mn><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac2x-2\mu=0,
+\qquad
+\frac1y-\mu=0,
+\qquad
+a-2x-y=0.
+</annotation></semantics></math></p>
+<p>The first two equations imply
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>1</mn><mi>/</mi><mi>x</mi><mo>=</mo><mn>1</mn><mi>/</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">\mu=1/x=1/y</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x=y</annotation></semantics></math>.
+Feasibility then gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mi>a</mi><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mi>a</mi><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mi>a</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x^*(a)=\frac a3,
+\qquad
+y^*(a)=\frac a3,
+\qquad
+\mu^*(a)=\frac3a.
+</annotation></semantics></math></p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a&gt;0</annotation></semantics></math>,
+the feasible set is convex and the objective is strictly concave on the
+positive orthant, so this is the unique global maximiser. The envelope
+theorem gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>ℒ</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo>,</mo><msup><mi>μ</mi><mo>*</mo></msup><mo>;</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mi>a</mi></mfrac><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+V&#39;(a)
+=\mathcal{L}_a(x^*,y^*,\mu^*;a)
+=\mu^*(a)
+=\frac3a&gt;0.
+</annotation></semantics></math></p>
+<p>Under the encoding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mn>2</mn><mi>x</mi><mo>−</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a-2x-y=0</annotation></semantics></math>,
+the positive multiplier is the marginal increase in the optimised
+objective from one extra unit of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mi>a</mi><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mi>a</mi></mfrac></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{x^*(a)=y^*(a)=\frac a3,
+\qquad
+\mu^*(a)=V&#39;(a)=\frac3a}.
+</annotation></semantics></math></p>
+<p><strong>Marks (6).</strong> Correct Lagrangian and first-order
+system: 1. Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x^*(a)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y^*(a)</annotation></semantics></math>:
+1. Correct multiplier: 1. Valid global sufficiency and uniqueness
+condition: 1. Correct envelope derivative: 1. Correct sign
+interpretation under the stated encoding: 1.</p>
+<p><strong>Common mistakes.</strong> Reversing the constraint encoding
+and retaining the same multiplier sign; losing the factor 2 in the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+condition; asserting global uniqueness without concavity and convex
+feasibility; interpreting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>μ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\mu^*</annotation></semantics></math>
+independently of how the constraint was written.</p>
+<h4 id="question-13-inequality-constraints-and-a-binding-resource-limit">Question
+13 — inequality constraints and a binding resource limit</h4>
+<h5 id="part-a-mock-m3-q13-pa-m11">Part A — <code>MOCK-M3-Q13-PA</code>
+(M11)</h5>
+<p><strong>Method and conditions.</strong> Express all inequalities as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(x,y)\geq0</annotation></semantics></math>,
+write the full course-convention Kuhn–Tucker system, solve the implied
+active set, and use strict concavity and convex feasibility for
+sufficiency.</p>
+<p>Let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>g</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>y</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>g</mi><mn>3</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g_1(x,y)=x,\qquad
+g_2(x,y)=y,\qquad
+g_3(x,y)=2-x-y.
+</annotation></semantics></math></p>
+<p>The Lagrangian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mi>x</mi><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><mi>y</mi><mo>+</mo><msub><mi>λ</mi><mn>3</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal{L}
+=3x+2y-\frac12x^2-y^2
++\lambda_1x+\lambda_2y+\lambda_3(2-x-y).
+</annotation></semantics></math></p>
+<p>The complete Kuhn–Tucker conditions are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mn>3</mn><mo>−</mo><mi>x</mi><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>−</mo><msub><mi>λ</mi><mn>3</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mn>2</mn><mo>−</mo><mn>2</mn><mi>y</mi><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><mo>−</mo><msub><mi>λ</mi><mn>3</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>y</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mn>2</mn><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>≥</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><msub><mi>λ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>λ</mi><mn>2</mn></msub><mo>,</mo><msub><mi>λ</mi><mn>3</mn></msub><mo>≥</mo><mn>0</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><msub><mi>λ</mi><mn>1</mn></msub><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>λ</mi><mn>2</mn></msub><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>λ</mi><mn>3</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>−</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp;3-x+\lambda_1-\lambda_3=0,\\
+&amp;2-2y+\lambda_2-\lambda_3=0,\\
+&amp;x\geq0,\quad y\geq0,\quad2-x-y\geq0,\\
+&amp;\lambda_1,\lambda_2,\lambda_3\geq0,\\
+&amp;\lambda_1x=0,\quad
+\lambda_2y=0,\quad
+\lambda_3(2-x-y)=0.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Feasibility implies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≤</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">x\leq2</annotation></semantics></math>,
+and throughout the feasible set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∂</mi><mi>f</mi><mi>/</mi><mi>∂</mi><mi>x</mi><mo>=</mo><mn>3</mn><mo>−</mo><mi>x</mi><mo>≥</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\partial f/\partial x=3-x\geq1&gt;0</annotation></semantics></math>.
+If the resource constraint were slack, increasing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+slightly would remain feasible and raise the objective. Therefore the
+resource constraint must bind, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y=2-x</annotation></semantics></math>.</p>
+<p>Temporarily suppose that both lower bounds are slack. Then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_1=\lambda_2=0</annotation></semantics></math>,
+and stationarity gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mn>3</mn></msub><mo>=</mo><mn>3</mn><mo>−</mo><mi>x</mi><mo>=</mo><mn>2</mn><mo>−</mo><mn>2</mn><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\lambda_3=3-x=2-2y.
+</annotation></semantics></math></p>
+<p>Solving these equations yields</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>=</mo><mfrac><mn>5</mn><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>y</mi><mo>*</mo></msup><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><msubsup><mi>λ</mi><mn>1</mn><mo>*</mo></msubsup><mo>,</mo><msubsup><mi>λ</mi><mn>2</mn><mo>*</mo></msubsup><mo>,</mo><msubsup><mi>λ</mi><mn>3</mn><mo>*</mo></msubsup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x^*=\frac53,
+\qquad
+y^*=\frac13,
+\qquad
+(\lambda_1^*,\lambda_2^*,\lambda_3^*)
+=\left(0,0,\frac43\right).
+</annotation></semantics></math></p>
+<p>The resulting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x^*&gt;0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>*</mo></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y^*&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>λ</mi><mn>3</mn><mo>*</mo></msubsup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_3^*&gt;0</annotation></semantics></math>
+verify the proposed active set rather than merely assuming it.</p>
+<p>The resource constraint is active, while both non-negativity
+constraints are slack. The objective Hessian is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mi>−</mi><mn>2</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\begin{bmatrix}-1&amp;0\\0&amp;-2\end{bmatrix},
+</annotation></semantics></math></p>
+<p>which is negative definite. The feasible set is a convex compact
+triangle, so strict concavity makes the Kuhn–Tucker solution the unique
+global maximiser.</p>
+<p><strong>Final result.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>5</mn><mn>3</mn></mfrac><mo>,</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><msubsup><mi>λ</mi><mn>1</mn><mo>*</mo></msubsup><mo>,</mo><msubsup><mi>λ</mi><mn>2</mn><mo>*</mo></msubsup><mo>,</mo><msubsup><mi>λ</mi><mn>3</mn><mo>*</mo></msubsup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow></menclose><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{(x^*,y^*)=\left(\frac53,\frac13\right),
+\qquad
+(\lambda_1^*,\lambda_2^*,\lambda_3^*)
+=\left(0,0,\frac43\right)}.
+</annotation></semantics></math></p>
+<p><strong>Marks (6).</strong> Correct Lagrangian: 0.5. Both
+stationarity equations: 0.5. Complete primal feasibility: 0.5. Dual
+feasibility and all complementary- slackness equations: 0.5. Correct
+active-set reasoning: 0.5. Correct
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x^*,y^*)</annotation></semantics></math>:
+1. Correct multipliers: 1. Correct active/slack report: 0.5. Valid
+global-uniqueness argument: 1.</p>
+<p><strong>Common mistakes.</strong> Writing the resource constraint
+with the opposite sign without changing the multiplier convention;
+omitting lower-bound complementarity; assuming the resource constraint
+binds without checking the resulting multipliers; reporting the right
+point with incomplete Kuhn–Tucker conditions.</p>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>

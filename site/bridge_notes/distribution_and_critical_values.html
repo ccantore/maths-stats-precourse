@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Distribution And Critical Values</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+:root {
+color-scheme: light;
+--ink: #111111;
+--paper: #ffffff;
+--line: #454545;
+--soft: #f2f2f2;
+--link: #003f73;
+--visited: #4c236b;
+--focus: #005a9c;
+--reading-width: 52rem;
+}
+html {
+background: var(--paper);
+color: var(--ink);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+font-size: 100%;
+}
+body {
+box-sizing: border-box;
+max-width: 76rem;
+margin: 0 auto;
+padding: 1.25rem clamp(1rem, 4vw, 3rem) 3rem;
+background: var(--paper);
+color: var(--ink);
+font-size: 1rem;
+line-height: 1.58;
+}
+*,
+*::before,
+*::after {
+box-sizing: inherit;
+}
+a {
+color: var(--link);
+text-decoration-thickness: 0.11em;
+text-underline-offset: 0.16em;
+}
+a:visited {
+color: var(--visited);
+}
+a:focus-visible {
+outline: 0.22rem solid var(--focus);
+outline-offset: 0.18rem;
+}
+.skip-link {
+position: absolute;
+z-index: 20;
+top: 0;
+left: 0;
+padding: 0.7rem 1rem;
+background: #000000;
+color: #ffffff;
+transform: translateY(-125%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.draft-banner {
+max-width: var(--reading-width);
+margin: 0 0 1rem;
+padding: 0.7rem 0.9rem;
+border: 0.12rem solid #000000;
+background: var(--soft);
+font-weight: 700;
+}
+.package-nav {
+max-width: var(--reading-width);
+margin: 0 0 1.6rem;
+padding: 0.75rem 0.9rem;
+border-block: 0.08rem solid var(--line);
+}
+.package-nav ul {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem 1rem;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.package-nav a[aria-current="page"] {
+color: var(--ink);
+font-weight: 700;
+text-decoration: none;
+}
+main {
+min-width: 0;
+}
+main > :not(table):not(.table-wrapper) {
+max-width: var(--reading-width);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+max-width: var(--reading-width);
+margin-bottom: 0.55rem;
+line-height: 1.22;
+text-wrap: balance;
+}
+h1 {
+margin-top: 0;
+font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+h2 {
+margin-top: 2.25rem;
+padding-top: 0.3rem;
+border-top: 0.09rem solid var(--line);
+font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+h3 {
+margin-top: 1.75rem;
+font-size: clamp(1.16rem, 2.5vw, 1.43rem);
+}
+h4 {
+margin-top: 1.4rem;
+font-size: 1.12rem;
+}
+h5,
+h6 {
+margin-top: 1.2rem;
+font-size: 1.02rem;
+}
+p,
+li,
+td,
+th {
+overflow-wrap: anywhere;
+}
+ul,
+ol {
+padding-left: 1.55rem;
+}
+li + li {
+margin-top: 0.18rem;
+}
+blockquote {
+max-width: var(--reading-width);
+margin: 1rem 0;
+padding: 0.75rem 1rem;
+border-left: 0.3rem solid var(--line);
+background: var(--soft);
+}
+table {
+width: 100%;
+margin: 1rem 0 1.5rem;
+border-collapse: collapse;
+border: 0.1rem solid var(--line);
+font-size: 0.94rem;
+line-height: 1.42;
+}
+.table-wrapper {
+max-width: var(--reading-width);
+margin: 1rem 0 1.5rem;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.table-wrapper table {
+margin: 0;
+}
+.table-wrapper:focus,
+math[display="block"]:focus {
+outline: 0.18rem solid var(--focus);
+outline-offset: 0.2rem;
+}
+thead {
+background: var(--soft);
+}
+th,
+td {
+padding: 0.52rem 0.62rem;
+border: 0.06rem solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+th {
+font-weight: 700;
+}
+math {
+max-width: 100%;
+}
+math[display="block"] {
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+margin: 1rem 0;
+padding: 0.25rem 0;
+}
+pre,
+code {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+.package-contents {
+columns: 2 20rem;
+column-gap: 2rem;
+}
+.package-contents section {
+break-inside: avoid;
+}
+@media (max-width: 42rem) {
+body {
+padding: 1rem;
+}
+.table-wrapper {
+max-width: 100%;
+}
+th,
+td {
+min-width: 7.5rem;
+}
+}
+@media (prefers-contrast: more) {
+:root {
+--ink: #000000;
+--line: #000000;
+--soft: #ffffff;
+}
+.draft-banner,
+table,
+th,
+td {
+border-width: 0.14rem;
+}
+}
+@media print {
+html,
+body {
+max-width: none;
+padding: 0;
+background: #ffffff;
+color: #000000;
+font-family: serif;
+font-size: 10pt;
+line-height: 1.42;
+}
+.skip-link,
+.package-nav {
+display: none;
+}
+.draft-banner {
+padding: 0.35rem 0.5rem;
+border-width: 0.08rem;
+background: #ffffff;
+font-family: sans-serif;
+font-size: 8.5pt;
+}
+a,
+a:visited {
+color: #000000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+tr,
+math[display="block"] {
+break-after: avoid;
+break-inside: avoid;
+}
+thead {
+display: table-header-group;
+background: #ffffff;
+}
+table {
+font-size: 8.7pt;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="draft-banner" role="note">Pilot draft - comments welcome</div>
+<nav class="package-nav" aria-label="Pre-course package navigation">
+<ul>
+<li><a href="../contents.html">Package contents</a></li>
+<li><a href="../syllabus.html">Syllabus</a></li>
+<li><a href="../contents.html#weekly-materials">Weekly materials</a></li>
+<li><a href="../contents.html#assessments">Assessments</a></li>
+<li><a href="../advanced_study_guide.html">Advanced study</a></li>
+</ul>
+</nav>
+<main id="main-content">
+<p class="page-format"><strong>Page formats:</strong> <a href="https://ccantore.github.io/maths-stats-precourse/pdf/bridge_notes/distribution_and_critical_values.pdf">Download this page as PDF</a></p>
+
+<h1 id="distributions-and-critical-values">Distributions and critical
+values</h1>
+<p>This sheet is a compact lookup for the probability models used in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">3</mn></mrow><annotation encoding="application/x-tex">\mathrm{S3}</annotation></semantics></math>
+and the sampling and inference methods in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">6</mn></mrow><annotation encoding="application/x-tex">\mathrm{S6}</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">9</mn></mrow><annotation encoding="application/x-tex">\mathrm{S9}</annotation></semantics></math>.
+A random variable is written with an upper-case letter (for example,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>);
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+denotes a realised value. A PMF is written
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p_X(x)</annotation></semantics></math>,
+a PDF
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_X(x)</annotation></semantics></math>,
+and a CDF is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>≤</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(x):=\mathbb{P}(X\le x)</annotation></semantics></math>.
+Values outside a stated support have PMF or PDF equal to zero.</p>
+<h2 id="how-to-use-the-table">How to use the table</h2>
+<ol type="1">
+<li>Identify whether the variable is discrete or continuous, then check
+the parameterisation, restrictions and support before substituting
+numbers.</li>
+<li>For a discrete variable, sum the PMF over the required support
+points. For a continuous variable, integrate the PDF over an interval; a
+single point has probability zero. Use the CDF for intervals and
+tails.</li>
+<li>A
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>-quantile
+is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>q</mi></msub><mo>:=</mo><mi>inf</mi><mo>⁡</mo><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>:</mo><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mi>q</mi><mo stretchy="false" form="postfix">}</mo><mo>,</mo><mspace width="2.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi>q</mi><mo>&lt;</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+x_q:=\inf\{x:F_X(x)\ge q\},\qquad 0&lt;q&lt;1.
+</annotation></semantics></math> For continuous distributions,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>q</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">F_X(x_q)=q</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Z\sim\mathcal{N}(0,1)</annotation></semantics></math>,
+write
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>:=</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo>≤</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>z</mi><mi>q</mi></msub><mo>:=</mo><msup><mi mathvariant="normal">Φ</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\Phi(z):=\mathbb{P}(Z\le z),\qquad
+z_q:=\Phi^{-1}(q).
+</annotation></semantics></math> If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∼</mo><msub><mi>t</mi><mi>ν</mi></msub></mrow><annotation encoding="application/x-tex">T\sim t_\nu</annotation></semantics></math>,
+write
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mrow><mi>q</mi><mo>,</mo><mi>ν</mi></mrow></msub><mo>:=</mo><mi>inf</mi><mo>⁡</mo><mo stretchy="false" form="prefix">{</mo><mi>t</mi><mo>:</mo><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo>≤</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mi>q</mi><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+t_{q,\nu}:=\inf\{t:\mathbb{P}(T\le t)\ge q\}.
+</annotation></semantics></math> Both reference distributions are
+symmetric, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mrow><mn>1</mn><mo>−</mo><mi>q</mi></mrow></msub><mo>=</mo><mi>−</mi><msub><mi>z</mi><mi>q</mi></msub></mrow><annotation encoding="application/x-tex">z_{1-q}=-z_q</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mrow><mn>1</mn><mo>−</mo><mi>q</mi><mo>,</mo><mi>ν</mi></mrow></msub><mo>=</mo><mi>−</mi><msub><mi>t</mi><mrow><mi>q</mi><mo>,</mo><mi>ν</mi></mrow></msub></mrow><annotation encoding="application/x-tex">t_{1-q,\nu}=-t_{q,\nu}</annotation></semantics></math>.
+The tables give positive upper quantiles. A lower-tail critical value is
+its negative; a two-sided
+level-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+procedure uses the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1-\alpha/2</annotation></semantics></math>
+column.</li>
+</ol>
+<h2 id="required-probability-distributions-mathrms3">Required
+probability distributions
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">3</mn></mrow><annotation encoding="application/x-tex">\mathrm{S3}</annotation></semantics></math>)</h2>
+<p>The discrete distributions below use the PMF
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p_X(x)</annotation></semantics></math>.
+Their means and variances are finite for every parameter value allowed
+in the table.</p>
+<div class="table-wrapper"><table style="width:100%;">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Distribution (complete restrictions)</th>
+<th scope="col">Support and PMF</th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]</annotation></semantics></math></th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Bernoulli</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Bernoulli}(p)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>p</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0\le p\le1</annotation></semantics></math>.
+One trial;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">X=1</annotation></semantics></math>
+denotes success.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1\}</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">p_X(1)=p</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">p_X(0)=1-p</annotation></semantics></math>.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p(1-p)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Binomial</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>,</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Binomial}(n,p)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">n\in\{1,2,\ldots\}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>p</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0\le p\le1</annotation></semantics></math>.
+Number of successes in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+independent
+Bernoulli<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(p)</annotation></semantics></math>
+trials.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1,\ldots,n\}</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>k</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>p</mi><mi>k</mi></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">p_X(k)=\binom nk p^k(1-p)^{n-k}</annotation></semantics></math>.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">np</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">np(1-p)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Geometric</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Geometric}(p)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>p</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;p\le1</annotation></semantics></math>.
+<strong>Course convention:</strong> number of trials up to and including
+the first success.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1,2,\ldots\}</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msup><mi>p</mi></mrow><annotation encoding="application/x-tex">p_X(k)=(1-p)^{k-1}p</annotation></semantics></math>.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">1/p</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><msup><mi>p</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(1-p)/p^2</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Poisson</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Poisson}(\lambda)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda&gt;0</annotation></semantics></math>.
+The parameter is both mean and rate.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0,1,2,\ldots\}</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi></mrow></msup><msup><mi>λ</mi><mi>k</mi></msup><mi>/</mi><mi>k</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">p_X(k)=e^{-\lambda}\lambda^k/k!</annotation></semantics></math>.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table></div>
+<p>At the allowed probability endpoints, use the corresponding
+degenerate laws: the binomial variable equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+almost surely when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">p=0</annotation></semantics></math>
+and equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+almost surely when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p=1</annotation></semantics></math>;
+the geometric variable equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+almost surely when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p=1</annotation></semantics></math>.
+This avoids treating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>0</mn><mn>0</mn></msup><annotation encoding="application/x-tex">0^0</annotation></semantics></math>
+as an ordinary power.</p>
+<p>For example, the geometric tail is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mi>m</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">\mathbb{P}(X&gt;m)=(1-p)^m</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">m=0,1,\ldots</annotation></semantics></math>.
+A discrete CDF is the corresponding cumulative sum,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mo>∑</mo><mrow><mi>k</mi><mo>≤</mo><mi>x</mi></mrow></msub><msub><mi>p</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(x)=\sum_{k\le x}p_X(k)</annotation></semantics></math>,
+over the support.</p>
+<p>The continuous distributions below use the PDF
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_X(x)</annotation></semantics></math>.
+Their CDFs are included where a short closed form is useful.</p>
+<div class="table-wrapper"><table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Distribution (complete restrictions)</th>
+<th scope="col">Support and PDF</th>
+<th scope="col">CDF or tail</th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]</annotation></semantics></math></th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Uniform</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Uniform}(a,b)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">a,b\in\mathbb{R}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&lt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a&lt;b</annotation></semantics></math>.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[a,b]</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_X(x)=1/(b-a)</annotation></semantics></math>.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_X(x)=0</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">x&lt;a</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x-a)/(b-a)</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≤</mo><mi>x</mi><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a\le x\le b</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">x&gt;b</annotation></semantics></math>.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">(a+b)/2</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo>−</mo><mi>a</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>/</mi><mn>12</mn></mrow><annotation encoding="application/x-tex">(b-a)^2/12</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>Exponential</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\operatorname{Exponential}(\lambda)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda&gt;0</annotation></semantics></math>.
+<strong>Course convention:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+is the rate.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">[0,\infty)</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>λ</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">f_X(x)=\lambda e^{-\lambda x}</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>.</td>
+<td>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">F_X(x)=1-e^{-\lambda x}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>&gt;</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbb{P}(X&gt;x)=e^{-\lambda x}</annotation></semantics></math>;
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x&lt;0</annotation></semantics></math>,
+these are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>,
+respectively.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">1/\lambda</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><msup><mi>λ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">1/\lambda^2</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="normal-distribution">Normal distribution</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X\sim\mathcal{N}(\mu,\sigma^2)</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">\mu\in\mathbb{R}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma^2&gt;0</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>:=</mo><msqrt><msup><mi>σ</mi><mn>2</mn></msup></msqrt><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma:=\sqrt{\sigma^2}&gt;0</annotation></semantics></math>.
+<strong>The second parameter is the variance.</strong> Its support is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>,
+its density is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mi>σ</mi><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt></mrow></mfrac><mi>exp</mi><mo>⁡</mo><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>μ</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><mrow><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}
+\exp\!\left[-\frac{(x-\mu)^2}{2\sigma^2}\right],
+</annotation></semantics></math></p>
+<p>its CDF is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>X</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>μ</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>σ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F_X(x)=\Phi((x-\mu)/\sigma)</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}[X]=\mu</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)=\sigma^2</annotation></semantics></math>.</p>
+<p>For a linear transformation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mi>c</mi><mi>X</mi><mo>+</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">Y=cX+d</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>,</mo><mi>d</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">c,d\in\mathbb{R}</annotation></semantics></math>,
+whenever the moments exist,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>c</mi><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mi>d</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[Y]=c\mathbb{E}[X]+d,\qquad
+\operatorname{Var}(Y)=c^2\operatorname{Var}(X).
+</annotation></semantics></math></p>
+<h2 id="reference-distributions-for-sampling-and-inference-mathrms6mathrms9">Reference
+distributions for sampling and inference
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">6</mn></mrow><annotation encoding="application/x-tex">\mathrm{S6}</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">9</mn></mrow><annotation encoding="application/x-tex">\mathrm{S9}</annotation></semantics></math>)</h2>
+<p>These are not additional population models required in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">3</mn></mrow><annotation encoding="application/x-tex">\mathrm{S3}</annotation></semantics></math>.</p>
+<div class="table-wrapper"><table style="width:100%;">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col">Distribution (complete restrictions)</th>
+<th scope="col">Support and density</th>
+<th style="text-align: right;" scope="col">Mean</th>
+<th style="text-align: right;" scope="col">Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∼</mo><msub><mi>t</mi><mi>ν</mi></msub></mrow><annotation encoding="application/x-tex">T\sim t_\nu</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\nu\in\{1,2,\ldots\}</annotation></semantics></math>
+degrees of freedom.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>T</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mi mathvariant="normal">Γ</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><mrow><msqrt><mrow><mi>ν</mi><mi>π</mi></mrow></msqrt><mspace width="0.167em"></mspace><mi mathvariant="normal">Γ</mi><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mstyle><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup><mi>/</mi><mi>ν</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">f_T(t)=\dfrac{\Gamma((\nu+1)/2)}{\sqrt{\nu\pi}\,\Gamma(\nu/2)}\left(1+t^2/\nu\right)^{-(\nu+1)/2}</annotation></semantics></math>.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\nu&gt;1</annotation></semantics></math>;
+undefined for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\nu=1</annotation></semantics></math>.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\nu/(\nu-2)</annotation></semantics></math>
+if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\nu&gt;2</annotation></semantics></math>;
+infinite for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\nu=2</annotation></semantics></math>,
+undefined for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\nu=1</annotation></semantics></math>.</td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>∼</mo><msubsup><mi>χ</mi><mi>ν</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">Q\sim\chi^2_\nu</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\nu\in\{1,2,\ldots\}</annotation></semantics></math>
+degrees of freedom.</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">[0,\infty)</annotation></semantics></math>;
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q&gt;0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>Q</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><msup><mi>q</mi><mrow><mi>ν</mi><mi>/</mi><mn>2</mn><mo>−</mo><mn>1</mn></mrow></msup><msup><mi>e</mi><mrow><mi>−</mi><mi>q</mi><mi>/</mi><mn>2</mn></mrow></msup></mrow><mrow><msup><mn>2</mn><mrow><mi>ν</mi><mi>/</mi><mn>2</mn></mrow></msup><mi mathvariant="normal">Γ</mi><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">f_Q(q)=\dfrac{q^{\nu/2-1}e^{-q/2}}{2^{\nu/2}\Gamma(\nu/2)}</annotation></semantics></math>.
+The value assigned at the single point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q=0</annotation></semantics></math>
+does not affect the distribution.</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>ν</mi></mrow><annotation encoding="application/x-tex">2\nu</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table></div>
+<p>Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Γ</mi><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math>
+denotes the gamma function. The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>ν</mi></msub><annotation encoding="application/x-tex">t_\nu</annotation></semantics></math>
+density has finite mean only when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\nu&gt;1</annotation></semantics></math>,
+and finite variance only when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\nu&gt;2</annotation></semantics></math>,
+as shown in the table.</p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">X_1,\ldots,X_n</annotation></semantics></math>
+are a normal random sample with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n\ge2</annotation></semantics></math>,
+then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi></mrow><mrow><mi>S</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow></mfrac><mo>∼</mo><msub><mi>t</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>,</mo><mspace width="2.0em"></mspace><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msup><mi>S</mi><mn>2</mn></msup></mrow><msup><mi>σ</mi><mn>2</mn></msup></mfrac><mo>∼</mo><msubsup><mi>χ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mn>2</mn></msubsup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\frac{\bar X-\mu}{S/\sqrt n}\sim t_{n-1},
+\qquad
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
+</annotation></semantics></math></p>
+<p>where</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>:=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>X</mi><mi>i</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>S</mi><mn>2</mn></msup><mo>:=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>−</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar X:=\frac1n\sum_{i=1}^nX_i,
+\qquad
+S^2:=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2.
+</annotation></semantics></math></p>
+<p>Both results require a normal population. The first pivot is used for
+the course’s Student’s
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+procedures when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>σ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math>
+is unknown; the identity itself does not require that the analyst be
+unaware of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>σ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math>.
+Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>χ</mi><mi>ν</mi><mn>2</mn></msubsup><annotation encoding="application/x-tex">\chi^2_\nu</annotation></semantics></math>
+is used only as a sampling/reference distribution; categorical
+chi-squared tests are outside this course.</p>
+<h2 id="normal-and-students-t-critical-values">Normal and Student’s
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+critical values</h2>
+<p>The entries below are upper quantiles rounded to three decimal
+places. For a one-sided procedure with tail probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn><mo>−</mo><mi>α</mi></mrow><annotation encoding="application/x-tex">q=1-\alpha</annotation></semantics></math>.
+For a two-sided
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><mi>%</mi></mrow><annotation encoding="application/x-tex">100(1-\alpha)\%</annotation></semantics></math>
+interval or test, use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn><mo>−</mo><mi>α</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">q=1-\alpha/2</annotation></semantics></math>.
+Thus the columns cover one-sided 90%, 95% and 99% procedures
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>.90</mn><mo>,</mo><mn>.95</mn><mo>,</mo><mn>.99</mn></mrow><annotation encoding="application/x-tex">q=.90,.95,.99</annotation></semantics></math>)
+and two-sided 90%, 95% and 99% procedures
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>.95</mn><mo>,</mo><mn>.975</mn><mo>,</mo><mn>.995</mn></mrow><annotation encoding="application/x-tex">q=.95,.975,.995</annotation></semantics></math>).</p>
+<h3 id="standard-normal">Standard normal</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math></th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>z</mi><mi>q</mi></msub><annotation encoding="application/x-tex">z_q</annotation></semantics></math></th>
+<th scope="col">Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.900</mn><annotation encoding="application/x-tex">0.900</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.282</mn><annotation encoding="application/x-tex">1.282</annotation></semantics></math></td>
+<td>one-sided 90%</td>
+</tr>
+<tr>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.950</mn><annotation encoding="application/x-tex">0.950</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.645</mn><annotation encoding="application/x-tex">1.645</annotation></semantics></math></td>
+<td>one-sided 95% or two-sided 90%</td>
+</tr>
+<tr>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.975</mn><annotation encoding="application/x-tex">0.975</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.960</mn><annotation encoding="application/x-tex">1.960</annotation></semantics></math></td>
+<td>two-sided 95%</td>
+</tr>
+<tr>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.990</mn><annotation encoding="application/x-tex">0.990</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2.326</mn><annotation encoding="application/x-tex">2.326</annotation></semantics></math></td>
+<td>one-sided 99%</td>
+</tr>
+<tr>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.995</mn><annotation encoding="application/x-tex">0.995</annotation></semantics></math></td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2.576</mn><annotation encoding="application/x-tex">2.576</annotation></semantics></math></td>
+<td>two-sided 99%</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="students-t">Student’s
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></h3>
+<p>The rows cover the degrees of freedom used in the course’s
+small-sample examples
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>,</mo><mn>8</mn><mo>,</mo><mn>9</mn><mo>,</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">4,8,9,15</annotation></semantics></math>);
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>=</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\nu=\infty</annotation></semantics></math>
+is the standard-normal limit.</p>
+<div class="table-wrapper"><table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math></th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mn>.90</mn><mo>,</mo><mi>ν</mi></mrow></msub><annotation encoding="application/x-tex">t_{.90,\nu}</annotation></semantics></math></th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mn>.95</mn><mo>,</mo><mi>ν</mi></mrow></msub><annotation encoding="application/x-tex">t_{.95,\nu}</annotation></semantics></math></th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mn>.975</mn><mo>,</mo><mi>ν</mi></mrow></msub><annotation encoding="application/x-tex">t_{.975,\nu}</annotation></semantics></math></th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mn>.99</mn><mo>,</mo><mi>ν</mi></mrow></msub><annotation encoding="application/x-tex">t_{.99,\nu}</annotation></semantics></math></th>
+<th style="text-align: right;" scope="col"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mn>.995</mn><mo>,</mo><mi>ν</mi></mrow></msub><annotation encoding="application/x-tex">t_{.995,\nu}</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.533</td>
+<td style="text-align: right;">2.132</td>
+<td style="text-align: right;">2.776</td>
+<td style="text-align: right;">3.747</td>
+<td style="text-align: right;">4.604</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1.397</td>
+<td style="text-align: right;">1.860</td>
+<td style="text-align: right;">2.306</td>
+<td style="text-align: right;">2.896</td>
+<td style="text-align: right;">3.355</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1.383</td>
+<td style="text-align: right;">1.833</td>
+<td style="text-align: right;">2.262</td>
+<td style="text-align: right;">2.821</td>
+<td style="text-align: right;">3.250</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">1.341</td>
+<td style="text-align: right;">1.753</td>
+<td style="text-align: right;">2.131</td>
+<td style="text-align: right;">2.602</td>
+<td style="text-align: right;">2.947</td>
+</tr>
+<tr>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>∞</mi><annotation encoding="application/x-tex">\infty</annotation></semantics></math>
+(normal limit)</td>
+<td style="text-align: right;">1.282</td>
+<td style="text-align: right;">1.645</td>
+<td style="text-align: right;">1.960</td>
+<td style="text-align: right;">2.326</td>
+<td style="text-align: right;">2.576</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sampling-and-inference-reminders">Sampling and inference
+reminders</h2>
+<h3 id="samples-the-lln-and-the-clt-mathrms6">Samples, the LLN and the
+CLT
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">6</mn></mrow><annotation encoding="application/x-tex">\mathrm{S6}</annotation></semantics></math>)</h3>
+<p>For an i.i.d. sample with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}[X_i]=\mu</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X_i)=\sigma^2&lt;\infty</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>μ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbb{E}[\bar X]=\mu,
+\qquad
+\operatorname{Var}(\bar X)=\frac{\sigma^2}{n}.
+</annotation></semantics></math></p>
+<p>The law of large numbers says
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mover><mo>→</mo><mi>ℙ</mi></mover><mi>μ</mi></mrow><annotation encoding="application/x-tex">\bar X\xrightarrow{\mathbb{P}}\mu</annotation></semantics></math>
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">n\to\infty</annotation></semantics></math>
+(under the stated i.i.d. finite-moment conditions). It is not a claim
+that observations become normal. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma^2&gt;0</annotation></semantics></math>,
+the central limit theorem gives the
+large-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+approximation</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>μ</mi></mrow><mrow><mi>σ</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow></mfrac><mspace width="0.222em"></mspace><mo>≈</mo><mspace width="0.222em"></mspace><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{\bar X-\mu}{\sigma/\sqrt n}\ \approx\ \mathcal{N}(0,1).
+</annotation></semantics></math></p>
+<p>When the population is normal,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>∼</mo><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mi>n</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\bar X\sim\mathcal{N}(\mu,\sigma^2/n)</annotation></semantics></math>
+exactly for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>;
+otherwise the CLT statement is generally approximate.</p>
+<h3 id="confidence-intervals-mathrms8">Confidence intervals
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">8</mn></mrow><annotation encoding="application/x-tex">\mathrm{S8}</annotation></semantics></math>)</h3>
+<p>For a normal population with known
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>,
+an exact two-sided
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><mi>%</mi></mrow><annotation encoding="application/x-tex">100(1-\alpha)\%</annotation></semantics></math>
+interval for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><msub><mi>z</mi><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mi>/</mi><mn>2</mn></mrow></msub><mfrac><mi>σ</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>,</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>+</mo><msub><mi>z</mi><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mi>/</mi><mn>2</mn></mrow></msub><mfrac><mi>σ</mi><msqrt><mi>n</mi></msqrt></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[\bar X-z_{1-\alpha/2}\frac{\sigma}{\sqrt n},
+      \bar X+z_{1-\alpha/2}\frac{\sigma}{\sqrt n}\right].
+</annotation></semantics></math></p>
+<p>For a normal population with unknown
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>σ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+and the exact Student’s
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+pivot:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><msub><mi>t</mi><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mi>/</mi><mn>2</mn><mo>,</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mfrac><mi>S</mi><msqrt><mi>n</mi></msqrt></mfrac><mo>,</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>+</mo><msub><mi>t</mi><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mi>/</mi><mn>2</mn><mo>,</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mfrac><mi>S</mi><msqrt><mi>n</mi></msqrt></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left[\bar X-t_{1-\alpha/2,n-1}\frac{S}{\sqrt n},
+      \bar X+t_{1-\alpha/2,n-1}\frac{S}{\sqrt n}\right].
+</annotation></semantics></math></p>
+<p>For an iid Bernoulli sample
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">X_1,\ldots,X_n</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>:=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>X</mi><mi>i</mi></msub><mo>∼</mo><mi>Binomial</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>,</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K:=\sum_{i=1}^{n}X_i\sim\operatorname{Binomial}(n,p)</annotation></semantics></math>
+be the success count and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>:=</mo><mi>K</mi><mi>/</mi><mi>n</mi><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">\widehat p:=K/n=\bar X</annotation></semantics></math>.
+When
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mover><mi>p</mi><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">n\widehat p</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">n(1-\widehat p)</annotation></semantics></math>
+are sufficiently large, the usual large-sample interval is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mspace width="0.222em"></mspace><mo>±</mo><mspace width="0.222em"></mspace><msub><mi>z</mi><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mi>/</mi><mn>2</mn></mrow></msub><msqrt><mfrac><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mfrac></msqrt><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat p\ \pm\ z_{1-\alpha/2}
+\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.
+</annotation></semantics></math></p>
+<p>The confidence level describes repeated-sampling coverage when the
+method’s conditions hold. After data are observed, the realised
+endpoints are fixed; do not describe them as assigning probability to a
+fixed parameter.</p>
+<h3 id="tests-and-errors-mathrms9">Tests and errors
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mn mathvariant="normal">9</mn></mrow><annotation encoding="application/x-tex">\mathrm{S9}</annotation></semantics></math>)</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><msub><mi>μ</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_0:\mu=\mu_0</annotation></semantics></math>,
+use</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><msub><mi>μ</mi><mn>0</mn></msub></mrow><mrow><mi>σ</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow></mfrac><mspace width="1.0em"></mspace><mtext mathvariant="normal">(known variance)</mtext><mo>,</mo><mspace width="2.0em"></mspace><mi>t</mi><mo>=</mo><mfrac><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><msub><mi>μ</mi><mn>0</mn></msub></mrow><mrow><mi>S</mi><mi>/</mi><msqrt><mi>n</mi></msqrt></mrow></mfrac><mo>∼</mo><msub><mi>t</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mspace width="1.0em"></mspace><mtext mathvariant="normal">(normal population, unknown variance)</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+z=\frac{\bar X-\mu_0}{\sigma/\sqrt n}
+\quad\text{(known variance)},\qquad
+t=\frac{\bar X-\mu_0}{S/\sqrt n}\sim t_{n-1}
+\quad\text{(normal population, unknown variance)}.
+</annotation></semantics></math></p>
+<p>For iid observations, the known-variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+statistic is exactly standard normal under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+when the population is normal and is approximately standard normal under
+the finite-variance, large-sample CLT conditions stated above. The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+result is exact under the displayed normal-population condition.</p>
+<p>For an iid Bernoulli sample and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>p</mi><mo>=</mo><msub><mi>p</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_0:p=p_0</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><msub><mi>p</mi><mn>0</mn></msub><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;p_0&lt;1</annotation></semantics></math>,
+a large-sample proportion test uses</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mfrac><mrow><mover><mi>p</mi><mo accent="true">̂</mo></mover><mo>−</mo><msub><mi>p</mi><mn>0</mn></msub></mrow><msqrt><mrow><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>n</mi></mrow></msqrt></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+z=\frac{\widehat p-p_0}{\sqrt{p_0(1-p_0)/n}}.
+</annotation></semantics></math></p>
+<p>The normal approximation requires both null expected counts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><msub><mi>p</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">np_0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">n(1-p_0)</annotation></semantics></math>
+to be sufficiently large.</p>
+<p>Choose the tail from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>1</mn></msub><annotation encoding="application/x-tex">H_1</annotation></semantics></math>:
+reject in an upper tail when the statistic is large, in a lower tail
+when it is small, and in both tails when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>1</mn></msub><annotation encoding="application/x-tex">H_1</annotation></semantics></math>
+is two-sided. The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-value
+is the probability under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+of a result at least as incompatible with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+as the observed statistic; it is not the probability that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+is true. A Type I error has probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>;
+at a specified alternative
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
+Type II error is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\beta(\theta)</annotation></semantics></math>
+and power is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>β</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">1-\beta(\theta)</annotation></semantics></math>.</p>
+<p>With the same standard error and normal or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+method, a two-sided level-
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+test of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><msub><mi>μ</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_0:\mu=\mu_0</annotation></semantics></math>
+rejects exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mu_0</annotation></semantics></math>
+lies outside the corresponding
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false" form="postfix">)</mo><mi>%</mi></mrow><annotation encoding="application/x-tex">100(1-\alpha)\%</annotation></semantics></math>
+confidence interval.</p>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li>Do not replace the course geometric variable (trials
+<strong>including</strong> the success) by a failures-before-success
+convention.</li>
+<li>Do not treat an exponential parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+as a mean, or the second normal parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>σ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math>
+as a standard deviation.</li>
+<li>A density value is not a probability; integrate a PDF over an
+interval.</li>
+<li>Check the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+degrees of freedom
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>)
+and the normal-population condition before using an exact small-sample
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+interval or test.</li>
+<li>The LLN does not assert normality, and a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-value
+is not
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℙ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>H</mi><mn>0</mn></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> is true</mtext></mrow><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{P}(H_0\text{ is true})</annotation></semantics></math>.
+Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>2</mn></msup><annotation encoding="application/x-tex">S^2</annotation></semantics></math>
+with denominator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>.</li>
+</ul>
+</main>
+<script>
+(() => {
+  const selector = '.table-wrapper, math[display="block"]';
+  const update = (element) => {
+    const overflows = element.scrollWidth > element.clientWidth + 1;
+    if (overflows) {
+      element.setAttribute('tabindex', '0');
+      if (element.classList.contains('table-wrapper')) {
+        element.setAttribute('role', 'region');
+        element.setAttribute(
+          'aria-label',
+          'Scrollable table. Use arrow keys to scroll horizontally.'
+        );
+      }
+    } else {
+      element.removeAttribute('tabindex');
+      if (element.classList.contains('table-wrapper')) {
+        element.removeAttribute('role');
+        element.removeAttribute('aria-label');
+      }
+    }
+  };
+  const elements = Array.from(document.querySelectorAll(selector));
+  const updateAll = () => elements.forEach(update);
+  updateAll();
+  window.addEventListener('resize', updateAll);
+  if (document.fonts) document.fonts.ready.then(updateAll);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver((entries) => entries.forEach(({target}) => update(target)));
+    elements.forEach((element) => observer.observe(element));
+  }
+})();
+</script>
+</body>
+</html>
