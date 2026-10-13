@@ -334,7 +334,7 @@ moments from <code>S4</code>, and sampling results from <code>S6</code>.
 Before beginning, retrieve the column-gradient convention, the
 negative-definite Hessian test, the distinction between a candidate and
 a global solution, and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\operatorname{Var}(\bar X)=\operatorname{Var}(X_1)/n</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\operatorname{Var}(\bar X)=\operatorname{Var}(X_1)/n</annotation></semantics></math>
 for an iid sample with finite variance.</p>
 <p>Question 10 contains three explicit cumulative retrieval parts on
 <code>M8</code>, <code>M9</code> and <code>S6</code>. Complete that
@@ -342,9 +342,9 @@ block without consulting earlier notes.</p>
 <h3 id="course-convention-for-inequality-constraints">Course convention
 for inequality constraints</h3>
 <p>For every maximisation problem, write inequality constraints as
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>
 and use</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛌</mi><mo>,</mo><mi>𝛍</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛌</mi><mo>,</mo><mi>𝛍</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathcal{L}(\mathbf{x},\boldsymbol{\lambda},\boldsymbol{\mu})
 =f(\mathbf{x})
 +\sum_j\lambda_jg_j(\mathbf{x})
@@ -415,41 +415,41 @@ first-cohort calibration.</p>
 <col style="width: 30%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th scope="col">Component</th>
 <th style="text-align: right;" scope="col">Target time</th>
 <th scope="col">Required output</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Exact external reading and closed-source summaries</td>
 <td style="text-align: right;">3 h 45 min</td>
 <td>Original notes covering every stated condition, convention and
 estimator definition</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Institutional worked-example study and reproduction</td>
 <td style="text-align: right;">1 h 5 min</td>
 <td>Four examples reproduced from a blank page</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Week 7 exercise sheet</td>
 <td style="text-align: right;">4 h</td>
 <td>All 17 scorable parts attempted and marked</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Self-test, marking and error-log update</td>
 <td style="text-align: right;">30 min</td>
 <td>Four self-test parts marked and outcome-labelled error entries
 updated</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Checkpoint B</td>
 <td style="text-align: right;">1 h 15 min</td>
 <td>Separate timed attempt under checkpoint conditions</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Core total</strong></td>
 <td style="text-align: right;"><strong>10 h 35 min</strong></td>
 <td>Completed Week 7 study and assessment cycle</td>
@@ -536,7 +536,7 @@ Methods for Economic Theory</em>, read:</p>
 <p><strong>Skip:</strong> general proofs in Section 6.2, advanced
 multiple-constraint examples, and exercises requiring results beyond
 <code>M8</code>–<code>M9</code>. Re-encode every equality constraint as
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h_k(\mathbf{x},\mathbf{a})=0</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h_k(\mathbf{x},\mathbf{a})=0</annotation></semantics></math>
 and use
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mi>f</mi><mo>+</mo><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal{L}=f+\sum_k\mu_kh_k</annotation></semantics></math>.
 Derive a multiplier’s sign and interpretation from that encoding.</p>
@@ -559,7 +559,7 @@ conditions (<code>M11</code>)</h3>
 advanced constraint qualifications. The source uses a different sign
 convention. Translate every problem to the course convention: maximise
 with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>,
 use
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mi>f</mi><mo>+</mo><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal{L}=f+\sum_j\lambda_jg_j</annotation></semantics></math>,
 and require
@@ -594,11 +594,11 @@ for the additional distinction between a parameter and an estimand.</p>
 (<code>S7</code>)</h3>
 <p><strong>Resource <code>STAT-S7-REQ-PSU-MOM</code>; source
 <code>PSU_STAT415_MOM</code>.</strong> In Penn State STAT 415, whose
-primary course author is Laura Simon, read <a href="https://online.stat.psu.edu/stat415/lesson/1/1.4">Lesson 1,
-Section 1.4, “Method of Moments”</a>: the definitions, “One Form of the
-Method”, and Examples 1-7 and 1-8 only.</p>
-<p><strong>Skip:</strong> “Another Form of the Method” and Examples 1-9
-and 1-10, including gamma-distribution material. Do not navigate from
+primary course author is Laura Simon, read <a href="https://online.stat.psu.edu/stat415/Lesson03.html#method-of-moments">Lesson
+3, Section 3.2, “Method of Moments”</a>: the definitions, “One Form of
+the Method”, and Examples 3.8 and 3.9 only.</p>
+<p><strong>Skip:</strong> “Another Form of the Method” and Examples 3.10
+and 3.11, including gamma-distribution material. Do not navigate from
 this page into unassigned statistics topics or software work.</p>
 <p>Target reading and summary time: 20 minutes.</p>
 <h3 id="reading-output">Reading output</h3>
@@ -614,9 +614,7 @@ non-negativity constraints;</li>
 <li>definitions of parameter, estimand, estimator and observed
 estimate;</li>
 <li>the formula
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>MSE</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Var</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>Bias</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\operatorname{MSE}(\widehat\theta)
-=\operatorname{Var}(\widehat\theta)
-+\operatorname{Bias}(\widehat\theta)^2</annotation></semantics></math>;</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>MSE</mo><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mo>Bias</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\operatorname{MSE}(\widehat\theta) =\operatorname{Var}(\widehat\theta) +\operatorname{Bias}(\widehat\theta)^2</annotation></semantics></math>;</li>
 <li>the population-moment equation used by the method of moments;
 and</li>
 <li>the likelihood, log-likelihood, parameter space and boundary checks
@@ -636,13 +634,13 @@ conditions.</p>
 <h3 id="equality-constraints-and-multipliers-m10">Equality constraints
 and multipliers (<code>M10</code>)</h3>
 <p>Consider the maximisation problem</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow></munder><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>k</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>max</mo><mrow><mi>𝐱</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>n</mi></msup></mrow></munder><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>k</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \max_{\mathbf{x}\in\mathbb{R}^n} f(\mathbf{x},\mathbf{a})
 \quad\text{subject to}\quad
 h_k(\mathbf{x},\mathbf{a})=0,\qquad k=1,\ldots,m.
 </annotation></semantics></math></p>
 <p>Under the course convention, the Lagrangian is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛍</mi><mo>;</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛍</mi><mo>;</mo><mi>𝐚</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathcal{L}(\mathbf{x},\boldsymbol{\mu};\mathbf{a})
 =f(\mathbf{x},\mathbf{a})
 +\sum_{k=1}^{m}\mu_kh_k(\mathbf{x},\mathbf{a}).
@@ -650,7 +648,7 @@ h_k(\mathbf{x},\mathbf{a})=0,\qquad k=1,\ldots,m.
 <p>At a regular local optimum, the equality-constraint gradients must
 have the required linear independence, and the first-order conditions
 are</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∇</mi><mi>𝐱</mi></msub><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛍</mi><mo>;</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>𝟎</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∇</mi><mi>𝐱</mi></msub><mi>ℒ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛍</mi><mo>;</mo><mi>𝐚</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>𝟎</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐚</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \nabla_{\mathbf{x}}\mathcal{L}
 (\mathbf{x},\boldsymbol{\mu};\mathbf{a})
 =\mathbf{0},
@@ -666,18 +664,18 @@ first-order candidate is the unique global maximiser.</p>
 encoding is stated. If a scalar resource parameter
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
 enters as
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h(\mathbf{x},a)=a-r(\mathbf{x})=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>a</mi><mo>−</mo><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h(\mathbf{x},a)=a-r(\mathbf{x})=0</annotation></semantics></math>,
 increasing
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
 changes the required equality level. It relaxes a resource constraint
 only when this equality is the binding form of an associated restriction
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">r(\mathbf{x})\le a</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">r(\mathbf{x})\le a</annotation></semantics></math>.
 Under suitable regularity and differentiability conditions, if
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
 enters the problem only through this constraint (so
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>a</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f_a=0</annotation></semantics></math>),
 the envelope theorem gives</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>V</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>a</mi></mrow></mfrac><mo>=</mo><msub><mrow><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>a</mi></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>𝐱</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><msup><mi>𝛍</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow></msub><mo>=</mo><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">d</mi><mi>V</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>a</mi></mrow></mfrac><mo>=</mo><msub><mrow><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>a</mi></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>𝐱</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><msup><mi>𝛍</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></msub><mo>=</mo><msup><mi>μ</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \frac{\mathrm{d}V}{\mathrm{d}a}
 =
 \left.
@@ -686,7 +684,7 @@ the envelope theorem gives</p>
 =\mu^*(a).
 </annotation></semantics></math></p>
 <p>If the same feasible set were encoded as
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r(\mathbf{x})-a=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r(\mathbf{x})-a=0</annotation></semantics></math>,
 the multiplier would have the opposite sign.</p>
 <h3 id="example-1-a-nonlinear-equality-constraint-and-envelope-derivative-m10">Example
 1 — a nonlinear equality constraint and envelope derivative
@@ -694,17 +692,17 @@ the multiplier would have the opposite sign.</p>
 <p>For
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a&gt;0</annotation></semantics></math>,
 solve</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">}</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mi>a</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>max</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">}</mo><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mi>a</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \max_{x,y}\{x+y\}
 \quad\text{subject to}\quad x^2+2y^2=a.
 </annotation></semantics></math></p>
 <p>Find the value function and verify the envelope derivative.</p>
 <p><strong>Method.</strong> Encode the constraint as
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h(x,y,a)=a-x^2-2y^2=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>a</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h(x,y,a)=a-x^2-2y^2=0</annotation></semantics></math>,
 solve the regular first-order system, compare all candidates on the
 compact feasible ellipse, and then apply the envelope theorem.</p>
 <p><strong>Solution.</strong> The Lagrangian is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>μ</mi><mo>;</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>μ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>μ</mi><mo>;</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>μ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathcal{L}(x,y,\mu;a)
 =x+y+\mu(a-x^2-2y^2).
 </annotation></semantics></math></p>
@@ -719,7 +717,7 @@ a-x^2-2y^2=0.
 <p>The first two conditions imply
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>2</mn><mi>y</mi></mrow><annotation encoding="application/x-tex">x=2y</annotation></semantics></math>.
 Feasibility then gives the two candidates</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mi>−</mi><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mo>−</mo><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 (x,y)
 =
 \left(2\sqrt{\frac{a}{6}},\sqrt{\frac{a}{6}}\right)
@@ -734,9 +732,9 @@ The feasible set is compact, so a global maximum exists, and the two
 candidate objective values are respectively
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><msqrt><mrow><mi>a</mi><mi>/</mi><mn>6</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">3\sqrt{a/6}</annotation></semantics></math>
 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn><msqrt><mrow><mi>a</mi><mi>/</mi><mn>6</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">-3\sqrt{a/6}</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>3</mn><msqrt><mrow><mi>a</mi><mi>/</mi><mn>6</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">-3\sqrt{a/6}</annotation></semantics></math>.
 Therefore</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>2</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>y</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>μ</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 x^*(a)=2\sqrt{\frac{a}{6}},
 \qquad
 y^*(a)=\sqrt{\frac{a}{6}},
@@ -744,15 +742,15 @@ y^*(a)=\sqrt{\frac{a}{6}},
 \mu^*(a)=\frac{\sqrt{6}}{4\sqrt{a}}.
 </annotation></semantics></math></p>
 <p>The value function is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>=</mo><msqrt><mfrac><mrow><mn>3</mn><mi>a</mi></mrow><mn>2</mn></mfrac></msqrt><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>3</mn><msqrt><mfrac><mi>a</mi><mn>6</mn></mfrac></msqrt><mo>=</mo><msqrt><mfrac><mrow><mn>3</mn><mi>a</mi></mrow><mn>2</mn></mfrac></msqrt><mo>,</mo></mrow><annotation encoding="application/x-tex">
 V(a)=3\sqrt{\frac{a}{6}}=\sqrt{\frac{3a}{2}},
 </annotation></semantics></math></p>
 <p>so direct differentiation gives</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>′</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 V&#39;(a)=\frac{\sqrt{6}}{4\sqrt{a}}.
 </annotation></semantics></math></p>
 <p>The envelope calculation agrees:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>a</mi></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mo>*</mo></msub><mo>=</mo><msup><mi>μ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mfrac><mrow><mi>∂</mi><mi>ℒ</mi></mrow><mrow><mi>∂</mi><mi>a</mi></mrow></mfrac><mo stretchy="true" form="postfix">|</mo></mrow><mo>*</mo></msub><mo>=</mo><msup><mi>μ</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><msqrt><mn>6</mn></msqrt><mrow><mn>4</mn><msqrt><mi>a</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \left.
 \frac{\partial\mathcal{L}}{\partial a}
 \right|_*
@@ -769,18 +767,18 @@ associated capacity restriction
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup><mo>≤</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">x^2+2y^2\le a</annotation></semantics></math>.
 Reversing the constraint encoding reverses the multiplier sign but
 leaves
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V&#39;(a)</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>′</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">V&#39;(a)</annotation></semantics></math>
 unchanged.</p>
 <h3 id="inequality-constraints-and-the-course-convention-m11">Inequality
 constraints and the course convention (<code>M11</code>)</h3>
 <p>The course-wide convention is a maximisation problem with</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 g_j(\mathbf{x})\ge0,
 \qquad
 h_k(\mathbf{x})=0.
 </annotation></semantics></math></p>
 <p>Use</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛌</mi><mo>,</mo><mi>𝛍</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝛌</mi><mo>,</mo><mi>𝛍</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathcal{L}(\mathbf{x},\boldsymbol{\lambda},\boldsymbol{\mu})
 =f(\mathbf{x})
 +\sum_j\lambda_jg_j(\mathbf{x})
@@ -790,14 +788,14 @@ h_k(\mathbf{x})=0.
 <p>The Kuhn–Tucker conditions are:</p>
 <ol type="1">
 <li><p><strong>Stationarity</strong></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><mi>∇</mi><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><mi>∇</mi><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>𝟎</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub><mi>∇</mi><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>μ</mi><mi>k</mi></msub><mi>∇</mi><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>𝟎</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \nabla f(\mathbf{x})
 +\sum_j\lambda_j\nabla g_j(\mathbf{x})
 +\sum_k\mu_k\nabla h_k(\mathbf{x})
 =\mathbf{0}.
 </annotation></semantics></math></p></li>
 <li><p><strong>Primal feasibility</strong></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 g_j(\mathbf{x})\ge0,
 \qquad
 h_k(\mathbf{x})=0.
@@ -807,7 +805,7 @@ h_k(\mathbf{x})=0.
 \lambda_j\ge0.
 </annotation></semantics></math></p></li>
 <li><p><strong>Complementary slackness</strong></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \lambda_jg_j(\mathbf{x})=0.
 </annotation></semantics></math></p></li>
 </ol>
@@ -819,29 +817,29 @@ sufficiency route once a feasible Kuhn–Tucker point has been found.</p>
 <h3 id="example-2-a-two-variable-lower-bound-corner-m11">Example 2 — a
 two-variable lower-bound corner (<code>M11</code>)</h3>
 <p>Solve</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi>max</mi><mo>⁡</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mspace width="0.278em"></mspace><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>−</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>y</mi><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>max</mo><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow></munder><mspace width="0.278em"></mspace><mo>−</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mspace width="1.0em"></mspace><mtext mathvariant="normal">subject to</mtext><mspace width="1.0em"></mspace><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>y</mi><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \max_{x,y}\; -(x+2)^2-2(y-1)^2
 \quad\text{subject to}\quad
 x\ge0,\qquad y\ge0.
 </annotation></semantics></math></p>
 <p><strong>Method.</strong> Treat both non-negativity restrictions as
 explicit
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(x,y)\ge0</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(x,y)\ge0</annotation></semantics></math>
 constraints. Use complementary slackness to test the active lower-bound
 branch.</p>
 <p><strong>Solution.</strong> Define</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>g</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>x</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>g</mi><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 g_1(x,y)=x,
 \qquad
 g_2(x,y)=y.
 </annotation></semantics></math></p>
 <p>The Lagrangian is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>λ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>−</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mi>x</mi><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>,</mo><msub><mi>λ</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>−</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mi>x</mi><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><mi>y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathcal{L}(x,y,\lambda_1,\lambda_2)
 =-(x+2)^2-2(y-1)^2+\lambda_1x+\lambda_2y.
 </annotation></semantics></math></p>
 <p>The complete conditions are</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mo>−</mo><mn>4</mn><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mo>−</mo><mn>4</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
 -2(x+2)+\lambda_1=0,
 \qquad
 -4(y-1)+\lambda_2=0,
@@ -856,7 +854,7 @@ x\ge0,\qquad y\ge0,\qquad
 \lambda_2y=0.
 </annotation></semantics></math></p>
 <p>The unconstrained maximiser
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-2,1)</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-2,1)</annotation></semantics></math>
 violates
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\ge0</annotation></semantics></math>.
 On the branch
@@ -872,13 +870,13 @@ y=1,
 \lambda_1=4.
 </annotation></semantics></math></p>
 <p>All primal, dual and complementary-slackness conditions hold, so</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><msubsup><mi>λ</mi><mn>1</mn><mo>*</mo></msubsup><mo>,</mo><msubsup><mi>λ</mi><mn>2</mn><mo>*</mo></msubsup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo>,</mo><msup><mi>y</mi><mo>*</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>λ</mi><mn>1</mn><mo>*</mo></msubsup><mo>,</mo><msubsup><mi>λ</mi><mn>2</mn><mo>*</mo></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 (x^*,y^*)=(0,1),
 \qquad
 (\lambda_1^*,\lambda_2^*)=(4,0).
 </annotation></semantics></math></p>
 <p>The Hessian is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>diag</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo>,</mo><mi>−</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{diag}(-2,-4)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>diag</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mn>2</mn><mo>,</mo><mo>−</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{diag}(-2,-4)</annotation></semantics></math>,
 which is negative definite, and the feasible set is convex. The feasible
 Kuhn–Tucker point is therefore the unique global maximiser.</p>
 <p><strong>Interpretation.</strong> The lower bound on
@@ -904,21 +902,21 @@ learned. It may be
 itself or a function such as
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\theta^2</annotation></semantics></math>.</li>
 <li>An <strong>estimator</strong>
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\widehat\theta=T(X_1,\ldots,X_n)</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\widehat\theta=T(X_1,\ldots,X_n)</annotation></semantics></math>
 is a random variable before the sample is observed.</li>
 <li>An <strong>estimate</strong> is the realised numerical value
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T(x_1,\ldots,x_n)</annotation></semantics></math>.</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">T(x_1,\ldots,x_n)</annotation></semantics></math>.</li>
 </ul>
 <p>The bias, variance and mean squared error are</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Bias</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>θ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>Bias</mo><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">]</mo></mrow><mo>−</mo><mi>θ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \operatorname{Bias}_\theta(\widehat\theta)
 =\mathbb{E}_\theta[\widehat\theta]-\theta,
 </annotation></semantics></math></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>Var</mo><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \operatorname{Var}_\theta(\widehat\theta),
 </annotation></semantics></math></p>
 <p>and</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>MSE</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>θ</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><msub><mi>Var</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>Bias</mi><mo>⁡</mo><mi>θ</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mo>MSE</mo><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mo>Var</mo><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mo>Bias</mo><mi>θ</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
 \begin{aligned}
 \operatorname{MSE}_\theta(\widehat\theta)
 &amp;=\mathbb{E}_\theta[(\widehat\theta-\theta)^2]\\
@@ -932,7 +930,7 @@ is consistent for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>
 if, for every
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon&gt;0</annotation></semantics></math>,</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo>−</mo><mi>θ</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>→</mo><mn>0</mn><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">as </mtext><mspace width="0.333em"></mspace></mrow><mi>n</mi><mo>→</mo><mi>∞</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">|</mo><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mi>n</mi></msub><mo>−</mo><mi>θ</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>&gt;</mo><mi>ε</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>→</mo><mn>0</mn><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">as </mtext><mspace width="0.333em"></mspace></mrow><mi>n</mi><mo>→</mo><mi>∞</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathbb{P}_\theta
 \left(
 |\widehat\theta_n-\theta|&gt;\varepsilon
@@ -947,7 +945,7 @@ one observed estimate.</p>
 3 — two unbiased estimators with different consistency
 (<code>S7</code>)</h3>
 <p>Let</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>Bernoulli</mi><mo>⁡</mo><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi>p</mi><mo>&lt;</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mo>Bernoulli</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi>p</mi><mo>&lt;</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 X_1,\ldots,X_n
 \overset{\mathrm{iid}}{\sim}\operatorname{Bernoulli}(p),
 \qquad 0&lt;p&lt;1.
@@ -961,25 +959,25 @@ X_1,\ldots,X_n
 <p><strong>Method.</strong> Compute expectation, variance and mean
 squared error, then apply the definition of consistency.</p>
 <p><strong>Solution.</strong> Both estimators are unbiased:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>1</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>1</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>𝔼</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">
 \mathbb{E}_p[\widehat p_{1,n}]
 =\mathbb{E}_p[X_1]
 =p
 </annotation></semantics></math></p>
 <p>and</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><msub><mi>𝔼</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>p</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>𝔼</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>p</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathbb{E}_p[\widehat p_{2,n}]
 =\mathbb{E}_p[\bar X]
 =p.
 </annotation></semantics></math></p>
 <p>Their variances, and therefore their mean squared errors, are</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>MSE</mi><mo>⁡</mo><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>1</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>Var</mi><mo>⁡</mo><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>MSE</mo><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>1</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mo>Var</mo><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \operatorname{MSE}_p(\widehat p_{1,n})
 =\operatorname{Var}_p(X_1)
 =p(1-p)
 </annotation></semantics></math></p>
 <p>and</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>MSE</mi><mo>⁡</mo><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>Var</mi><mo>⁡</mo><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>MSE</mo><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mo>Var</mo><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mi>n</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \operatorname{MSE}_p(\widehat p_{2,n})
 =\operatorname{Var}_p(\bar X)
 =\frac{p(1-p)}{n}.
@@ -987,7 +985,7 @@ squared error, then apply the definition of consistency.</p>
 <p>The second mean squared error tends to zero. For every
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon&gt;0</annotation></semantics></math>,
 Chebyshev’s inequality gives</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>p</mi></msub><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>p</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mfrac><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>n</mi><msup><mi>ε</mi><mn>2</mn></msup></mrow></mfrac><mo>→</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℙ</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">|</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>&gt;</mo><mi>ε</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mfrac><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>n</mi><msup><mi>ε</mi><mn>2</mn></msup></mrow></mfrac><mo>→</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \mathbb{P}_p(|\bar X-p|&gt;\varepsilon)
 \le
 \frac{p(1-p)}{n\varepsilon^2}
@@ -997,11 +995,11 @@ Chebyshev’s inequality gives</p>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mn>2</mn><mo>,</mo><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\widehat p_{2,n}</annotation></semantics></math>
 is consistent.</p>
 <p>By contrast, choose
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>ε</mi><mo>&lt;</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false" form="prefix">{</mo><mi>p</mi><mo>,</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">0&lt;\varepsilon&lt;\min\{p,1-p\}</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>ε</mi><mo>&lt;</mo><mo>min</mo><mo stretchy="false" form="prefix">{</mo><mi>p</mi><mo>,</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">0&lt;\varepsilon&lt;\min\{p,1-p\}</annotation></semantics></math>.
 Since
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mn>1</mn></msub><annotation encoding="application/x-tex">X_1</annotation></semantics></math>
 is either zero or one,</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>X</mi><mn>1</mn></msub><mo>−</mo><mi>p</mi><mo stretchy="false" form="prefix">|</mo><mo>&gt;</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>X</mi><mn>1</mn></msub><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>&gt;</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">
 |X_1-p|&gt;\varepsilon
 </annotation></semantics></math></p>
 <p>with probability one. Therefore
@@ -1018,24 +1016,24 @@ and maximum likelihood (<code>S7</code>)</h3>
 <p>The method of moments matches population moments to their sample
 counterparts. For a one-parameter model, use the lowest raw moment that
 identifies the parameter. When the finite mean
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">m(\theta)=\mathbb{E}_\theta[X]</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>𝔼</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>X</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">m(\theta)=\mathbb{E}_\theta[X]</annotation></semantics></math>
 identifies
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
 solve</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>θ</mi><mo accent="true">̂</mo></mover><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover><mi>.</mi></mrow><annotation encoding="application/x-tex">
 m(\widehat\theta_{\mathrm{MOM}})=\bar X.
 </annotation></semantics></math></p>
 <p>If the mean does not identify
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
 a higher raw moment may do so. For example, a second-moment equation
 matches
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msup><mi>X</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[X^2]</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>X</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[X^2]</annotation></semantics></math>
 to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msub><mo>∑</mo><mi>i</mi></msub><msubsup><mi>X</mi><mi>i</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">n^{-1}\sum_iX_i^2</annotation></semantics></math>.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msub><mo>∑</mo><mi>i</mi></msub><msubsup><mi>X</mi><mi>i</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">n^{-1}\sum_iX_i^2</annotation></semantics></math>.</p>
 <p>Maximum likelihood treats the observed data
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{x}=(x_1,\ldots,x_n)</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbf{x}=(x_1,\ldots,x_n)</annotation></semantics></math>
 as fixed and maximises</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 L(\theta;\mathbf{x})
 </annotation></semantics></math></p>
 <p>over the stated parameter space. A score equation identifies an
@@ -1044,7 +1042,7 @@ curvature, monotonicity or boundary behaviour as appropriate.</p>
 <h3 id="example-4-moments-and-likelihood-for-a-normal-variance-s7">Example 4
 — moments and likelihood for a normal variance (<code>S7</code>)</h3>
 <p>Let</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>θ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub><mover><mo>∼</mo><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow></mover><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>θ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 X_1,\ldots,X_n
 \overset{\mathrm{iid}}{\sim}\mathcal{N}(0,\theta),
 \qquad \theta&gt;0.
@@ -1057,7 +1055,7 @@ Treat separately the case in which
 <p><strong>Method.</strong> The first raw moment is zero for every
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
 so use
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mo stretchy="false" form="prefix">[</mo><msup><mi>X</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[X^2]=\theta</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>θ</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>X</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\mathbb{E}_\theta[X^2]=\theta</annotation></semantics></math>
 for the moment equation. For maximum likelihood, write
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><msub><mo>∑</mo><mi>i</mi></msub><msubsup><mi>x</mi><mi>i</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">S_2=\sum_i x_i^2</annotation></semantics></math>,
 form the joint density, and check the score sign and both
@@ -1068,7 +1066,7 @@ parameter-space boundaries.</p>
 =\frac{1}{n}\sum_{i=1}^{n}X_i^2.
 </annotation></semantics></math></p>
 <p>For any observed real values, the likelihood is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>π</mi><mi>θ</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>−</mi><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><mi>exp</mi><mo>⁡</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>θ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mi>π</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>θ</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 L(\theta;\mathbf{x})
 =(2\pi\theta)^{-n/2}
 \exp\left(
@@ -1079,14 +1077,14 @@ L(\theta;\mathbf{x})
 <p>After removing terms that do not depend on
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
 the log-likelihood is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℓ</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mfrac><mi>n</mi><mn>2</mn></mfrac><mi>log</mi><mo>⁡</mo><mi>θ</mi><mo>−</mo><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo>+</mo><mtext mathvariant="normal">constant</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>ℓ</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>;</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>−</mo><mfrac><mi>n</mi><mn>2</mn></mfrac><mo>log</mo><mi>θ</mi><mo>−</mo><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo>+</mo><mtext mathvariant="normal">constant</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \ell(\theta;\mathbf{x})
 =-\frac{n}{2}\log\theta-\frac{S_2}{2\theta}+\text{constant}.
 </annotation></semantics></math></p>
 <p>When
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">S_2&gt;0</annotation></semantics></math>,
 the score is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>ℓ</mi></mrow><mrow><mi>∂</mi><mi>θ</mi></mrow></mfrac><mo>=</mo><mi>−</mi><mfrac><mi>n</mi><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo>+</mo><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><msup><mi>θ</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>−</mo><mi>n</mi><mi>θ</mi></mrow><mrow><mn>2</mn><msup><mi>θ</mi><mn>2</mn></msup></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mo>ℓ</mo></mrow><mrow><mi>∂</mi><mi>θ</mi></mrow></mfrac><mo>=</mo><mo>−</mo><mfrac><mi>n</mi><mrow><mn>2</mn><mi>θ</mi></mrow></mfrac><mo>+</mo><mfrac><msub><mi>S</mi><mn>2</mn></msub><mrow><mn>2</mn><msup><mi>θ</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>−</mo><mi>n</mi><mi>θ</mi></mrow><mrow><mn>2</mn><msup><mi>θ</mi><mn>2</mn></msup></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \frac{\partial\ell}{\partial\theta}
 =-\frac{n}{2\theta}+\frac{S_2}{2\theta^2}
 =\frac{S_2-n\theta}{2\theta^2}.
@@ -1098,7 +1096,7 @@ zero at
 and negative above
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">S_2/n</annotation></semantics></math>.
 Moreover, the log-likelihood tends to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">-\infty</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">-\infty</annotation></semantics></math>
 as
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↓</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta\downarrow0</annotation></semantics></math>
 and as
@@ -1111,7 +1109,7 @@ Therefore the unique global maximum is</p>
 <p>If
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">S_2=0</annotation></semantics></math>,
 however, the likelihood is proportional to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mrow><mi>−</mi><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><annotation encoding="application/x-tex">\theta^{-n/2}</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mrow><mo>−</mo><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><annotation encoding="application/x-tex">\theta^{-n/2}</annotation></semantics></math>
 and is unbounded as
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>↓</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta\downarrow0</annotation></semantics></math>.
 No finite MLE exists on

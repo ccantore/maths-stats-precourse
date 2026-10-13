@@ -400,13 +400,13 @@ plan.</p>
 <col style="width: 85%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th style="text-align: center;" scope="col">Week</th>
 <th scope="col">Required topics and outcome IDs</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">1</td>
 <td>notation, sets, functions, quantifiers and elementary reasoning
 (<code>M1</code>); algebra, powers, logarithms, sums, products and
@@ -414,13 +414,13 @@ geometric series (<code>M2</code>); one-variable calculus, Taylor
 approximation and elementary optimisation (<code>M3</code>); probability
 rules and counting (<code>S1</code>)</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">2</td>
 <td>matrix operations, determinants, inverses, rank and linear systems
 (<code>M4</code>); conditional probability, independence, total
 probability and Bayes’ rule (<code>S2</code>)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">3</td>
 <td>span, linear independence, basis, dimension, eigenvalues,
 eigenvectors and simple diagonalisation (<code>M5</code>); discrete and
@@ -428,26 +428,26 @@ continuous random variables and required standard distributions
 (<code>S3</code>); expectation, variance, covariance and correlation
 (<code>S4</code>)</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">4</td>
 <td>partial derivatives, column gradients, Jacobians, Hessians and the
 multivariable chain rule (<code>M6</code>)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">5</td>
 <td>total and implicit differentiation and homogeneous functions
 (<code>M7</code>); quadratic forms, definiteness, convexity, concavity
 and quasiconcavity (<code>M8</code>); joint, marginal and conditional
 distributions and conditional expectation (<code>S5</code>)</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">6</td>
 <td>unconstrained multivariable optimisation and local/global conditions
 (<code>M9</code>); random samples, sampling distributions, sample means
 and variances, the law of large numbers and the central limit theorem
 (<code>S6</code>)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">7</td>
 <td>equality-constrained optimisation, multiplier interpretation and the
 envelope theorem (<code>M10</code>); elementary inequality-constrained
@@ -455,7 +455,7 @@ optimisation and corner solutions under the course convention
 (<code>M11</code>); estimator properties, method of moments and
 elementary maximum likelihood (<code>S7</code>)</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">8</td>
 <td>confidence intervals for a population mean or proportion
 (<code>S8</code>); hypotheses, test statistics, p-values, Type I and
@@ -520,7 +520,7 @@ template.</p>
 <col style="width: 38%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th scope="col">Point</th>
 <th scope="col">Timing</th>
 <th style="text-align: center;" scope="col">Duration</th>
@@ -529,28 +529,28 @@ template.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Checkpoint A</td>
 <td>end of Week 4</td>
 <td style="text-align: center;">60 minutes</td>
 <td style="text-align: center;">30</td>
 <td>cumulative formative diagnosis of selected Week 1–4 outcomes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Checkpoint B</td>
 <td>end of Week 7</td>
 <td style="text-align: center;">75 minutes</td>
 <td style="text-align: center;">40</td>
 <td>cumulative formative diagnosis of selected Week 5–7 outcomes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Maths mock</td>
 <td>end of Week 8</td>
 <td style="text-align: center;">90 minutes</td>
 <td style="text-align: center;">55</td>
 <td>timed practice across <code>M1</code>–<code>M11</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Statistics mock</td>
 <td>end of Week 8</td>
 <td style="text-align: center;">90 minutes</td>
@@ -577,11 +577,11 @@ by
 matrix. State distribution parameterisations and the conditions needed
 for a method. For inequality constraints, use the course’s maximisation
 convention with constraints written
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge 0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge 0</annotation></semantics></math>,
 multipliers
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>j</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda_j\ge 0</annotation></semantics></math>,
 and Lagrangian term
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">+\lambda_j g_j(\mathbf{x})</annotation></semantics></math>.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">+\lambda_j g_j(\mathbf{x})</annotation></semantics></math>.</p>
 <h3 id="what-successful-completion-looks-like">What successful
 completion looks like</h3>
 <p>By the end of Week 8, you should be able to attempt both 90-minute
@@ -616,7 +616,7 @@ these totals.</p>
 <col style="width: 17%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th style="text-align: center;" scope="col">Week</th>
 <th style="text-align: right;" scope="col">Reading and worked-example
 reproduction</th>
@@ -627,7 +627,7 @@ reproduction</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">1</td>
 <td style="text-align: right;">4 h 45 min</td>
 <td style="text-align: right;">4 h 15 min</td>
@@ -635,7 +635,7 @@ reproduction</th>
 <td style="text-align: right;">—</td>
 <td style="text-align: right;">10 h</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">2</td>
 <td style="text-align: right;">4 h 20 min</td>
 <td style="text-align: right;">4 h</td>
@@ -643,7 +643,7 @@ reproduction</th>
 <td style="text-align: right;">—</td>
 <td style="text-align: right;">9 h 20 min</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">3</td>
 <td style="text-align: right;">5 h 40 min</td>
 <td style="text-align: right;">4 h</td>
@@ -651,7 +651,7 @@ reproduction</th>
 <td style="text-align: right;">—</td>
 <td style="text-align: right;">10 h 30 min</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">4</td>
 <td style="text-align: right;">4 h</td>
 <td style="text-align: right;">4 h</td>
@@ -659,7 +659,7 @@ reproduction</th>
 <td style="text-align: right;">Checkpoint A: 1 h</td>
 <td style="text-align: right;">9 h 30 min</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">5</td>
 <td style="text-align: right;">5 h</td>
 <td style="text-align: right;">4 h</td>
@@ -667,7 +667,7 @@ reproduction</th>
 <td style="text-align: right;">—</td>
 <td style="text-align: right;">9 h 30 min</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">6</td>
 <td style="text-align: right;">4 h 15 min</td>
 <td style="text-align: right;">4 h 30 min</td>
@@ -675,7 +675,7 @@ reproduction</th>
 <td style="text-align: right;">—</td>
 <td style="text-align: right;">9 h 15 min</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">7</td>
 <td style="text-align: right;">4 h 50 min</td>
 <td style="text-align: right;">4 h</td>
@@ -683,7 +683,7 @@ reproduction</th>
 <td style="text-align: right;">Checkpoint B: 1 h 15 min</td>
 <td style="text-align: right;">10 h 35 min</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">8</td>
 <td style="text-align: right;">3 h 30 min</td>
 <td style="text-align: right;">4 h</td>
@@ -1095,7 +1095,7 @@ examples only in <a href="https://mjo.osborne.economics.utoronto.ca/index.php/tu
 7.5 summary</a>. <strong>Skip:</strong> Section 7.2 in full, proofs in
 7.3 and advanced constraint qualifications. Translate every problem from
 the source convention to the course convention: maximise with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g_j(\mathbf{x})\ge0</annotation></semantics></math>,
 use
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℒ</mi><mo>=</mo><mi>f</mi><mo>+</mo><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>g</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal{L}=f+\sum_j\lambda_jg_j</annotation></semantics></math>,
 and require
@@ -1120,11 +1120,11 @@ regression, order statistics and all software-based work.</li>
 </ul></li>
 <li><p><strong><code>STAT-S7-REQ-PSU-MOM</code> /
 <code>PSU_STAT415_MOM</code> — Penn State STAT 415, primary course
-author Laura Simon.</strong> Read <a href="https://online.stat.psu.edu/stat415/lesson/1/1.4">Lesson 1 §1.4,
-“Method of Moments”</a>: the definitions, “One Form of the Method”, and
-Examples 1-7 and 1-8 only. <strong>Skip:</strong> “Another Form of the
-Method” and Examples 1-9 and 1-10, including gamma-distribution
-material.</p></li>
+author Laura Simon.</strong> Read <a href="https://online.stat.psu.edu/stat415/Lesson03.html#method-of-moments">Lesson
+3 §3.2, “Method of Moments”</a>: the definitions, “One Form of the
+Method”, and Examples 3.8 and 3.9 only. <strong>Skip:</strong> “Another
+Form of the Method” and Examples 3.10 and 3.11, including
+gamma-distribution material.</p></li>
 </ol>
 <h4 id="suggested-sequence-and-output-6">Suggested sequence and
 output</h4>
@@ -1298,7 +1298,7 @@ admission, progression, ranking, funding, grading or sanctions.</p>
 <col style="width: 14%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th scope="col">Date</th>
 <th scope="col">Outcome ID</th>
 <th scope="col">Source or item</th>
@@ -1309,7 +1309,7 @@ admission, progression, ranking, funding, grading or sanctions.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>YYYY-MM-DD</td>
 <td><code>M4</code></td>
 <td>example or item ID</td>
@@ -1328,34 +1328,34 @@ being mistaken for evidence of mastery.</p>
 <h3 id="a-workable-weekly-rhythm">A workable weekly rhythm</h3>
 <div class="table-wrapper"><table>
 <thead>
-<tr>
+<tr class="header">
 <th scope="col">Session</th>
 <th scope="col">Main activity</th>
 <th style="text-align: right;" scope="col">Typical duration</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>1</td>
 <td>prerequisite retrieval and first reading block</td>
 <td style="text-align: right;">90–120 minutes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>remaining reading and example reproduction</td>
 <td style="text-align: right;">120–180 minutes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>first half of the weekly problem sheet</td>
 <td style="text-align: right;">120–150 minutes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>second half of the problem sheet and marking</td>
 <td style="text-align: right;">120–150 minutes</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>5</td>
 <td>spaced reattempt, self-test and error-log review</td>
 <td style="text-align: right;">45–75 minutes</td>
@@ -1415,7 +1415,7 @@ checkpoint, mock or diagnostic-exam mapping.</p>
 <col style="width: 19%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th scope="col">Assessment</th>
 <th scope="col">Placement</th>
 <th style="text-align: center;" scope="col">Duration</th>
@@ -1424,7 +1424,7 @@ checkpoint, mock or diagnostic-exam mapping.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Checkpoint A</td>
 <td>end of Week 4</td>
 <td style="text-align: center;">60 minutes</td>
@@ -1432,7 +1432,7 @@ checkpoint, mock or diagnostic-exam mapping.</p>
 <td>selected outcomes <code>M1</code>–<code>M4</code>, <code>M6</code>
 and <code>S1</code>–<code>S4</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Checkpoint B</td>
 <td>end of Week 7</td>
 <td style="text-align: center;">75 minutes</td>
@@ -1440,14 +1440,14 @@ and <code>S1</code>–<code>S4</code></td>
 <td>selected outcomes <code>M8</code>–<code>M11</code> and
 <code>S5</code>–<code>S7</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Maths mock</td>
 <td>end of Week 8</td>
 <td style="text-align: center;">90 minutes</td>
 <td style="text-align: center;">55</td>
 <td>every Maths outcome <code>M1</code>–<code>M11</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Statistics mock</td>
 <td>end of Week 8</td>
 <td style="text-align: center;">90 minutes</td>
